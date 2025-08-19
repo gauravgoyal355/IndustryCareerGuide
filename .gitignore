@@ -1,0 +1,1 @@
+node_modules/\n.next/\n.vercel/\n.env.local\n.env.production\n.DS_Store\n*.log\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\n.pnpm-debug.log*\n\n# Local env files\n.env\n.env*.local\n\n# Vercel\n.vercel\n\n# TypeScript\n*.tsbuildinfo\nnext-env.d.ts\n\n# IDE\n.vscode/\n.idea/\n*.swp\n*.swo\n\n# OS\n.DS_Store\n.DS_Store?\neThumbs.db\nThumbs.db

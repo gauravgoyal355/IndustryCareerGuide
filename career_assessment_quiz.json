@@ -1,0 +1,998 @@
+{
+  "quiz_metadata": {
+    "title": "STEM PhD Industry Career Assessment",
+    "description": "Interactive career assessment for STEM PhDs and postdocs transitioning to industry careers",
+    "total_questions": 23,
+    "dimensions": ["Skills", "Values", "Temperament", "Ambitions"]
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "How do you prefer to communicate complex technical concepts to non-experts?",
+      "dimension": "Skills",
+      "subdimension": "Communication",
+      "choices": [
+        {
+          "text": "Through detailed written reports with comprehensive data",
+          "score": {
+            "technical_writing": 4,
+            "research_scientist": 3,
+            "regulatory_affairs": 3
+          }
+        },
+        {
+          "text": "Via visual presentations and interactive demonstrations",
+          "score": {
+            "product_management": 4,
+            "technical_sales": 4,
+            "consulting": 3
+          }
+        },
+        {
+          "text": "One-on-one conversations tailored to each audience",
+          "score": {
+            "technical_sales": 4,
+            "business_development": 3,
+            "consulting": 4
+          }
+        },
+        {
+          "text": "Through simplified analogies and storytelling",
+          "score": {
+            "science_communication": 4,
+            "marketing": 3,
+            "product_management": 3
+          }
+        }
+      ],
+      "description": "Assesses communication style and ability to translate technical knowledge for diverse audiences"
+    },
+    {
+      "id": 2,
+      "question": "When managing a research project, what aspect do you focus on most?",
+      "dimension": "Skills",
+      "subdimension": "Project Management",
+      "choices": [
+        {
+          "text": "Detailed timeline planning and milestone tracking",
+          "score": {
+            "program_management": 4,
+            "operations": 4,
+            "project_manager": 4
+          }
+        },
+        {
+          "text": "Resource allocation and budget optimization",
+          "score": {
+            "operations": 4,
+            "business_analyst": 3,
+            "program_management": 3
+          }
+        },
+        {
+          "text": "Team coordination and stakeholder communication",
+          "score": {
+            "program_management": 4,
+            "product_management": 3,
+            "consulting": 3
+          }
+        },
+        {
+          "text": "Technical execution and quality control",
+          "score": {
+            "research_scientist": 4,
+            "technical_lead": 3,
+            "quality_assurance": 3
+          }
+        }
+      ],
+      "description": "Evaluates project management approach and organizational strengths"
+    },
+    {
+      "id": 3,
+      "question": "What type of data analysis challenges excite you most?",
+      "dimension": "Skills",
+      "subdimension": "Data Analysis",
+      "choices": [
+        {
+          "text": "Building predictive models from large, messy datasets",
+          "score": {
+            "data_scientist": 4,
+            "machine_learning_engineer": 4,
+            "quantitative_analyst": 3
+          }
+        },
+        {
+          "text": "Creating clear visualizations to tell compelling stories",
+          "score": {
+            "data_analyst": 4,
+            "business_intelligence": 4,
+            "consulting": 3
+          }
+        },
+        {
+          "text": "Designing experiments to test specific hypotheses",
+          "score": {
+            "research_scientist": 4,
+            "product_analyst": 3,
+            "biostatistician": 4
+          }
+        },
+        {
+          "text": "Automating data pipelines and ensuring data quality",
+          "score": {
+            "data_engineer": 4,
+            "software_engineer": 3,
+            "operations": 3
+          }
+        }
+      ],
+      "description": "Identifies preferred data analysis approach and technical interests"
+    },
+    {
+      "id": 4,
+      "question": "How do you approach solving complex, undefined problems?",
+      "dimension": "Skills",
+      "subdimension": "Problem Solving",
+      "choices": [
+        {
+          "text": "Break it down systematically into smaller, manageable components",
+          "score": {
+            "consulting": 4,
+            "business_analyst": 4,
+            "operations": 3
+          }
+        },
+        {
+          "text": "Research extensively to understand all possible approaches",
+          "score": {
+            "research_scientist": 4,
+            "technical_writer": 3,
+            "regulatory_affairs": 3
+          }
+        },
+        {
+          "text": "Prototype quickly and iterate based on feedback",
+          "score": {
+            "product_management": 4,
+            "software_engineer": 3,
+            "entrepreneur": 4
+          }
+        },
+        {
+          "text": "Collaborate with diverse experts to gain multiple perspectives",
+          "score": {
+            "consulting": 4,
+            "program_management": 3,
+            "business_development": 3
+          }
+        }
+      ],
+      "description": "Assesses problem-solving methodology and cognitive approach"
+    },
+    {
+      "id": 5,
+      "question": "What motivates you most in your work?",
+      "dimension": "Values",
+      "subdimension": "Core Motivation",
+      "choices": [
+        {
+          "text": "Having complete control over my methods and schedule",
+          "score": {
+            "consultant": 4,
+            "entrepreneur": 4,
+            "freelance_expert": 4
+          }
+        },
+        {
+          "text": "Making a meaningful impact on society or environment",
+          "score": {
+            "nonprofit_research": 4,
+            "sustainability_consultant": 4,
+            "policy_analyst": 3
+          }
+        },
+        {
+          "text": "Financial security and competitive compensation",
+          "score": {
+            "finance": 4,
+            "consulting": 3,
+            "technical_sales": 3
+          }
+        },
+        {
+          "text": "Recognition as a leading expert in my field",
+          "score": {
+            "research_scientist": 4,
+            "technical_lead": 3,
+            "thought_leader": 4
+          }
+        },
+        {
+          "text": "Continuous learning and intellectual stimulation",
+          "score": {
+            "research_scientist": 3,
+            "consulting": 4,
+            "product_management": 3
+          }
+        }
+      ],
+      "description": "Identifies core values and work motivation drivers"
+    },
+    {
+      "id": 6,
+      "question": "How important is job security and predictable income to you?",
+      "dimension": "Values",
+      "subdimension": "Stability",
+      "choices": [
+        {
+          "text": "Essential - I need guaranteed income and benefits",
+          "score": {
+            "government": 4,
+            "large_corporation": 4,
+            "academia": 3
+          }
+        },
+        {
+          "text": "Important - I prefer stable companies with growth potential",
+          "score": {
+            "established_tech": 3,
+            "pharma": 3,
+            "consulting": 3
+          }
+        },
+        {
+          "text": "Moderate - I'll accept some risk for better opportunities",
+          "score": {
+            "startup": 2,
+            "consulting": 3,
+            "product_management": 3
+          }
+        },
+        {
+          "text": "Low priority - I'm willing to take significant risks for high rewards",
+          "score": {
+            "startup": 4,
+            "entrepreneur": 4,
+            "sales": 3
+          }
+        }
+      ],
+      "description": "Measures risk tolerance regarding financial security and career stability"
+    },
+    {
+      "id": 7,
+      "question": "How much creative freedom do you need in your daily work?",
+      "dimension": "Values",
+      "subdimension": "Creativity",
+      "choices": [
+        {
+          "text": "Complete creative control - I need to innovate constantly",
+          "score": {
+            "research_scientist": 4,
+            "entrepreneur": 4,
+            "creative_roles": 4
+          }
+        },
+        {
+          "text": "Significant freedom within defined parameters",
+          "score": {
+            "product_management": 4,
+            "consulting": 4,
+            "technical_lead": 3
+          }
+        },
+        {
+          "text": "Some flexibility to suggest improvements and optimizations",
+          "score": {
+            "software_engineer": 3,
+            "business_analyst": 3,
+            "operations": 3
+          }
+        },
+        {
+          "text": "Minimal - I prefer clear guidelines and established procedures",
+          "score": {
+            "quality_assurance": 4,
+            "regulatory_affairs": 4,
+            "operations": 3
+          }
+        }
+      ],
+      "description": "Assesses need for creative autonomy and innovation in work environment"
+    },
+    {
+      "id": 8,
+      "question": "What level of risk are you comfortable taking in your career decisions?",
+      "dimension": "Temperament",
+      "subdimension": "Risk Tolerance",
+      "choices": [
+        {
+          "text": "High risk, high reward - I thrive on uncertainty",
+          "score": {
+            "startup": 4,
+            "entrepreneur": 4,
+            "sales": 4
+          }
+        },
+        {
+          "text": "Calculated risks with thorough analysis",
+          "score": {
+            "consulting": 4,
+            "business_development": 3,
+            "product_management": 3
+          }
+        },
+        {
+          "text": "Conservative approach with backup plans",
+          "score": {
+            "large_corporation": 3,
+            "government": 3,
+            "established_industry": 3
+          }
+        },
+        {
+          "text": "Risk-averse - I prefer proven, stable paths",
+          "score": {
+            "government": 4,
+            "regulatory_affairs": 4,
+            "quality_assurance": 3
+          }
+        }
+      ],
+      "description": "Evaluates comfort level with uncertainty and career risk-taking"
+    },
+    {
+      "id": 9,
+      "question": "Do you prefer structured, predictable work or exploratory, varied tasks?",
+      "dimension": "Temperament",
+      "subdimension": "Work Structure",
+      "choices": [
+        {
+          "text": "Highly structured with clear processes and deadlines",
+          "score": {
+            "operations": 4,
+            "quality_assurance": 4,
+            "regulatory_affairs": 4
+          }
+        },
+        {
+          "text": "Mostly structured with some flexibility for optimization",
+          "score": {
+            "program_management": 4,
+            "business_analyst": 3,
+            "software_engineer": 3
+          }
+        },
+        {
+          "text": "Balanced mix of routine and exploratory work",
+          "score": {
+            "product_management": 4,
+            "consulting": 4,
+            "technical_lead": 3
+          }
+        },
+        {
+          "text": "Highly exploratory with minimal routine tasks",
+          "score": {
+            "research_scientist": 4,
+            "entrepreneur": 4,
+            "innovation_roles": 4
+          }
+        }
+      ],
+      "description": "Determines preference for work structure versus flexibility and exploration"
+    },
+    {
+      "id": 10,
+      "question": "How do you prefer to work with others?",
+      "dimension": "Temperament",
+      "subdimension": "Collaboration Style",
+      "choices": [
+        {
+          "text": "Independently with minimal team interaction",
+          "score": {
+            "individual_contributor": 4,
+            "research_scientist": 3,
+            "technical_writer": 4
+          }
+        },
+        {
+          "text": "Small, focused teams of technical experts",
+          "score": {
+            "software_engineer": 4,
+            "research_team": 4,
+            "technical_lead": 3
+          }
+        },
+        {
+          "text": "Cross-functional teams with diverse skill sets",
+          "score": {
+            "product_management": 4,
+            "consulting": 4,
+            "program_management": 4
+          }
+        },
+        {
+          "text": "Large organizations with extensive networking",
+          "score": {
+            "business_development": 4,
+            "sales": 4,
+            "corporate_strategy": 3
+          }
+        }
+      ],
+      "description": "Assesses preferred team size and collaboration approach"
+    },
+    {
+      "id": 11,
+      "question": "Do you aspire to lead teams or remain a technical specialist?",
+      "dimension": "Ambitions",
+      "subdimension": "Leadership vs Expertise",
+      "choices": [
+        {
+          "text": "I want to become a people manager and team leader",
+          "score": {
+            "management": 4,
+            "director_level": 4,
+            "program_management": 3
+          }
+        },
+        {
+          "text": "I prefer technical leadership without people management",
+          "score": {
+            "technical_lead": 4,
+            "principal_engineer": 4,
+            "subject_matter_expert": 4
+          }
+        },
+        {
+          "text": "I want to influence strategy and business decisions",
+          "score": {
+            "product_management": 4,
+            "consulting": 4,
+            "business_development": 3
+          }
+        },
+        {
+          "text": "I prefer to remain an individual contributor and deep expert",
+          "score": {
+            "research_scientist": 4,
+            "specialist": 4,
+            "technical_expert": 4
+          }
+        }
+      ],
+      "description": "Identifies career trajectory preferences regarding leadership versus expertise"
+    },
+    {
+      "id": 12,
+      "question": "Would you rather be a generalist across many areas or specialize deeply?",
+      "dimension": "Ambitions",
+      "subdimension": "Breadth vs Depth",
+      "choices": [
+        {
+          "text": "Deep specialist - I want to be the go-to expert in one area",
+          "score": {
+            "research_scientist": 4,
+            "technical_specialist": 4,
+            "domain_expert": 4
+          }
+        },
+        {
+          "text": "Focused expert with some adjacent skills",
+          "score": {
+            "technical_lead": 3,
+            "principal_engineer": 3,
+            "senior_analyst": 3
+          }
+        },
+        {
+          "text": "Broad generalist who can connect different domains",
+          "score": {
+            "product_management": 4,
+            "consulting": 4,
+            "business_analyst": 3
+          }
+        },
+        {
+          "text": "Multi-disciplinary expert spanning several related fields",
+          "score": {
+            "systems_architect": 4,
+            "interdisciplinary_roles": 4,
+            "consulting": 3
+          }
+        }
+      ],
+      "description": "Assesses preference for specialization depth versus breadth of knowledge"
+    },
+    {
+      "id": 13,
+      "question": "How important is mentoring and developing others in your career?",
+      "dimension": "Skills",
+      "subdimension": "Leadership",
+      "choices": [
+        {
+          "text": "Essential - I want to build and develop teams",
+          "score": {
+            "management": 4,
+            "director_level": 4,
+            "academic_industry": 3
+          }
+        },
+        {
+          "text": "Important - I enjoy occasional mentoring and knowledge sharing",
+          "score": {
+            "technical_lead": 3,
+            "senior_roles": 3,
+            "consulting": 3
+          }
+        },
+        {
+          "text": "Moderate - I'll mentor when asked but it's not a priority",
+          "score": {
+            "individual_contributor": 2,
+            "specialist_roles": 3,
+            "technical_roles": 3
+          }
+        },
+        {
+          "text": "Low priority - I prefer focusing on my own technical work",
+          "score": {
+            "research_scientist": 3,
+            "individual_contributor": 4,
+            "technical_specialist": 3
+          }
+        }
+      ],
+      "description": "Evaluates interest in developing others and leadership through mentoring"
+    },
+    {
+      "id": 14,
+      "question": "What work environment energizes you most?",
+      "dimension": "Values",
+      "subdimension": "Environment",
+      "choices": [
+        {
+          "text": "Fast-paced startup with rapid changes and pivots",
+          "score": {
+            "startup": 4,
+            "entrepreneur": 3,
+            "agile_environments": 4
+          }
+        },
+        {
+          "text": "Established company with resources and stability",
+          "score": {
+            "large_corporation": 4,
+            "fortune_500": 4,
+            "established_industry": 3
+          }
+        },
+        {
+          "text": "Research-focused organization with academic freedom",
+          "score": {
+            "research_institution": 4,
+            "r_and_d": 4,
+            "think_tank": 3
+          }
+        },
+        {
+          "text": "Mission-driven organization focused on social impact",
+          "score": {
+            "nonprofit": 4,
+            "social_impact": 4,
+            "government": 3
+          }
+        }
+      ],
+      "description": "Identifies preferred organizational culture and work environment"
+    },
+    {
+      "id": 15,
+      "question": "How do you handle tight deadlines and pressure?",
+      "dimension": "Temperament",
+      "subdimension": "Stress Response",
+      "choices": [
+        {
+          "text": "I thrive under pressure and work best with tight deadlines",
+          "score": {
+            "consulting": 4,
+            "startup": 4,
+            "sales": 3
+          }
+        },
+        {
+          "text": "I work well under pressure but prefer some buffer time",
+          "score": {
+            "product_management": 3,
+            "business_roles": 3,
+            "program_management": 3
+          }
+        },
+        {
+          "text": "I can handle occasional pressure but need recovery time",
+          "score": {
+            "technical_roles": 3,
+            "established_company": 3,
+            "government": 3
+          }
+        },
+        {
+          "text": "I prefer steady pace with minimal pressure and deadlines",
+          "score": {
+            "research_roles": 4,
+            "government": 4,
+            "academic_adjacent": 4
+          }
+        }
+      ],
+      "description": "Assesses response to time pressure and deadline-driven environments"
+    },
+    {
+      "id": 16,
+      "question": "What type of technical challenges do you find most engaging?",
+      "dimension": "Skills",
+      "subdimension": "Technical Expertise",
+      "choices": [
+        {
+          "text": "Cutting-edge research problems with unknown solutions",
+          "score": {
+            "research_scientist": 4,
+            "r_and_d": 4,
+            "innovation_labs": 3
+          }
+        },
+        {
+          "text": "Scaling existing solutions to handle larger, complex systems",
+          "score": {
+            "software_engineer": 4,
+            "systems_architect": 4,
+            "platform_engineer": 3
+          }
+        },
+        {
+          "text": "Optimizing processes and improving efficiency",
+          "score": {
+            "operations": 4,
+            "process_improvement": 4,
+            "industrial_engineer": 3
+          }
+        },
+        {
+          "text": "Translating technical solutions into business value",
+          "score": {
+            "product_management": 4,
+            "business_analyst": 4,
+            "technical_sales": 3
+          }
+        }
+      ],
+      "description": "Determines preferred type of technical work and problem complexity"
+    },
+    {
+      "id": 17,
+      "question": "How important is geographic flexibility in your career?",
+      "dimension": "Values",
+      "subdimension": "Lifestyle",
+      "choices": [
+        {
+          "text": "Essential - I want to travel frequently or work globally",
+          "score": {
+            "consulting": 4,
+            "international_business": 4,
+            "sales": 3
+          }
+        },
+        {
+          "text": "Moderate - Occasional travel is fine but not required",
+          "score": {
+            "most_roles": 2,
+            "product_management": 2,
+            "business_development": 3
+          }
+        },
+        {
+          "text": "Low - I prefer to stay in one location with remote work options",
+          "score": {
+            "remote_roles": 4,
+            "software_engineer": 3,
+            "data_scientist": 3
+          }
+        },
+        {
+          "text": "Not important - I'm tied to a specific geographic area",
+          "score": {
+            "local_roles": 3,
+            "government": 3,
+            "regional_companies": 3
+          }
+        }
+      ],
+      "description": "Assesses willingness to travel and geographic constraints"
+    },
+    {
+      "id": 18,
+      "question": "What role do you want to play in product or service development?",
+      "dimension": "Ambitions",
+      "subdimension": "Product Development",
+      "choices": [
+        {
+          "text": "Define the vision and strategy for new products",
+          "score": {
+            "product_management": 4,
+            "product_strategy": 4,
+            "entrepreneur": 3
+          }
+        },
+        {
+          "text": "Lead the technical implementation and architecture",
+          "score": {
+            "technical_lead": 4,
+            "software_architect": 4,
+            "engineering_manager": 3
+          }
+        },
+        {
+          "text": "Ensure quality, compliance, and risk management",
+          "score": {
+            "quality_assurance": 4,
+            "regulatory_affairs": 4,
+            "risk_management": 4
+          }
+        },
+        {
+          "text": "Focus on deep technical research and innovation",
+          "score": {
+            "research_scientist": 4,
+            "r_and_d": 4,
+            "principal_engineer": 3
+          }
+        }
+      ],
+      "description": "Identifies preferred role in product development lifecycle"
+    },
+    {
+      "id": 19,
+      "question": "How do you prefer to measure and communicate your impact?",
+      "dimension": "Values",
+      "subdimension": "Impact Measurement",
+      "choices": [
+        {
+          "text": "Through publications, patents, and technical recognition",
+          "score": {
+            "research_scientist": 4,
+            "r_and_d": 4,
+            "technical_expert": 3
+          }
+        },
+        {
+          "text": "By revenue growth, cost savings, and business metrics",
+          "score": {
+            "business_roles": 4,
+            "product_management": 4,
+            "consulting": 3
+          }
+        },
+        {
+          "text": "Through user adoption, satisfaction, and product success",
+          "score": {
+            "product_management": 4,
+            "ux_research": 3,
+            "customer_success": 3
+          }
+        },
+        {
+          "text": "By process improvements and operational efficiency",
+          "score": {
+            "operations": 4,
+            "process_improvement": 4,
+            "quality_assurance": 3
+          }
+        }
+      ],
+      "description": "Determines preferred methods for measuring and communicating professional impact"
+    },
+    {
+      "id": 20,
+      "question": "What motivates you to stay engaged long-term in a role?",
+      "dimension": "Values",
+      "subdimension": "Long-term Engagement",
+      "choices": [
+        {
+          "text": "Continuous learning opportunities and intellectual challenges",
+          "score": {
+            "research_scientist": 4,
+            "consulting": 4,
+            "technical_roles": 3
+          }
+        },
+        {
+          "text": "Clear career progression and increasing responsibilities",
+          "score": {
+            "corporate_ladder": 4,
+            "management_track": 4,
+            "structured_growth": 3
+          }
+        },
+        {
+          "text": "Autonomy to shape my work and make independent decisions",
+          "score": {
+            "entrepreneur": 4,
+            "consultant": 4,
+            "senior_individual_contributor": 3
+          }
+        },
+        {
+          "text": "Strong relationships and collaborative team environment",
+          "score": {
+            "team_oriented_roles": 4,
+            "collaborative_environments": 3,
+            "people_focused": 3
+          }
+        }
+      ],
+      "description": "Identifies factors that drive long-term job satisfaction and retention"
+    },
+    {
+      "id": 21,
+      "question": "How comfortable are you with ambiguity and undefined problems?",
+      "dimension": "Temperament",
+      "subdimension": "Ambiguity Tolerance",
+      "choices": [
+        {
+          "text": "Very comfortable - I excel when problems are ill-defined",
+          "score": {
+            "consulting": 4,
+            "entrepreneur": 4,
+            "research_scientist": 4
+          }
+        },
+        {
+          "text": "Comfortable - I can work with some ambiguity but like clear goals",
+          "score": {
+            "product_management": 3,
+            "business_analyst": 3,
+            "technical_lead": 3
+          }
+        },
+        {
+          "text": "Moderate - I prefer some structure but can adapt when needed",
+          "score": {
+            "software_engineer": 3,
+            "project_management": 3,
+            "operations": 2
+          }
+        },
+        {
+          "text": "Uncomfortable - I work best with clear requirements and procedures",
+          "score": {
+            "quality_assurance": 4,
+            "regulatory_affairs": 4,
+            "process_oriented": 4
+          }
+        }
+      ],
+      "description": "Evaluates comfort level with uncertain and ambiguous work situations"
+    },
+    {
+      "id": 22,
+      "question": "What aspect of business operations interests you most?",
+      "dimension": "Skills",
+      "subdimension": "Business Acumen",
+      "choices": [
+        {
+          "text": "Understanding customer needs and market dynamics",
+          "score": {
+            "product_management": 4,
+            "market_research": 4,
+            "business_development": 3
+          }
+        },
+        {
+          "text": "Financial analysis, budgets, and resource optimization",
+          "score": {
+            "finance": 4,
+            "business_analyst": 4,
+            "operations": 3
+          }
+        },
+        {
+          "text": "Strategic planning and competitive positioning",
+          "score": {
+            "strategy": 4,
+            "consulting": 4,
+            "business_development": 3
+          }
+        },
+        {
+          "text": "Operational efficiency and process optimization",
+          "score": {
+            "operations": 4,
+            "process_improvement": 4,
+            "quality_management": 3
+          }
+        }
+      ],
+      "description": "Assesses interest and aptitude in different business functions"
+    },
+    {
+      "id": 23,
+      "question": "How do you want to contribute to your organization's success?",
+      "dimension": "Ambitions",
+      "subdimension": "Organizational Contribution",
+      "choices": [
+        {
+          "text": "By solving the hardest technical problems no one else can",
+          "score": {
+            "technical_specialist": 4,
+            "research_scientist": 4,
+            "principal_engineer": 4
+          }
+        },
+        {
+          "text": "By building and leading high-performing teams",
+          "score": {
+            "management": 4,
+            "director_level": 4,
+            "team_lead": 3
+          }
+        },
+        {
+          "text": "By identifying new opportunities and driving growth",
+          "score": {
+            "business_development": 4,
+            "product_management": 4,
+            "entrepreneur": 3
+          }
+        },
+        {
+          "text": "By improving processes and ensuring quality outcomes",
+          "score": {
+            "operations": 4,
+            "quality_assurance": 4,
+            "process_improvement": 4
+          }
+        }
+      ],
+      "description": "Identifies preferred mode of contributing to organizational success"
+    }
+  ],
+  "scoring_categories": {
+    "career_paths": [
+      "research_scientist",
+      "data_scientist",
+      "software_engineer",
+      "product_management",
+      "consulting",
+      "technical_sales",
+      "business_development",
+      "operations",
+      "quality_assurance",
+      "regulatory_affairs",
+      "program_management",
+      "entrepreneur",
+      "technical_lead",
+      "business_analyst",
+      "finance",
+      "government",
+      "nonprofit"
+    ],
+    "work_environments": [
+      "startup",
+      "large_corporation",
+      "consulting_firm",
+      "government",
+      "nonprofit",
+      "research_institution",
+      "fortune_500"
+    ],
+    "role_types": [
+      "individual_contributor",
+      "people_manager",
+      "technical_lead",
+      "specialist",
+      "generalist"
+    ]
+  }
+}

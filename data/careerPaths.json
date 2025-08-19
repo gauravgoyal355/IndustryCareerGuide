@@ -1,0 +1,400 @@
+{
+  "career_paths": {
+    "research_scientist": {
+      "name": "Research Scientist",
+      "description": "Conduct cutting-edge research in industry R&D labs, developing new technologies and solutions",
+      "profile_fit": {
+        "skills": ["Strong technical expertise", "Deep problem-solving abilities", "Research methodology", "Publication experience"],
+        "values": ["Intellectual stimulation", "Creative freedom", "Recognition as expert", "Continuous learning"],
+        "temperament": ["Comfortable with ambiguity", "Prefers exploratory work", "Independent or small team work"],
+        "ambitions": ["Deep specialization", "Technical leadership", "Individual contributor path"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Research Scientist I", "Associate Research Scientist", "Postdoc Research Scientist"],
+          "salary_range": "$80,000 - $120,000",
+          "key_skills": ["PhD in relevant field", "Research methodology", "Data analysis", "Technical writing", "Literature review"],
+          "responsibilities": ["Conduct experiments", "Analyze data", "Write research reports", "Present findings"]
+        },
+        "mid_level": {
+          "titles": ["Research Scientist II", "Senior Research Scientist", "Principal Research Scientist"],
+          "salary_range": "$120,000 - $180,000",
+          "key_skills": ["Project leadership", "Grant writing", "Cross-functional collaboration", "IP development", "Mentoring"],
+          "responsibilities": ["Lead research projects", "Develop IP portfolio", "Collaborate with product teams", "Mentor junior scientists"]
+        },
+        "senior_level": {
+          "titles": ["Staff Research Scientist", "Distinguished Scientist", "Research Director"],
+          "salary_range": "$180,000 - $300,000+",
+          "key_skills": ["Strategic thinking", "Technology roadmapping", "Team leadership", "External partnerships", "Business acumen"],
+          "responsibilities": ["Set research strategy", "Lead large programs", "External collaborations", "Technology transfer to products"]
+        }
+      },
+      "pivot_roles": ["Product Manager (Technical)", "Technical Consultant", "Venture Capital Associate", "Patent Analyst"],
+      "industries": ["Technology", "Pharmaceuticals", "Biotechnology", "Materials Science", "Energy"]
+    },
+    "data_scientist": {
+      "name": "Data Scientist",
+      "description": "Extract insights from complex datasets to drive business decisions and product improvements",
+      "profile_fit": {
+        "skills": ["Advanced statistical analysis", "Programming", "Machine learning", "Data visualization", "Business communication"],
+        "values": ["Impact through insights", "Continuous learning", "Problem-solving", "Competitive compensation"],
+        "temperament": ["Structured problem-solving", "Cross-functional collaboration", "Comfortable with ambiguity"],
+        "ambitions": ["Technical expertise with business impact", "Breadth across domains", "Individual contributor or team lead"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Data Scientist I", "Junior Data Scientist", "Associate Data Scientist"],
+          "salary_range": "$90,000 - $130,000",
+          "key_skills": ["Python/R", "SQL", "Statistics", "Machine learning basics", "Data visualization", "Business acumen"],
+          "responsibilities": ["Analyze datasets", "Build predictive models", "Create dashboards", "Present insights to stakeholders"]
+        },
+        "mid_level": {
+          "titles": ["Data Scientist II", "Senior Data Scientist", "Lead Data Scientist"],
+          "salary_range": "$130,000 - $200,000",
+          "key_skills": ["Advanced ML/AI", "Big data technologies", "A/B testing", "Product analytics", "Cross-functional leadership"],
+          "responsibilities": ["Lead complex projects", "Design experiments", "Mentor junior staff", "Influence product strategy"]
+        },
+        "senior_level": {
+          "titles": ["Principal Data Scientist", "Staff Data Scientist", "Director of Data Science"],
+          "salary_range": "$200,000 - $350,000+",
+          "key_skills": ["Strategic thinking", "Team management", "Technology architecture", "Stakeholder management", "Data strategy"],
+          "responsibilities": ["Set data science strategy", "Lead teams", "Drive organizational data maturity", "External partnerships"]
+        }
+      },
+      "pivot_roles": ["Product Manager (Analytics)", "Machine Learning Engineer", "Business Intelligence Manager", "Quantitative Analyst"],
+      "industries": ["Technology", "Finance", "Healthcare", "Retail", "Manufacturing", "Consulting"]
+    },
+    "product_management": {
+      "name": "Product Management",
+      "description": "Define product strategy, prioritize features, and coordinate cross-functional teams to deliver successful products",
+      "profile_fit": {
+        "skills": ["Strategic thinking", "Cross-functional communication", "Data analysis", "Customer empathy", "Technical understanding"],
+        "values": ["Business impact", "Customer focus", "Innovation", "Leadership opportunities", "Competitive compensation"],
+        "temperament": ["Comfortable with ambiguity", "Collaborative", "Thrives under pressure", "Balanced structure and exploration"],
+        "ambitions": ["Generalist with broad impact", "Strategic leadership", "Business influence"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Associate Product Manager", "Product Manager I", "Junior Product Manager"],
+          "salary_range": "$100,000 - $140,000",
+          "key_skills": ["Product roadmapping", "User research", "Data analysis", "Wireframing", "Stakeholder communication", "Agile methodologies"],
+          "responsibilities": ["Define features", "Write PRDs", "Coordinate with engineering", "Analyze metrics", "Gather user feedback"]
+        },
+        "mid_level": {
+          "titles": ["Product Manager", "Senior Product Manager", "Principal Product Manager"],
+          "salary_range": "$140,000 - $220,000",
+          "key_skills": ["Strategic planning", "Market analysis", "P&L management", "Team leadership", "Go-to-market strategy"],
+          "responsibilities": ["Own product strategy", "Lead product launches", "Manage product P&L", "Coordinate cross-functional teams"]
+        },
+        "senior_level": {
+          "titles": ["Director of Product", "VP of Product", "Chief Product Officer"],
+          "salary_range": "$220,000 - $500,000+",
+          "key_skills": ["Portfolio management", "Organizational leadership", "Market strategy", "Board communication", "Vision setting"],
+          "responsibilities": ["Set product vision", "Lead product organization", "Drive company strategy", "Represent product to executives"]
+        }
+      },
+      "pivot_roles": ["Strategy Consultant", "Business Development", "Marketing Manager", "Venture Capital"],
+      "industries": ["Technology", "Financial Services", "Healthcare", "Consumer Goods", "SaaS"]
+    },
+    "technical_consulting": {
+      "name": "Technical Consulting",
+      "description": "Solve complex technical and business problems for clients across diverse industries and challenges",
+      "profile_fit": {
+        "skills": ["Problem-solving", "Communication", "Technical expertise", "Business acumen", "Project management"],
+        "values": ["Intellectual challenges", "Variety and learning", "High compensation", "Professional recognition", "Impact across industries"],
+        "temperament": ["Thrives under pressure", "Comfortable with ambiguity", "Collaborative", "Adaptable to change"],
+        "ambitions": ["Broad generalist", "Client-facing leadership", "Business influence"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Associate Consultant", "Analyst", "Junior Consultant"],
+          "salary_range": "$90,000 - $130,000",
+          "key_skills": ["Analytical thinking", "Excel/PowerPoint mastery", "Client communication", "Research skills", "Basic project management"],
+          "responsibilities": ["Conduct analyses", "Create presentations", "Support senior consultants", "Gather client requirements"]
+        },
+        "mid_level": {
+          "titles": ["Consultant", "Senior Consultant", "Principal Consultant"],
+          "salary_range": "$130,000 - $200,000",
+          "key_skills": ["Project leadership", "Client relationship management", "Industry expertise", "Team management", "Business development"],
+          "responsibilities": ["Lead workstreams", "Manage client relationships", "Develop recommendations", "Mentor junior staff"]
+        },
+        "senior_level": {
+          "titles": ["Manager", "Senior Manager", "Partner"],
+          "salary_range": "$200,000 - $500,000+",
+          "key_skills": ["Business development", "Practice leadership", "Strategic thinking", "Client executive relationships", "Firm management"],
+          "responsibilities": ["Sell new engagements", "Lead practices", "Manage P&L", "Develop junior partners", "Represent firm externally"]
+        }
+      },
+      "pivot_roles": ["Product Manager", "Strategy Role in Industry", "Business Development", "Venture Capital"],
+      "industries": ["Management Consulting (MBB)", "Technology Consulting", "Specialized Consulting", "Boutique Firms"]
+    },
+    "software_engineering": {
+      "name": "Software Engineering",
+      "description": "Design, develop, and maintain software systems and applications across various platforms and technologies",
+      "profile_fit": {
+        "skills": ["Programming expertise", "System design", "Problem-solving", "Technical communication", "Continuous learning"],
+        "values": ["Technical mastery", "Creative problem-solving", "Competitive compensation", "Work-life balance", "Innovation"],
+        "temperament": ["Structured problem-solving", "Independent or small team work", "Comfortable with technical complexity"],
+        "ambitions": ["Technical specialization", "Individual contributor or technical leadership", "Depth in specific domains"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Software Engineer I", "Junior Software Engineer", "Associate Software Engineer"],
+          "salary_range": "$85,000 - $125,000",
+          "key_skills": ["Programming languages", "Data structures/algorithms", "Version control", "Testing", "Debugging", "Code review"],
+          "responsibilities": ["Write clean code", "Implement features", "Fix bugs", "Participate in code reviews", "Learn technologies"]
+        },
+        "mid_level": {
+          "titles": ["Software Engineer II", "Senior Software Engineer", "Staff Software Engineer"],
+          "salary_range": "$125,000 - $200,000",
+          "key_skills": ["System design", "Architecture patterns", "Performance optimization", "Mentoring", "Technical leadership"],
+          "responsibilities": ["Design systems", "Lead technical decisions", "Mentor junior engineers", "Drive technical initiatives"]
+        },
+        "senior_level": {
+          "titles": ["Principal Engineer", "Distinguished Engineer", "Engineering Director"],
+          "salary_range": "$200,000 - $400,000+",
+          "key_skills": ["Technical strategy", "Cross-team leadership", "Technology evaluation", "Engineering culture", "Technical vision"],
+          "responsibilities": ["Set technical direction", "Lead engineering org", "Drive architecture decisions", "Represent engineering externally"]
+        }
+      },
+      "pivot_roles": ["Technical Product Manager", "Solutions Architect", "DevOps Engineer", "Engineering Manager"],
+      "industries": ["Technology", "Financial Services", "Healthcare", "Gaming", "E-commerce", "SaaS"]
+    },
+    "business_development": {
+      "name": "Business Development",
+      "description": "Identify growth opportunities, build strategic partnerships, and drive revenue through new business initiatives",
+      "profile_fit": {
+        "skills": ["Strategic thinking", "Relationship building", "Communication", "Market analysis", "Negotiation"],
+        "values": ["Business impact", "Relationship building", "Competitive compensation", "Professional growth", "Market influence"],
+        "temperament": ["Comfortable with ambiguity", "Collaborative", "Networking-oriented", "Results-driven"],
+        "ambitions": ["Broad business impact", "Strategic leadership", "External relationship management"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Business Development Associate", "BD Analyst", "Partnership Associate"],
+          "salary_range": "$75,000 - $110,000",
+          "key_skills": ["Market research", "Lead generation", "CRM management", "Presentation skills", "Basic financial analysis"],
+          "responsibilities": ["Research prospects", "Support senior BD", "Maintain CRM", "Create pitch materials", "Coordinate meetings"]
+        },
+        "mid_level": {
+          "titles": ["Business Development Manager", "Senior BD Manager", "Director of BD"],
+          "salary_range": "$110,000 - $180,000",
+          "key_skills": ["Deal structuring", "Contract negotiation", "Strategic planning", "Relationship management", "P&L understanding"],
+          "responsibilities": ["Lead deals", "Negotiate partnerships", "Develop strategy", "Manage pipeline", "Drive revenue growth"]
+        },
+        "senior_level": {
+          "titles": ["VP Business Development", "Chief Business Officer", "Head of Partnerships"],
+          "salary_range": "$180,000 - $350,000+",
+          "key_skills": ["Corporate strategy", "Executive relationships", "M&A experience", "Team leadership", "Board communication"],
+          "responsibilities": ["Set BD strategy", "Lead major deals", "Manage BD team", "Report to executives", "Drive company growth"]
+        }
+      },
+      "pivot_roles": ["Product Manager", "Strategy Consultant", "Sales Manager", "Venture Capital"],
+      "industries": ["Technology", "Healthcare", "Financial Services", "Media", "SaaS", "Startups"]
+    },
+    "operations": {
+      "name": "Operations",
+      "description": "Optimize business processes, improve efficiency, and ensure smooth organizational functioning",
+      "profile_fit": {
+        "skills": ["Process improvement", "Data analysis", "Project management", "Problem-solving", "Systems thinking"],
+        "values": ["Efficiency and optimization", "Structured environment", "Measurable impact", "Stability", "Continuous improvement"],
+        "temperament": ["Structured approach", "Detail-oriented", "Collaborative", "Process-focused"],
+        "ambitions": ["Operational excellence", "Process leadership", "Cross-functional impact"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Operations Analyst", "Associate Operations Manager", "Process Analyst"],
+          "salary_range": "$70,000 - $100,000",
+          "key_skills": ["Data analysis", "Process mapping", "Excel proficiency", "Basic project management", "Documentation"],
+          "responsibilities": ["Analyze processes", "Identify inefficiencies", "Support process improvements", "Create reports", "Assist operations team"]
+        },
+        "mid_level": {
+          "titles": ["Operations Manager", "Senior Operations Manager", "Director of Operations"],
+          "salary_range": "$100,000 - $160,000",
+          "key_skills": ["Process redesign", "Change management", "Team leadership", "Vendor management", "Strategic planning"],
+          "responsibilities": ["Lead operations teams", "Drive process improvements", "Manage budgets", "Coordinate cross-functionally"]
+        },
+        "senior_level": {
+          "titles": ["VP Operations", "Chief Operating Officer", "Head of Operations"],
+          "salary_range": "$160,000 - $300,000+",
+          "key_skills": ["Strategic operations", "Organizational design", "Executive leadership", "P&L management", "Scalability planning"],
+          "responsibilities": ["Set operations strategy", "Lead operations org", "Drive scalability", "Report to CEO", "Manage large budgets"]
+        }
+      },
+      "pivot_roles": ["Program Manager", "Strategy Consultant", "Process Consultant", "Supply Chain Manager"],
+      "industries": ["Technology", "Manufacturing", "Healthcare", "Financial Services", "Logistics", "Retail"]
+    },
+    "technical_sales": {
+      "name": "Technical Sales",
+      "description": "Sell complex technical products and solutions by combining technical expertise with sales skills",
+      "profile_fit": {
+        "skills": ["Technical communication", "Relationship building", "Presentation skills", "Problem-solving", "Customer empathy"],
+        "values": ["High earning potential", "Customer interaction", "Technical application", "Performance-based rewards", "Travel opportunities"],
+        "temperament": ["Comfortable with pressure", "Collaborative", "Adaptable", "Results-oriented"],
+        "ambitions": ["Technical expertise with business impact", "Customer-facing leadership", "High compensation potential"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Sales Development Representative", "Technical Sales Associate", "Inside Sales Engineer"],
+          "salary_range": "$65,000 - $95,000 (+ commission)",
+          "key_skills": ["Technical knowledge", "Sales fundamentals", "CRM proficiency", "Communication skills", "Product knowledge"],
+          "responsibilities": ["Generate leads", "Qualify prospects", "Support senior sales", "Conduct demos", "Maintain pipeline"]
+        },
+        "mid_level": {
+          "titles": ["Sales Engineer", "Account Manager", "Regional Sales Manager"],
+          "salary_range": "$95,000 - $150,000 (+ commission)",
+          "key_skills": ["Solution selling", "Technical presentations", "Negotiation", "Account management", "Territory planning"],
+          "responsibilities": ["Manage accounts", "Close deals", "Provide technical support", "Build relationships", "Meet quotas"]
+        },
+        "senior_level": {
+          "titles": ["Senior Sales Manager", "Director of Sales", "VP of Sales"],
+          "salary_range": "$150,000 - $300,000+ (+ commission)",
+          "key_skills": ["Sales leadership", "Strategic selling", "Team management", "Market development", "Executive relationships"],
+          "responsibilities": ["Lead sales teams", "Develop strategy", "Manage major accounts", "Drive revenue growth", "Build sales culture"]
+        }
+      },
+      "pivot_roles": ["Product Manager", "Customer Success Manager", "Business Development", "Sales Operations"],
+      "industries": ["Technology", "Software", "Healthcare Technology", "Industrial Equipment", "Scientific Instruments"]
+    },
+    "quality_assurance": {
+      "name": "Quality Assurance",
+      "description": "Ensure products and processes meet quality standards through systematic testing and compliance monitoring",
+      "profile_fit": {
+        "skills": ["Attention to detail", "Process adherence", "Risk assessment", "Documentation", "Problem identification"],
+        "values": ["Stability and structure", "Risk mitigation", "Process compliance", "Continuous improvement", "Professional development"],
+        "temperament": ["Detail-oriented", "Structured approach", "Methodical", "Risk-averse"],
+        "ambitions": ["Process expertise", "Quality leadership", "Specialized knowledge"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["QA Analyst", "Quality Control Specialist", "Test Engineer"],
+          "salary_range": "$60,000 - $85,000",
+          "key_skills": ["Testing methodologies", "Documentation", "Attention to detail", "Basic statistics", "Compliance knowledge"],
+          "responsibilities": ["Execute test plans", "Document defects", "Follow procedures", "Report quality metrics", "Support investigations"]
+        },
+        "mid_level": {
+          "titles": ["QA Manager", "Senior QA Engineer", "Quality Systems Manager"],
+          "salary_range": "$85,000 - $130,000",
+          "key_skills": ["QMS development", "Team leadership", "Risk assessment", "Regulatory knowledge", "Process improvement"],
+          "responsibilities": ["Lead QA team", "Develop procedures", "Manage audits", "Drive improvements", "Ensure compliance"]
+        },
+        "senior_level": {
+          "titles": ["Director of Quality", "VP Quality", "Chief Quality Officer"],
+          "salary_range": "$130,000 - $220,000",
+          "key_skills": ["Strategic quality planning", "Regulatory strategy", "Executive communication", "Quality culture", "Risk management"],
+          "responsibilities": ["Set quality strategy", "Lead quality org", "Manage regulatory relationships", "Drive quality culture"]
+        }
+      },
+      "pivot_roles": ["Regulatory Affairs", "Process Improvement", "Operations Manager", "Compliance Manager"],
+      "industries": ["Pharmaceuticals", "Medical Devices", "Manufacturing", "Software", "Automotive", "Aerospace"]
+    },
+    "regulatory_affairs": {
+      "name": "Regulatory Affairs",
+      "description": "Navigate regulatory requirements and ensure compliance for product development and market approval",
+      "profile_fit": {
+        "skills": ["Regulatory knowledge", "Documentation", "Communication", "Project management", "Risk assessment"],
+        "values": ["Stability and structure", "Professional expertise", "Risk mitigation", "Detailed work", "Compliance focus"],
+        "temperament": ["Detail-oriented", "Structured approach", "Risk-averse", "Process-focused"],
+        "ambitions": ["Specialized expertise", "Regulatory leadership", "Industry influence"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Regulatory Affairs Associate", "RA Specialist", "Regulatory Analyst"],
+          "salary_range": "$70,000 - $95,000",
+          "key_skills": ["Regulatory guidelines", "Submission preparation", "Documentation", "Project coordination", "Compliance tracking"],
+          "responsibilities": ["Prepare submissions", "Track regulations", "Support approvals", "Maintain documentation", "Coordinate with agencies"]
+        },
+        "mid_level": {
+          "titles": ["Regulatory Affairs Manager", "Senior RA Manager", "Principal RA Specialist"],
+          "salary_range": "$95,000 - $140,000",
+          "key_skills": ["Strategic regulatory planning", "Agency interaction", "Team leadership", "Global regulations", "Risk assessment"],
+          "responsibilities": ["Lead regulatory strategy", "Manage submissions", "Interact with agencies", "Lead teams", "Drive approvals"]
+        },
+        "senior_level": {
+          "titles": ["Director Regulatory Affairs", "VP Regulatory", "Chief Regulatory Officer"],
+          "salary_range": "$140,000 - $250,000",
+          "key_skills": ["Regulatory strategy", "Executive communication", "Policy influence", "Global leadership", "Strategic planning"],
+          "responsibilities": ["Set regulatory strategy", "Lead RA organization", "Influence policy", "Manage global compliance"]
+        }
+      },
+      "pivot_roles": ["Quality Assurance", "Product Manager", "Business Development", "Consulting"],
+      "industries": ["Pharmaceuticals", "Biotechnology", "Medical Devices", "Food & Beverage", "Chemicals", "Cosmetics"]
+    },
+    "program_management": {
+      "name": "Program Management",
+      "description": "Coordinate complex, cross-functional initiatives and ensure successful delivery of strategic programs",
+      "profile_fit": {
+        "skills": ["Project coordination", "Stakeholder management", "Communication", "Planning", "Risk management"],
+        "values": ["Organizational impact", "Coordination and structure", "Professional growth", "Cross-functional work", "Measurable outcomes"],
+        "temperament": ["Structured approach", "Collaborative", "Organized", "Adaptable"],
+        "ambitions": ["Cross-functional leadership", "Organizational influence", "Strategic coordination"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Program Coordinator", "Associate Program Manager", "Project Manager"],
+          "salary_range": "$75,000 - $105,000",
+          "key_skills": ["Project planning", "Scheduling", "Communication", "Basic risk management", "Stakeholder coordination"],
+          "responsibilities": ["Coordinate activities", "Track progress", "Facilitate meetings", "Manage timelines", "Report status"]
+        },
+        "mid_level": {
+          "titles": ["Program Manager", "Senior Program Manager", "Principal Program Manager"],
+          "salary_range": "$105,000 - $155,000",
+          "key_skills": ["Strategic planning", "Cross-functional leadership", "Risk management", "Resource planning", "Executive communication"],
+          "responsibilities": ["Lead programs", "Manage budgets", "Drive execution", "Mitigate risks", "Coordinate teams"]
+        },
+        "senior_level": {
+          "titles": ["Director of Programs", "VP Program Management", "Chief Program Officer"],
+          "salary_range": "$155,000 - $250,000",
+          "key_skills": ["Portfolio management", "Strategic alignment", "Organizational change", "Executive leadership", "Process optimization"],
+          "responsibilities": ["Set program strategy", "Lead PMO", "Drive organizational change", "Manage portfolios", "Report to executives"]
+        }
+      },
+      "pivot_roles": ["Product Manager", "Operations Manager", "Strategy Consultant", "Business Analyst"],
+      "industries": ["Technology", "Aerospace", "Healthcare", "Financial Services", "Government", "Consulting"]
+    },
+    "finance": {
+      "name": "Finance",
+      "description": "Analyze financial data, manage risk, and support business decisions through financial expertise",
+      "profile_fit": {
+        "skills": ["Quantitative analysis", "Financial modeling", "Risk assessment", "Communication", "Business acumen"],
+        "values": ["Analytical work", "High compensation", "Professional prestige", "Structured environment", "Career progression"],
+        "temperament": ["Analytical", "Detail-oriented", "Structured approach", "Risk-aware"],
+        "ambitions": ["Financial expertise", "Business influence", "High compensation potential"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Financial Analyst", "Associate Analyst", "Junior Analyst"],
+          "salary_range": "$75,000 - $110,000",
+          "key_skills": ["Financial modeling", "Excel proficiency", "Accounting principles", "Data analysis", "Presentation skills"],
+          "responsibilities": ["Build models", "Analyze data", "Create reports", "Support senior analysts", "Research markets"]
+        },
+        "mid_level": {
+          "titles": ["Senior Financial Analyst", "Finance Manager", "Vice President"],
+          "salary_range": "$110,000 - $175,000",
+          "key_skills": ["Advanced modeling", "Strategic analysis", "Team leadership", "Client interaction", "Industry expertise"],
+          "responsibilities": ["Lead analyses", "Manage relationships", "Present to executives", "Mentor junior staff", "Drive decisions"]
+        },
+        "senior_level": {
+          "titles": ["Director", "Managing Director", "Chief Financial Officer"],
+          "salary_range": "$175,000 - $500,000+",
+          "key_skills": ["Strategic finance", "Executive leadership", "Business development", "Risk management", "Organizational management"],
+          "responsibilities": ["Set strategy", "Lead teams", "Manage P&L", "Drive growth", "Represent externally"]
+        }
+      },
+      "pivot_roles": ["Strategy Consultant", "Business Development", "Product Manager", "Venture Capital"],
+      "industries": ["Investment Banking", "Private Equity", "Hedge Funds", "Corporate Finance", "Financial Planning", "Insurance"]
+    }
+  },
+  "matching_weights": {
+    "skills_weight": 0.35,
+    "values_weight": 0.25,
+    "temperament_weight": 0.25,
+    "ambitions_weight": 0.15
+  },
+  "scoring_thresholds": {
+    "excellent_match": 0.8,
+    "good_match": 0.65,
+    "moderate_match": 0.5,
+    "poor_match": 0.35
+  }
+}
