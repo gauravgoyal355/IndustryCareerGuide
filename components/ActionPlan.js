@@ -342,7 +342,89 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
         )}
       </div>
 
-      {/* Skill Development Section */}
+      {/* Learning Recommendations Section */}
+      {actionPlan.learningRecommendations && (
+        <div className="border-b">
+          <SectionHeader 
+            title="Courses & Certifications" 
+            section="learning" 
+            icon="🎓" 
+          />
+          {expandedSections.learning && (
+            <div className="p-6 space-y-6">
+              {/* Cost Overview */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h5 className="font-semibold text-blue-800 mb-3">Learning Investment Overview</h5>
+                <div className="grid md:grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <span className="text-blue-600 font-medium">Total Estimated Cost:</span>
+                    <div className="text-lg font-bold text-blue-800">
+                      ${actionPlan.learningRecommendations.estimatedCost.estimated_total}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-blue-600 font-medium">Time to Complete:</span>
+                    <div className="font-semibold text-blue-700">
+                      {actionPlan.learningRecommendations.timeToComplete}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-blue-600 font-medium">Learning Path:</span>
+                    <div className="font-semibold text-blue-700">
+                      {actionPlan.learningRecommendations.courses.length} courses + {actionPlan.learningRecommendations.certifications.length} certs
+                    </div>
+                  </div>
+                </div>
+                <p className="text-xs text-blue-600 mt-2">
+                  {actionPlan.learningRecommendations.estimatedCost.note}
+                </p>
+              </div>
+
+              {/* Recommended Courses */}
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-4">📚 Recommended Courses</h5>
+                <div className="grid gap-4">
+                  {actionPlan.learningRecommendations.courses.slice(0, 4).map((course, index) => (
+                    <CourseCard key={index} course={course} type="course" />
+                  ))}
+                </div>
+              </div>
+
+              {/* Recommended Certifications */}
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-4">🏆 Recommended Certifications</h5>
+                <div className="grid gap-4">
+                  {actionPlan.learningRecommendations.certifications.slice(0, 3).map((cert, index) => (
+                    <CourseCard key={index} course={cert} type="certification" />
+                  ))}
+                </div>
+              </div>
+
+              {/* Prioritized Learning Path */}
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4">
+                <h5 className="font-semibold text-purple-800 mb-4">🎯 Your Prioritized Learning Path</h5>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <LearningPathStep 
+                    title="Start Immediately"
+                    items={actionPlan.learningRecommendations.learningPath.immediate}
+                    color="red"
+                  />
+                  <LearningPathStep 
+                    title="Medium Term (3-6 months)"
+                    items={actionPlan.learningRecommendations.learningPath.medium_term}
+                    color="yellow"
+                  />
+                  <LearningPathStep 
+                    title="Advanced (6+ months)"
+                    items={actionPlan.learningRecommendations.learningPath.advanced}
+                    color="green"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
       <div className=\"border-b\">
         <SectionHeader 
           title=\"Skill Development Plan\" 
