@@ -1,1 +1,42 @@
-/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content: [\n    './pages/**/*.{js,ts,jsx,tsx}',\n    './components/**/*.{js,ts,jsx,tsx}'\n  ],\n  theme: {\n    extend: {\n      colors: {\n        primary: {\n          50: '#eff6ff',\n          500: '#3b82f6',\n          600: '#2563eb',\n          700: '#1d4ed8'\n        },\n        secondary: {\n          50: '#f0fdf4',\n          500: '#10b981',\n          600: '#059669'\n        }\n      },\n      fontFamily: {\n        sans: ['Inter', 'system-ui', 'sans-serif']\n      },\n      animation: {\n        'fade-in': 'fadeIn 0.5s ease-in-out',\n        'slide-up': 'slideUp 0.3s ease-out'\n      },\n      keyframes: {\n        fadeIn: {\n          '0%': { opacity: '0' },\n          '100%': { opacity: '1' }\n        },\n        slideUp: {\n          '0%': { transform: 'translateY(20px)', opacity: '0' },\n          '100%': { transform: 'translateY(0)', opacity: '1' }\n        }\n      }\n    }\n  },\n  plugins: []\n};
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#eff6ff',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8'
+        },
+        secondary: {
+          50: '#f0fdf4',
+          500: '#10b981',
+          600: '#059669'
+        }
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif']
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'slide-up': 'slideUp 0.3s ease-out'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        }
+      }
+    }
+  },
+  plugins: []
+};

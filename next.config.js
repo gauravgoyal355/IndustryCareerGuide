@@ -1,1 +1,59 @@
-/** @type {import('next').NextConfig} */\nconst nextConfig = {\n  reactStrictMode: true,\n  swcMinify: true,\n  \n  // Optimize for Vercel deployment\n  experimental: {\n    appDir: false // Using pages directory\n  },\n  \n  // Static optimization\n  trailingSlash: true,\n  \n  // Image optimization\n  images: {\n    unoptimized: true\n  },\n  \n  // Headers for performance\n  async headers() {\n    return [\n      {\n        source: '/(.*)',\n        headers: [\n          {\n            key: 'X-Content-Type-Options',\n            value: 'nosniff'\n          },\n          {\n            key: 'X-Frame-Options',\n            value: 'DENY'\n          },\n          {\n            key: 'X-XSS-Protection',\n            value: '1; mode=block'\n          }\n        ]\n      }\n    ];\n  },\n  \n  // Redirect configuration\n  async redirects() {\n    return [\n      {\n        source: '/quiz',\n        destination: '/quiz/',\n        permanent: true\n      },\n      {\n        source: '/results',\n        destination: '/results/',\n        permanent: true\n      }\n    ];\n  }\n};\n\nmodule.exports = nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  
+  // Optimize for Vercel deployment
+  experimental: {
+    appDir: false // Using pages directory
+  },
+  
+  // Static optimization
+  trailingSlash: true,
+  
+  // Image optimization
+  images: {
+    unoptimized: true
+  },
+  
+  // Headers for performance
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          }
+        ]
+      }
+    ];
+  },
+  
+  // Redirect configuration
+  async redirects() {
+    return [
+      {
+        source: '/quiz',
+        destination: '/quiz/',
+        permanent: true
+      },
+      {
+        source: '/results',
+        destination: '/results/',
+        permanent: true
+      }
+    ];
+  }
+};
+
+module.exports = nextConfig;
