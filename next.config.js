@@ -3,11 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   
-  // Optimize for Vercel deployment
-  experimental: {
-    appDir: false // Using pages directory
-  },
-  
   // Static optimization
   trailingSlash: true,
   

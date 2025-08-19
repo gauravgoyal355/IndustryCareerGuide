@@ -1,1 +1,268 @@
-import React from 'react';\nimport Link from 'next/link';\nimport Layout from '../components/Layout';\nimport { MiniCareerMap } from '../components/CareerMap';\n\nconst HomePage = () => {\n  const features = [\n    {\n      icon: '🎯',\n      title: 'Personalized Assessment',\n      description: 'Take our comprehensive quiz to discover career paths that match your skills, values, and ambitions.'\n    },\n    {\n      icon: '🗺️',\n      title: 'Interactive Career Maps',\n      description: 'Explore detailed career trajectories with timelines, skills, and salary progressions for each path.'\n    },\n    {\n      icon: '📋',\n      title: 'Actionable Plans',\n      description: 'Get personalized action plans with course recommendations, certifications, and milestone timelines.'\n    },\n    {\n      icon: '📄',\n      title: 'Resume Optimization',\n      description: 'Access specialized resume templates and guides optimized for industry transitions.'\n    }\n  ];\n\n  const careerPaths = [\n    'data_scientist',\n    'product_management', \n    'technical_consulting',\n    'software_engineering'\n  ];\n\n  const testimonials = [\n    {\n      name: 'Dr. Sarah Chen',\n      role: 'Former Postdoc → Data Scientist at Google',\n      content: 'IndustryCareerGuide helped me transition from a biology postdoc to a data scientist role. The personalized action plan was incredibly valuable.'\n    },\n    {\n      name: 'Dr. Michael Rodriguez',\n      role: 'Former PhD → Product Manager at Microsoft',\n      content: 'The career assessment opened my eyes to product management. Within 8 months, I landed my dream role following their roadmap.'\n    },\n    {\n      name: 'Dr. Emily Watson',\n      role: 'Former Research Scientist → Technical Consultant',\n      content: 'The resume optimization and interview prep were game-changers. I increased my interview success rate by 300%.'\n    }\n  ];\n\n  return (\n    <Layout\n      title=\"IndustryCareerGuide - STEM PhD Career Transition Platform\"\n      description=\"Interactive career assessment and guidance for STEM PhDs transitioning to industry. Personalized career paths, action plans, and resume optimization.\"\n      canonicalUrl=\"/\"\n    >\n      {/* Hero Section */}\n      <section className=\"bg-gradient-to-r from-primary-50 to-purple-50 section-padding\">\n        <div className=\"container-max\">\n          <div className=\"text-center\">\n            <h1 className=\"text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in\">\n              Transform Your\n              <span className=\"text-gradient block\">PhD into Industry Success</span>\n            </h1>\n            <p className=\"text-xl text-gray-600 max-w-3xl mx-auto mb-8 animate-fade-in animation-delay-200\">\n              The comprehensive career guidance platform designed specifically for STEM PhDs and postdocs transitioning to industry roles. \n              Get personalized assessments, career maps, and actionable plans.\n            </p>\n            <div className=\"flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animation-delay-400\">\n              <Link href=\"/quiz/\" className=\"btn-primary text-lg px-8 py-3\">\n                Take Free Assessment\n              </Link>\n              <Link href=\"/careerMap/\" className=\"btn-secondary text-lg px-8 py-3\">\n                Explore Career Paths\n              </Link>\n            </div>\n          </div>\n        </div>\n      </section>\n\n      {/* Stats Section */}\n      <section className=\"bg-white py-12\">\n        <div className=\"container-max\">\n          <div className=\"grid grid-cols-2 md:grid-cols-4 gap-8 text-center\">\n            <div>\n              <div className=\"text-3xl font-bold text-primary-600\">10,000+</div>\n              <div className=\"text-sm text-gray-600\">PhDs Helped</div>\n            </div>\n            <div>\n              <div className=\"text-3xl font-bold text-primary-600\">85%</div>\n              <div className=\"text-sm text-gray-600\">Success Rate</div>\n            </div>\n            <div>\n              <div className=\"text-3xl font-bold text-primary-600\">12</div>\n              <div className=\"text-sm text-gray-600\">Career Paths</div>\n            </div>\n            <div>\n              <div className=\"text-3xl font-bold text-primary-600\">6 months</div>\n              <div className=\"text-sm text-gray-600\">Avg. Transition Time</div>\n            </div>\n          </div>\n        </div>\n      </section>\n\n      {/* Features Section */}\n      <section className=\"bg-gray-50 section-padding\">\n        <div className=\"container-max\">\n          <div className=\"text-center mb-16\">\n            <h2 className=\"text-3xl md:text-4xl font-bold text-gray-900 mb-4\">\n              Everything You Need for Career Success\n            </h2>\n            <p className=\"text-xl text-gray-600 max-w-2xl mx-auto\">\n              Our comprehensive platform guides you through every step of your career transition\n            </p>\n          </div>\n          \n          <div className=\"grid md:grid-cols-2 lg:grid-cols-4 gap-8\">\n            {features.map((feature, index) => (\n              <div key={index} className=\"card text-center hover:shadow-lg transition-shadow duration-300\">\n                <div className=\"text-4xl mb-4\">{feature.icon}</div>\n                <h3 className=\"text-xl font-semibold text-gray-900 mb-3\">{feature.title}</h3>\n                <p className=\"text-gray-600\">{feature.description}</p>\n              </div>\n            ))}\n          </div>\n        </div>\n      </section>\n\n      {/* Career Paths Preview */}\n      <section className=\"bg-white section-padding\">\n        <div className=\"container-max\">\n          <div className=\"text-center mb-16\">\n            <h2 className=\"text-3xl md:text-4xl font-bold text-gray-900 mb-4\">\n              Explore Popular Career Paths\n            </h2>\n            <p className=\"text-xl text-gray-600 max-w-2xl mx-auto\">\n              Discover detailed career trajectories with skills, timelines, and salary progressions\n            </p>\n          </div>\n          \n          <div className=\"grid md:grid-cols-2 gap-8 mb-12\">\n            {careerPaths.map((path, index) => (\n              <div key={index} className=\"animate-slide-up\" style={{ animationDelay: `${index * 100}ms` }}>\n                <MiniCareerMap careerPath={path} />\n              </div>\n            ))}\n          </div>\n          \n          <div className=\"text-center\">\n            <Link href=\"/careerMap/\" className=\"btn-primary text-lg px-8 py-3\">\n              View All Career Paths\n            </Link>\n          </div>\n        </div>\n      </section>\n\n      {/* How It Works */}\n      <section className=\"bg-primary-50 section-padding\">\n        <div className=\"container-max\">\n          <div className=\"text-center mb-16\">\n            <h2 className=\"text-3xl md:text-4xl font-bold text-gray-900 mb-4\">\n              How It Works\n            </h2>\n            <p className=\"text-xl text-gray-600 max-w-2xl mx-auto\">\n              Three simple steps to transform your career\n            </p>\n          </div>\n          \n          <div className=\"grid md:grid-cols-3 gap-8\">\n            <div className=\"text-center\">\n              <div className=\"w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6\">\n                1\n              </div>\n              <h3 className=\"text-xl font-semibold text-gray-900 mb-4\">Take Assessment</h3>\n              <p className=\"text-gray-600\">\n                Complete our comprehensive 25-question quiz to identify your strengths, values, and career preferences.\n              </p>\n            </div>\n            <div className=\"text-center\">\n              <div className=\"w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6\">\n                2\n              </div>\n              <h3 className=\"text-xl font-semibold text-gray-900 mb-4\">Get Matched</h3>\n              <p className=\"text-gray-600\">\n                Receive personalized career path recommendations with detailed progression maps and requirements.\n              </p>\n            </div>\n            <div className=\"text-center\">\n              <div className=\"w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6\">\n                3\n              </div>\n              <h3 className=\"text-xl font-semibold text-gray-900 mb-4\">Take Action</h3>\n              <p className=\"text-gray-600\">\n                Follow your personalized action plan with course recommendations, milestones, and resume optimization.\n              </p>\n            </div>\n          </div>\n          \n          <div className=\"text-center mt-12\">\n            <Link href=\"/quiz/\" className=\"btn-primary text-lg px-8 py-3\">\n              Start Your Journey\n            </Link>\n          </div>\n        </div>\n      </section>\n\n      {/* Testimonials */}\n      <section className=\"bg-white section-padding\">\n        <div className=\"container-max\">\n          <div className=\"text-center mb-16\">\n            <h2 className=\"text-3xl md:text-4xl font-bold text-gray-900 mb-4\">\n              Success Stories\n            </h2>\n            <p className=\"text-xl text-gray-600 max-w-2xl mx-auto\">\n              Real PhDs who successfully transitioned to industry careers\n            </p>\n          </div>\n          \n          <div className=\"grid md:grid-cols-3 gap-8\">\n            {testimonials.map((testimonial, index) => (\n              <div key={index} className=\"card\">\n                <div className=\"flex items-center mb-4\">\n                  <div className=\"w-12 h-12 bg-gray-300 rounded-full mr-4\"></div>\n                  <div>\n                    <div className=\"font-semibold text-gray-900\">{testimonial.name}</div>\n                    <div className=\"text-sm text-gray-600\">{testimonial.role}</div>\n                  </div>\n                </div>\n                <p className=\"text-gray-600 italic\">\"{testimonial.content}\"</p>\n              </div>\n            ))}\n          </div>\n        </div>\n      </section>\n\n      {/* CTA Section */}\n      <section className=\"bg-gradient-to-r from-primary-600 to-purple-600 section-padding text-white\">\n        <div className=\"container-max text-center\">\n          <h2 className=\"text-3xl md:text-4xl font-bold mb-4\">\n            Ready to Transform Your Career?\n          </h2>\n          <p className=\"text-xl opacity-90 max-w-2xl mx-auto mb-8\">\n            Join thousands of STEM PhDs who have successfully transitioned to rewarding industry careers.\n          </p>\n          <div className=\"flex flex-col sm:flex-row gap-4 justify-center\">\n            <Link href=\"/quiz/\" className=\"bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200\">\n              Take Free Assessment\n            </Link>\n            <a\n              href=\"https://industryresume.com\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n              className=\"border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200\"\n            >\n              Get Resume Help\n            </a>\n          </div>\n        </div>\n      </section>\n    </Layout>\n  );\n};\n\nexport default HomePage;
+import React from 'react';
+import Link from 'next/link';
+import Layout from '../components/Layout';
+import { MiniCareerMap } from '../components/CareerMap';
+
+const HomePage = () => {
+  const features = [
+    {
+      icon: '🎯',
+      title: 'Personalized Assessment',
+      description: 'Take our comprehensive quiz to discover career paths that match your skills, values, and ambitions.'
+    },
+    {
+      icon: '🗺️',
+      title: 'Interactive Career Maps',
+      description: 'Explore detailed career trajectories with timelines, skills, and salary progressions for each path.'
+    },
+    {
+      icon: '📋',
+      title: 'Actionable Plans',
+      description: 'Get personalized action plans with course recommendations, certifications, and milestone timelines.'
+    },
+    {
+      icon: '📄',
+      title: 'Resume Optimization',
+      description: 'Access specialized resume templates and guides optimized for industry transitions.'
+    }
+  ];
+
+  const careerPaths = [
+    'data_scientist',
+    'product_management', 
+    'technical_consulting',
+    'software_engineering'
+  ];
+
+  const testimonials = [
+    {
+      name: 'Dr. Sarah Chen',
+      role: 'Former Postdoc → Data Scientist at Google',
+      content: 'IndustryCareerGuide helped me transition from a biology postdoc to a data scientist role. The personalized action plan was incredibly valuable.'
+    },
+    {
+      name: 'Dr. Michael Rodriguez',
+      role: 'Former PhD → Product Manager at Microsoft',
+      content: 'The career assessment opened my eyes to product management. Within 8 months, I landed my dream role following their roadmap.'
+    },
+    {
+      name: 'Dr. Emily Watson',
+      role: 'Former Research Scientist → Technical Consultant',
+      content: 'The resume optimization and interview prep were game-changers. I increased my interview success rate by 300%.'
+    }
+  ];
+
+  return (
+    <Layout
+      title="IndustryCareerGuide - STEM PhD Career Transition Platform"
+      description="Interactive career assessment and guidance for STEM PhDs transitioning to industry. Personalized career paths, action plans, and resume optimization."
+      canonicalUrl="/"
+    >
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-primary-50 to-purple-50 section-padding">
+        <div className="container-max">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
+              Transform Your
+              <span className="text-gradient block">PhD into Industry Success</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 animate-fade-in animation-delay-200">
+              The comprehensive career guidance platform designed specifically for STEM PhDs and postdocs transitioning to industry roles. 
+              Get personalized assessments, career maps, and actionable plans.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animation-delay-400">
+              <Link href="/quiz/" className="btn-primary text-lg px-8 py-3">
+                Take Free Assessment
+              </Link>
+              <Link href="/careerMap/" className="btn-secondary text-lg px-8 py-3">
+                Explore Career Paths
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="bg-white py-12">
+        <div className="container-max">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-primary-600">10,000+</div>
+              <div className="text-sm text-gray-600">PhDs Helped</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-primary-600">85%</div>
+              <div className="text-sm text-gray-600">Success Rate</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-primary-600">12</div>
+              <div className="text-sm text-gray-600">Career Paths</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-primary-600">6 months</div>
+              <div className="text-sm text-gray-600">Avg. Transition Time</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="bg-gray-50 section-padding">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Everything You Need for Career Success
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Our comprehensive platform guides you through every step of your career transition
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="card text-center hover:shadow-lg transition-shadow duration-300">
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Career Paths Preview */}
+      <section className="bg-white section-padding">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Explore Popular Career Paths
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover detailed career trajectories with skills, timelines, and salary progressions
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {careerPaths.map((path, index) => (
+              <div key={index} className="animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
+                <MiniCareerMap careerPath={path} />
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Link href="/careerMap/" className="btn-primary text-lg px-8 py-3">
+              View All Career Paths
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="bg-primary-50 section-padding">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Three simple steps to transform your career
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                1
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Take Assessment</h3>
+              <p className="text-gray-600">
+                Complete our comprehensive 25-question quiz to identify your strengths, values, and career preferences.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                2
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Get Matched</h3>
+              <p className="text-gray-600">
+                Receive personalized career path recommendations with detailed progression maps and requirements.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                3
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Take Action</h3>
+              <p className="text-gray-600">
+                Follow your personalized action plan with course recommendations, milestones, and resume optimization.
+              </p>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link href="/quiz/" className="btn-primary text-lg px-8 py-3">
+              Start Your Journey
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-white section-padding">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Success Stories
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Real PhDs who successfully transitioned to industry careers
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="card">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                  <div>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    <div className="text-sm text-gray-600">{testimonial.role}</div>
+                  </div>
+                </div>
+                <p className="text-gray-600 italic">"{testimonial.content}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-primary-600 to-purple-600 section-padding text-white">
+        <div className="container-max text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Transform Your Career?
+          </h2>
+          <p className="text-xl opacity-90 max-w-2xl mx-auto mb-8">
+            Join thousands of STEM PhDs who have successfully transitioned to rewarding industry careers.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/quiz/" className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200">
+              Take Free Assessment
+            </Link>
+            <a
+              href="https://industryresume.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+            >
+              Get Resume Help
+            </a>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+export default HomePage;

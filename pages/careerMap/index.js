@@ -1,1 +1,197 @@
-import React, { useState, useEffect } from 'react';\nimport { useRouter } from 'next/router';\nimport Layout from '../../components/Layout';\nimport CareerMap from '../../components/CareerMap';\nimport careerTrajectories from '../../data/careerTrajectories.json';\n\nconst CareerMapPage = () => {\n  const router = useRouter();\n  const { path } = router.query;\n  const [selectedCareerPath, setSelectedCareerPath] = useState(path || 'data_scientist');\n  const [showPivots, setShowPivots] = useState(true);\n\n  const careerPaths = Object.keys(careerTrajectories.career_trajectories);\n\n  useEffect(() => {\n    if (path && careerPaths.includes(path)) {\n      setSelectedCareerPath(path);\n    }\n  }, [path, careerPaths]);\n\n  const handleCareerPathChange = (newPath) => {\n    setSelectedCareerPath(newPath);\n    // Update URL without page reload\n    router.push(`/careerMap/?path=${newPath}`, undefined, { shallow: true });\n  };\n\n  const getCareerPathDisplayName = (careerPath) => {\n    return careerTrajectories.career_trajectories[careerPath]?.name || \n           careerPath.replace('_', ' ').replace(/\\b\\w/g, l => l.toUpperCase());\n  };\n\n  return (\n    <Layout\n      title={`${getCareerPathDisplayName(selectedCareerPath)} Career Map - IndustryCareerGuide`}\n      description={`Explore the ${getCareerPathDisplayName(selectedCareerPath)} career path with detailed progression maps, skills requirements, and salary information.`}\n      canonicalUrl=\"/careerMap/\"\n    >\n      <div className=\"bg-gray-50 min-h-screen\">\n        {/* Header Section */}\n        <section className=\"bg-gradient-to-r from-primary-600 to-purple-600 text-white section-padding\">\n          <div className=\"container-max text-center\">\n            <h1 className=\"text-3xl md:text-4xl font-bold mb-4\">\n              Interactive Career Maps\n            </h1>\n            <p className=\"text-xl opacity-90 max-w-2xl mx-auto\">\n              Explore detailed career progression paths with skills, timelines, and salary information for STEM industry roles.\n            </p>\n          </div>\n        </section>\n\n        {/* Career Path Selector */}\n        <section className=\"bg-white border-b\">\n          <div className=\"container-max py-8\">\n            <div className=\"flex flex-col lg:flex-row items-center justify-between gap-6\">\n              <div>\n                <h2 className=\"text-xl font-semibold text-gray-900 mb-2\">\n                  Select a Career Path to Explore\n                </h2>\n                <p className=\"text-gray-600\">\n                  Choose from our comprehensive collection of STEM industry career paths\n                </p>\n              </div>\n              \n              <div className=\"flex flex-col gap-4\">\n                <select\n                  value={selectedCareerPath}\n                  onChange={(e) => handleCareerPathChange(e.target.value)}\n                  className=\"px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white min-w-64\"\n                >\n                  {careerPaths.map((path) => (\n                    <option key={path} value={path}>\n                      {getCareerPathDisplayName(path)}\n                    </option>\n                  ))}\n                </select>\n                \n                <div className=\"flex items-center gap-4\">\n                  <label className=\"flex items-center gap-2 text-sm text-gray-600\">\n                    <input\n                      type=\"checkbox\"\n                      checked={showPivots}\n                      onChange={(e) => setShowPivots(e.target.checked)}\n                      className=\"rounded border-gray-300 text-primary-600 focus:ring-primary-500\"\n                    />\n                    Show Pivot Opportunities\n                  </label>\n                </div>\n              </div>\n            </div>\n          </div>\n        </section>\n\n        {/* Career Map Component */}\n        <section>\n          <CareerMap \n            careerPath={selectedCareerPath}\n            showPivots={showPivots}\n            interactive={true}\n          />\n        </section>\n\n        {/* Additional Information */}\n        <section className=\"bg-white section-padding border-t\">\n          <div className=\"container-max\">\n            <div className=\"grid md:grid-cols-2 lg:grid-cols-3 gap-8\">\n              <div className=\"card\">\n                <h3 className=\"text-lg font-semibold text-gray-900 mb-3\">\n                  💡 How to Use This Map\n                </h3>\n                <ul className=\"text-sm text-gray-600 space-y-2\">\n                  <li>• Click on career stages to expand detailed information</li>\n                  <li>• Review skill requirements for each progression level</li>\n                  <li>• Explore pivot opportunities to related career paths</li>\n                  <li>• Use salary ranges to plan your financial trajectory</li>\n                </ul>\n              </div>\n              \n              <div className=\"card\">\n                <h3 className=\"text-lg font-semibold text-gray-900 mb-3\">\n                  🎯 Next Steps\n                </h3>\n                <ul className=\"text-sm text-gray-600 space-y-2\">\n                  <li>• Take our career assessment for personalized matches</li>\n                  <li>• Generate a custom action plan for your chosen path</li>\n                  <li>• Optimize your resume for industry applications</li>\n                  <li>• Connect with professionals in your target field</li>\n                </ul>\n              </div>\n              \n              <div className=\"card\">\n                <h3 className=\"text-lg font-semibold text-gray-900 mb-3\">\n                  📊 Data Sources\n                </h3>\n                <ul className=\"text-sm text-gray-600 space-y-2\">\n                  <li>• Industry salary surveys and job market data</li>\n                  <li>• Professional networking platform insights</li>\n                  <li>• Career transition success stories</li>\n                  <li>• Expert interviews and industry analysis</li>\n                </ul>\n              </div>\n            </div>\n          </div>\n        </section>\n\n        {/* Quick Actions */}\n        <section className=\"bg-primary-50 section-padding\">\n          <div className=\"container-max text-center\">\n            <h2 className=\"text-2xl font-bold text-gray-900 mb-4\">\n              Ready to Start Your Journey?\n            </h2>\n            <p className=\"text-lg text-gray-600 max-w-2xl mx-auto mb-8\">\n              Take action on your career transition with our comprehensive tools and resources.\n            </p>\n            \n            <div className=\"flex flex-col sm:flex-row gap-4 justify-center\">\n              <a\n                href=\"/quiz/\"\n                className=\"btn-primary text-lg px-8 py-3\"\n              >\n                Take Career Assessment\n              </a>\n              <a\n                href={`/actionPlan/?career=${selectedCareerPath}`}\n                className=\"btn-secondary text-lg px-8 py-3\"\n              >\n                Get Action Plan\n              </a>\n              <a\n                href=\"https://industryresume.com\"\n                target=\"_blank\"\n                rel=\"noopener noreferrer\"\n                className=\"border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200\"\n              >\n                Optimize Resume\n              </a>\n            </div>\n          </div>\n        </section>\n\n        {/* Career Path Grid for Mobile */}\n        <section className=\"bg-gray-100 section-padding lg:hidden\">\n          <div className=\"container-max\">\n            <h3 className=\"text-xl font-semibold text-gray-900 mb-6 text-center\">\n              Explore Other Career Paths\n            </h3>\n            \n            <div className=\"grid grid-cols-1 sm:grid-cols-2 gap-4\">\n              {careerPaths.filter(path => path !== selectedCareerPath).map((path) => (\n                <button\n                  key={path}\n                  onClick={() => handleCareerPathChange(path)}\n                  className=\"p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow text-left\"\n                >\n                  <h4 className=\"font-semibold text-gray-900 mb-1\">\n                    {getCareerPathDisplayName(path)}\n                  </h4>\n                  <p className=\"text-sm text-gray-600\">\n                    {careerTrajectories.career_trajectories[path]?.timeline_years || 'View career progression'}\n                  </p>\n                </button>\n              ))}\n            </div>\n          </div>\n        </section>\n      </div>\n    </Layout>\n  );\n};\n\nexport default CareerMapPage;
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Layout from '../../components/Layout';
+import CareerMap from '../../components/CareerMap';
+import careerTrajectories from '../../data/careerTrajectories.json';
+
+const CareerMapPage = () => {
+  const router = useRouter();
+  const { path } = router.query;
+  const [selectedCareerPath, setSelectedCareerPath] = useState(path || 'data_scientist');
+  const [showPivots, setShowPivots] = useState(true);
+
+  const careerPaths = Object.keys(careerTrajectories.career_trajectories);
+
+  useEffect(() => {
+    if (path && careerPaths.includes(path)) {
+      setSelectedCareerPath(path);
+    }
+  }, [path, careerPaths]);
+
+  const handleCareerPathChange = (newPath) => {
+    setSelectedCareerPath(newPath);
+    router.push(`/careerMap/?path=${newPath}`, undefined, { shallow: true });
+  };
+
+  const getCareerPathDisplayName = (careerPath) => {
+    return careerTrajectories.career_trajectories[careerPath]?.name || 
+           careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+  };
+
+  return (
+    <Layout
+      title={`${getCareerPathDisplayName(selectedCareerPath)} Career Map - IndustryCareerGuide`}
+      description={`Explore the ${getCareerPathDisplayName(selectedCareerPath)} career path with detailed progression maps, skills requirements, and salary information.`}
+      canonicalUrl="/careerMap/"
+    >
+      <div className="bg-gray-50 min-h-screen">
+        <section className="bg-gradient-to-r from-primary-600 to-purple-600 text-white section-padding">
+          <div className="container-max text-center">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+              Interactive Career Maps
+            </h1>
+            <p className="text-xl opacity-90 max-w-2xl mx-auto">
+              Explore detailed career progression paths with skills, timelines, and salary information for STEM industry roles.
+            </p>
+          </div>
+        </section>
+
+        <section className="bg-white border-b">
+          <div className="container-max py-8">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+              <div>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                  Select a Career Path to Explore
+                </h2>
+                <p className="text-gray-600">
+                  Choose from our comprehensive collection of STEM industry career paths
+                </p>
+              </div>
+              
+              <div className="flex flex-col gap-4">
+                <select
+                  value={selectedCareerPath}
+                  onChange={(e) => handleCareerPathChange(e.target.value)}
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white min-w-64"
+                >
+                  {careerPaths.map((path) => (
+                    <option key={path} value={path}>
+                      {getCareerPathDisplayName(path)}
+                    </option>
+                  ))}
+                </select>
+                
+                <div className="flex items-center gap-4">
+                  <label className="flex items-center gap-2 text-sm text-gray-600">
+                    <input
+                      type="checkbox"
+                      checked={showPivots}
+                      onChange={(e) => setShowPivots(e.target.checked)}
+                      className="rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                    />
+                    Show Pivot Opportunities
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <CareerMap 
+            careerPath={selectedCareerPath}
+            showPivots={showPivots}
+            interactive={true}
+          />
+        </section>
+
+        <section className="bg-white section-padding border-t">
+          <div className="container-max">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="card">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  💡 How to Use This Map
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• Click on career stages to expand detailed information</li>
+                  <li>• Review skill requirements for each progression level</li>
+                  <li>• Explore pivot opportunities to related career paths</li>
+                  <li>• Use salary ranges to plan your financial trajectory</li>
+                </ul>
+              </div>
+              
+              <div className="card">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  🎯 Next Steps
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• Take our career assessment for personalized matches</li>
+                  <li>• Generate a custom action plan for your chosen path</li>
+                  <li>• Optimize your resume for industry applications</li>
+                  <li>• Connect with professionals in your target field</li>
+                </ul>
+              </div>
+              
+              <div className="card">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  📊 Data Sources
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• Industry salary surveys and job market data</li>
+                  <li>• Professional networking platform insights</li>
+                  <li>• Career transition success stories</li>
+                  <li>• Expert interviews and industry analysis</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-primary-50 section-padding">
+          <div className="container-max text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Ready to Start Your Journey?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              Take action on your career transition with our comprehensive tools and resources.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/quiz/" className="btn-primary text-lg px-8 py-3">
+                Take Career Assessment
+              </a>
+              <a href={`/actionPlan/?career=${selectedCareerPath}`} className="btn-secondary text-lg px-8 py-3">
+                Get Action Plan
+              </a>
+              <a
+                href="https://industryresume.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              >
+                Optimize Resume
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-gray-100 section-padding lg:hidden">
+          <div className="container-max">
+            <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">
+              Explore Other Career Paths
+            </h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {careerPaths.filter(path => path !== selectedCareerPath).map((path) => (
+                <button
+                  key={path}
+                  onClick={() => handleCareerPathChange(path)}
+                  className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow text-left"
+                >
+                  <h4 className="font-semibold text-gray-900 mb-1">
+                    {getCareerPathDisplayName(path)}
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    {careerTrajectories.career_trajectories[path]?.timeline_years || 'View career progression'}
+                  </p>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </Layout>
+  );
+};
+
+export default CareerMapPage;

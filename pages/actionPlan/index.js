@@ -1,1 +1,287 @@
-import React, { useState, useEffect } from 'react';\nimport { useRouter } from 'next/router';\nimport Layout from '../../components/Layout';\nimport ActionPlan from '../../components/ActionPlan';\nimport careerPaths from '../../data/careerPaths.json';\n\nconst ActionPlanPage = () => {\n  const router = useRouter();\n  const { career } = router.query;\n  const [quizAnswers, setQuizAnswers] = useState(null);\n  const [selectedCareer, setSelectedCareer] = useState(career || null);\n  const [userProfile, setUserProfile] = useState({});\n  const [showProfileForm, setShowProfileForm] = useState(false);\n  const [hasQuizData, setHasQuizData] = useState(false);\n\n  const availableCareers = Object.keys(careerPaths.career_paths);\n\n  useEffect(() => {\n    // Check for quiz answers in sessionStorage\n    const storedAnswers = sessionStorage.getItem('quizAnswers');\n    \n    if (storedAnswers) {\n      try {\n        const answers = JSON.parse(storedAnswers);\n        setQuizAnswers(answers);\n        setHasQuizData(true);\n      } catch (err) {\n        console.error('Error parsing quiz answers:', err);\n      }\n    }\n\n    // Set career from URL parameter\n    if (career && availableCareers.includes(career)) {\n      setSelectedCareer(career);\n    }\n  }, [career, availableCareers]);\n\n  const handleProfileSubmit = (profileData) => {\n    setUserProfile(profileData);\n    setShowProfileForm(false);\n  };\n\n  const handleCareerSelect = (careerPath) => {\n    setSelectedCareer(careerPath);\n    // Update URL without page reload\n    router.push(`/actionPlan/?career=${careerPath}`, undefined, { shallow: true });\n  };\n\n  const getCareerDisplayName = (careerPath) => {\n    return careerPaths.career_paths[careerPath]?.name || \n           careerPath.replace('_', ' ').replace(/\\b\\w/g, l => l.toUpperCase());\n  };\n\n  // Profile form component\n  const ProfileForm = ({ onSubmit, onCancel }) => {\n    const [formData, setFormData] = useState({\n      yearsExperience: '',\n      hasPhD: true,\n      currentRole: '',\n      targetTimeframe: ''\n    });\n\n    const handleSubmit = (e) => {\n      e.preventDefault();\n      onSubmit({\n        ...formData,\n        yearsExperience: parseInt(formData.yearsExperience) || 0\n      });\n    };\n\n    return (\n      <div className=\"bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto\">\n        <h3 className=\"text-lg font-semibold text-gray-900 mb-4\">\n          Tell us about your background\n        </h3>\n        <form onSubmit={handleSubmit} className=\"space-y-4\">\n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-1\">\n              Years of Research Experience\n            </label>\n            <select\n              value={formData.yearsExperience}\n              onChange={(e) => setFormData({...formData, yearsExperience: e.target.value})}\n              className=\"w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500\"\n              required\n            >\n              <option value=\"\">Select experience level</option>\n              <option value=\"0\">0-1 years (PhD student)</option>\n              <option value=\"2\">2-3 years (Recent PhD/Postdoc)</option>\n              <option value=\"4\">4-6 years (Experienced Postdoc)</option>\n              <option value=\"7\">7+ years (Senior Researcher)</option>\n            </select>\n          </div>\n          \n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-1\">\n              Education Level\n            </label>\n            <select\n              value={formData.hasPhD}\n              onChange={(e) => setFormData({...formData, hasPhD: e.target.value === 'true'})}\n              className=\"w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500\"\n            >\n              <option value=\"true\">PhD or equivalent</option>\n              <option value=\"false\">Master's degree</option>\n            </select>\n          </div>\n          \n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-1\">\n              Current Role (Optional)\n            </label>\n            <input\n              type=\"text\"\n              value={formData.currentRole}\n              onChange={(e) => setFormData({...formData, currentRole: e.target.value})}\n              placeholder=\"e.g., Postdoc, PhD Student, Research Scientist\"\n              className=\"w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500\"\n            />\n          </div>\n          \n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-1\">\n              Target Transition Timeline\n            </label>\n            <select\n              value={formData.targetTimeframe}\n              onChange={(e) => setFormData({...formData, targetTimeframe: e.target.value})}\n              className=\"w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500\"\n            >\n              <option value=\"\">Select timeframe</option>\n              <option value=\"immediate\">Immediate (0-3 months)</option>\n              <option value=\"short\">Short-term (3-6 months)</option>\n              <option value=\"medium\">Medium-term (6-12 months)</option>\n              <option value=\"long\">Long-term (12+ months)</option>\n            </select>\n          </div>\n          \n          <div className=\"flex gap-3 pt-4\">\n            <button\n              type=\"submit\"\n              className=\"flex-1 btn-primary\"\n            >\n              Create Action Plan\n            </button>\n            <button\n              type=\"button\"\n              onClick={onCancel}\n              className=\"flex-1 btn-secondary\"\n            >\n              Skip\n            </button>\n          </div>\n        </form>\n      </div>\n    );\n  };\n\n  // If no quiz data and no selected career, show selection screen\n  if (!hasQuizData && !selectedCareer) {\n    return (\n      <Layout\n        title=\"Create Your Action Plan - IndustryCareerGuide\"\n        description=\"Generate a personalized action plan for your STEM PhD to industry career transition.\"\n        canonicalUrl=\"/actionPlan/\"\n      >\n        <div className=\"bg-gray-50 min-h-screen\">\n          {/* Header */}\n          <section className=\"bg-gradient-to-r from-primary-600 to-purple-600 text-white section-padding\">\n            <div className=\"container-max text-center\">\n              <h1 className=\"text-3xl md:text-4xl font-bold mb-4\">\n                Create Your Personalized Action Plan\n              </h1>\n              <p className=\"text-xl opacity-90 max-w-2xl mx-auto\">\n                Get a customized roadmap with courses, certifications, and milestones for your industry transition.\n              </p>\n            </div>\n          </section>\n\n          {/* Career Selection */}\n          <section className=\"section-padding\">\n            <div className=\"container-max max-w-4xl\">\n              <div className=\"text-center mb-12\">\n                <h2 className=\"text-2xl font-bold text-gray-900 mb-4\">\n                  Choose Your Target Career Path\n                </h2>\n                <p className=\"text-gray-600 mb-8\">\n                  Select the career path you're most interested in pursuing, or take our assessment for personalized recommendations.\n                </p>\n                \n                <div className=\"flex flex-col sm:flex-row gap-4 justify-center mb-12\">\n                  <a href=\"/quiz/\" className=\"btn-primary text-lg px-8 py-3\">\n                    Take Career Assessment First\n                  </a>\n                  <span className=\"text-gray-500 self-center\">or</span>\n                  <button \n                    onClick={() => setShowProfileForm(true)}\n                    className=\"btn-secondary text-lg px-8 py-3\"\n                  >\n                    Choose Career Below\n                  </button>\n                </div>\n              </div>\n              \n              {/* Career Grid */}\n              <div className=\"grid md:grid-cols-2 lg:grid-cols-3 gap-6\">\n                {availableCareers.map((careerPath) => {\n                  const career = careerPaths.career_paths[careerPath];\n                  return (\n                    <button\n                      key={careerPath}\n                      onClick={() => handleCareerSelect(careerPath)}\n                      className=\"card text-left hover:shadow-lg transition-shadow duration-300 border-2 border-transparent hover:border-primary-200\"\n                    >\n                      <h3 className=\"text-lg font-semibold text-gray-900 mb-2\">\n                        {career.name}\n                      </h3>\n                      <p className=\"text-sm text-gray-600 mb-4\">\n                        {career.description}\n                      </p>\n                      <div className=\"text-sm text-primary-600 font-medium\">\n                        Click to create action plan →\n                      </div>\n                    </button>\n                  );\n                })}\n              </div>\n            </div>\n          </section>\n        </div>\n      </Layout>\n    );\n  }\n\n  // Show profile form if needed\n  if (selectedCareer && showProfileForm) {\n    return (\n      <Layout\n        title={`${getCareerDisplayName(selectedCareer)} Action Plan - IndustryCareerGuide`}\n        description={`Create a personalized action plan for transitioning to ${getCareerDisplayName(selectedCareer)}.`}\n      >\n        <div className=\"bg-gray-50 min-h-screen\">\n          <section className=\"section-padding\">\n            <div className=\"container-max max-w-2xl\">\n              <div className=\"text-center mb-8\">\n                <h1 className=\"text-2xl font-bold text-gray-900 mb-2\">\n                  {getCareerDisplayName(selectedCareer)} Action Plan\n                </h1>\n                <p className=\"text-gray-600\">\n                  Help us customize your action plan with some basic information about your background.\n                </p>\n              </div>\n              \n              <ProfileForm \n                onSubmit={handleProfileSubmit}\n                onCancel={() => setShowProfileForm(false)}\n              />\n            </div>\n          </section>\n        </div>\n      </Layout>\n    );\n  }\n\n  // Show action plan if we have all required data\n  if (selectedCareer && (hasQuizData || Object.keys(userProfile).length > 0)) {\n    return (\n      <Layout\n        title={`${getCareerDisplayName(selectedCareer)} Action Plan - IndustryCareerGuide`}\n        description={`Your personalized action plan for transitioning to ${getCareerDisplayName(selectedCareer)} with courses, certifications, and milestones.`}\n        canonicalUrl={`/actionPlan/?career=${selectedCareer}`}\n      >\n        <ActionPlan \n          quizAnswers={quizAnswers}\n          topCareerMatch={selectedCareer}\n          userProfile={userProfile}\n        />\n      </Layout>\n    );\n  }\n\n  // Show profile form for selected career\n  if (selectedCareer && !showProfileForm) {\n    setShowProfileForm(true);\n  }\n\n  // Fallback loading state\n  return (\n    <Layout\n      title=\"Loading Action Plan - IndustryCareerGuide\"\n      description=\"Loading your personalized action plan.\"\n    >\n      <div className=\"section-padding bg-primary-50\">\n        <div className=\"container-max max-w-2xl text-center\">\n          <div className=\"animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600 mx-auto mb-6\"></div>\n          <h1 className=\"text-2xl font-bold text-gray-900 mb-4\">Loading Your Action Plan</h1>\n          <p className=\"text-gray-600\">\n            We're preparing your personalized career transition roadmap...\n          </p>\n        </div>\n      </div>\n    </Layout>\n  );\n};\n\nexport default ActionPlanPage;
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Layout from '../../components/Layout';
+import ActionPlan from '../../components/ActionPlan';
+import careerPaths from '../../data/careerPaths.json';
+
+const ActionPlanPage = () => {
+  const router = useRouter();
+  const { career } = router.query;
+  const [quizAnswers, setQuizAnswers] = useState(null);
+  const [selectedCareer, setSelectedCareer] = useState(career || null);
+  const [userProfile, setUserProfile] = useState({});
+  const [showProfileForm, setShowProfileForm] = useState(false);
+  const [hasQuizData, setHasQuizData] = useState(false);
+
+  const availableCareers = Object.keys(careerPaths.career_paths);
+
+  useEffect(() => {
+    const storedAnswers = sessionStorage.getItem('quizAnswers');
+    
+    if (storedAnswers) {
+      try {
+        const answers = JSON.parse(storedAnswers);
+        setQuizAnswers(answers);
+        setHasQuizData(true);
+      } catch (err) {
+        console.error('Error parsing quiz answers:', err);
+      }
+    }
+
+    if (career && availableCareers.includes(career)) {
+      setSelectedCareer(career);
+    }
+  }, [career, availableCareers]);
+
+  const handleProfileSubmit = (profileData) => {
+    setUserProfile(profileData);
+    setShowProfileForm(false);
+  };
+
+  const handleCareerSelect = (careerPath) => {
+    setSelectedCareer(careerPath);
+    router.push(`/actionPlan/?career=${careerPath}`, undefined, { shallow: true });
+  };
+
+  const getCareerDisplayName = (careerPath) => {
+    return careerPaths.career_paths[careerPath]?.name || 
+           careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+  };
+
+  const ProfileForm = ({ onSubmit, onCancel }) => {
+    const [formData, setFormData] = useState({
+      yearsExperience: '',
+      hasPhD: true,
+      currentRole: '',
+      targetTimeframe: ''
+    });
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      onSubmit({
+        ...formData,
+        yearsExperience: parseInt(formData.yearsExperience) || 0
+      });
+    };
+
+    return (
+      <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          Tell us about your background
+        </h3>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Years of Research Experience
+            </label>
+            <select
+              value={formData.yearsExperience}
+              onChange={(e) => setFormData({...formData, yearsExperience: e.target.value})}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+              required
+            >
+              <option value="">Select experience level</option>
+              <option value="0">0-1 years (PhD student)</option>
+              <option value="2">2-3 years (Recent PhD/Postdoc)</option>
+              <option value="4">4-6 years (Experienced Postdoc)</option>
+              <option value="7">7+ years (Senior Researcher)</option>
+            </select>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Education Level
+            </label>
+            <select
+              value={formData.hasPhD}
+              onChange={(e) => setFormData({...formData, hasPhD: e.target.value === 'true'})}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+            >
+              <option value="true">PhD or equivalent</option>
+              <option value="false">Master's degree</option>
+            </select>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Current Role (Optional)
+            </label>
+            <input
+              type="text"
+              value={formData.currentRole}
+              onChange={(e) => setFormData({...formData, currentRole: e.target.value})}
+              placeholder="e.g., Postdoc, PhD Student, Research Scientist"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Target Transition Timeline
+            </label>
+            <select
+              value={formData.targetTimeframe}
+              onChange={(e) => setFormData({...formData, targetTimeframe: e.target.value})}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+            >
+              <option value="">Select timeframe</option>
+              <option value="immediate">Immediate (0-3 months)</option>
+              <option value="short">Short-term (3-6 months)</option>
+              <option value="medium">Medium-term (6-12 months)</option>
+              <option value="long">Long-term (12+ months)</option>
+            </select>
+          </div>
+          
+          <div className="flex gap-3 pt-4">
+            <button type="submit" className="flex-1 btn-primary">
+              Create Action Plan
+            </button>
+            <button type="button" onClick={onCancel} className="flex-1 btn-secondary">
+              Skip
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  };
+
+  if (!hasQuizData && !selectedCareer) {
+    return (
+      <Layout
+        title="Create Your Action Plan - IndustryCareerGuide"
+        description="Generate a personalized action plan for your STEM PhD to industry career transition."
+        canonicalUrl="/actionPlan/"
+      >
+        <div className="bg-gray-50 min-h-screen">
+          <section className="bg-gradient-to-r from-primary-600 to-purple-600 text-white section-padding">
+            <div className="container-max text-center">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                Create Your Personalized Action Plan
+              </h1>
+              <p className="text-xl opacity-90 max-w-2xl mx-auto">
+                Get a customized roadmap with courses, certifications, and milestones for your industry transition.
+              </p>
+            </div>
+          </section>
+
+          <section className="section-padding">
+            <div className="container-max max-w-4xl">
+              <div className="text-center mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Choose Your Target Career Path
+                </h2>
+                <p className="text-gray-600 mb-8">
+                  Select the career path you're most interested in pursuing, or take our assessment for personalized recommendations.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                  <a href="/quiz/" className="btn-primary text-lg px-8 py-3">
+                    Take Career Assessment First
+                  </a>
+                  <span className="text-gray-500 self-center">or</span>
+                  <button 
+                    onClick={() => setShowProfileForm(true)}
+                    className="btn-secondary text-lg px-8 py-3"
+                  >
+                    Choose Career Below
+                  </button>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {availableCareers.map((careerPath) => {
+                  const career = careerPaths.career_paths[careerPath];
+                  return (
+                    <button
+                      key={careerPath}
+                      onClick={() => handleCareerSelect(careerPath)}
+                      className="card text-left hover:shadow-lg transition-shadow duration-300 border-2 border-transparent hover:border-primary-200"
+                    >
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        {career.name}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-4">
+                        {career.description}
+                      </p>
+                      <div className="text-sm text-primary-600 font-medium">
+                        Click to create action plan →
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (selectedCareer && showProfileForm) {
+    return (
+      <Layout
+        title={`${getCareerDisplayName(selectedCareer)} Action Plan - IndustryCareerGuide`}
+        description={`Create a personalized action plan for transitioning to ${getCareerDisplayName(selectedCareer)}.`}
+      >
+        <div className="bg-gray-50 min-h-screen">
+          <section className="section-padding">
+            <div className="container-max max-w-2xl">
+              <div className="text-center mb-8">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">
+                  {getCareerDisplayName(selectedCareer)} Action Plan
+                </h1>
+                <p className="text-gray-600">
+                  Help us customize your action plan with some basic information about your background.
+                </p>
+              </div>
+              
+              <ProfileForm 
+                onSubmit={handleProfileSubmit}
+                onCancel={() => setShowProfileForm(false)}
+              />
+            </div>
+          </section>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (selectedCareer && (hasQuizData || Object.keys(userProfile).length > 0)) {
+    return (
+      <Layout
+        title={`${getCareerDisplayName(selectedCareer)} Action Plan - IndustryCareerGuide`}
+        description={`Your personalized action plan for transitioning to ${getCareerDisplayName(selectedCareer)} with courses, certifications, and milestones.`}
+        canonicalUrl={`/actionPlan/?career=${selectedCareer}`}
+      >
+        <ActionPlan 
+          quizAnswers={quizAnswers}
+          topCareerMatch={selectedCareer}
+          userProfile={userProfile}
+        />
+      </Layout>
+    );
+  }
+
+  if (selectedCareer && !showProfileForm) {
+    setShowProfileForm(true);
+  }
+
+  return (
+    <Layout
+      title="Loading Action Plan - IndustryCareerGuide"
+      description="Loading your personalized action plan."
+    >
+      <div className="section-padding bg-primary-50">
+        <div className="container-max max-w-2xl text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600 mx-auto mb-6"></div>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Loading Your Action Plan</h1>
+          <p className="text-gray-600">
+            We're preparing your personalized career transition roadmap...
+          </p>
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default ActionPlanPage;
