@@ -2,7 +2,7 @@
   "metadata": {
     "version": "1.0",
     "lastUpdated": "2025-01-20",
-    "totalPaths": 13,
+    "totalPaths": 8,
     "industries": ["Technology", "Finance", "Healthcare", "Manufacturing", "Consulting"]
   },
   "career_paths": {
@@ -46,12 +46,6 @@
             "provider": "Coursera (Stanford)",
             "duration": "3 months",
             "cost": "$49/month"
-          },
-          {
-            "name": "Data Science MicroMasters",
-            "provider": "edX (MIT)",
-            "duration": "10 months",
-            "cost": "$1,350"
           }
         ],
         "certifications": [
@@ -174,6 +168,273 @@
         "growth_rate": "9% (2022-2032)",
         "job_availability": "High",
         "geographic_hotspots": ["San Francisco", "Seattle", "New York", "Austin", "Los Angeles"],
+        "remote_opportunities": "High"
+      }
+    },
+    "technical_consulting": {
+      "name": "Technical Consulting",
+      "description": "Provide expert technical advice to organizations, helping them solve complex problems and implement new technologies.",
+      "match_profile": {
+        "skills": ["Technical expertise", "Problem solving", "Communication", "Business analysis", "Project management"],
+        "values": ["Variety in work", "Client interaction", "High compensation", "Intellectual challenge"],
+        "temperament": ["Adaptable", "Confident", "Analytical", "Client-focused"],
+        "industries": ["Consulting", "Technology", "Finance", "Healthcare", "Manufacturing"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Associate Consultant", "Technical Consultant", "Analyst"],
+          "salary_range": "$90,000 - $130,000",
+          "years_experience": "0-2",
+          "key_skills": ["Technical analysis", "Client communication", "Problem solving"],
+          "responsibilities": ["Support senior consultants", "Analyze technical problems", "Create presentations"]
+        },
+        "mid_level": {
+          "titles": ["Senior Consultant", "Principal Consultant", "Practice Lead"],
+          "salary_range": "$130,000 - $200,000",
+          "years_experience": "3-6",
+          "key_skills": ["Project leadership", "Client relationship management", "Technical strategy"],
+          "responsibilities": ["Lead client engagements", "Develop solutions", "Manage teams"]
+        },
+        "senior_level": {
+          "titles": ["Director", "Partner", "VP of Consulting"],
+          "salary_range": "$200,000 - $400,000+",
+          "years_experience": "7+",
+          "key_skills": ["Business development", "Strategic thinking", "Practice management"],
+          "responsibilities": ["Build consulting practice", "Client acquisition", "Strategic leadership"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Technical expertise", "Communication", "Problem solving", "Business acumen"],
+        "recommended_courses": [
+          {
+            "name": "Management Consulting Fundamentals",
+            "provider": "Coursera",
+            "duration": "4 weeks",
+            "cost": "$49/month"
+          }
+        ],
+        "certifications": []
+      },
+      "market_outlook": {
+        "growth_rate": "11% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["New York", "San Francisco", "Chicago", "Boston", "Washington DC"],
+        "remote_opportunities": "Medium"
+      }
+    },
+    "software_engineering": {
+      "name": "Software Engineering",
+      "description": "Design, develop, and maintain software systems and applications using programming languages and development frameworks.",
+      "match_profile": {
+        "skills": ["Programming", "System design", "Problem solving", "Software architecture", "Testing"],
+        "values": ["Technical mastery", "Creative problem solving", "Continuous learning", "Good compensation"],
+        "temperament": ["Logical", "Detail-oriented", "Patient", "Collaborative"],
+        "industries": ["Technology", "Finance", "Healthcare", "Gaming", "E-commerce"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Software Engineer I", "Junior Developer", "Associate Engineer"],
+          "salary_range": "$80,000 - $120,000",
+          "years_experience": "0-2",
+          "key_skills": ["Programming languages", "Version control", "Basic algorithms"],
+          "responsibilities": ["Write clean code", "Debug issues", "Learn from senior engineers"]
+        },
+        "mid_level": {
+          "titles": ["Software Engineer II", "Senior Software Engineer", "Tech Lead"],
+          "salary_range": "$120,000 - $180,000",
+          "years_experience": "3-6",
+          "key_skills": ["System design", "Mentoring", "Architecture decisions"],
+          "responsibilities": ["Lead projects", "Mentor juniors", "Design systems"]
+        },
+        "senior_level": {
+          "titles": ["Principal Engineer", "Staff Engineer", "Engineering Manager"],
+          "salary_range": "$180,000 - $350,000+",
+          "years_experience": "7+",
+          "key_skills": ["Technical leadership", "Strategic thinking", "Team management"],
+          "responsibilities": ["Set technical direction", "Lead engineering teams", "Drive innovation"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Programming", "Problem solving", "System thinking", "Collaboration"],
+        "recommended_courses": [
+          {
+            "name": "Full Stack Web Development",
+            "provider": "freeCodeCamp",
+            "duration": "6 months",
+            "cost": "Free"
+          }
+        ],
+        "certifications": []
+      },
+      "market_outlook": {
+        "growth_rate": "25% (2022-2032)",
+        "job_availability": "Very High",
+        "geographic_hotspots": ["San Francisco", "Seattle", "New York", "Austin", "Denver"],
+        "remote_opportunities": "Very High"
+      }
+    },
+    "program_management": {
+      "name": "Program Management",
+      "description": "Coordinate and manage multiple related projects to achieve strategic business objectives and deliver value.",
+      "match_profile": {
+        "skills": ["Project management", "Strategic planning", "Communication", "Risk management", "Leadership"],
+        "values": ["Organization", "Achievement", "Leadership", "Strategic impact"],
+        "temperament": ["Organized", "Decisive", "Collaborative", "Results-oriented"],
+        "industries": ["Technology", "Healthcare", "Finance", "Consulting", "Manufacturing"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Program Coordinator", "Project Manager", "Associate Program Manager"],
+          "salary_range": "$75,000 - $110,000",
+          "years_experience": "0-2",
+          "key_skills": ["Project planning", "Schedule management", "Communication"],
+          "responsibilities": ["Track project progress", "Coordinate teams", "Manage timelines"]
+        },
+        "mid_level": {
+          "titles": ["Senior Program Manager", "Program Director", "Portfolio Manager"],
+          "salary_range": "$110,000 - $170,000",
+          "years_experience": "3-6",
+          "key_skills": ["Strategic planning", "Risk management", "Stakeholder management"],
+          "responsibilities": ["Manage complex programs", "Strategic planning", "Cross-functional leadership"]
+        },
+        "senior_level": {
+          "titles": ["VP Program Management", "Chief Program Officer", "Director PMO"],
+          "salary_range": "$170,000 - $280,000+",
+          "years_experience": "7+",
+          "key_skills": ["Organizational strategy", "Change management", "Executive leadership"],
+          "responsibilities": ["Set program strategy", "Lead PMO", "Drive organizational change"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Project management", "Leadership", "Communication", "Strategic thinking"],
+        "recommended_courses": [
+          {
+            "name": "PMP Certification",
+            "provider": "PMI",
+            "duration": "3 months",
+            "cost": "$1,200"
+          }
+        ],
+        "certifications": [
+          {
+            "name": "PMP (Project Management Professional)",
+            "cost": "$405",
+            "validity": "3 years"
+          }
+        ]
+      },
+      "market_outlook": {
+        "growth_rate": "8% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["Seattle", "San Francisco", "New York", "Chicago", "Atlanta"],
+        "remote_opportunities": "High"
+      }
+    },
+    "finance": {
+      "name": "Finance/Quantitative Analysis",
+      "description": "Apply quantitative and analytical skills to financial markets, risk management, and investment analysis.",
+      "match_profile": {
+        "skills": ["Quantitative analysis", "Statistical modeling", "Risk assessment", "Financial modeling", "Data analysis"],
+        "values": ["High compensation", "Intellectual challenge", "Market impact", "Performance-based rewards"],
+        "temperament": ["Analytical", "Detail-oriented", "Competitive", "Fast-paced"],
+        "industries": ["Finance", "Investment Banking", "Hedge Funds", "Insurance", "Consulting"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Quantitative Analyst", "Financial Analyst", "Risk Analyst"],
+          "salary_range": "$90,000 - $130,000",
+          "years_experience": "0-2",
+          "key_skills": ["Financial modeling", "Statistics", "Programming (Python/R)"],
+          "responsibilities": ["Build financial models", "Analyze market data", "Support trading decisions"]
+        },
+        "mid_level": {
+          "titles": ["Senior Quant", "Portfolio Manager", "Risk Manager"],
+          "salary_range": "$130,000 - $250,000",
+          "years_experience": "3-6",
+          "key_skills": ["Advanced modeling", "Risk management", "Portfolio optimization"],
+          "responsibilities": ["Develop trading strategies", "Manage portfolios", "Lead analysis teams"]
+        },
+        "senior_level": {
+          "titles": ["VP Quantitative Research", "Head of Risk", "Chief Investment Officer"],
+          "salary_range": "$250,000 - $500,000+",
+          "years_experience": "7+",
+          "key_skills": ["Strategic thinking", "Team leadership", "Market expertise"],
+          "responsibilities": ["Set investment strategy", "Lead quantitative teams", "Drive firm performance"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Quantitative analysis", "Programming", "Financial knowledge", "Statistical modeling"],
+        "recommended_courses": [
+          {
+            "name": "Financial Engineering",
+            "provider": "Stanford Online",
+            "duration": "10 weeks",
+            "cost": "$2,500"
+          }
+        ],
+        "certifications": [
+          {
+            "name": "CFA (Chartered Financial Analyst)",
+            "cost": "$3,000",
+            "validity": "Lifetime"
+          }
+        ]
+      },
+      "market_outlook": {
+        "growth_rate": "6% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["New York", "Chicago", "San Francisco", "Boston", "London"],
+        "remote_opportunities": "Medium"
+      }
+    },
+    "business_development": {
+      "name": "Business Development",
+      "description": "Drive business growth through strategic partnerships, new market development, and revenue opportunities.",
+      "match_profile": {
+        "skills": ["Strategic thinking", "Relationship building", "Market analysis", "Negotiation", "Communication"],
+        "values": ["Business impact", "Relationship building", "Growth opportunities", "High earning potential"],
+        "temperament": ["Outgoing", "Persuasive", "Strategic", "Results-oriented"],
+        "industries": ["Technology", "SaaS", "Consulting", "Healthcare", "Finance"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Business Development Associate", "BD Representative", "Strategic Partnerships Coordinator"],
+          "salary_range": "$80,000 - $120,000",
+          "years_experience": "0-2",
+          "key_skills": ["Market research", "Lead generation", "Relationship building"],
+          "responsibilities": ["Identify opportunities", "Support partnerships", "Market analysis"]
+        },
+        "mid_level": {
+          "titles": ["Business Development Manager", "Strategic Partnerships Manager", "BD Director"],
+          "salary_range": "$120,000 - $180,000",
+          "years_experience": "3-6",
+          "key_skills": ["Deal negotiation", "Strategic planning", "Partnership management"],
+          "responsibilities": ["Close partnerships", "Drive revenue growth", "Strategic planning"]
+        },
+        "senior_level": {
+          "titles": ["VP Business Development", "Chief Business Officer", "Head of Partnerships"],
+          "salary_range": "$180,000 - $350,000+",
+          "years_experience": "7+",
+          "key_skills": ["Executive leadership", "Market strategy", "Organizational development"],
+          "responsibilities": ["Set BD strategy", "Lead growth initiatives", "Executive relationships"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Communication", "Strategic thinking", "Relationship building", "Market analysis"],
+        "recommended_courses": [
+          {
+            "name": "Strategic Business Development",
+            "provider": "Coursera",
+            "duration": "6 weeks",
+            "cost": "$79/month"
+          }
+        ],
+        "certifications": []
+      },
+      "market_outlook": {
+        "growth_rate": "10% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["San Francisco", "New York", "Seattle", "Austin", "Boston"],
         "remote_opportunities": "High"
       }
     }

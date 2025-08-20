@@ -28,7 +28,11 @@ const HomePage = () => {
 
   const careerPaths = [
     'data_scientist',
-    'research_scientist'
+    'research_scientist',
+    'product_management',
+    'technical_consulting',
+    'software_engineering',
+    'program_management'
   ];
 
   const testimonials = [
@@ -139,7 +143,7 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {careerPaths.map((path, index) => (
               <div key={index} className="animate-slide-up bg-white rounded-lg shadow p-6" style={{ animationDelay: `${index * 100}ms` }}>
                 <h3 className="text-xl font-semibold mb-2">

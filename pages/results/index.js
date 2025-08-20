@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import { MiniCareerMap } from '../../components/CareerMap';
+import CareerRadarChart from '../../components/CareerRadarChart';
 
 const ResultsPage = () => {
   const router = useRouter();
   const [matches, setMatches] = useState(null);
+  const [radarData, setRadarData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quizAnswers, setQuizAnswers] = useState(null);
@@ -45,6 +47,7 @@ const ResultsPage = () => {
 
       const data = await response.json();
       setMatches(data.matches);
+      setRadarData(data.radarData);
     } catch (err) {
       setError('Failed to analyze your responses. Please try again.');
       console.error('Error fetching career matches:', err);
@@ -221,6 +224,28 @@ const ResultsPage = () => {
             </div>
           </div>
         </section>
+
+        {/* Radar Chart Section */}
+        {radarData && (
+          <section className="bg-gray-50 section-padding">
+            <div className="container-max">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Your Career Profile</h2>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  Your personalized skills, values, and temperament radar chart based on your assessment responses.
+                </p>
+              </div>
+              
+              <div className="max-w-2xl mx-auto">
+                <CareerRadarChart 
+                  scores={radarData.scores}
+                  skillCategories={radarData.categories}
+                  shareText={`I just completed my career assessment! My top match is ${topMatch.details?.name || topMatch.careerPath}. Check out IndustryCareerGuide to find your ideal industry career path!`}
+                />
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="section-padding">
           <div className="container-max">

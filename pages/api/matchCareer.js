@@ -5,6 +5,177 @@ import quizQuestions from '../../data/quizQuestions.json';
 import careerPaths from '../../data/careerPaths.json';
 
 /**
+ * Calculate radar chart data based on quiz answers
+ */
+function calculateRadarChartData(answers) {
+  // Initialize scores for each dimension
+  const dimensions = {
+    leadership: 0,
+    communication: 0,
+    research: 0,
+    problemSolving: 0,
+    independence: 0,
+    collaboration: 0,
+    intellectuality: 0,
+    autonomy: 0
+  };
+  
+  const counts = { ...dimensions };
+  
+  // Process each answer to calculate dimension scores
+  Object.entries(answers).forEach(([questionId, answer]) => {
+    const question = quizQuestions.questions.find(q => q.id === questionId);
+    if (!question) return;
+    
+    // Map question responses to radar dimensions
+    if (question.category === 'skills') {
+      if (question.id === 'skills_1') {
+        // Technical skills question
+        const option = question.options.find(opt => opt.id === answer);
+        if (option) {
+          if (option.text.includes('Data analysis')) {
+            dimensions.research += 0.8;
+            dimensions.problemSolving += 0.7;
+            counts.research++;
+            counts.problemSolving++;
+          } else if (option.text.includes('Software development')) {
+            dimensions.problemSolving += 0.9;
+            dimensions.independence += 0.6;
+            counts.problemSolving++;
+            counts.independence++;
+          } else if (option.text.includes('Research methodology')) {
+            dimensions.research += 1.0;
+            dimensions.intellectuality += 0.8;
+            counts.research++;
+            counts.intellectuality++;
+          } else if (option.text.includes('Project management')) {
+            dimensions.leadership += 0.8;
+            dimensions.collaboration += 0.7;
+            counts.leadership++;
+            counts.collaboration++;
+          }
+        }
+      } else if (question.id === 'skills_2' && Array.isArray(answer)) {
+        // Multiple select skills question
+        answer.forEach(selectedId => {
+          const option = question.options.find(opt => opt.id === selectedId);
+          if (option) {
+            if (option.id === 'data_analysis') {
+              dimensions.research += 0.6;
+              dimensions.problemSolving += 0.6;
+              counts.research++;
+              counts.problemSolving++;
+            } else if (option.id === 'software_development') {
+              dimensions.problemSolving += 0.7;
+              dimensions.independence += 0.5;
+              counts.problemSolving++;
+              counts.independence++;
+            } else if (option.id === 'project_leadership') {
+              dimensions.leadership += 0.8;
+              dimensions.collaboration += 0.6;
+              counts.leadership++;
+              counts.collaboration++;
+            } else if (option.id === 'technical_writing') {
+              dimensions.communication += 0.7;
+              dimensions.intellectuality += 0.5;
+              counts.communication++;
+              counts.intellectuality++;
+            }
+          }
+        });
+      }
+    } else if (question.category === 'values') {
+      if (question.id === 'values_1' && Array.isArray(answer)) {
+        // Ranking question - higher rank = higher weight
+        answer.forEach((optionId, index) => {
+          const weight = (answer.length - index) / answer.length;
+          if (optionId === 'intellectual_challenge') {
+            dimensions.intellectuality += weight;
+            dimensions.research += weight * 0.6;
+            counts.intellectuality++;
+            counts.research++;
+          } else if (optionId === 'financial_reward') {
+            dimensions.independence += weight * 0.5;
+            counts.independence++;
+          } else if (optionId === 'work_life_balance') {
+            dimensions.autonomy += weight;
+            counts.autonomy++;
+          } else if (optionId === 'social_impact') {
+            dimensions.collaboration += weight * 0.7;
+            counts.collaboration++;
+          }
+        });
+      }
+    } else if (question.category === 'temperament') {
+      if (question.id === 'temperament_1') {
+        // Scale question about ambiguity tolerance
+        const scaleValue = parseInt(answer);
+        if (!isNaN(scaleValue)) {
+          const normalizedValue = scaleValue / 5; // Normalize to 0-1
+          dimensions.autonomy += normalizedValue;
+          dimensions.independence += normalizedValue;
+          dimensions.problemSolving += normalizedValue * 0.7;
+          counts.autonomy++;
+          counts.independence++;
+          counts.problemSolving++;
+        }
+      }
+    } else if (question.category === 'ambitions') {
+      if (question.id === 'ambitions_1') {
+        const option = question.options.find(opt => opt.id === answer);
+        if (option) {
+          if (option.text.includes('Deep technical specialization')) {
+            dimensions.research += 0.9;
+            dimensions.intellectuality += 0.8;
+            dimensions.independence += 0.7;
+            counts.research++;
+            counts.intellectuality++;
+            counts.independence++;
+          } else if (option.text.includes('Managing teams')) {
+            dimensions.leadership += 0.9;
+            dimensions.collaboration += 0.8;
+            dimensions.communication += 0.7;
+            counts.leadership++;
+            counts.collaboration++;
+            counts.communication++;
+          } else if (option.text.includes('Building products')) {
+            dimensions.problemSolving += 0.8;
+            dimensions.collaboration += 0.7;
+            dimensions.communication += 0.6;
+            counts.problemSolving++;
+            counts.collaboration++;
+            counts.communication++;
+          }
+        }
+      }
+    }
+  });
+  
+  // Normalize scores by dividing by count and ensuring 0-1 range
+  const normalizedScores = Object.keys(dimensions).map(key => {
+    const score = counts[key] > 0 ? dimensions[key] / counts[key] : 0;
+    return Math.min(Math.max(score, 0), 1); // Clamp between 0 and 1
+  });
+  
+  const categories = [
+    'Leadership',
+    'Communication',
+    'Research', 
+    'Problem Solving',
+    'Independence',
+    'Collaboration',
+    'Intellectuality',
+    'Autonomy'
+  ];
+  
+  return {
+    categories,
+    scores: normalizedScores,
+    rawDimensions: dimensions
+  };
+}
+
+/**
  * Career matching algorithm
  * Takes quiz answers and returns ranked career matches
  */
@@ -41,11 +212,15 @@ export default function handler(req, res) {
 
     // Calculate career matches
     const matches = calculateCareerMatches(answers);
+    
+    // Calculate radar chart data
+    const radarData = calculateRadarChartData(answers);
 
     // Return sorted matches
     res.status(200).json({
       success: true,
       matches: matches.slice(0, 10), // Return top 10 matches
+      radarData,
       metadata: {
         totalCareers: Object.keys(careerPaths.career_paths).length,
         timestamp: new Date().toISOString()
