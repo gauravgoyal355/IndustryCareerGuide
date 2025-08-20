@@ -172,7 +172,7 @@ const ActionPlanPage = () => {
                   Choose Your Target Career Path
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  Select the career path you're most interested in pursuing, or take our assessment for personalized recommendations.
+                  Select the career path you&apos;re most interested in pursuing, or take our assessment for personalized recommendations.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

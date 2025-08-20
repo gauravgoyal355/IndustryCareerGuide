@@ -67,21 +67,21 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
 
   if (loading) {
     return (
-      <div className=\"flex items-center justify-center p-8\">
-        <div className=\"animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600\"></div>
-        <span className=\"ml-3 text-gray-600\">Generating your personalized action plan...</span>
+      <div className="flex items-center justify-center p-8">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <span className="ml-3 text-gray-600">Generating your personalized action plan...</span>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className=\"bg-red-50 border border-red-200 rounded-lg p-6\">
-        <h3 className=\"text-red-800 font-semibold mb-2\">Error Generating Action Plan</h3>
-        <p className=\"text-red-600\">{error}</p>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="text-red-800 font-semibold mb-2">Error Generating Action Plan</h3>
+        <p className="text-red-600">{error}</p>
         <button 
           onClick={generateActionPlan}
-          className=\"mt-3 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors\"
+          className="mt-3 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
         >
           Try Again
         </button>
@@ -91,7 +91,7 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
 
   if (!actionPlan) {
     return (
-      <div className=\"text-center p-8 text-gray-500\">
+      <div className="text-center p-8 text-gray-500">
         <p>Complete the career assessment to generate your personalized action plan.</p>
       </div>
     );
@@ -100,32 +100,32 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
   const SectionHeader = ({ title, section, icon }) => (
     <button
       onClick={() => toggleSection(section)}
-      className=\"w-full flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors border-b\"
+      className="w-full flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors border-b"
     >
-      <div className=\"flex items-center space-x-3\">
-        <span className=\"text-2xl\">{icon}</span>
-        <h3 className=\"text-lg font-semibold text-gray-800\">{title}</h3>
+      <div className="flex items-center space-x-3">
+        <span className="text-2xl">{icon}</span>
+        <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
       </div>
-      <span className=\"text-gray-400\">
+      <span className="text-gray-400">
         {expandedSections[section] ? '▲' : '▼'}
       </span>
     </button>
   );
 
   const MilestoneCard = ({ timeframe, milestone }) => (
-    <div className=\"bg-white rounded-lg border shadow-sm p-4\">
-      <div className=\"flex items-center justify-between mb-3\">
-        <h4 className=\"font-semibold text-gray-800\">{timeframe}</h4>
+    <div className="bg-white rounded-lg border shadow-sm p-4">
+      <div className="flex items-center justify-between mb-3">
+        <h4 className="font-semibold text-gray-800">{timeframe}</h4>
         <span className={`px-2 py-1 rounded text-xs border ${getPriorityColor(milestone.priority)}`}>
           {milestone.priority} priority
         </span>
       </div>
-      <h5 className=\"font-medium text-blue-600 mb-3\">{milestone.title}</h5>
-      <ul className=\"space-y-2\">
+      <h5 className="font-medium text-blue-600 mb-3">{milestone.title}</h5>
+      <ul className="space-y-2">
         {milestone.tasks.map((task, index) => (
-          <li key={index} className=\"flex items-start space-x-2\">
-            <span className=\"text-green-500 mt-1\">✓</span>
-            <span className=\"text-sm text-gray-700\">{task}</span>
+          <li key={index} className="flex items-start space-x-2">
+            <span className="text-green-500 mt-1">✓</span>
+            <span className="text-sm text-gray-700">{task}</span>
           </li>
         ))}
       </ul>
@@ -224,36 +224,36 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
 
   const ResumeRecommendation = ({ recommendation, isMain = false }) => (
     <div className={`border rounded-lg p-4 ${isMain ? 'border-blue-300 bg-blue-50' : 'border-gray-200'}`}>
-      <div className=\"flex items-center justify-between mb-2\">
-        <h5 className=\"font-semibold text-gray-800\">{recommendation.title}</h5>
+      <div className="flex items-center justify-between mb-2">
+        <h5 className="font-semibold text-gray-800">{recommendation.title}</h5>
         <span className={`px-2 py-1 rounded text-xs border ${getPriorityColor(recommendation.priority)}`}>
           {recommendation.priority}
         </span>
       </div>
-      <p className=\"text-sm text-gray-600 mb-3\">{recommendation.description}</p>
+      <p className="text-sm text-gray-600 mb-3">{recommendation.description}</p>
       <a 
         href={recommendation.url}
-        target=\"_blank\"
-        rel=\"noopener noreferrer\"
-        className=\"inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors\"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors"
       >
         Access Resource
-        <span className=\"ml-1\">→</span>
+        <span className="ml-1">→</span>
       </a>
     </div>
   );
 
   const SkillCategory = ({ title, skills, icon }) => (
-    <div className=\"bg-gray-50 rounded-lg p-4\">
-      <div className=\"flex items-center space-x-2 mb-3\">
+    <div className="bg-gray-50 rounded-lg p-4">
+      <div className="flex items-center space-x-2 mb-3">
         <span>{icon}</span>
-        <h5 className=\"font-semibold text-gray-800\">{title}</h5>
+        <h5 className="font-semibold text-gray-800">{title}</h5>
       </div>
-      <div className=\"flex flex-wrap gap-2\">
+      <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
           <span 
             key={index}
-            className=\"px-3 py-1 bg-white rounded border text-sm text-gray-700\"
+            className="px-3 py-1 bg-white rounded border text-sm text-gray-700"
           >
             {skill}
           </span>
@@ -263,35 +263,35 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
   );
 
   return (
-    <div className=\"max-w-4xl mx-auto bg-gray-50 rounded-lg shadow-lg overflow-hidden\">
+    <div className="max-w-4xl mx-auto bg-gray-50 rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
-      <div className=\"bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6\">
-        <h2 className=\"text-2xl font-bold mb-2\">Your Personalized Action Plan</h2>
-        <p className=\"opacity-90\">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
+        <h2 className="text-2xl font-bold mb-2">Your Personalized Action Plan</h2>
+        <p className="opacity-90">
           Transition from {actionPlan.overview.currentStage} to {actionPlan.overview.targetStage}
         </p>
-        <div className=\"mt-4 flex space-x-6 text-sm\">
+        <div className="mt-4 flex space-x-6 text-sm">
           <div>
-            <span className=\"opacity-75\">Estimated Timeline: </span>
-            <span className=\"font-semibold\">{actionPlan.overview.estimatedTimeframe}</span>
+            <span className="opacity-75">Estimated Timeline: </span>
+            <span className="font-semibold">{actionPlan.overview.estimatedTimeframe}</span>
           </div>
           <div>
-            <span className=\"opacity-75\">Readiness Score: </span>
-            <span className=\"font-semibold\">{actionPlan.overview.confidenceScore}%</span>
+            <span className="opacity-75">Readiness Score: </span>
+            <span className="font-semibold">{actionPlan.overview.confidenceScore}%</span>
           </div>
         </div>
       </div>
 
       {/* Timeline Milestones Section */}
-      <div className=\"border-b\">
+      <div className="border-b">
         <SectionHeader 
-          title=\"Timeline & Milestones\" 
-          section=\"milestones\" 
-          icon=\"🎯\" 
+          title="Timeline & Milestones" 
+          section="milestones" 
+          icon="🎯" 
         />
         {expandedSections.milestones && (
-          <div className=\"p-6 bg-gray-50\">
-            <div className=\"grid md:grid-cols-3 gap-4\">
+          <div className="p-6 bg-gray-50">
+            <div className="grid md:grid-cols-3 gap-4">
               {Object.entries(actionPlan.milestones).map(([timeframe, milestone]) => (
                 <MilestoneCard 
                   key={timeframe}
@@ -305,14 +305,14 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
       </div>
 
       {/* Resume Recommendations Section */}
-      <div className=\"border-b\">
+      <div className="border-b">
         <SectionHeader 
-          title=\"Resume & Application Materials\" 
-          section=\"resume\" 
-          icon=\"📄\" 
+          title="Resume & Application Materials" 
+          section="resume" 
+          icon="📄" 
         />
         {expandedSections.resume && (
-          <div className=\"p-6 space-y-4\">
+          <div className="p-6 space-y-4">
             {/* Primary Recommendation */}
             <ResumeRecommendation 
               recommendation={actionPlan.resumeRecommendations.primaryRecommendation}
@@ -320,20 +320,20 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
             />
             
             {/* Additional Resources */}
-            <div className=\"grid md:grid-cols-2 gap-4\">
+            <div className="grid md:grid-cols-2 gap-4">
               {actionPlan.resumeRecommendations.additionalResources.map((resource, index) => (
                 <ResumeRecommendation key={index} recommendation={resource} />
               ))}
             </div>
 
             {/* Key Focus Areas */}
-            <div className=\"bg-blue-50 border border-blue-200 rounded-lg p-4\">
-              <h5 className=\"font-semibold text-blue-800 mb-3\">Key Resume Focus Areas</h5>
-              <ul className=\"space-y-1\">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h5 className="font-semibold text-blue-800 mb-3">Key Resume Focus Areas</h5>
+              <ul className="space-y-1">
                 {actionPlan.resumeRecommendations.keyFocusAreas.map((area, index) => (
-                  <li key={index} className=\"flex items-start space-x-2\">
-                    <span className=\"text-blue-500 mt-1\">•</span>
-                    <span className=\"text-sm text-blue-700\">{area}</span>
+                  <li key={index} className="flex items-start space-x-2">
+                    <span className="text-blue-500 mt-1">•</span>
+                    <span className="text-sm text-blue-700">{area}</span>
                   </li>
                 ))}
               </ul>
@@ -425,40 +425,42 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
           )}
         </div>
       )}
-      <div className=\"border-b\">
+
+      {/* Skill Development Section */}
+      <div className="border-b">
         <SectionHeader 
-          title=\"Skill Development Plan\" 
-          section=\"skills\" 
-          icon=\"🚀\" 
+          title="Skill Development Plan" 
+          section="skills" 
+          icon="🚀" 
         />
         {expandedSections.skills && (
-          <div className=\"p-6 space-y-4\">
-            <div className=\"grid md:grid-cols-2 gap-4\">
+          <div className="p-6 space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
               <SkillCategory 
-                title=\"Immediate Focus (0-3 months)\"
+                title="Immediate Focus (0-3 months)"
                 skills={actionPlan.skillDevelopment.immediate}
-                icon=\"⚡\"
+                icon="⚡"
               />
               <SkillCategory 
-                title=\"Medium Term (3-6 months)\"
+                title="Medium Term (3-6 months)"
                 skills={actionPlan.skillDevelopment.medium_term}
-                icon=\"📈\"
+                icon="📈"
               />
             </div>
             <SkillCategory 
-              title=\"Advanced Skills (6+ months)\"
+              title="Advanced Skills (6+ months)"
               skills={actionPlan.skillDevelopment.advanced}
-              icon=\"🎓\"
+              icon="🎓"
             />
             
             {/* Learning Resources */}
-            <div className=\"bg-green-50 border border-green-200 rounded-lg p-4\">
-              <h5 className=\"font-semibold text-green-800 mb-3\">Recommended Learning Resources</h5>
-              <div className=\"grid md:grid-cols-2 gap-2\">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+              <h5 className="font-semibold text-green-800 mb-3">Recommended Learning Resources</h5>
+              <div className="grid md:grid-cols-2 gap-2">
                 {actionPlan.skillDevelopment.resources.map((resource, index) => (
-                  <div key={index} className=\"flex items-center space-x-2\">
-                    <span className=\"text-green-500\">✓</span>
-                    <span className=\"text-sm text-green-700\">{resource}</span>
+                  <div key={index} className="flex items-center space-x-2">
+                    <span className="text-green-500">✓</span>
+                    <span className="text-sm text-green-700">{resource}</span>
                   </div>
                 ))}
               </div>
@@ -470,34 +472,34 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
       {/* Career Insights Section */}
       <div>
         <SectionHeader 
-          title=\"Career Insights & Market Outlook\" 
-          section=\"insights\" 
-          icon=\"💡\" 
+          title="Career Insights & Market Outlook" 
+          section="insights" 
+          icon="💡" 
         />
         {expandedSections.insights && (
-          <div className=\"p-6 space-y-4\">
-            <div className=\"grid md:grid-cols-2 gap-4\">
+          <div className="p-6 space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
               {/* Strengths */}
-              <div className=\"bg-green-50 border border-green-200 rounded-lg p-4\">
-                <h5 className=\"font-semibold text-green-800 mb-3\">Your Strengths</h5>
-                <div className=\"space-y-2\">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <h5 className="font-semibold text-green-800 mb-3">Your Strengths</h5>
+                <div className="space-y-2">
                   {actionPlan.careerInsights.strengths.map((strength, index) => (
-                    <div key={index} className=\"flex items-center space-x-2\">
-                      <span className=\"text-green-500\">✅</span>
-                      <span className=\"text-sm text-green-700\">{strength}</span>
+                    <div key={index} className="flex items-center space-x-2">
+                      <span className="text-green-500">✅</span>
+                      <span className="text-sm text-green-700">{strength}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Development Areas */}
-              <div className=\"bg-orange-50 border border-orange-200 rounded-lg p-4\">
-                <h5 className=\"font-semibold text-orange-800 mb-3\">Development Areas</h5>
-                <div className=\"space-y-2\">
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                <h5 className="font-semibold text-orange-800 mb-3">Development Areas</h5>
+                <div className="space-y-2">
                   {actionPlan.careerInsights.developmentAreas.map((area, index) => (
-                    <div key={index} className=\"flex items-center space-x-2\">
-                      <span className=\"text-orange-500\">🎯</span>
-                      <span className=\"text-sm text-orange-700\">{area}</span>
+                    <div key={index} className="flex items-center space-x-2">
+                      <span className="text-orange-500">🎯</span>
+                      <span className="text-sm text-orange-700">{area}</span>
                     </div>
                   ))}
                 </div>
@@ -505,33 +507,33 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
             </div>
 
             {/* Market Outlook */}
-            <div className=\"bg-blue-50 border border-blue-200 rounded-lg p-4\">
-              <h5 className=\"font-semibold text-blue-800 mb-2\">Market Outlook</h5>
-              <p className=\"text-sm text-blue-700\">{actionPlan.careerInsights.marketOutlook}</p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h5 className="font-semibold text-blue-800 mb-2">Market Outlook</h5>
+              <p className="text-sm text-blue-700">{actionPlan.careerInsights.marketOutlook}</p>
             </div>
           </div>
         )}
       </div>
 
       {/* Action Buttons */}
-      <div className=\"bg-gray-100 p-6 flex flex-wrap gap-3\">
+      <div className="bg-gray-100 p-6 flex flex-wrap gap-3">
         <button 
           onClick={() => window.print()}
-          className=\"px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors\"
+          className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors"
         >
           📄 Save as PDF
         </button>
         <a 
-          href=\"https://industryresume.com\"
-          target=\"_blank\"
-          rel=\"noopener noreferrer\"
-          className=\"px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors\"
+          href="https://industryresume.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
         >
           🔗 Visit IndustryResume.com
         </a>
         <button 
           onClick={generateActionPlan}
-          className=\"px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors\"
+          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
         >
           🔄 Refresh Plan
         </button>

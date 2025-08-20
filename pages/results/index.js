@@ -77,7 +77,7 @@ const ResultsPage = () => {
     return (
       <Layout 
         title="Analyzing Your Results - IndustryCareerGuide"
-        description="We're analyzing your career assessment responses to provide personalized recommendations."
+        description="We&apos;re analyzing your career assessment responses to provide personalized recommendations."
       >
         <div className="section-padding bg-primary-50">
           <div className="container-max max-w-2xl text-center">
@@ -85,7 +85,7 @@ const ResultsPage = () => {
               <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600 mx-auto mb-6"></div>
               <h1 className="text-2xl font-bold text-gray-900 mb-4">Analyzing Your Responses</h1>
               <p className="text-gray-600">
-                We're matching your skills, values, and preferences with industry career paths...
+                We&apos;re matching your skills, values, and preferences with industry career paths...
               </p>
             </div>
           </div>
@@ -126,7 +126,7 @@ const ResultsPage = () => {
           <div className="container-max max-w-2xl text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-4">No Matches Found</h1>
             <p className="text-gray-600 mb-8">
-              We couldn't find suitable career matches. Please try retaking the assessment.
+              We couldn&apos;t find suitable career matches. Please try retaking the assessment.
             </p>
             <Link href="/quiz/" className="btn-primary">
               Retake Assessment
@@ -339,7 +339,7 @@ const ResultsPage = () => {
               Want Different Results?
             </h3>
             <p className="text-gray-600 mb-6">
-              If these results don't feel right, you can retake the assessment to get new recommendations.
+              If these results don&apos;t feel right, you can retake the assessment to get new recommendations.
             </p>
             <Link href="/quiz/" className="btn-secondary">
               Retake Assessment
