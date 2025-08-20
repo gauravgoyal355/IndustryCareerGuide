@@ -1,0 +1,26 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "outputDirectory": ".next",
+  "functions": {
+    "pages/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/quiz",
+      "destination": "/quiz/"
+    },
+    {
+      "source": "/results", 
+      "destination": "/results/"
+    },
+    {
+      "source": "/careerMap",
+      "destination": "/careerMap/"
+    }
+  ]
+}
