@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
 import CareerMap from '../../components/CareerMap';
 import careerTrajectories from '../../data/careerTrajectories.json';
@@ -147,9 +148,9 @@ const CareerMapPage = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/quiz/" className="btn-primary text-lg px-8 py-3">
+              <Link href="/quiz/" className="btn-primary text-lg px-8 py-3">
                 Take Career Assessment
-              </a>
+              </Link>
               <a href={`/actionPlan/?career=${selectedCareerPath}`} className="btn-secondary text-lg px-8 py-3">
                 Get Action Plan
               </a>

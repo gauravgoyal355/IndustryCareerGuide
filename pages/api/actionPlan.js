@@ -2,7 +2,7 @@
 // Lightweight serverless API for personalized action plan generation
 // Designed for Vercel free tier - minimal computation
 
-import quizData from '../../data/career_assessment_quiz.json';
+import quizData from '../../career_assessment_quiz.json';
 import careerPaths from '../../data/careerPaths.json';
 import careerTrajectories from '../../data/careerTrajectories.json';
 

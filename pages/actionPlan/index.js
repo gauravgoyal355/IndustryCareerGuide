@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
 import ActionPlan from '../../components/ActionPlan';
 import careerPaths from '../../data/careerPaths.json';
@@ -175,9 +176,9 @@ const ActionPlanPage = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                  <a href="/quiz/" className="btn-primary text-lg px-8 py-3">
+                  <Link href="/quiz/" className="btn-primary text-lg px-8 py-3">
                     Take Career Assessment First
-                  </a>
+                  </Link>
                   <span className="text-gray-500 self-center">or</span>
                   <button 
                     onClick={() => setShowProfileForm(true)}
@@ -276,7 +277,7 @@ const ActionPlanPage = () => {
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600 mx-auto mb-6"></div>
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Loading Your Action Plan</h1>
           <p className="text-gray-600">
-            We're preparing your personalized career transition roadmap...
+            We&apos;re preparing your personalized career transition roadmap...
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
-import quizData from '../../data/career_assessment_quiz.json';
+import quizData from '../../career_assessment_quiz.json';
 
 const QuizPage = () => {
   const router = useRouter();
@@ -70,7 +70,7 @@ const QuizPage = () => {
               </div>
               <h1 className="text-3xl font-bold text-gray-900 mb-4">Assessment Complete!</h1>
               <p className="text-lg text-gray-600 mb-8">
-                Thank you for completing the career assessment. We're analyzing your responses to provide personalized recommendations.
+                Thank you for completing the career assessment. We&apos;re analyzing your responses to provide personalized recommendations.
               </p>
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto"></div>
             </div>
