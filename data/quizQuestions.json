@@ -1,0 +1,250 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "totalQuestions": 15,
+    "estimatedTime": "5-7 minutes",
+    "scoringCategories": ["skills", "values", "temperament", "ambitions"]
+  },
+  "questions": [
+    {
+      "id": "skills_1",
+      "category": "skills",
+      "type": "multiple_choice",
+      "question": "Which of these technical skills do you feel most confident in?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Data analysis and statistical modeling",
+          "weight": {
+            "data_scientist": 0.9,
+            "research_scientist": 0.7,
+            "technical_consulting": 0.6,
+            "finance": 0.8
+          }
+        },
+        {
+          "id": "b",
+          "text": "Software development and programming",
+          "weight": {
+            "software_engineering": 0.9,
+            "data_scientist": 0.8,
+            "technical_consulting": 0.7
+          }
+        },
+        {
+          "id": "c",
+          "text": "Research methodology and experimental design",
+          "weight": {
+            "research_scientist": 0.9,
+            "quality_assurance": 0.7,
+            "regulatory_affairs": 0.6
+          }
+        },
+        {
+          "id": "d",
+          "text": "Project management and coordination",
+          "weight": {
+            "program_management": 0.9,
+            "product_management": 0.8,
+            "operations": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "values_1",
+      "category": "values",
+      "type": "ranking",
+      "question": "Rank these work values in order of importance to you (1 = most important, 4 = least important):",
+      "options": [
+        {
+          "id": "intellectual_challenge",
+          "text": "Intellectual stimulation and continuous learning",
+          "weight": {
+            "research_scientist": 0.9,
+            "technical_consulting": 0.8,
+            "data_scientist": 0.7
+          }
+        },
+        {
+          "id": "financial_reward",
+          "text": "High compensation and financial security",
+          "weight": {
+            "finance": 0.9,
+            "technical_sales": 0.8,
+            "business_development": 0.7
+          }
+        },
+        {
+          "id": "work_life_balance",
+          "text": "Work-life balance and flexibility",
+          "weight": {
+            "quality_assurance": 0.8,
+            "operations": 0.7,
+            "regulatory_affairs": 0.7
+          }
+        },
+        {
+          "id": "social_impact",
+          "text": "Making a positive impact on society",
+          "weight": {
+            "research_scientist": 0.7,
+            "regulatory_affairs": 0.8,
+            "quality_assurance": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "temperament_1",
+      "category": "temperament",
+      "type": "scale",
+      "question": "How comfortable are you working in ambiguous, rapidly changing environments?",
+      "scale": {
+        "min": 1,
+        "max": 5,
+        "labels": {
+          "1": "I prefer clear structure and defined processes",
+          "3": "I can adapt but prefer some structure",
+          "5": "I thrive in uncertainty and rapid change"
+        }
+      },
+      "weights": {
+        "1": {
+          "quality_assurance": 0.8,
+          "regulatory_affairs": 0.8,
+          "operations": 0.7
+        },
+        "2": {
+          "quality_assurance": 0.6,
+          "regulatory_affairs": 0.6,
+          "program_management": 0.7
+        },
+        "3": {
+          "program_management": 0.8,
+          "product_management": 0.6,
+          "software_engineering": 0.7
+        },
+        "4": {
+          "product_management": 0.8,
+          "business_development": 0.7,
+          "technical_consulting": 0.6
+        },
+        "5": {
+          "technical_consulting": 0.9,
+          "business_development": 0.8,
+          "product_management": 0.9
+        }
+      }
+    },
+    {
+      "id": "ambitions_1",
+      "category": "ambitions",
+      "type": "multiple_choice",
+      "question": "What type of career progression appeals to you most?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deep technical specialization and becoming a subject matter expert",
+          "weight": {
+            "research_scientist": 0.9,
+            "software_engineering": 0.8,
+            "data_scientist": 0.7
+          }
+        },
+        {
+          "id": "b",
+          "text": "Managing teams and leading large organizations",
+          "weight": {
+            "operations": 0.9,
+            "program_management": 0.8,
+            "business_development": 0.7
+          }
+        },
+        {
+          "id": "c",
+          "text": "Building products and driving business strategy",
+          "weight": {
+            "product_management": 0.9,
+            "business_development": 0.8,
+            "technical_consulting": 0.6
+          }
+        },
+        {
+          "id": "d",
+          "text": "High compensation with performance-based rewards",
+          "weight": {
+            "technical_sales": 0.9,
+            "finance": 0.8,
+            "business_development": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "skills_2",
+      "category": "skills",
+      "type": "multiple_select",
+      "question": "Which of these activities have you done in your research? (Select all that apply)",
+      "options": [
+        {
+          "id": "data_analysis",
+          "text": "Large-scale data analysis and visualization",
+          "weight": {
+            "data_scientist": 0.8,
+            "research_scientist": 0.6,
+            "finance": 0.5
+          }
+        },
+        {
+          "id": "software_development",
+          "text": "Software development for research tools",
+          "weight": {
+            "software_engineering": 0.8,
+            "data_scientist": 0.7
+          }
+        },
+        {
+          "id": "project_leadership",
+          "text": "Leading collaborative research projects",
+          "weight": {
+            "program_management": 0.8,
+            "product_management": 0.7,
+            "business_development": 0.5
+          }
+        },
+        {
+          "id": "technical_writing",
+          "text": "Technical writing and documentation",
+          "weight": {
+            "technical_consulting": 0.7,
+            "regulatory_affairs": 0.8,
+            "quality_assurance": 0.6
+          }
+        },
+        {
+          "id": "compliance",
+          "text": "Working with regulations and compliance requirements",
+          "weight": {
+            "regulatory_affairs": 0.9,
+            "quality_assurance": 0.8
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "weights": {
+      "skills": 0.35,
+      "values": 0.25,
+      "temperament": 0.25,
+      "ambitions": 0.15
+    },
+    "thresholds": {
+      "excellent_match": 0.8,
+      "good_match": 0.65,
+      "moderate_match": 0.5,
+      "poor_match": 0.35
+    }
+  }
+}

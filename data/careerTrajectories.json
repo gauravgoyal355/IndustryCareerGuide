@@ -1,824 +1,267 @@
 {
-  "career_trajectories": {
-    "research_scientist": {
-      "name": "Research Scientist",
-      "timeline_years": "8-15 years to senior leadership",
-      "stages": [
-        {
-          "level": "entry",
-          "title": "Entry Level",
-          "years_experience": "0-3",
-          "typical_duration": "2-4 years",
-          "positions": [
-            "Research Scientist I",
-            "Associate Research Scientist", 
-            "Postdoc Research Scientist"
-          ],
-          "core_skills": [
-            "PhD in relevant field",
-            "Research methodology",
-            "Data analysis",
-            "Technical writing",
-            "Literature review",
-            "Laboratory techniques"
-          ],
-          "developing_skills": [
-            "Project management",
-            "Collaboration",
-            "Presentation skills",
-            "Grant writing basics"
-          ],
-          "salary_range": "$80,000 - $120,000",
-          "key_achievements": [
-            "Complete independent research projects",
-            "Publish first-author papers",
-            "Present at conferences",
-            "Develop technical expertise"
-          ]
-        },
-        {
-          "level": "mid",
-          "title": "Mid Level",
-          "years_experience": "3-8",
-          "typical_duration": "3-5 years",
-          "positions": [
-            "Research Scientist II",
-            "Senior Research Scientist",
-            "Principal Research Scientist"
-          ],
-          "core_skills": [
-            "Advanced research design",
-            "Cross-functional collaboration",
-            "IP development",
-            "Mentoring",
-            "Grant writing",
-            "Project leadership"
-          ],
-          "developing_skills": [
-            "Strategic thinking",
-            "Business acumen",
-            "Technology roadmapping",
-            "Team leadership"
-          ],
-          "salary_range": "$120,000 - $180,000",
-          "key_achievements": [
-            "Lead research programs",
-            "Build IP portfolio",
-            "Secure external funding",
-            "Mentor junior scientists",
-            "Drive technology transfer"
-          ]
-        },
-        {
-          "level": "senior",
-          "title": "Senior Level",
-          "years_experience": "8-15",
-          "typical_duration": "4-7 years",
-          "positions": [
-            "Staff Research Scientist",
-            "Distinguished Scientist",
-            "Research Fellow"
-          ],
-          "core_skills": [
-            "Technology roadmapping",
-            "Strategic research planning",
-            "External partnerships",
-            "Publication strategy",
-            "Innovation management"
-          ],
-          "developing_skills": [
-            "Executive communication",
-            "Business strategy",
-            "Organizational leadership",
-            "Industry influence"
-          ],
-          "salary_range": "$180,000 - $250,000",
-          "key_achievements": [
-            "Set research vision",
-            "Establish external collaborations",
-            "Influence industry standards",
-            "Build research reputation"
-          ]
-        },
-        {
-          "level": "leadership",
-          "title": "Leadership",
-          "years_experience": "15+",
-          "typical_duration": "Ongoing",
-          "positions": [
-            "Research Director",
-            "VP of Research",
-            "Chief Technology Officer",
-            "Head of Innovation"
-          ],
-          "core_skills": [
-            "Organizational strategy",
-            "P&L management",
-            "Executive leadership",
-            "Board communication",
-            "Technology vision",
-            "Talent development"
-          ],
-          "salary_range": "$250,000 - $400,000+",
-          "key_achievements": [
-            "Drive company research strategy",
-            "Lead large research organizations",
-            "Shape industry direction",
-            "Develop next-generation leaders"
-          ]
-        }
-      ],
-      "pivot_opportunities": [
-        {
-          "from_level": "mid",
-          "to_career": "product_management",
-          "transition_skills": ["Market research", "Customer needs analysis", "Business strategy"],
-          "timeline": "6-12 months preparation"
-        },
-        {
-          "from_level": "senior",
-          "to_career": "technical_consulting",
-          "transition_skills": ["Client communication", "Business development", "Industry expertise"],
-          "timeline": "3-6 months preparation"
-        },
-        {
-          "from_level": "senior",
-          "to_career": "venture_capital",
-          "transition_skills": ["Investment analysis", "Due diligence", "Portfolio management"],
-          "timeline": "12-18 months preparation"
-        }
-      ],
-      "alternative_paths": [
-        {
-          "path_name": "Academic-Industry Bridge",
-          "description": "Maintain academic affiliations while leading industry research",
-          "typical_roles": ["Adjunct Professor + Industry Research Director", "Industry Fellow"]
-        },
-        {
-          "path_name": "Entrepreneurial Track",
-          "description": "Commercialize research through startup founding",
-          "typical_roles": ["Founder/CTO", "Scientific Advisor"]
-        }
-      ]
-    },
+  "metadata": {
+    "version": "1.0",
+    "description": "Detailed career progression paths with milestones, timelines, and actionable steps",
+    "lastUpdated": "2025-01-20"
+  },
+  "trajectories": {
     "data_scientist": {
-      "name": "Data Scientist",
-      "timeline_years": "6-12 years to senior leadership",
-      "stages": [
-        {
-          "level": "entry",
-          "title": "Entry Level",
-          "years_experience": "0-2",
-          "typical_duration": "1-3 years",
-          "positions": [
-            "Data Scientist I",
-            "Junior Data Scientist",
-            "Associate Data Scientist"
-          ],
-          "core_skills": [
-            "Python/R programming",
-            "SQL and databases",
-            "Statistics and probability",
-            "Machine learning basics",
-            "Data visualization",
-            "Excel proficiency"
-          ],
-          "developing_skills": [
-            "Business acumen",
-            "A/B testing",
-            "Big data technologies",
-            "Communication skills"
-          ],
-          "salary_range": "$90,000 - $130,000",
-          "key_achievements": [
-            "Build predictive models",
-            "Create data dashboards",
-            "Analyze business metrics",
-            "Present insights to stakeholders"
+      "phases": {
+        "preparation": {
+          "duration": "3-6 months",
+          "description": "Build foundational skills and portfolio",
+          "milestones": [
+            {
+              "title": "Complete Python/R Programming Course",
+              "timeframe": "Month 1-2",
+              "priority": "high",
+              "tasks": [
+                "Complete Python for Data Science course",
+                "Build 2-3 data analysis projects",
+                "Learn pandas, numpy, matplotlib libraries",
+                "Create GitHub portfolio"
+              ],
+              "success_criteria": "Comfortable manipulating data and creating visualizations"
+            },
+            {
+              "title": "Master Statistical Foundations",
+              "timeframe": "Month 2-3",
+              "priority": "high",
+              "tasks": [
+                "Study descriptive and inferential statistics",
+                "Learn hypothesis testing",
+                "Understand regression analysis",
+                "Practice with real datasets"
+              ],
+              "success_criteria": "Can explain statistical concepts and apply them to data problems"
+            },
+            {
+              "title": "Build Portfolio Projects",
+              "timeframe": "Month 3-6",
+              "priority": "medium",
+              "tasks": [
+                "Complete 3-5 end-to-end data science projects",
+                "Include projects from different domains",
+                "Document projects clearly on GitHub",
+                "Present findings in blog posts or presentations"
+              ],
+              "success_criteria": "Strong portfolio demonstrating technical and communication skills"
+            }
           ]
         },
-        {
-          "level": "mid",
-          "title": "Mid Level",
-          "years_experience": "2-6",
-          "typical_duration": "2-4 years",
-          "positions": [
-            "Data Scientist II",
-            "Senior Data Scientist",
-            "Lead Data Scientist"
-          ],
-          "core_skills": [
-            "Advanced ML/AI techniques",
-            "Big data platforms (Spark, Hadoop)",
-            "A/B testing and experimentation",
-            "Product analytics",
-            "Cross-functional collaboration",
-            "Model deployment"
-          ],
-          "developing_skills": [
-            "Team leadership",
-            "Strategic thinking",
-            "Stakeholder management",
-            "Data architecture"
-          ],
-          "salary_range": "$130,000 - $200,000",
-          "key_achievements": [
-            "Lead data science projects",
-            "Influence product decisions",
-            "Mentor junior data scientists",
-            "Drive data-driven culture"
+        "job_search": {
+          "duration": "2-4 months",
+          "description": "Active job searching and interview preparation",
+          "milestones": [
+            {
+              "title": "Resume and Application Materials",
+              "timeframe": "Month 1",
+              "priority": "high",
+              "tasks": [
+                "Create data science-focused resume",
+                "Write compelling cover letter template",
+                "Optimize LinkedIn profile",
+                "Prepare portfolio website"
+              ],
+              "success_criteria": "Professional materials that highlight quantitative and technical skills"
+            },
+            {
+              "title": "Technical Interview Preparation",
+              "timeframe": "Month 1-3",
+              "priority": "high",
+              "tasks": [
+                "Practice coding challenges (Python/SQL)",
+                "Review machine learning concepts",
+                "Prepare to discuss portfolio projects",
+                "Practice explaining technical concepts simply"
+              ],
+              "success_criteria": "Confident in technical interviews and project discussions"
+            },
+            {
+              "title": "Apply and Network",
+              "timeframe": "Month 1-4",
+              "priority": "medium",
+              "tasks": [
+                "Apply to 10-15 positions per week",
+                "Attend data science meetups and conferences",
+                "Connect with data scientists on LinkedIn",
+                "Participate in online data science communities"
+              ],
+              "success_criteria": "Strong pipeline of opportunities and professional network"
+            }
           ]
         },
-        {
-          "level": "senior",
-          "title": "Senior Level",
-          "years_experience": "6-10",
-          "typical_duration": "3-5 years",
-          "positions": [
-            "Principal Data Scientist",
-            "Staff Data Scientist",
-            "Data Science Manager"
-          ],
-          "core_skills": [
-            "Data strategy development",
-            "Team management",
-            "Technology architecture",
-            "Executive communication",
-            "Research and innovation",
-            "Cross-functional leadership"
-          ],
-          "developing_skills": [
-            "Organizational leadership",
-            "Business strategy",
-            "Talent development",
-            "Technology vision"
-          ],
-          "salary_range": "$200,000 - $300,000",
-          "key_achievements": [
-            "Set data science strategy",
-            "Build data science teams",
-            "Drive organizational AI adoption",
-            "Establish data governance"
+        "first_role": {
+          "duration": "12-18 months",
+          "description": "Establish yourself in your first data science role",
+          "milestones": [
+            {
+              "title": "Quick Wins and Learning",
+              "timeframe": "Month 1-6",
+              "priority": "high",
+              "tasks": [
+                "Deliver on first project assignments",
+                "Learn company-specific tools and data",
+                "Build relationships with stakeholders",
+                "Seek feedback and mentorship"
+              ],
+              "success_criteria": "Positive performance reviews and growing responsibilities"
+            },
+            {
+              "title": "Advanced Skill Development",
+              "timeframe": "Month 6-18",
+              "priority": "medium",
+              "tasks": [
+                "Learn advanced machine learning techniques",
+                "Develop business domain expertise",
+                "Lead a small project or analysis",
+                "Present findings to senior leadership"
+              ],
+              "success_criteria": "Recognition as a competent data scientist ready for more responsibility"
+            }
           ]
         },
-        {
-          "level": "leadership",
-          "title": "Leadership",
-          "years_experience": "10+",
-          "typical_duration": "Ongoing",
-          "positions": [
-            "Director of Data Science",
-            "VP of Analytics",
-            "Chief Data Officer",
-            "Head of AI/ML"
-          ],
-          "core_skills": [
-            "Organizational strategy",
-            "Data monetization",
-            "Executive leadership",
-            "Technology roadmapping",
-            "Regulatory compliance",
-            "Partnership development"
-          ],
-          "salary_range": "$300,000 - $500,000+",
-          "key_achievements": [
-            "Drive company data strategy",
-            "Lead data organizations",
-            "Establish data as competitive advantage",
-            "Shape industry best practices"
-          ]
-        }
-      ],
-      "pivot_opportunities": [
-        {
-          "from_level": "mid",
-          "to_career": "product_management",
-          "transition_skills": ["Product analytics", "User research", "Market analysis"],
-          "timeline": "3-6 months preparation"
-        },
-        {
-          "from_level": "mid",
-          "to_career": "machine_learning_engineer",
-          "transition_skills": ["MLOps", "Software engineering", "System design"],
-          "timeline": "6-12 months preparation"
-        },
-        {
-          "from_level": "senior",
-          "to_career": "technical_consulting",
-          "transition_skills": ["Client management", "Business development", "Industry expertise"],
-          "timeline": "3-6 months preparation"
-        }
-      ],
-      "alternative_paths": [
-        {
-          "path_name": "Research Scientist Track",
-          "description": "Focus on cutting-edge ML research and publications",
-          "typical_roles": ["Research Scientist", "Applied Research Manager"]
-        },
-        {
-          "path_name": "Entrepreneurial Track",
-          "description": "Found AI/ML startups or join as founding data scientist",
-          "typical_roles": ["Founder/CTO", "Head of Data Science (Startup)"]
-        }
-      ]
-    },
-    "product_management": {
-      "name": "Product Management",
-      "timeline_years": "5-10 years to senior leadership",
-      "stages": [
-        {
-          "level": "entry",
-          "title": "Entry Level",
-          "years_experience": "0-2",
-          "typical_duration": "1-2 years",
-          "positions": [
-            "Associate Product Manager",
-            "Product Manager I",
-            "Junior Product Manager"
-          ],
-          "core_skills": [
-            "Product roadmapping",
-            "User research",
-            "Data analysis",
-            "Wireframing",
-            "Agile methodologies",
-            "Stakeholder communication"
-          ],
-          "developing_skills": [
-            "Strategic thinking",
-            "Market analysis",
-            "Leadership",
-            "Business acumen"
-          ],
-          "salary_range": "$100,000 - $140,000",
-          "key_achievements": [
-            "Ship product features",
-            "Analyze user metrics",
-            "Write product requirements",
-            "Coordinate cross-functional teams"
-          ]
-        },
-        {
-          "level": "mid",
-          "title": "Mid Level",
-          "years_experience": "2-5",
-          "typical_duration": "2-3 years",
-          "positions": [
-            "Product Manager",
-            "Senior Product Manager",
-            "Group Product Manager"
-          ],
-          "core_skills": [
-            "Product strategy",
-            "Go-to-market planning",
-            "P&L management",
-            "Team leadership",
-            "Competitive analysis",
-            "Customer development"
-          ],
-          "developing_skills": [
-            "Portfolio management",
-            "Executive communication",
-            "Vision setting",
-            "Organizational influence"
-          ],
-          "salary_range": "$140,000 - $220,000",
-          "key_achievements": [
-            "Own product strategy",
-            "Lead product launches",
-            "Manage product P&L",
-            "Build product team"
-          ]
-        },
-        {
-          "level": "senior",
-          "title": "Senior Level",
-          "years_experience": "5-8",
-          "typical_duration": "3-4 years",
-          "positions": [
-            "Principal Product Manager",
-            "Director of Product",
-            "Senior Director of Product"
-          ],
-          "core_skills": [
-            "Portfolio strategy",
-            "Organizational leadership",
-            "Market strategy",
-            "Executive influence",
-            "Vision development",
-            "Strategic partnerships"
-          ],
-          "developing_skills": [
-            "Business strategy",
-            "Board communication",
-            "Industry influence",
-            "Transformation leadership"
-          ],
-          "salary_range": "$220,000 - $350,000",
-          "key_achievements": [
-            "Set product vision",
-            "Lead product organization",
-            "Drive company strategy",
-            "Establish market position"
-          ]
-        },
-        {
-          "level": "leadership",
-          "title": "Leadership",
-          "years_experience": "8+",
-          "typical_duration": "Ongoing",
-          "positions": [
-            "VP of Product",
-            "Chief Product Officer",
-            "Chief Executive Officer"
-          ],
-          "core_skills": [
-            "Corporate strategy",
-            "Board management",
-            "Investor relations",
-            "Industry leadership",
-            "Transformation management",
-            "Global expansion"
-          ],
-          "salary_range": "$350,000 - $750,000+",
-          "key_achievements": [
-            "Drive company transformation",
-            "Lead industry innovation",
-            "Build world-class product organizations",
-            "Create new markets"
+        "career_growth": {
+          "duration": "2-5 years",
+          "description": "Advance to senior individual contributor or management roles",
+          "milestones": [
+            {
+              "title": "Senior Data Scientist",
+              "timeframe": "Year 2-3",
+              "priority": "high",
+              "tasks": [
+                "Lead cross-functional projects",
+                "Mentor junior data scientists",
+                "Develop expertise in specialized areas",
+                "Drive strategic data initiatives"
+              ],
+              "success_criteria": "Promotion to senior role with increased scope and impact"
+            },
+            {
+              "title": "Specialization or Leadership",
+              "timeframe": "Year 3-5",
+              "priority": "medium",
+              "tasks": [
+                "Choose between management or IC track",
+                "Build external reputation through speaking/writing",
+                "Lead major data science initiatives",
+                "Contribute to hiring and team building"
+              ],
+              "success_criteria": "Clear career trajectory as either technical leader or people manager"
+            }
           ]
         }
-      ],
-      "pivot_opportunities": [
+      },
+      "skills_timeline": {
+        "immediate": ["Python programming", "Statistics", "Data manipulation", "SQL"],
+        "short_term": ["Machine learning", "Data visualization", "Business communication", "Git/GitHub"],
+        "medium_term": ["Advanced ML", "Big data tools", "A/B testing", "Product analytics"],
+        "long_term": ["Strategic thinking", "Team leadership", "Domain expertise", "Mentoring"]
+      },
+      "common_challenges": [
         {
-          "from_level": "mid",
-          "to_career": "technical_consulting",
-          "transition_skills": ["Industry expertise", "Client management", "Business development"],
-          "timeline": "3-6 months preparation"
+          "challenge": "Translating academic research to business impact",
+          "solution": "Focus on learning business context and measuring impact in business terms"
         },
         {
-          "from_level": "senior",
-          "to_career": "venture_capital",
-          "transition_skills": ["Investment analysis", "Portfolio management", "Due diligence"],
-          "timeline": "6-12 months preparation"
+          "challenge": "Keeping up with rapidly evolving technology",
+          "solution": "Dedicate time for continuous learning and participate in data science communities"
         },
         {
-          "from_level": "mid",
-          "to_career": "business_development",
-          "transition_skills": ["Partnership development", "Deal structuring", "Market analysis"],
-          "timeline": "3-6 months preparation"
-        }
-      ],
-      "alternative_paths": [
-        {
-          "path_name": "Entrepreneurial Track",
-          "description": "Found companies or join startups as founding PM",
-          "typical_roles": ["Founder/CEO", "Founding Product Manager"]
-        },
-        {
-          "path_name": "Platform Product Track",
-          "description": "Specialize in platform and infrastructure products",
-          "typical_roles": ["Platform PM", "API Product Manager"]
+          "challenge": "Communicating technical results to non-technical stakeholders",
+          "solution": "Practice storytelling with data and focus on business implications"
         }
       ]
     },
-    "technical_consulting": {
-      "name": "Technical Consulting",
-      "timeline_years": "6-12 years to senior leadership",
-      "stages": [
-        {
-          "level": "entry",
-          "title": "Entry Level",
-          "years_experience": "0-2",
-          "typical_duration": "1-3 years",
-          "positions": [
-            "Associate Consultant",
-            "Analyst",
-            "Junior Consultant"
-          ],
-          "core_skills": [
-            "Analytical thinking",
-            "Excel/PowerPoint mastery",
-            "Client communication",
-            "Research skills",
-            "Basic project management",
-            "Problem structuring"
-          ],
-          "developing_skills": [
-            "Industry expertise",
-            "Leadership",
-            "Client relationship building",
-            "Business development"
-          ],
-          "salary_range": "$90,000 - $130,000",
-          "key_achievements": [
-            "Support client engagements",
-            "Conduct analyses",
-            "Create presentations",
-            "Build client relationships"
+    "research_scientist": {
+      "phases": {
+        "preparation": {
+          "duration": "2-4 months",
+          "description": "Transition from academic to industry research mindset",
+          "milestones": [
+            {
+              "title": "Industry Research Orientation",
+              "timeframe": "Month 1-2",
+              "priority": "high",
+              "tasks": [
+                "Study industry research practices",
+                "Understand intellectual property basics",
+                "Learn about product development cycles",
+                "Network with industry researchers"
+              ],
+              "success_criteria": "Clear understanding of industry vs academic research differences"
+            },
+            {
+              "title": "Technical Portfolio Development",
+              "timeframe": "Month 1-4",
+              "priority": "medium",
+              "tasks": [
+                "Highlight applied research projects",
+                "Emphasize practical applications",
+                "Document collaboration experiences",
+                "Showcase interdisciplinary work"
+              ],
+              "success_criteria": "Portfolio demonstrating industry-relevant research skills"
+            }
           ]
         },
-        {
-          "level": "mid",
-          "title": "Mid Level",
-          "years_experience": "2-5",
-          "typical_duration": "2-3 years",
-          "positions": [
-            "Consultant",
-            "Senior Consultant",
-            "Principal Consultant"
-          ],
-          "core_skills": [
-            "Project leadership",
-            "Client relationship management",
-            "Industry expertise",
-            "Team management",
-            "Solution development",
-            "Change management"
-          ],
-          "developing_skills": [
-            "Business development",
-            "Practice leadership",
-            "Strategic advisory",
-            "Thought leadership"
-          ],
-          "salary_range": "$130,000 - $200,000",
-          "key_achievements": [
-            "Lead client workstreams",
-            "Manage client relationships",
-            "Develop recommendations",
-            "Mentor junior consultants"
-          ]
-        },
-        {
-          "level": "senior",
-          "title": "Senior Level",
-          "years_experience": "5-8",
-          "typical_duration": "3-4 years",
-          "positions": [
-            "Manager",
-            "Senior Manager",
-            "Director"
-          ],
-          "core_skills": [
-            "Business development",
-            "Practice leadership",
-            "Client executive relationships",
-            "Strategic thinking",
-            "P&L management",
-            "Talent development"
-          ],
-          "developing_skills": [
-            "Firm leadership",
-            "Industry influence",
-            "Global expansion",
-            "Innovation leadership"
-          ],
-          "salary_range": "$200,000 - $350,000",
-          "key_achievements": [
-            "Build consulting practice",
-            "Develop major clients",
-            "Lead strategic initiatives",
-            "Drive firm growth"
-          ]
-        },
-        {
-          "level": "leadership",
-          "title": "Leadership",
-          "years_experience": "8+",
-          "typical_duration": "Ongoing",
-          "positions": [
-            "Partner",
-            "Senior Partner",
-            "Managing Director",
-            "Practice Head"
-          ],
-          "core_skills": [
-            "Firm strategy",
-            "Client portfolio management",
-            "Industry leadership",
-            "Global relationship management",
-            "Innovation strategy",
-            "Organizational transformation"
-          ],
-          "salary_range": "$350,000 - $1,000,000+",
-          "key_achievements": [
-            "Lead consulting firm",
-            "Shape industry practices",
-            "Build global client relationships",
-            "Drive firm transformation"
+        "job_search": {
+          "duration": "3-6 months",
+          "description": "Target industry research positions",
+          "milestones": [
+            {
+              "title": "Industry Research Network",
+              "timeframe": "Month 1-3",
+              "priority": "high",
+              "tasks": [
+                "Attend industry conferences",
+                "Connect with corporate researchers",
+                "Join professional associations",
+                "Reach out to PhD alumni in industry"
+              ],
+              "success_criteria": "Strong network of industry research contacts"
+            },
+            {
+              "title": "Application Strategy",
+              "timeframe": "Month 2-6",
+              "priority": "high",
+              "tasks": [
+                "Target R&D labs at major corporations",
+                "Apply to research-focused startups",
+                "Consider national labs and institutes",
+                "Prepare for technical presentations"
+              ],
+              "success_criteria": "Multiple interview opportunities in target companies"
+            }
           ]
         }
-      ],
-      "pivot_opportunities": [
-        {
-          "from_level": "mid",
-          "to_career": "product_management",
-          "transition_skills": ["Product strategy", "User research", "Technical understanding"],
-          "timeline": "3-6 months preparation"
-        },
-        {
-          "from_level": "senior",
-          "to_career": "corporate_strategy",
-          "transition_skills": ["Internal strategy", "Organizational change", "Executive communication"],
-          "timeline": "Direct transition possible"
-        },
-        {
-          "from_level": "senior",
-          "to_career": "venture_capital",
-          "transition_skills": ["Investment analysis", "Due diligence", "Portfolio support"],
-          "timeline": "6-12 months preparation"
-        }
-      ],
-      "alternative_paths": [
-        {
-          "path_name": "Boutique Consulting",
-          "description": "Start specialized consulting firm",
-          "typical_roles": ["Founding Partner", "Independent Consultant"]
-        },
-        {
-          "path_name": "Industry Executive Track",
-          "description": "Move to client-side executive roles",
-          "typical_roles": ["Chief Strategy Officer", "VP Strategy"]
-        }
-      ]
-    },
-    "software_engineering": {
-      "name": "Software Engineering",
-      "timeline_years": "7-12 years to senior leadership",
-      "stages": [
-        {
-          "level": "entry",
-          "title": "Entry Level",
-          "years_experience": "0-3",
-          "typical_duration": "2-3 years",
-          "positions": [
-            "Software Engineer I",
-            "Junior Software Engineer",
-            "Associate Software Engineer"
-          ],
-          "core_skills": [
-            "Programming languages",
-            "Data structures/algorithms",
-            "Version control (Git)",
-            "Testing methodologies",
-            "Debugging skills",
-            "Code review"
-          ],
-          "developing_skills": [
-            "System design",
-            "Architecture patterns",
-            "Performance optimization",
-            "Technical leadership"
-          ],
-          "salary_range": "$85,000 - $125,000",
-          "key_achievements": [
-            "Ship production code",
-            "Complete feature development",
-            "Fix critical bugs",
-            "Learn new technologies"
-          ]
-        },
-        {
-          "level": "mid",
-          "title": "Mid Level",
-          "years_experience": "3-7",
-          "typical_duration": "3-4 years",
-          "positions": [
-            "Software Engineer II",
-            "Senior Software Engineer",
-            "Staff Software Engineer"
-          ],
-          "core_skills": [
-            "System design",
-            "Architecture patterns",
-            "Performance optimization",
-            "Mentoring",
-            "Technical leadership",
-            "Cross-team collaboration"
-          ],
-          "developing_skills": [
-            "Technology strategy",
-            "Team leadership",
-            "Product thinking",
-            "Organizational influence"
-          ],
-          "salary_range": "$125,000 - $200,000",
-          "key_achievements": [
-            "Design complex systems",
-            "Lead technical initiatives",
-            "Mentor junior engineers",
-            "Drive engineering excellence"
-          ]
-        },
-        {
-          "level": "senior",
-          "title": "Senior Level",
-          "years_experience": "7-12",
-          "typical_duration": "4-5 years",
-          "positions": [
-            "Principal Engineer",
-            "Distinguished Engineer",
-            "Engineering Manager"
-          ],
-          "core_skills": [
-            "Technical strategy",
-            "Cross-team leadership",
-            "Technology evaluation",
-            "Engineering culture",
-            "Technical vision",
-            "Architecture governance"
-          ],
-          "developing_skills": [
-            "Organizational leadership",
-            "Business strategy",
-            "Industry influence",
-            "Technology roadmapping"
-          ],
-          "salary_range": "$200,000 - $350,000",
-          "key_achievements": [
-            "Set technical direction",
-            "Lead engineering teams",
-            "Drive architecture decisions",
-            "Influence industry standards"
-          ]
-        },
-        {
-          "level": "leadership",
-          "title": "Leadership",
-          "years_experience": "12+",
-          "typical_duration": "Ongoing",
-          "positions": [
-            "VP of Engineering",
-            "Chief Technology Officer",
-            "Distinguished Engineer",
-            "Engineering Fellow"
-          ],
-          "core_skills": [
-            "Technology vision",
-            "Organizational strategy",
-            "Executive leadership",
-            "Industry influence",
-            "Innovation management",
-            "Global team leadership"
-          ],
-          "salary_range": "$350,000 - $600,000+",
-          "key_achievements": [
-            "Drive company technology strategy",
-            "Lead large engineering organizations",
-            "Shape industry direction",
-            "Build engineering culture"
-          ]
-        }
-      ],
-      "pivot_opportunities": [
-        {
-          "from_level": "mid",
-          "to_career": "product_management",
-          "transition_skills": ["Product thinking", "User research", "Business analysis"],
-          "timeline": "3-6 months preparation"
-        },
-        {
-          "from_level": "senior",
-          "to_career": "technical_consulting",
-          "transition_skills": ["Client communication", "Business development", "Industry expertise"],
-          "timeline": "6-12 months preparation"
-        },
-        {
-          "from_level": "mid",
-          "to_career": "data_scientist",
-          "transition_skills": ["Statistics", "Machine learning", "Data analysis"],
-          "timeline": "6-12 months preparation"
-        }
-      ],
-      "alternative_paths": [
-        {
-          "path_name": "Technical Specialist Track",
-          "description": "Remain individual contributor with deep technical expertise",
-          "typical_roles": ["Principal Engineer", "Distinguished Engineer", "Technology Fellow"]
-        },
-        {
-          "path_name": "Entrepreneurial Track",
-          "description": "Found technology companies",
-          "typical_roles": ["Founder/CTO", "Technical Co-founder"]
-        }
-      ]
+      },
+      "skills_timeline": {
+        "immediate": ["Research methodology", "Technical writing", "Data analysis"],
+        "short_term": ["IP awareness", "Industry collaboration", "Project management"],
+        "medium_term": ["Technology transfer", "Business applications", "Cross-functional work"],
+        "long_term": ["Research strategy", "Team leadership", "Innovation management"]
+      }
     }
   },
-  "visualization_settings": {
-    "stage_colors": {
-      "entry": "#3B82F6",
-      "mid": "#10B981", 
-      "senior": "#F59E0B",
-      "leadership": "#8B5CF6"
-    },
-    "timeline_unit": "years",
-    "default_animation_duration": 300,
-    "skill_categories": {
-      "technical": "#2563EB",
-      "leadership": "#DC2626", 
-      "business": "#059669",
-      "communication": "#7C3AED"
+  "transition_maps": {
+    "academic_to_industry": {
+      "common_paths": [
+        {
+          "from": "PhD/Postdoc",
+          "to": "data_scientist",
+          "typical_duration": "6-12 months",
+          "success_rate": "75%",
+          "key_differentiators": ["Programming skills", "Business communication", "Applied projects"]
+        },
+        {
+          "from": "PhD/Postdoc",
+          "to": "research_scientist",
+          "typical_duration": "3-6 months",
+          "success_rate": "60%",
+          "key_differentiators": ["Industry research experience", "Applied focus", "IP awareness"]
+        }
+      ]
     }
   }
 }
