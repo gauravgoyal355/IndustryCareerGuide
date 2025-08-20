@@ -56,6 +56,32 @@
           "developing_skills": ["Organizational leadership", "Data strategy", "Technology architecture", "Stakeholder management"],
           "key_achievements": ["Lead data science teams", "Define data strategy for business units", "Drive innovation in ML applications", "Establish best practices and standards"]
         }
+      ],
+      "alternative_paths": [
+        {
+          "path_name": "ML Engineering Track",
+          "description": "Focus on production ML systems and infrastructure",
+          "typical_roles": ["ML Engineer", "AI Infrastructure Engineer", "MLOps Engineer"]
+        },
+        {
+          "path_name": "Analytics Leadership",
+          "description": "Lead analytics teams and data strategy",
+          "typical_roles": ["Head of Analytics", "Chief Data Officer", "VP Data Science"]
+        }
+      ],
+      "pivot_opportunities": [
+        {
+          "to_career": "product_management",
+          "from_level": "mid", 
+          "timeline": "6-12 months",
+          "transition_skills": ["Product sense", "User research", "Business strategy"]
+        },
+        {
+          "to_career": "technical_consulting",
+          "from_level": "senior",
+          "timeline": "3-6 months", 
+          "transition_skills": ["Client communication", "Business development", "Industry expertise"]
+        }
       ]
     },
     "research_scientist": {

@@ -273,8 +273,16 @@ function calculateCareerMatches(answers) {
     }
   });
 
-  // Calculate final weighted scores
+  // Calculate final weighted scores and normalize properly
   Object.values(careerScores).forEach(career => {
+    // Normalize each category score to 0-1 range first
+    const maxCategoryScore = 3.0; // Rough estimate of max possible score per category
+    career.scores.skills = Math.min(career.scores.skills / maxCategoryScore, 1.0);
+    career.scores.values = Math.min(career.scores.values / maxCategoryScore, 1.0);
+    career.scores.temperament = Math.min(career.scores.temperament / maxCategoryScore, 1.0);
+    career.scores.ambitions = Math.min(career.scores.ambitions / maxCategoryScore, 1.0);
+    
+    // Calculate weighted total score (already normalized to 0-1)
     career.totalScore = 
       career.scores.skills * weights.skills +
       career.scores.values * weights.values +
@@ -295,8 +303,8 @@ function calculateCareerMatches(answers) {
       career.matchLevel = 'Poor Match';
     }
 
-    // Round score for display
-    career.score = Math.round(career.totalScore * 100) / 100;
+    // Convert to percentage for display (0-100%)
+    career.score = Math.round(career.totalScore * 100);
   });
 
   // Sort by total score descending
@@ -314,7 +322,9 @@ function processMultipleChoiceAnswer(question, answer, careerScores, category) {
 
   Object.entries(selectedOption.weight).forEach(([career, weight]) => {
     if (careerScores[career]) {
-      careerScores[career].scores[category] += weight;
+      // Normalize weight to prevent scores > 1.0
+      const normalizedWeight = Math.min(weight, 1.0);
+      careerScores[career].scores[category] += normalizedWeight;
     }
   });
 }

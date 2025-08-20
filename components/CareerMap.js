@@ -238,26 +238,42 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
     </div>
   );
 
-  const AlternativePaths = () => (
-    <div className="bg-white rounded-lg shadow p-4">
-      <h3 className="font-semibold mb-3">Alternative Career Paths</h3>
-      <div className="space-y-3">
-        {trajectory.alternative_paths.map((path, index) => (
-          <div key={index} className="border-l-4 border-purple-500 pl-4">
-            <h4 className="font-medium text-purple-700">{path.path_name}</h4>
-            <p className="text-sm text-gray-600 mb-2">{path.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {path.typical_roles.map((role, idx) => (
-                <span key={idx} className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">
-                  {role}
-                </span>
-              ))}
+  const AlternativePaths = () => {
+    const alternativePaths = trajectory.alternative_paths || [];
+    
+    if (alternativePaths.length === 0) {
+      return (
+        <div className="bg-white rounded-lg shadow p-4">
+          <h3 className="font-semibold mb-3">Alternative Career Paths</h3>
+          <p className="text-gray-600 text-sm">
+            Alternative paths and specializations are being developed for this career. 
+            Check back soon for more options!
+          </p>
+        </div>
+      );
+    }
+    
+    return (
+      <div className="bg-white rounded-lg shadow p-4">
+        <h3 className="font-semibold mb-3">Alternative Career Paths</h3>
+        <div className="space-y-3">
+          {alternativePaths.map((path, index) => (
+            <div key={index} className="border-l-4 border-purple-500 pl-4">
+              <h4 className="font-medium text-purple-700">{path.path_name}</h4>
+              <p className="text-sm text-gray-600 mb-2">{path.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {path.typical_roles.map((role, idx) => (
+                  <span key={idx} className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">
+                    {role}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
@@ -310,21 +326,31 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
       </div>
 
       {/* Pivot Opportunities */}
-      {showPivots && trajectory.pivot_opportunities && (
+      {showPivots && (
         <div className="mb-8">
           <h2 className="text-2xl font-semibold mb-6">Career Pivot Opportunities</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {trajectory.pivot_opportunities.map((pivot, index) => {
-              const fromStage = trajectory.stages.find(stage => stage.level === pivot.from_level);
-              return (
-                <PivotOpportunity 
-                  key={index}
-                  pivot={pivot} 
-                  fromStage={fromStage}
-                />
-              );
-            })}
-          </div>
+          {trajectory.pivot_opportunities && trajectory.pivot_opportunities.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {trajectory.pivot_opportunities.map((pivot, index) => {
+                const fromStage = trajectory.stages.find(stage => stage.level === pivot.from_level);
+                return (
+                  <PivotOpportunity 
+                    key={index}
+                    pivot={pivot} 
+                    fromStage={fromStage}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
+              <h3 className="font-semibold text-yellow-800 mb-2">Pivot Opportunities Coming Soon</h3>
+              <p className="text-yellow-700 text-sm">
+                We're analyzing career transition data to provide specific pivot opportunities for this path. 
+                Check back soon for detailed transition guidance!
+              </p>
+            </div>
+          )}
         </div>
       )}
 
