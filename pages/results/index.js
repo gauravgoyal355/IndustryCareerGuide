@@ -152,7 +152,7 @@ const ResultsPage = () => {
               Your Career Match Results
             </h1>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Based on your assessment, we've identified the best career paths that align with your skills, values, and ambitions.
+              Based on your assessment, we&apos;ve identified the best career paths that align with your skills, values, and ambitions.
             </p>
           </div>
         </section>

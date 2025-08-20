@@ -99,7 +99,7 @@ const ActionPlanPage = () => {
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
             >
               <option value="true">PhD or equivalent</option>
-              <option value="false">Master's degree</option>
+              <option value="false">Master&apos;s degree</option>
             </select>
           </div>
           
