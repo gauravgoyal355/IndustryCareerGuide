@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
-import quizData from '../../career_assessment_quiz.json';
+import quizData from '../../data/quizQuestions.json';
 
 const QuizPage = () => {
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState({});
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCompleted, setIsCompleted] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -25,13 +25,25 @@ const QuizPage = () => {
   const handleNext = () => {
     if (selectedAnswer === null) return;
 
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = selectedAnswer;
+    const currentQ = questions[currentQuestion];
+    const selectedOption = currentQ.options[selectedAnswer];
+    
+    // Store answer in the format the API expects: {questionId: optionId}
+    const newAnswers = { ...answers };
+    newAnswers[currentQ.id] = selectedOption.id;
     setAnswers(newAnswers);
 
     if (currentQuestion < totalQuestions - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(newAnswers[currentQuestion + 1] || null);
+      // Check if we already have an answer for the next question
+      const nextQ = questions[currentQuestion + 1];
+      const existingAnswer = newAnswers[nextQ.id];
+      if (existingAnswer) {
+        const answerIndex = nextQ.options.findIndex(opt => opt.id === existingAnswer);
+        setSelectedAnswer(answerIndex >= 0 ? answerIndex : null);
+      } else {
+        setSelectedAnswer(null);
+      }
     } else {
       setIsCompleted(true);
       sessionStorage.setItem('quizAnswers', JSON.stringify(newAnswers));
@@ -42,7 +54,14 @@ const QuizPage = () => {
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
-      setSelectedAnswer(answers[currentQuestion - 1] || null);
+      const prevQ = questions[currentQuestion - 1];
+      const existingAnswer = answers[prevQ.id];
+      if (existingAnswer) {
+        const answerIndex = prevQ.options.findIndex(opt => opt.id === existingAnswer);
+        setSelectedAnswer(answerIndex >= 0 ? answerIndex : null);
+      } else {
+        setSelectedAnswer(null);
+      }
     }
   };
 
@@ -115,8 +134,8 @@ const QuizPage = () => {
             <div className="bg-white rounded-lg shadow-lg p-8">
               <div className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDimensionColor(currentQ.dimension)}`}>
-                    {currentQ.dimension}
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDimensionColor(currentQ.category || 'Skills')}`}>
+                    {(currentQ.category || 'Skills').charAt(0).toUpperCase() + (currentQ.category || 'Skills').slice(1)}
                   </span>
                   {currentQ.subdimension && (
                     <span className="text-sm text-gray-500">
@@ -133,7 +152,7 @@ const QuizPage = () => {
               </div>
 
               <div className="space-y-4 mb-8">
-                {currentQ.choices.map((choice, index) => (
+                {currentQ.options.map((option, index) => (
                   <button
                     key={index}
                     onClick={() => handleAnswerSelect(index)}
@@ -154,7 +173,7 @@ const QuizPage = () => {
                         )}
                       </div>
                       <span className="text-gray-800 font-medium">
-                        {choice.text}
+                        {option.text}
                       </span>
                     </div>
                   </button>

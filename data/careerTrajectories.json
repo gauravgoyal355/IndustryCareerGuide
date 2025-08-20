@@ -29,30 +29,10 @@
           "years_experience": "0-2",
           "typical_duration": "12-18 months",
           "salary_range": "$70K - $95K",
-          "positions": [
-            "Data Scientist I",
-            "Associate Data Scientist",
-            "Junior Data Analyst"
-          ],
-          "core_skills": [
-            "Python programming",
-            "Statistics",
-            "Data manipulation",
-            "SQL",
-            "Machine learning basics"
-          ],
-          "developing_skills": [
-            "Advanced ML algorithms",
-            "Data visualization",
-            "Business communication",
-            "A/B testing"
-          ],
-          "key_achievements": [
-            "Complete first data science project end-to-end",
-            "Deliver actionable insights to stakeholders",
-            "Build and deploy simple ML models",
-            "Establish credibility with business partners"
-          ]
+          "positions": ["Data Scientist I", "Associate Data Scientist", "Junior Data Analyst"],
+          "core_skills": ["Python programming", "Statistics", "Data manipulation", "SQL", "Machine learning basics"],
+          "developing_skills": ["Advanced ML algorithms", "Data visualization", "Business communication", "A/B testing"],
+          "key_achievements": ["Complete first data science project end-to-end", "Deliver actionable insights to stakeholders", "Build and deploy simple ML models", "Establish credibility with business partners"]
         },
         {
           "title": "Data Scientist",
@@ -60,30 +40,10 @@
           "years_experience": "2-4",
           "typical_duration": "18-24 months",
           "salary_range": "$95K - $130K",
-          "positions": [
-            "Data Scientist II",
-            "Data Scientist",
-            "ML Engineer"
-          ],
-          "core_skills": [
-            "Advanced machine learning",
-            "Statistical modeling",
-            "Data visualization",
-            "Business communication",
-            "Project management"
-          ],
-          "developing_skills": [
-            "Deep learning",
-            "Big data technologies",
-            "Team leadership",
-            "Product analytics"
-          ],
-          "key_achievements": [
-            "Lead complex data science projects",
-            "Mentor junior team members",
-            "Drive data-driven decision making",
-            "Contribute to strategic initiatives"
-          ]
+          "positions": ["Data Scientist II", "Data Scientist", "ML Engineer"],
+          "core_skills": ["Advanced machine learning", "Statistical modeling", "Data visualization", "Business communication", "Project management"],
+          "developing_skills": ["Deep learning", "Big data technologies", "Team leadership", "Product analytics"],
+          "key_achievements": ["Lead complex data science projects", "Mentor junior team members", "Drive data-driven decision making", "Contribute to strategic initiatives"]
         },
         {
           "title": "Senior Data Scientist",
@@ -91,87 +51,10 @@
           "years_experience": "4-7",
           "typical_duration": "2-3 years",
           "salary_range": "$130K - $180K",
-          "positions": [
-            "Senior Data Scientist",
-            "Lead Data Scientist",
-            "Principal Data Scientist"
-          ],
-          "core_skills": [
-            "Advanced analytics",
-            "Team leadership",
-            "Strategic thinking",
-            "Cross-functional collaboration",
-            "Technical mentoring"
-          ],
-          "developing_skills": [
-            "Organizational leadership",
-            "Data strategy",
-            "Technology architecture",
-            "Stakeholder management"
-          ],
-          "key_achievements": [
-            "Lead data science teams",
-            "Define data strategy for business units",
-            "Drive innovation in ML applications",
-            "Establish best practices and standards"
-          ]
-        },
-        {
-          "title": "Data Science Manager/Director",
-          "level": "lead",
-          "years_experience": "7+",
-          "typical_duration": "3+ years",
-          "salary_range": "$180K - $250K+",
-          "positions": [
-            "Data Science Manager",
-            "Director of Data Science",
-            "VP of Analytics"
-          ],
-          "core_skills": [
-            "People management",
-            "Strategic planning",
-            "Budget management",
-            "Executive communication",
-            "Organizational design"
-          ],
-          "developing_skills": [
-            "Executive leadership",
-            "Business development",
-            "Board communication",
-            "Industry expertise"
-          ],
-          "key_achievements": [
-            "Build and scale data science organizations",
-            "Develop company-wide data strategy",
-            "Drive business growth through analytics",
-            "Establish data science culture"
-          ]
-        }
-      ],
-      "pivot_opportunities": [
-        {
-          "from_level": "mid",
-          "to_career": "product_manager",
-          "timeline": "6-12 months",
-          "transition_skills": ["Product analytics", "User research", "Strategic thinking"]
-        },
-        {
-          "from_level": "senior",
-          "to_career": "engineering_manager",
-          "timeline": "12-18 months",
-          "transition_skills": ["Technical leadership", "System design", "Team management"]
-        }
-      ],
-      "alternative_paths": [
-        {
-          "path_name": "Machine Learning Engineer",
-          "description": "Focus on productionizing and scaling ML systems",
-          "typical_roles": ["ML Engineer", "MLOps Engineer", "AI Engineer"]
-        },
-        {
-          "path_name": "Data Engineering",
-          "description": "Build and maintain data infrastructure and pipelines",
-          "typical_roles": ["Data Engineer", "Analytics Engineer", "Platform Engineer"]
+          "positions": ["Senior Data Scientist", "Lead Data Scientist", "Principal Data Scientist"],
+          "core_skills": ["Advanced analytics", "Team leadership", "Strategic thinking", "Cross-functional collaboration", "Technical mentoring"],
+          "developing_skills": ["Organizational leadership", "Data strategy", "Technology architecture", "Stakeholder management"],
+          "key_achievements": ["Lead data science teams", "Define data strategy for business units", "Drive innovation in ML applications", "Establish best practices and standards"]
         }
       ]
     },
@@ -185,61 +68,10 @@
           "years_experience": "0-2",
           "typical_duration": "18-24 months",
           "salary_range": "$90K - $120K",
-          "positions": [
-            "Research Scientist I",
-            "Applied Researcher",
-            "R&D Engineer"
-          ],
-          "core_skills": [
-            "Research methodology",
-            "Technical writing",
-            "Data analysis",
-            "Programming",
-            "Literature review"
-          ],
-          "developing_skills": [
-            "Industry applications",
-            "Project management",
-            "Cross-functional collaboration",
-            "IP awareness"
-          ],
-          "key_achievements": [
-            "Complete independent research projects",
-            "Publish research findings",
-            "Develop industry-relevant solutions",
-            "Build internal research credibility"
-          ]
-        },
-        {
-          "title": "Research Scientist II",
-          "level": "mid",
-          "years_experience": "2-5",
-          "typical_duration": "2-3 years",
-          "salary_range": "$120K - $160K",
-          "positions": [
-            "Research Scientist II",
-            "Senior Research Engineer",
-            "Principal Researcher"
-          ],
-          "core_skills": [
-            "Advanced research methods",
-            "Technology transfer",
-            "Team collaboration",
-            "Innovation management",
-            "Technical leadership"
-          ],
-          "developing_skills": [
-            "Research strategy",
-            "Business applications",
-            "Team leadership",
-            "External partnerships"
-          ],
-          "key_achievements": [
-            "Lead multi-year research initiatives",
-            "Drive technology commercialization",
-            "Establish external research partnerships",
-            "Mentor junior researchers"
-          ]
+          "positions": ["Research Scientist I", "Applied Researcher", "R&D Engineer"],
+          "core_skills": ["Research methodology", "Technical writing", "Data analysis", "Programming", "Literature review"],
+          "developing_skills": ["Industry applications", "Project management", "Cross-functional collaboration", "IP awareness"],
+          "key_achievements": ["Complete independent research projects", "Publish research findings", "Develop industry-relevant solutions", "Build internal research credibility"]
         },
         {
           "title": "Senior Research Scientist",
@@ -247,62 +79,178 @@
           "years_experience": "5-8",
           "typical_duration": "3+ years",
           "salary_range": "$160K - $220K",
-          "positions": [
-            "Senior Research Scientist",
-            "Principal Research Scientist",
-            "Research Director"
-          ],
-          "core_skills": [
-            "Research strategy",
-            "Innovation leadership",
-            "Cross-functional leadership",
-            "Technology vision",
-            "External collaboration"
-          ],
-          "developing_skills": [
-            "Organizational leadership",
-            "Business strategy",
-            "Industry influence",
-            "Technology partnerships"
-          ],
-          "key_achievements": [
-            "Define research strategy for organization",
-            "Lead breakthrough innovations",
-            "Establish industry partnerships",
-            "Build research teams and capabilities"
-          ]
-        }
-      ],
-      "alternative_paths": [
-        {
-          "path_name": "Technical Program Manager",
-          "description": "Manage complex technical programs and cross-functional initiatives",
-          "typical_roles": ["Technical PM", "Program Manager", "Innovation Manager"]
-        },
-        {
-          "path_name": "CTO/VP Engineering",
-          "description": "Lead technology strategy and engineering organizations",
-          "typical_roles": ["CTO", "VP Engineering", "Chief Scientist"]
+          "positions": ["Senior Research Scientist", "Principal Research Scientist", "Research Director"],
+          "core_skills": ["Research strategy", "Innovation leadership", "Cross-functional leadership", "Technology vision", "External collaboration"],
+          "developing_skills": ["Organizational leadership", "Business strategy", "Industry influence", "Technology partnerships"],
+          "key_achievements": ["Define research strategy for organization", "Lead breakthrough innovations", "Establish industry partnerships", "Build research teams and capabilities"]
         }
       ]
-    }
-  },
-  "transition_maps": {
-    "academic_to_industry": {
-      "common_paths": [
+    },
+    "product_management": {
+      "name": "Product Management",
+      "timeline_years": "3-5 years to senior level",
+      "stages": [
         {
-          "from": "PhD/Postdoc",
-          "to": "data_scientist",
-          "typical_duration": "6-12 months",
-          "success_rate": "75%",
-          "key_differentiators": ["Programming skills", "Business communication", "Applied projects"]
+          "title": "Associate Product Manager",
+          "level": "entry",
+          "years_experience": "0-2",
+          "typical_duration": "12-18 months",
+          "salary_range": "$95K - $140K",
+          "positions": ["Associate Product Manager", "Product Manager I"],
+          "core_skills": ["Product roadmapping", "User research", "Data analysis", "Wireframing", "Stakeholder communication"],
+          "developing_skills": ["Strategic planning", "Market analysis", "Technical depth", "Leadership"],
+          "key_achievements": ["Ship first product features", "Conduct user research", "Define product requirements", "Collaborate with engineering"]
         },
         {
-          "from": "PhD/Postdoc",
-          "to": "research_scientist",
-          "typical_duration": "3-6 months",
-          "success_rate": "60%",
-          "key_differentiators": ["Industry research experience", "Applied focus", "IP awareness"]
+          "title": "Product Manager",
+          "level": "mid",
+          "years_experience": "2-5",
+          "typical_duration": "18-24 months",
+          "salary_range": "$140K - $220K",
+          "positions": ["Product Manager", "Senior Product Manager"],
+          "core_skills": ["Strategic planning", "Market analysis", "P&L management", "Leadership", "Cross-functional coordination"],
+          "developing_skills": ["Portfolio management", "Organizational influence", "Vision setting", "Team building"],
+          "key_achievements": ["Own product strategy", "Lead product launches", "Manage P&L", "Drive user growth"]
+        }
+      ]
+    },
+    "technical_consulting": {
+      "name": "Technical Consulting",
+      "timeline_years": "4-6 years to senior level",
+      "stages": [
+        {
+          "title": "Associate Consultant",
+          "level": "entry",
+          "years_experience": "0-2",
+          "typical_duration": "12-18 months",
+          "salary_range": "$90K - $130K",
+          "positions": ["Associate Consultant", "Technical Consultant", "Analyst"],
+          "core_skills": ["Technical analysis", "Client communication", "Problem solving", "Presentation skills"],
+          "developing_skills": ["Project leadership", "Business development", "Industry expertise", "Client management"],
+          "key_achievements": ["Support senior consultants", "Analyze technical problems", "Create client presentations", "Build technical credibility"]
+        },
+        {
+          "title": "Senior Consultant",
+          "level": "senior",
+          "years_experience": "4-7",
+          "typical_duration": "2-3 years",
+          "salary_range": "$150K - $250K",
+          "positions": ["Senior Consultant", "Principal Consultant", "Practice Lead"],
+          "core_skills": ["Project leadership", "Client relationship management", "Technical strategy", "Business development"],
+          "developing_skills": ["Practice management", "Thought leadership", "Partner development", "Strategic influence"],
+          "key_achievements": ["Lead client engagements", "Develop solutions", "Manage consulting teams", "Drive practice growth"]
+        }
+      ]
+    },
+    "software_engineering": {
+      "name": "Software Engineering",
+      "timeline_years": "4-6 years to senior level",
+      "stages": [
+        {
+          "title": "Software Engineer",
+          "level": "entry",
+          "years_experience": "0-2",
+          "typical_duration": "12-18 months",
+          "salary_range": "$80K - $120K",
+          "positions": ["Software Engineer I", "Junior Developer", "Associate Engineer"],
+          "core_skills": ["Programming languages", "Version control", "Basic algorithms", "Testing", "Code review"],
+          "developing_skills": ["System design", "Architecture", "Mentoring", "Technical leadership"],
+          "key_achievements": ["Write clean, maintainable code", "Debug complex issues", "Learn from senior engineers", "Contribute to team projects"]
+        },
+        {
+          "title": "Senior Software Engineer",
+          "level": "senior",
+          "years_experience": "4-7",
+          "typical_duration": "2-3 years",
+          "salary_range": "$140K - $220K",
+          "positions": ["Senior Software Engineer", "Tech Lead", "Staff Engineer"],
+          "core_skills": ["System design", "Mentoring", "Architecture decisions", "Technical leadership", "Cross-team collaboration"],
+          "developing_skills": ["Engineering management", "Product strategy", "Organizational influence", "Technical vision"],
+          "key_achievements": ["Lead technical projects", "Mentor junior engineers", "Design scalable systems", "Drive technical excellence"]
+        }
+      ]
+    },
+    "program_management": {
+      "name": "Program Management",
+      "timeline_years": "3-5 years to senior level",
+      "stages": [
+        {
+          "title": "Program Coordinator",
+          "level": "entry",
+          "years_experience": "0-2",
+          "typical_duration": "12-18 months",
+          "salary_range": "$75K - $110K",
+          "positions": ["Program Coordinator", "Project Manager", "Associate Program Manager"],
+          "core_skills": ["Project planning", "Schedule management", "Communication", "Risk tracking"],
+          "developing_skills": ["Strategic planning", "Stakeholder management", "Resource optimization", "Leadership"],
+          "key_achievements": ["Track project progress", "Coordinate cross-functional teams", "Manage timelines", "Facilitate communication"]
+        },
+        {
+          "title": "Senior Program Manager",
+          "level": "senior",
+          "years_experience": "4-7",
+          "typical_duration": "2-3 years",
+          "salary_range": "$130K - $200K",
+          "positions": ["Senior Program Manager", "Program Director", "Portfolio Manager"],
+          "core_skills": ["Strategic planning", "Risk management", "Stakeholder management", "Resource optimization", "Change management"],
+          "developing_skills": ["Organizational strategy", "Executive leadership", "Business transformation", "Innovation management"],
+          "key_achievements": ["Manage complex programs", "Drive strategic initiatives", "Lead cross-functional teams", "Deliver business value"]
+        }
+      ]
+    },
+    "finance": {
+      "name": "Finance/Quantitative Analysis",
+      "timeline_years": "4-6 years to senior level",
+      "stages": [
+        {
+          "title": "Quantitative Analyst",
+          "level": "entry",
+          "years_experience": "0-2",
+          "typical_duration": "18-24 months",
+          "salary_range": "$90K - $130K",
+          "positions": ["Quantitative Analyst", "Financial Analyst", "Risk Analyst"],
+          "core_skills": ["Financial modeling", "Statistics", "Programming (Python/R)", "Risk analysis"],
+          "developing_skills": ["Portfolio management", "Trading strategies", "Client communication", "Market research"],
+          "key_achievements": ["Build financial models", "Analyze market data", "Support trading decisions", "Develop quantitative tools"]
+        },
+        {
+          "title": "Senior Quantitative Analyst",
+          "level": "senior",
+          "years_experience": "4-7",
+          "typical_duration": "2-3 years",
+          "salary_range": "$160K - $300K",
+          "positions": ["Senior Quant", "Portfolio Manager", "Risk Manager", "VP Quantitative Research"],
+          "core_skills": ["Advanced modeling", "Risk management", "Portfolio optimization", "Team leadership"],
+          "developing_skills": ["Strategic thinking", "Business development", "Executive communication", "Firm-wide influence"],
+          "key_achievements": ["Develop trading strategies", "Manage portfolios", "Lead analysis teams", "Drive firm performance"]
+        }
+      ]
+    },
+    "business_development": {
+      "name": "Business Development",
+      "timeline_years": "3-5 years to senior level",
+      "stages": [
+        {
+          "title": "Business Development Associate",
+          "level": "entry",
+          "years_experience": "0-2",
+          "typical_duration": "12-18 months",
+          "salary_range": "$80K - $120K",
+          "positions": ["Business Development Associate", "BD Representative", "Strategic Partnerships Coordinator"],
+          "core_skills": ["Market research", "Lead generation", "Relationship building", "Presentation skills"],
+          "developing_skills": ["Deal negotiation", "Strategic thinking", "Partnership management", "Revenue optimization"],
+          "key_achievements": ["Identify opportunities", "Support partnerships", "Conduct market analysis", "Build prospect pipeline"]
+        },
+        {
+          "title": "Senior Business Development Manager",
+          "level": "senior",
+          "years_experience": "4-7",
+          "typical_duration": "2-3 years",
+          "salary_range": "$150K - $250K",
+          "positions": ["Senior BD Manager", "BD Director", "VP Business Development"],
+          "core_skills": ["Deal negotiation", "Strategic planning", "Partnership management", "Revenue optimization", "Team leadership"],
+          "developing_skills": ["Market strategy", "Organizational development", "Executive relationships", "Strategic vision"],
+          "key_achievements": ["Close major partnerships", "Drive revenue growth", "Lead BD strategy", "Build market presence"]
         }
       ]
     }
