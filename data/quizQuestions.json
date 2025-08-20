@@ -11,6 +11,7 @@
       "category": "skills",
       "type": "multiple_choice",
       "question": "Which of these technical skills do you feel most confident in?",
+      "description": "Choose the area where you have the strongest foundation.",
       "options": [
         {
           "id": "a",
@@ -36,8 +37,8 @@
           "text": "Research methodology and experimental design",
           "weight": {
             "research_scientist": 0.9,
-            "quality_assurance": 0.7,
-            "regulatory_affairs": 0.6
+            "technical_consulting": 0.6,
+            "data_scientist": 0.5
           }
         },
         {
@@ -46,7 +47,7 @@
           "weight": {
             "program_management": 0.9,
             "product_management": 0.8,
-            "operations": 0.7
+            "business_development": 0.7
           }
         }
       ]
@@ -55,7 +56,8 @@
       "id": "values_1",
       "category": "values",
       "type": "ranking",
-      "question": "Rank these work values in order of importance to you (1 = most important, 4 = least important):",
+      "question": "Rank these work values in order of importance to you",
+      "description": "Click to rank from most important (1st) to least important (4th).",
       "options": [
         {
           "id": "intellectual_challenge",
@@ -71,26 +73,26 @@
           "text": "High compensation and financial security",
           "weight": {
             "finance": 0.9,
-            "technical_sales": 0.8,
-            "business_development": 0.7
+            "business_development": 0.8,
+            "technical_consulting": 0.7
           }
         },
         {
           "id": "work_life_balance",
           "text": "Work-life balance and flexibility",
           "weight": {
-            "quality_assurance": 0.8,
-            "operations": 0.7,
-            "regulatory_affairs": 0.7
+            "program_management": 0.7,
+            "research_scientist": 0.6,
+            "software_engineering": 0.6
           }
         },
         {
           "id": "social_impact",
           "text": "Making a positive impact on society",
           "weight": {
-            "research_scientist": 0.7,
-            "regulatory_affairs": 0.8,
-            "quality_assurance": 0.6
+            "research_scientist": 0.8,
+            "product_management": 0.6,
+            "technical_consulting": 0.5
           }
         }
       ]
@@ -100,6 +102,7 @@
       "category": "temperament",
       "type": "scale",
       "question": "How comfortable are you working in ambiguous, rapidly changing environments?",
+      "description": "Rate your comfort level with uncertainty and change.",
       "scale": {
         "min": 1,
         "max": 5,
@@ -111,14 +114,12 @@
       },
       "weights": {
         "1": {
-          "quality_assurance": 0.8,
-          "regulatory_affairs": 0.8,
-          "operations": 0.7
+          "program_management": 0.7,
+          "software_engineering": 0.6
         },
         "2": {
-          "quality_assurance": 0.6,
-          "regulatory_affairs": 0.6,
-          "program_management": 0.7
+          "program_management": 0.8,
+          "research_scientist": 0.6
         },
         "3": {
           "program_management": 0.8,
@@ -142,6 +143,7 @@
       "category": "ambitions",
       "type": "multiple_choice",
       "question": "What type of career progression appeals to you most?",
+      "description": "Choose the path that best aligns with your long-term goals.",
       "options": [
         {
           "id": "a",
@@ -156,8 +158,8 @@
           "id": "b",
           "text": "Managing teams and leading large organizations",
           "weight": {
-            "operations": 0.9,
-            "program_management": 0.8,
+            "program_management": 0.9,
+            "product_management": 0.8,
             "business_development": 0.7
           }
         },
@@ -174,9 +176,9 @@
           "id": "d",
           "text": "High compensation with performance-based rewards",
           "weight": {
-            "technical_sales": 0.9,
-            "finance": 0.8,
-            "business_development": 0.7
+            "finance": 0.9,
+            "business_development": 0.8,
+            "technical_consulting": 0.7
           }
         }
       ]
@@ -185,7 +187,8 @@
       "id": "skills_2",
       "category": "skills",
       "type": "multiple_select",
-      "question": "Which of these activities have you done in your research? (Select all that apply)",
+      "question": "Which of these activities have you done in your research?",
+      "description": "Select all that apply to your experience.",
       "options": [
         {
           "id": "data_analysis",
@@ -218,16 +221,441 @@
           "text": "Technical writing and documentation",
           "weight": {
             "technical_consulting": 0.7,
-            "regulatory_affairs": 0.8,
-            "quality_assurance": 0.6
+            "research_scientist": 0.6
           }
         },
         {
-          "id": "compliance",
-          "text": "Working with regulations and compliance requirements",
+          "id": "presenting",
+          "text": "Presenting to non-technical audiences",
           "weight": {
-            "regulatory_affairs": 0.9,
-            "quality_assurance": 0.8
+            "technical_consulting": 0.8,
+            "product_management": 0.7,
+            "business_development": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "communication_1",
+      "category": "skills",
+      "type": "multiple_choice",
+      "question": "How do you prefer to communicate complex technical concepts?",
+      "description": "Choose your strongest communication style.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Through detailed written reports and documentation",
+          "weight": {
+            "research_scientist": 0.8,
+            "technical_consulting": 0.7
+          }
+        },
+        {
+          "id": "b",
+          "text": "Via visual presentations and interactive demos",
+          "weight": {
+            "product_management": 0.8,
+            "business_development": 0.7
+          }
+        },
+        {
+          "id": "c",
+          "text": "One-on-one conversations tailored to each audience",
+          "weight": {
+            "technical_consulting": 0.9,
+            "business_development": 0.8
+          }
+        },
+        {
+          "id": "d",
+          "text": "Through data visualizations and dashboards",
+          "weight": {
+            "data_scientist": 0.8,
+            "product_management": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "work_environment_1",
+      "category": "values",
+      "type": "multiple_choice",
+      "question": "What work environment energizes you most?",
+      "description": "Consider where you do your best work.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fast-paced startup with rapid changes and pivots",
+          "weight": {
+            "product_management": 0.8,
+            "business_development": 0.7,
+            "software_engineering": 0.6
+          }
+        },
+        {
+          "id": "b",
+          "text": "Established company with resources and stability",
+          "weight": {
+            "program_management": 0.8,
+            "finance": 0.7,
+            "software_engineering": 0.6
+          }
+        },
+        {
+          "id": "c",
+          "text": "Research-focused organization with academic freedom",
+          "weight": {
+            "research_scientist": 0.9,
+            "data_scientist": 0.6
+          }
+        },
+        {
+          "id": "d",
+          "text": "Consulting environment with variety and client interaction",
+          "weight": {
+            "technical_consulting": 0.9,
+            "business_development": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "problem_solving_1",
+      "category": "skills",
+      "type": "multiple_choice",
+      "question": "How do you approach solving complex, undefined problems?",
+      "description": "Think about your natural problem-solving style.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Break it down systematically into smaller components",
+          "weight": {
+            "technical_consulting": 0.8,
+            "program_management": 0.7,
+            "software_engineering": 0.6
+          }
+        },
+        {
+          "id": "b",
+          "text": "Research extensively to understand all approaches",
+          "weight": {
+            "research_scientist": 0.9,
+            "data_scientist": 0.6
+          }
+        },
+        {
+          "id": "c",
+          "text": "Prototype quickly and iterate based on feedback",
+          "weight": {
+            "product_management": 0.8,
+            "software_engineering": 0.7
+          }
+        },
+        {
+          "id": "d",
+          "text": "Collaborate with experts to gain multiple perspectives",
+          "weight": {
+            "technical_consulting": 0.8,
+            "business_development": 0.7,
+            "program_management": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "leadership_style_1",
+      "category": "temperament",
+      "type": "multiple_choice",
+      "question": "What leadership style comes most naturally to you?",
+      "description": "Consider how you influence and guide others.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lead by technical expertise and deep knowledge",
+          "weight": {
+            "research_scientist": 0.8,
+            "software_engineering": 0.7,
+            "data_scientist": 0.6
+          }
+        },
+        {
+          "id": "b",
+          "text": "Lead through strategic vision and planning",
+          "weight": {
+            "product_management": 0.9,
+            "program_management": 0.8
+          }
+        },
+        {
+          "id": "c",
+          "text": "Lead by building relationships and consensus",
+          "weight": {
+            "business_development": 0.8,
+            "technical_consulting": 0.7
+          }
+        },
+        {
+          "id": "d",
+          "text": "Lead through process improvement and efficiency",
+          "weight": {
+            "program_management": 0.9,
+            "technical_consulting": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "risk_tolerance_1",
+      "category": "temperament",
+      "type": "scale",
+      "question": "How much career risk are you comfortable taking?",
+      "description": "Consider your appetite for uncertainty in career decisions.",
+      "scale": {
+        "min": 1,
+        "max": 5,
+        "labels": {
+          "1": "Very risk-averse - I prefer proven, stable paths",
+          "3": "Moderate risk - calculated decisions with backup plans",
+          "5": "High risk tolerance - comfortable with uncertainty"
+        }
+      },
+      "weights": {
+        "1": {
+          "research_scientist": 0.7,
+          "program_management": 0.6
+        },
+        "2": {
+          "software_engineering": 0.7,
+          "program_management": 0.8
+        },
+        "3": {
+          "technical_consulting": 0.6,
+          "data_scientist": 0.7
+        },
+        "4": {
+          "product_management": 0.7,
+          "business_development": 0.8
+        },
+        "5": {
+          "business_development": 0.9,
+          "product_management": 0.8
+        }
+      }
+    },
+    {
+      "id": "collaboration_style_1",
+      "category": "temperament",
+      "type": "multiple_choice",
+      "question": "How do you prefer to work with others?",
+      "description": "Think about your ideal team collaboration style.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Independently with minimal team interaction",
+          "weight": {
+            "research_scientist": 0.8,
+            "software_engineering": 0.6
+          }
+        },
+        {
+          "id": "b",
+          "text": "Small, focused teams of technical experts",
+          "weight": {
+            "software_engineering": 0.8,
+            "data_scientist": 0.7,
+            "research_scientist": 0.6
+          }
+        },
+        {
+          "id": "c",
+          "text": "Cross-functional teams with diverse skill sets",
+          "weight": {
+            "product_management": 0.9,
+            "program_management": 0.8,
+            "technical_consulting": 0.7
+          }
+        },
+        {
+          "id": "d",
+          "text": "Large networks with extensive external collaboration",
+          "weight": {
+            "business_development": 0.9,
+            "technical_consulting": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "technical_depth_1",
+      "category": "ambitions",
+      "type": "multiple_choice",
+      "question": "Do you aspire to remain technical or move toward business leadership?",
+      "description": "Consider your long-term career aspirations.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stay deeply technical and become a subject matter expert",
+          "weight": {
+            "research_scientist": 0.9,
+            "software_engineering": 0.8,
+            "data_scientist": 0.7
+          }
+        },
+        {
+          "id": "b",
+          "text": "Technical leadership without people management",
+          "weight": {
+            "software_engineering": 0.8,
+            "data_scientist": 0.7,
+            "research_scientist": 0.6
+          }
+        },
+        {
+          "id": "c",
+          "text": "People management and organizational leadership",
+          "weight": {
+            "program_management": 0.9,
+            "product_management": 0.8,
+            "business_development": 0.7
+          }
+        },
+        {
+          "id": "d",
+          "text": "Strategic business roles with technical influence",
+          "weight": {
+            "product_management": 0.9,
+            "technical_consulting": 0.8,
+            "business_development": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "impact_measurement_1",
+      "category": "values",
+      "type": "multiple_choice",
+      "question": "How do you prefer to measure and communicate your impact?",
+      "description": "Choose what motivates you most in demonstrating success.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Through publications, patents, and technical recognition",
+          "weight": {
+            "research_scientist": 0.9,
+            "data_scientist": 0.6
+          }
+        },
+        {
+          "id": "b",
+          "text": "By revenue growth, cost savings, and business metrics",
+          "weight": {
+            "business_development": 0.9,
+            "product_management": 0.8,
+            "finance": 0.7
+          }
+        },
+        {
+          "id": "c",
+          "text": "Through user adoption, satisfaction, and product success",
+          "weight": {
+            "product_management": 0.9,
+            "software_engineering": 0.6
+          }
+        },
+        {
+          "id": "d",
+          "text": "By process improvements and operational efficiency",
+          "weight": {
+            "program_management": 0.9,
+            "technical_consulting": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "learning_style_1",
+      "category": "values",
+      "type": "multiple_choice",
+      "question": "What motivates you to stay engaged long-term in a role?",
+      "description": "Think about what keeps you energized and growing.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Continuous learning opportunities and intellectual challenges",
+          "weight": {
+            "research_scientist": 0.9,
+            "technical_consulting": 0.8,
+            "data_scientist": 0.7
+          }
+        },
+        {
+          "id": "b",
+          "text": "Clear career progression and increasing responsibilities",
+          "weight": {
+            "program_management": 0.8,
+            "product_management": 0.7,
+            "business_development": 0.6
+          }
+        },
+        {
+          "id": "c",
+          "text": "Autonomy to shape my work and make independent decisions",
+          "weight": {
+            "technical_consulting": 0.9,
+            "research_scientist": 0.7,
+            "software_engineering": 0.6
+          }
+        },
+        {
+          "id": "d",
+          "text": "Strong relationships and collaborative team environment",
+          "weight": {
+            "product_management": 0.8,
+            "program_management": 0.7,
+            "business_development": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "business_interest_1",
+      "category": "skills",
+      "type": "multiple_choice",
+      "question": "What aspect of business operations interests you most?",
+      "description": "Consider which business functions appeal to you.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Understanding customer needs and market dynamics",
+          "weight": {
+            "product_management": 0.9,
+            "business_development": 0.8,
+            "technical_consulting": 0.6
+          }
+        },
+        {
+          "id": "b",
+          "text": "Financial analysis, budgets, and resource optimization",
+          "weight": {
+            "finance": 0.9,
+            "program_management": 0.7
+          }
+        },
+        {
+          "id": "c",
+          "text": "Strategic planning and competitive positioning",
+          "weight": {
+            "business_development": 0.9,
+            "technical_consulting": 0.8,
+            "product_management": 0.7
+          }
+        },
+        {
+          "id": "d",
+          "text": "Operational efficiency and process optimization",
+          "weight": {
+            "program_management": 0.9,
+            "software_engineering": 0.6
           }
         }
       ]

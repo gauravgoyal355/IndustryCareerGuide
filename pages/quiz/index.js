@@ -18,19 +18,18 @@ const QuizPage = () => {
     setProgress(((currentQuestion) / totalQuestions) * 100);
   }, [currentQuestion, totalQuestions]);
 
-  const handleAnswerSelect = (answerIndex) => {
-    setSelectedAnswer(answerIndex);
+  const handleAnswerSelect = (answerData) => {
+    setSelectedAnswer(answerData);
   };
 
   const handleNext = () => {
     if (selectedAnswer === null) return;
 
     const currentQ = questions[currentQuestion];
-    const selectedOption = currentQ.options[selectedAnswer];
     
-    // Store answer in the format the API expects: {questionId: optionId}
+    // Store answer in the format the API expects: {questionId: answer}
     const newAnswers = { ...answers };
-    newAnswers[currentQ.id] = selectedOption.id;
+    newAnswers[currentQ.id] = selectedAnswer;
     setAnswers(newAnswers);
 
     if (currentQuestion < totalQuestions - 1) {
@@ -38,12 +37,7 @@ const QuizPage = () => {
       // Check if we already have an answer for the next question
       const nextQ = questions[currentQuestion + 1];
       const existingAnswer = newAnswers[nextQ.id];
-      if (existingAnswer) {
-        const answerIndex = nextQ.options.findIndex(opt => opt.id === existingAnswer);
-        setSelectedAnswer(answerIndex >= 0 ? answerIndex : null);
-      } else {
-        setSelectedAnswer(null);
-      }
+      setSelectedAnswer(existingAnswer || null);
     } else {
       setIsCompleted(true);
       sessionStorage.setItem('quizAnswers', JSON.stringify(newAnswers));
@@ -56,23 +50,186 @@ const QuizPage = () => {
       setCurrentQuestion(currentQuestion - 1);
       const prevQ = questions[currentQuestion - 1];
       const existingAnswer = answers[prevQ.id];
-      if (existingAnswer) {
-        const answerIndex = prevQ.options.findIndex(opt => opt.id === existingAnswer);
-        setSelectedAnswer(answerIndex >= 0 ? answerIndex : null);
-      } else {
-        setSelectedAnswer(null);
-      }
+      setSelectedAnswer(existingAnswer || null);
     }
   };
 
   const getDimensionColor = (dimension) => {
     const colors = {
-      'Skills': 'bg-blue-100 text-blue-800',
-      'Values': 'bg-green-100 text-green-800',
-      'Temperament': 'bg-purple-100 text-purple-800',
-      'Ambitions': 'bg-orange-100 text-orange-800'
+      'skills': 'bg-blue-100 text-blue-800',
+      'values': 'bg-green-100 text-green-800', 
+      'temperament': 'bg-purple-100 text-purple-800',
+      'ambitions': 'bg-orange-100 text-orange-800'
     };
     return colors[dimension] || 'bg-gray-100 text-gray-800';
+  };
+
+  // Function to render different question types
+  const renderQuestionContent = (question) => {
+    switch (question.type) {
+      case 'multiple_choice':
+        return (
+          <div className="space-y-4">
+            {question.options.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => handleAnswerSelect(option.id)}
+                className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                  selectedAnswer === option.id
+                    ? 'border-primary-500 bg-primary-50 shadow-md'
+                    : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                }`}
+              >
+                <div className="flex items-center">
+                  <div className={`w-5 h-5 rounded-full border-2 mr-4 flex items-center justify-center ${
+                    selectedAnswer === option.id
+                      ? 'border-primary-500 bg-primary-500'
+                      : 'border-gray-300'
+                  }`}>
+                    {selectedAnswer === option.id && (
+                      <div className="w-2 h-2 rounded-full bg-white"></div>
+                    )}
+                  </div>
+                  <span className="text-gray-800 font-medium">
+                    {option.text}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+        );
+      
+      case 'scale':
+        const scaleMin = question.scale?.min || 1;
+        const scaleMax = question.scale?.max || 5;
+        const labels = question.scale?.labels || {};
+        return (
+          <div className="space-y-6">
+            <div className="flex justify-between items-center">
+              {Array.from({ length: scaleMax - scaleMin + 1 }, (_, i) => {
+                const value = scaleMin + i;
+                return (
+                  <button
+                    key={value}
+                    onClick={() => handleAnswerSelect(value.toString())}
+                    className={`w-12 h-12 rounded-full border-2 font-bold transition-all duration-200 ${
+                      selectedAnswer === value.toString()
+                        ? 'border-primary-500 bg-primary-500 text-white'
+                        : 'border-gray-300 hover:border-gray-400 text-gray-600'
+                    }`}
+                  >
+                    {value}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="space-y-2 text-sm text-gray-600">
+              {Object.entries(labels).map(([value, label]) => (
+                <div key={value} className="text-center">
+                  <span className="font-medium">{value}:</span> {label}
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      
+      case 'ranking':
+        const rankingOptions = question.options || [];
+        const currentRanking = Array.isArray(selectedAnswer) ? selectedAnswer : [];
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-gray-600 mb-4">
+              Drag or click to rank these options from most important (top) to least important (bottom):
+            </p>
+            {rankingOptions.map((option, index) => {
+              const currentRank = currentRanking.indexOf(option.id) + 1;
+              const isSelected = currentRank > 0;
+              return (
+                <button
+                  key={index}
+                  onClick={() => {
+                    let newRanking = [...currentRanking];
+                    if (isSelected) {
+                      // Remove from ranking
+                      newRanking = newRanking.filter(id => id !== option.id);
+                    } else {
+                      // Add to end of ranking
+                      newRanking.push(option.id);
+                    }
+                    handleAnswerSelect(newRanking);
+                  }}
+                  className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                    isSelected
+                      ? 'border-primary-500 bg-primary-50 shadow-md'
+                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-800 font-medium">
+                      {option.text}
+                    </span>
+                    {isSelected && (
+                      <span className="bg-primary-500 text-white px-2 py-1 rounded-full text-sm font-bold">
+                        #{currentRank}
+                      </span>
+                    )}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        );
+      
+      case 'multiple_select':
+        const selectedOptions = Array.isArray(selectedAnswer) ? selectedAnswer : [];
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-gray-600 mb-4">
+              Select all that apply:
+            </p>
+            {question.options.map((option, index) => {
+              const isSelected = selectedOptions.includes(option.id);
+              return (
+                <button
+                  key={index}
+                  onClick={() => {
+                    let newSelection = [...selectedOptions];
+                    if (isSelected) {
+                      newSelection = newSelection.filter(id => id !== option.id);
+                    } else {
+                      newSelection.push(option.id);
+                    }
+                    handleAnswerSelect(newSelection);
+                  }}
+                  className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                    isSelected
+                      ? 'border-primary-500 bg-primary-50 shadow-md'
+                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center">
+                    <div className={`w-5 h-5 rounded border-2 mr-4 flex items-center justify-center ${
+                      isSelected
+                        ? 'border-primary-500 bg-primary-500'
+                        : 'border-gray-300'
+                    }`}>
+                      {isSelected && (
+                        <div className="text-white text-xs font-bold">✓</div>
+                      )}
+                    </div>
+                    <span className="text-gray-800 font-medium">
+                      {option.text}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        );
+      
+      default:
+        return <div>Unsupported question type: {question.type}</div>;
+    }
   };
 
   if (isCompleted) {
@@ -151,33 +308,8 @@ const QuizPage = () => {
                 </p>
               </div>
 
-              <div className="space-y-4 mb-8">
-                {currentQ.options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswerSelect(index)}
-                    className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
-                      selectedAnswer === index
-                        ? 'border-primary-500 bg-primary-50 shadow-md'
-                        : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-                    }`}
-                  >
-                    <div className="flex items-center">
-                      <div className={`w-5 h-5 rounded-full border-2 mr-4 flex items-center justify-center ${
-                        selectedAnswer === index
-                          ? 'border-primary-500 bg-primary-500'
-                          : 'border-gray-300'
-                      }`}>
-                        {selectedAnswer === index && (
-                          <div className="w-2 h-2 rounded-full bg-white"></div>
-                        )}
-                      </div>
-                      <span className="text-gray-800 font-medium">
-                        {option.text}
-                      </span>
-                    </div>
-                  </button>
-                ))}
+              <div className="mb-8">
+                {renderQuestionContent(currentQ)}
               </div>
 
               <div className="flex justify-between items-center">
