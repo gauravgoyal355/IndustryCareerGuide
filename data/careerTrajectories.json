@@ -4,244 +4,287 @@
     "description": "Detailed career progression paths with milestones, timelines, and actionable steps",
     "lastUpdated": "2025-01-20"
   },
+  "visualization_settings": {
+    "stage_colors": {
+      "entry": "#10B981",
+      "mid": "#3B82F6", 
+      "senior": "#8B5CF6",
+      "lead": "#F59E0B"
+    },
+    "skill_categories": {
+      "technical": "#EF4444",
+      "leadership": "#8B5CF6",
+      "business": "#10B981",
+      "communication": "#F59E0B"
+    }
+  },
   "trajectories": {
     "data_scientist": {
-      "phases": {
-        "preparation": {
-          "duration": "3-6 months",
-          "description": "Build foundational skills and portfolio",
-          "milestones": [
-            {
-              "title": "Complete Python/R Programming Course",
-              "timeframe": "Month 1-2",
-              "priority": "high",
-              "tasks": [
-                "Complete Python for Data Science course",
-                "Build 2-3 data analysis projects",
-                "Learn pandas, numpy, matplotlib libraries",
-                "Create GitHub portfolio"
-              ],
-              "success_criteria": "Comfortable manipulating data and creating visualizations"
-            },
-            {
-              "title": "Master Statistical Foundations",
-              "timeframe": "Month 2-3",
-              "priority": "high",
-              "tasks": [
-                "Study descriptive and inferential statistics",
-                "Learn hypothesis testing",
-                "Understand regression analysis",
-                "Practice with real datasets"
-              ],
-              "success_criteria": "Can explain statistical concepts and apply them to data problems"
-            },
-            {
-              "title": "Build Portfolio Projects",
-              "timeframe": "Month 3-6",
-              "priority": "medium",
-              "tasks": [
-                "Complete 3-5 end-to-end data science projects",
-                "Include projects from different domains",
-                "Document projects clearly on GitHub",
-                "Present findings in blog posts or presentations"
-              ],
-              "success_criteria": "Strong portfolio demonstrating technical and communication skills"
-            }
+      "name": "Data Scientist",
+      "timeline_years": "3-5 years to senior level",
+      "stages": [
+        {
+          "title": "Junior Data Scientist",
+          "level": "entry",
+          "years_experience": "0-2",
+          "typical_duration": "12-18 months",
+          "salary_range": "$70K - $95K",
+          "positions": [
+            "Data Scientist I",
+            "Associate Data Scientist",
+            "Junior Data Analyst"
+          ],
+          "core_skills": [
+            "Python programming",
+            "Statistics",
+            "Data manipulation",
+            "SQL",
+            "Machine learning basics"
+          ],
+          "developing_skills": [
+            "Advanced ML algorithms",
+            "Data visualization",
+            "Business communication",
+            "A/B testing"
+          ],
+          "key_achievements": [
+            "Complete first data science project end-to-end",
+            "Deliver actionable insights to stakeholders",
+            "Build and deploy simple ML models",
+            "Establish credibility with business partners"
           ]
         },
-        "job_search": {
-          "duration": "2-4 months",
-          "description": "Active job searching and interview preparation",
-          "milestones": [
-            {
-              "title": "Resume and Application Materials",
-              "timeframe": "Month 1",
-              "priority": "high",
-              "tasks": [
-                "Create data science-focused resume",
-                "Write compelling cover letter template",
-                "Optimize LinkedIn profile",
-                "Prepare portfolio website"
-              ],
-              "success_criteria": "Professional materials that highlight quantitative and technical skills"
-            },
-            {
-              "title": "Technical Interview Preparation",
-              "timeframe": "Month 1-3",
-              "priority": "high",
-              "tasks": [
-                "Practice coding challenges (Python/SQL)",
-                "Review machine learning concepts",
-                "Prepare to discuss portfolio projects",
-                "Practice explaining technical concepts simply"
-              ],
-              "success_criteria": "Confident in technical interviews and project discussions"
-            },
-            {
-              "title": "Apply and Network",
-              "timeframe": "Month 1-4",
-              "priority": "medium",
-              "tasks": [
-                "Apply to 10-15 positions per week",
-                "Attend data science meetups and conferences",
-                "Connect with data scientists on LinkedIn",
-                "Participate in online data science communities"
-              ],
-              "success_criteria": "Strong pipeline of opportunities and professional network"
-            }
+        {
+          "title": "Data Scientist",
+          "level": "mid",
+          "years_experience": "2-4",
+          "typical_duration": "18-24 months",
+          "salary_range": "$95K - $130K",
+          "positions": [
+            "Data Scientist II",
+            "Data Scientist",
+            "ML Engineer"
+          ],
+          "core_skills": [
+            "Advanced machine learning",
+            "Statistical modeling",
+            "Data visualization",
+            "Business communication",
+            "Project management"
+          ],
+          "developing_skills": [
+            "Deep learning",
+            "Big data technologies",
+            "Team leadership",
+            "Product analytics"
+          ],
+          "key_achievements": [
+            "Lead complex data science projects",
+            "Mentor junior team members",
+            "Drive data-driven decision making",
+            "Contribute to strategic initiatives"
           ]
         },
-        "first_role": {
-          "duration": "12-18 months",
-          "description": "Establish yourself in your first data science role",
-          "milestones": [
-            {
-              "title": "Quick Wins and Learning",
-              "timeframe": "Month 1-6",
-              "priority": "high",
-              "tasks": [
-                "Deliver on first project assignments",
-                "Learn company-specific tools and data",
-                "Build relationships with stakeholders",
-                "Seek feedback and mentorship"
-              ],
-              "success_criteria": "Positive performance reviews and growing responsibilities"
-            },
-            {
-              "title": "Advanced Skill Development",
-              "timeframe": "Month 6-18",
-              "priority": "medium",
-              "tasks": [
-                "Learn advanced machine learning techniques",
-                "Develop business domain expertise",
-                "Lead a small project or analysis",
-                "Present findings to senior leadership"
-              ],
-              "success_criteria": "Recognition as a competent data scientist ready for more responsibility"
-            }
+        {
+          "title": "Senior Data Scientist",
+          "level": "senior",
+          "years_experience": "4-7",
+          "typical_duration": "2-3 years",
+          "salary_range": "$130K - $180K",
+          "positions": [
+            "Senior Data Scientist",
+            "Lead Data Scientist",
+            "Principal Data Scientist"
+          ],
+          "core_skills": [
+            "Advanced analytics",
+            "Team leadership",
+            "Strategic thinking",
+            "Cross-functional collaboration",
+            "Technical mentoring"
+          ],
+          "developing_skills": [
+            "Organizational leadership",
+            "Data strategy",
+            "Technology architecture",
+            "Stakeholder management"
+          ],
+          "key_achievements": [
+            "Lead data science teams",
+            "Define data strategy for business units",
+            "Drive innovation in ML applications",
+            "Establish best practices and standards"
           ]
         },
-        "career_growth": {
-          "duration": "2-5 years",
-          "description": "Advance to senior individual contributor or management roles",
-          "milestones": [
-            {
-              "title": "Senior Data Scientist",
-              "timeframe": "Year 2-3",
-              "priority": "high",
-              "tasks": [
-                "Lead cross-functional projects",
-                "Mentor junior data scientists",
-                "Develop expertise in specialized areas",
-                "Drive strategic data initiatives"
-              ],
-              "success_criteria": "Promotion to senior role with increased scope and impact"
-            },
-            {
-              "title": "Specialization or Leadership",
-              "timeframe": "Year 3-5",
-              "priority": "medium",
-              "tasks": [
-                "Choose between management or IC track",
-                "Build external reputation through speaking/writing",
-                "Lead major data science initiatives",
-                "Contribute to hiring and team building"
-              ],
-              "success_criteria": "Clear career trajectory as either technical leader or people manager"
-            }
+        {
+          "title": "Data Science Manager/Director",
+          "level": "lead",
+          "years_experience": "7+",
+          "typical_duration": "3+ years",
+          "salary_range": "$180K - $250K+",
+          "positions": [
+            "Data Science Manager",
+            "Director of Data Science",
+            "VP of Analytics"
+          ],
+          "core_skills": [
+            "People management",
+            "Strategic planning",
+            "Budget management",
+            "Executive communication",
+            "Organizational design"
+          ],
+          "developing_skills": [
+            "Executive leadership",
+            "Business development",
+            "Board communication",
+            "Industry expertise"
+          ],
+          "key_achievements": [
+            "Build and scale data science organizations",
+            "Develop company-wide data strategy",
+            "Drive business growth through analytics",
+            "Establish data science culture"
           ]
         }
-      },
-      "skills_timeline": {
-        "immediate": ["Python programming", "Statistics", "Data manipulation", "SQL"],
-        "short_term": ["Machine learning", "Data visualization", "Business communication", "Git/GitHub"],
-        "medium_term": ["Advanced ML", "Big data tools", "A/B testing", "Product analytics"],
-        "long_term": ["Strategic thinking", "Team leadership", "Domain expertise", "Mentoring"]
-      },
-      "common_challenges": [
+      ],
+      "pivot_opportunities": [
         {
-          "challenge": "Translating academic research to business impact",
-          "solution": "Focus on learning business context and measuring impact in business terms"
+          "from_level": "mid",
+          "to_career": "product_manager",
+          "timeline": "6-12 months",
+          "transition_skills": ["Product analytics", "User research", "Strategic thinking"]
         },
         {
-          "challenge": "Keeping up with rapidly evolving technology",
-          "solution": "Dedicate time for continuous learning and participate in data science communities"
+          "from_level": "senior",
+          "to_career": "engineering_manager",
+          "timeline": "12-18 months",
+          "transition_skills": ["Technical leadership", "System design", "Team management"]
+        }
+      ],
+      "alternative_paths": [
+        {
+          "path_name": "Machine Learning Engineer",
+          "description": "Focus on productionizing and scaling ML systems",
+          "typical_roles": ["ML Engineer", "MLOps Engineer", "AI Engineer"]
         },
         {
-          "challenge": "Communicating technical results to non-technical stakeholders",
-          "solution": "Practice storytelling with data and focus on business implications"
+          "path_name": "Data Engineering",
+          "description": "Build and maintain data infrastructure and pipelines",
+          "typical_roles": ["Data Engineer", "Analytics Engineer", "Platform Engineer"]
         }
       ]
     },
     "research_scientist": {
-      "phases": {
-        "preparation": {
-          "duration": "2-4 months",
-          "description": "Transition from academic to industry research mindset",
-          "milestones": [
-            {
-              "title": "Industry Research Orientation",
-              "timeframe": "Month 1-2",
-              "priority": "high",
-              "tasks": [
-                "Study industry research practices",
-                "Understand intellectual property basics",
-                "Learn about product development cycles",
-                "Network with industry researchers"
-              ],
-              "success_criteria": "Clear understanding of industry vs academic research differences"
-            },
-            {
-              "title": "Technical Portfolio Development",
-              "timeframe": "Month 1-4",
-              "priority": "medium",
-              "tasks": [
-                "Highlight applied research projects",
-                "Emphasize practical applications",
-                "Document collaboration experiences",
-                "Showcase interdisciplinary work"
-              ],
-              "success_criteria": "Portfolio demonstrating industry-relevant research skills"
-            }
+      "name": "Research Scientist",
+      "timeline_years": "4-6 years to senior level",
+      "stages": [
+        {
+          "title": "Research Scientist I",
+          "level": "entry",
+          "years_experience": "0-2",
+          "typical_duration": "18-24 months",
+          "salary_range": "$90K - $120K",
+          "positions": [
+            "Research Scientist I",
+            "Applied Researcher",
+            "R&D Engineer"
+          ],
+          "core_skills": [
+            "Research methodology",
+            "Technical writing",
+            "Data analysis",
+            "Programming",
+            "Literature review"
+          ],
+          "developing_skills": [
+            "Industry applications",
+            "Project management",
+            "Cross-functional collaboration",
+            "IP awareness"
+          ],
+          "key_achievements": [
+            "Complete independent research projects",
+            "Publish research findings",
+            "Develop industry-relevant solutions",
+            "Build internal research credibility"
           ]
         },
-        "job_search": {
-          "duration": "3-6 months",
-          "description": "Target industry research positions",
-          "milestones": [
-            {
-              "title": "Industry Research Network",
-              "timeframe": "Month 1-3",
-              "priority": "high",
-              "tasks": [
-                "Attend industry conferences",
-                "Connect with corporate researchers",
-                "Join professional associations",
-                "Reach out to PhD alumni in industry"
-              ],
-              "success_criteria": "Strong network of industry research contacts"
-            },
-            {
-              "title": "Application Strategy",
-              "timeframe": "Month 2-6",
-              "priority": "high",
-              "tasks": [
-                "Target R&D labs at major corporations",
-                "Apply to research-focused startups",
-                "Consider national labs and institutes",
-                "Prepare for technical presentations"
-              ],
-              "success_criteria": "Multiple interview opportunities in target companies"
-            }
+        {
+          "title": "Research Scientist II",
+          "level": "mid",
+          "years_experience": "2-5",
+          "typical_duration": "2-3 years",
+          "salary_range": "$120K - $160K",
+          "positions": [
+            "Research Scientist II",
+            "Senior Research Engineer",
+            "Principal Researcher"
+          ],
+          "core_skills": [
+            "Advanced research methods",
+            "Technology transfer",
+            "Team collaboration",
+            "Innovation management",
+            "Technical leadership"
+          ],
+          "developing_skills": [
+            "Research strategy",
+            "Business applications",
+            "Team leadership",
+            "External partnerships"
+          ],
+          "key_achievements": [
+            "Lead multi-year research initiatives",
+            "Drive technology commercialization",
+            "Establish external research partnerships",
+            "Mentor junior researchers"
+          ]
+        },
+        {
+          "title": "Senior Research Scientist",
+          "level": "senior",
+          "years_experience": "5-8",
+          "typical_duration": "3+ years",
+          "salary_range": "$160K - $220K",
+          "positions": [
+            "Senior Research Scientist",
+            "Principal Research Scientist",
+            "Research Director"
+          ],
+          "core_skills": [
+            "Research strategy",
+            "Innovation leadership",
+            "Cross-functional leadership",
+            "Technology vision",
+            "External collaboration"
+          ],
+          "developing_skills": [
+            "Organizational leadership",
+            "Business strategy",
+            "Industry influence",
+            "Technology partnerships"
+          ],
+          "key_achievements": [
+            "Define research strategy for organization",
+            "Lead breakthrough innovations",
+            "Establish industry partnerships",
+            "Build research teams and capabilities"
           ]
         }
-      },
-      "skills_timeline": {
-        "immediate": ["Research methodology", "Technical writing", "Data analysis"],
-        "short_term": ["IP awareness", "Industry collaboration", "Project management"],
-        "medium_term": ["Technology transfer", "Business applications", "Cross-functional work"],
-        "long_term": ["Research strategy", "Team leadership", "Innovation management"]
-      }
+      ],
+      "alternative_paths": [
+        {
+          "path_name": "Technical Program Manager",
+          "description": "Manage complex technical programs and cross-functional initiatives",
+          "typical_roles": ["Technical PM", "Program Manager", "Innovation Manager"]
+        },
+        {
+          "path_name": "CTO/VP Engineering",
+          "description": "Lead technology strategy and engineering organizations",
+          "typical_roles": ["CTO", "VP Engineering", "Chief Scientist"]
+        }
+      ]
     }
   },
   "transition_maps": {

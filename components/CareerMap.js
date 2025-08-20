@@ -7,8 +7,8 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
   const [trajectory, setTrajectory] = useState(null);
 
   useEffect(() => {
-    if (careerTrajectories.career_trajectories[careerPath]) {
-      setTrajectory(careerTrajectories.career_trajectories[careerPath]);
+    if (careerTrajectories.trajectories[careerPath]) {
+      setTrajectory(careerTrajectories.trajectories[careerPath]);
     }
   }, [careerPath]);
 
@@ -16,8 +16,18 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
     return <div className="p-4 text-gray-500">Career path not found</div>;
   }
 
-  const colors = careerTrajectories.visualization_settings.stage_colors;
-  const skillColors = careerTrajectories.visualization_settings.skill_categories;
+  const colors = careerTrajectories.visualization_settings?.stage_colors || {
+    'entry': '#10B981',
+    'mid': '#3B82F6', 
+    'senior': '#8B5CF6',
+    'lead': '#F59E0B'
+  };
+  const skillColors = careerTrajectories.visualization_settings?.skill_categories || {
+    'technical': '#EF4444',
+    'leadership': '#8B5CF6',
+    'business': '#10B981',
+    'communication': '#F59E0B'
+  };
 
   const getSkillCategory = (skill) => {
     const techKeywords = ['programming', 'data', 'technical', 'system', 'algorithm', 'software', 'code', 'engineering'];
@@ -343,11 +353,16 @@ export default CareerMap;
 
 // Additional utility component for embedding in other pages
 export const MiniCareerMap = ({ careerPath, maxStages = 4 }) => {
-  const trajectory = careerTrajectories.career_trajectories[careerPath];
+  const trajectory = careerTrajectories.trajectories[careerPath];
   
   if (!trajectory) return null;
   
-  const colors = careerTrajectories.visualization_settings.stage_colors;
+  const colors = careerTrajectories.visualization_settings?.stage_colors || {
+    'entry': '#10B981',
+    'mid': '#3B82F6', 
+    'senior': '#8B5CF6',
+    'lead': '#F59E0B'
+  };
   
   return (
     <div className="bg-white rounded-lg shadow p-4">

@@ -11,7 +11,7 @@ const CareerMapPage = () => {
   const [selectedCareerPath, setSelectedCareerPath] = useState(path || 'data_scientist');
   const [showPivots, setShowPivots] = useState(true);
 
-  const careerPaths = Object.keys(careerTrajectories.career_trajectories);
+  const careerPaths = Object.keys(careerTrajectories.trajectories || {});
 
   useEffect(() => {
     if (path && careerPaths.includes(path)) {
@@ -25,7 +25,7 @@ const CareerMapPage = () => {
   };
 
   const getCareerPathDisplayName = (careerPath) => {
-    return careerTrajectories.career_trajectories[careerPath]?.name || 
+    return careerTrajectories.trajectories[careerPath]?.name || 
            careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
   };
 
@@ -183,7 +183,7 @@ const CareerMapPage = () => {
                     {getCareerPathDisplayName(path)}
                   </h4>
                   <p className="text-sm text-gray-600">
-                    {careerTrajectories.career_trajectories[path]?.timeline_years || 'View career progression'}
+                    {careerTrajectories.trajectories[path]?.timeline_years || 'View career progression'}
                   </p>
                 </button>
               ))}
