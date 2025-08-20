@@ -12,13 +12,8 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
     insights: false
   });
 
-  useEffect(() => {
-    if (quizAnswers && topCareerMatch) {
-      generateActionPlan();
-    }
-  }, [quizAnswers, topCareerMatch, userProfile]);
-
-  const generateActionPlan = async () => {
+  // Use useCallback to stabilize the generateActionPlan function
+  const generateActionPlan = React.useCallback(async () => {
     setLoading(true);
     setError(null);
     
@@ -47,7 +42,13 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [quizAnswers, topCareerMatch, userProfile]);
+
+  useEffect(() => {
+    if (quizAnswers && topCareerMatch) {
+      generateActionPlan();
+    }
+  }, [quizAnswers, topCareerMatch, userProfile, generateActionPlan]);
 
   const toggleSection = (section) => {
     setExpandedSections(prev => ({
