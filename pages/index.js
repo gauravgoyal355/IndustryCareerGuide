@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Layout from '../components/Layout';
-import { MiniCareerMap } from '../components/CareerMap';
 
 const HomePage = () => {
   const features = [
@@ -29,9 +28,7 @@ const HomePage = () => {
 
   const careerPaths = [
     'data_scientist',
-    'product_management', 
-    'technical_consulting',
-    'software_engineering'
+    'research_scientist'
   ];
 
   const testimonials = [
@@ -144,8 +141,11 @@ const HomePage = () => {
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {careerPaths.map((path, index) => (
-              <div key={index} className="animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                <MiniCareerMap careerPath={path} />
+              <div key={index} className="animate-slide-up bg-white rounded-lg shadow p-6" style={{ animationDelay: `${index * 100}ms` }}>
+                <h3 className="text-xl font-semibold mb-2">
+                  {path.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                </h3>
+                <p className="text-gray-600">Explore this career path with detailed progression maps.</p>
               </div>
             ))}
           </div>
