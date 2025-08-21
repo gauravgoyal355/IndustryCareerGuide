@@ -1,0 +1,247 @@
+{
+  "career_paths": [
+    {
+      "id": "r_and_d_scientist",
+      "name": "R&D Scientist",
+      "category": "Conventional",
+      "description": "Conducts experiments and develops new products or technologies within biotech, pharma, or industry labs.",
+      "skills": ["experimental design", "lab techniques", "data analysis", "critical thinking"],
+      "values": ["innovation", "problem-solving", "intellectual challenge"],
+      "temperament": ["detail-oriented", "persistent", "curious"]
+    },
+    {
+      "id": "process_development_scientist",
+      "name": "Process Development Scientist",
+      "category": "Conventional",
+      "description": "Optimizes lab discoveries into scalable, manufacturable processes for industry use.",
+      "skills": ["process optimization", "quality control", "project management"],
+      "values": ["efficiency", "practical impact", "teamwork"],
+      "temperament": ["structured", "methodical", "reliable"]
+    },
+    {
+      "id": "regulatory_affairs_specialist",
+      "name": "Regulatory Affairs Specialist",
+      "category": "Conventional",
+      "description": "Ensures compliance with government regulations for new drugs, devices, or technologies.",
+      "skills": ["regulatory knowledge", "technical writing", "risk assessment"],
+      "values": ["compliance", "safety", "accuracy"],
+      "temperament": ["organized", "risk-aware", "conscientious"]
+    },
+    {
+      "id": "clinical_research_associate",
+      "name": "Clinical Research Associate",
+      "category": "Conventional",
+      "description": "Oversees clinical trials and ensures protocols and safety regulations are followed.",
+      "skills": ["clinical trial management", "data monitoring", "regulatory knowledge"],
+      "values": ["ethics", "patient safety", "precision"],
+      "temperament": ["responsible", "detail-focused", "calm under pressure"]
+    },
+    {
+      "id": "data_scientist",
+      "name": "Data Scientist",
+      "category": "Conventional",
+      "description": "Applies statistical and computational techniques to analyze complex datasets and extract insights.",
+      "skills": ["statistics", "machine learning", "programming (Python/R)", "data visualization"],
+      "values": ["evidence-based decisions", "innovation", "intellectual challenge"],
+      "temperament": ["analytical", "independent", "curious"]
+    },
+    {
+      "id": "bioinformatics_scientist",
+      "name": "Bioinformatics Scientist",
+      "category": "Conventional",
+      "description": "Uses computational tools to analyze biological data such as genomics, proteomics, or imaging.",
+      "skills": ["computational biology", "programming", "data modeling"],
+      "values": ["precision", "innovation", "cross-disciplinary work"],
+      "temperament": ["logical", "curious", "persistent"]
+    },
+    {
+      "id": "medical_science_liaison",
+      "name": "Medical Science Liaison (MSL)",
+      "category": "Bridge",
+      "description": "Serves as the scientific expert connecting pharma/biotech companies with clinicians and researchers.",
+      "skills": ["communication", "scientific expertise", "relationship-building"],
+      "values": ["collaboration", "knowledge-sharing", "impact"],
+      "temperament": ["extroverted", "empathetic", "credible"]
+    },
+    {
+      "id": "technology_transfer_officer",
+      "name": "Technology Transfer Officer",
+      "category": "Bridge",
+      "description": "Helps move innovations from academia into commercial applications through licensing and partnerships.",
+      "skills": ["IP knowledge", "negotiation", "market assessment"],
+      "values": ["innovation", "commercialization", "translation to impact"],
+      "temperament": ["pragmatic", "strategic", "communicative"]
+    },
+    {
+      "id": "intellectual_property_analyst",
+      "name": "Intellectual Property (IP) Analyst",
+      "category": "Bridge",
+      "description": "Assesses patent landscapes, writes patents, and helps organizations protect their innovations.",
+      "skills": ["patent law basics", "analytical thinking", "technical writing"],
+      "values": ["protection", "strategy", "innovation"],
+      "temperament": ["detail-oriented", "systematic", "precise"]
+    },
+    {
+      "id": "product_manager",
+      "name": "Product Manager",
+      "category": "Bridge",
+      "description": "Coordinates between science, engineering, and business to develop and launch products.",
+      "skills": ["project management", "market analysis", "communication"],
+      "values": ["impact", "efficiency", "customer focus"],
+      "temperament": ["decisive", "strategic", "organized"]
+    },
+    {
+      "id": "management_consultant",
+      "name": "Management Consultant (Life Sciences/Tech)",
+      "category": "Bridge",
+      "description": "Advises companies on strategy, operations, and growth opportunities using analytical expertise.",
+      "skills": ["problem-solving", "data analysis", "communication"],
+      "values": ["impact", "challenge", "efficiency"],
+      "temperament": ["analytical", "adaptable", "persuasive"]
+    },
+    {
+      "id": "venture_capital_analyst",
+      "name": "Venture Capital Analyst / Associate",
+      "category": "Bridge",
+      "description": "Evaluates startup technologies, performs due diligence, and advises investment decisions.",
+      "skills": ["financial modeling", "market analysis", "technical expertise"],
+      "values": ["innovation", "entrepreneurship", "risk-taking"],
+      "temperament": ["curious", "strategic", "decisive"]
+    },
+    {
+      "id": "scientific_writer",
+      "name": "Scientific / Medical Writer",
+      "category": "Creative",
+      "description": "Translates complex scientific information into clear, accessible documents for publications, grants, or industry.",
+      "skills": ["scientific writing", "editing", "literature analysis"],
+      "values": ["clarity", "knowledge-sharing", "precision"],
+      "temperament": ["detail-oriented", "patient", "independent"]
+    },
+    {
+      "id": "science_communicator",
+      "name": "Science Communicator",
+      "category": "Creative",
+      "description": "Engages public audiences with science via media, events, podcasts, or museums.",
+      "skills": ["public speaking", "storytelling", "digital media"],
+      "values": ["education", "engagement", "creativity"],
+      "temperament": ["outgoing", "empathetic", "expressive"]
+    },
+    {
+      "id": "science_illustrator",
+      "name": "Science Illustrator / Animator",
+      "category": "Creative",
+      "description": "Creates visuals and animations that explain scientific processes and data.",
+      "skills": ["illustration", "animation", "design software"],
+      "values": ["clarity", "creativity", "aesthetics"],
+      "temperament": ["visual thinker", "creative", "patient"]
+    },
+    {
+      "id": "ux_researcher",
+      "name": "UX Researcher / Designer",
+      "category": "Creative",
+      "description": "Applies research skills to study user behavior and improve product interfaces.",
+      "skills": ["user research", "data analysis", "design thinking"],
+      "values": ["user-centered design", "innovation", "efficiency"],
+      "temperament": ["empathetic", "curious", "collaborative"]
+    },
+    {
+      "id": "technical_writer",
+      "name": "Technical Writer",
+      "category": "Creative",
+      "description": "Writes manuals, documentation, and user guides for complex technologies.",
+      "skills": ["technical writing", "editing", "information structuring"],
+      "values": ["clarity", "accuracy", "usability"],
+      "temperament": ["detail-focused", "organized", "independent"]
+    },
+    {
+      "id": "copywriter",
+      "name": "Copywriter (Science/Tech Focused)",
+      "category": "Creative",
+      "description": "Crafts persuasive marketing and branding content for companies with technical products.",
+      "skills": ["storytelling", "marketing", "writing"],
+      "values": ["persuasion", "creativity", "impact"],
+      "temperament": ["expressive", "creative", "adaptable"]
+    },
+    {
+      "id": "market_analyst",
+      "name": "Market Analyst (Life Sciences/Tech)",
+      "category": "Business",
+      "description": "Analyzes market trends, competition, and opportunities to guide business decisions.",
+      "skills": ["market research", "data analysis", "forecasting"],
+      "values": ["strategy", "impact", "evidence-based decisions"],
+      "temperament": ["analytical", "curious", "systematic"]
+    },
+    {
+      "id": "business_development_manager",
+      "name": "Business Development Manager",
+      "category": "Business",
+      "description": "Builds partnerships, negotiates deals, and drives growth opportunities for companies.",
+      "skills": ["negotiation", "relationship building", "strategic thinking"],
+      "values": ["growth", "partnerships", "impact"],
+      "temperament": ["extroverted", "strategic", "decisive"]
+    },
+    {
+      "id": "entrepreneur_startup_founder",
+      "name": "Entrepreneur / Startup Founder",
+      "category": "Business",
+      "description": "Leverages scientific expertise to create and grow a new company or product.",
+      "skills": ["entrepreneurship", "fundraising", "risk management"],
+      "values": ["independence", "innovation", "risk-taking"],
+      "temperament": ["resilient", "decisive", "visionary"]
+    },
+    {
+      "id": "operations_manager",
+      "name": "Operations Manager (Biotech/Tech)",
+      "category": "Business",
+      "description": "Oversees teams, resources, and workflows to ensure organizational efficiency.",
+      "skills": ["leadership", "project management", "operations"],
+      "values": ["efficiency", "stability", "team success"],
+      "temperament": ["organized", "decisive", "practical"]
+    },
+    {
+      "id": "science_policy_analyst",
+      "name": "Science Policy Analyst",
+      "category": "Public & Social Impact",
+      "description": "Advises policymakers and organizations on science-related issues and policies.",
+      "skills": ["policy analysis", "communication", "research"],
+      "values": ["societal impact", "ethics", "evidence-based decisions"],
+      "temperament": ["strategic", "analytical", "communicative"]
+    },
+    {
+      "id": "nonprofit_program_manager",
+      "name": "Nonprofit Program Manager",
+      "category": "Public & Social Impact",
+      "description": "Manages programs in education, health, or environment at mission-driven organizations.",
+      "skills": ["program management", "fundraising", "stakeholder engagement"],
+      "values": ["mission-driven work", "impact", "community"],
+      "temperament": ["empathetic", "organized", "pragmatic"]
+    },
+    {
+      "id": "education_and_outreach_specialist",
+      "name": "STEM Education & Outreach Specialist",
+      "category": "Public & Social Impact",
+      "description": "Designs and runs outreach or educational programs to inspire students and the public.",
+      "skills": ["teaching", "curriculum design", "communication"],
+      "values": ["education", "community", "inspiration"],
+      "temperament": ["patient", "outgoing", "supportive"]
+    },
+    {
+      "id": "public_health_analyst",
+      "name": "Public Health Analyst",
+      "category": "Public & Social Impact",
+      "description": "Analyzes health data and policies to improve community and population health outcomes.",
+      "skills": ["epidemiology", "data analysis", "policy knowledge"],
+      "values": ["health equity", "impact", "evidence-based decisions"],
+      "temperament": ["analytical", "responsible", "collaborative"]
+    },
+    {
+      "id": "ngo_researcher",
+      "name": "NGO / Think Tank Researcher",
+      "category": "Public & Social Impact",
+      "description": "Conducts evidence-based studies for organizations shaping global or social policies.",
+      "skills": ["research", "writing", "policy analysis"],
+      "values": ["impact", "justice", "knowledge creation"],
+      "temperament": ["curious", "analytical", "mission-driven"]
+    }
+  ]
+}
