@@ -70,9 +70,11 @@ const ResultsPage = () => {
   };
 
   const getScoreColor = (score) => {
-    if (score >= 0.8) return 'text-green-600';
-    if (score >= 0.65) return 'text-blue-600';
-    if (score >= 0.5) return 'text-yellow-600';
+    // Handle both percentage (0-100) and decimal (0-1) formats
+    const normalizedScore = score > 1 ? score / 100 : score;
+    if (normalizedScore >= 0.8) return 'text-green-600';
+    if (normalizedScore >= 0.65) return 'text-blue-600';
+    if (normalizedScore >= 0.5) return 'text-yellow-600';
     return 'text-gray-600';
   };
 
@@ -169,7 +171,7 @@ const ResultsPage = () => {
                   {topMatch.matchLevel}
                 </span>
                 <span className={`text-2xl font-bold ${getScoreColor(topMatch.score)}`}>
-                  {Math.round(topMatch.score * 100)}% Match
+                  {topMatch.score > 1 ? Math.round(topMatch.score) : Math.round(topMatch.score * 100)}% Match
                 </span>
               </div>
             </div>
@@ -240,6 +242,7 @@ const ResultsPage = () => {
                 <CareerRadarChart 
                   scores={radarData.scores}
                   skillCategories={radarData.categories}
+                  categoryBreakdown={radarData.topMatchBreakdown}
                   shareText={`I just completed my career assessment! My top match is ${topMatch.details?.name || topMatch.careerPath}. Check out IndustryCareerGuide to find your ideal industry career path!`}
                 />
               </div>
@@ -267,7 +270,7 @@ const ResultsPage = () => {
                     </div>
                     <div className="text-right">
                       <div className={`text-2xl font-bold ${getScoreColor(match.score)}`}>
-                        {Math.round(match.score * 100)}%
+                        {match.score > 1 ? Math.round(match.score) : Math.round(match.score * 100)}%
                       </div>
                       <div className="text-sm text-gray-500">Match Score</div>
                     </div>

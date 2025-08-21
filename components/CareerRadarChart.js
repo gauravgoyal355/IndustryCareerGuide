@@ -1,19 +1,19 @@
 import React from 'react';
 
-const CareerRadarChart = ({ scores, skillCategories = [], shareText = '' }) => {
-  // Default skill categories if none provided
-  const defaultCategories = [
-    'Leadership',
-    'Communication', 
-    'Research',
-    'Problem Solving',
-    'Independence',
-    'Collaboration',
-    'Intellectuality',
-    'Autonomy'
+const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', categoryBreakdown = null }) => {
+  // The 8 radar dimensions and their mapping to categories
+  const radarDimensions = [
+    { name: 'Technical Skills', category: 'skills' },
+    { name: 'Communication', category: 'skills' },
+    { name: 'Leadership', category: 'skills' },
+    { name: 'Creativity', category: 'values' },
+    { name: 'Independence', category: 'values' },
+    { name: 'Collaboration', category: 'values' },
+    { name: 'Impact Focus', category: 'values' },
+    { name: 'Stability', category: 'temperament' }
   ];
 
-  const categories = skillCategories.length > 0 ? skillCategories : defaultCategories;
+  const categories = skillCategories.length > 0 ? skillCategories : radarDimensions.map(d => d.name);
   
   // Default scores if none provided (for demo purposes)
   const defaultScores = [0.7, 0.8, 0.9, 0.8, 0.6, 0.7, 0.9, 0.7];
@@ -23,6 +23,45 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '' }) => {
   const normalizedScores = categories.map((_, index) => 
     finalScores[index] || 0
   );
+
+  // Create separate layer data for skills, values, temperament
+  const createCategoryLayers = () => {
+    if (!categoryBreakdown) {
+      // If no breakdown available, show the overall radar data once
+      return {
+        overall: normalizedScores,
+        skills: [],
+        values: [],
+        temperament: []
+      };
+    }
+
+    // Create layers where each dimension shows the intensity for its category
+    // This creates overlapping areas that represent the different category strengths
+    const skillsLayer = radarDimensions.map((dim, index) => 
+      dim.category === 'skills' ? 
+        Math.min(normalizedScores[index] || 0, categoryBreakdown.skills || 0) : 0
+    );
+    
+    const valuesLayer = radarDimensions.map((dim, index) => 
+      dim.category === 'values' ? 
+        Math.min(normalizedScores[index] || 0, categoryBreakdown.values || 0) : 0
+    );
+    
+    const temperamentLayer = radarDimensions.map((dim, index) => 
+      dim.category === 'temperament' ? 
+        Math.min(normalizedScores[index] || 0, categoryBreakdown.temperament || 0) : 0
+    );
+
+    return {
+      overall: normalizedScores,
+      skills: skillsLayer,
+      values: valuesLayer,
+      temperament: temperamentLayer
+    };
+  };
+
+  const categoryLayers = createCategoryLayers();
 
   const centerX = 200;
   const centerY = 200;
@@ -109,8 +148,11 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '' }) => {
     });
   };
 
-  // Skills polygon points
-  const skillsPoints = generatePolygonPoints(normalizedScores, maxRadius);
+  // Generate polygon points for each layer
+  const overallPoints = generatePolygonPoints(categoryLayers.overall, maxRadius);
+  const skillsPoints = categoryLayers.skills.length > 0 ? generatePolygonPoints(categoryLayers.skills, maxRadius) : '';
+  const valuesPoints = categoryLayers.values.length > 0 ? generatePolygonPoints(categoryLayers.values, maxRadius) : '';
+  const temperamentPoints = categoryLayers.temperament.length > 0 ? generatePolygonPoints(categoryLayers.temperament, maxRadius) : '';
 
   // Colors for different layers
   const skillsColor = '#3B82F6'; // Blue
@@ -129,16 +171,55 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '' }) => {
           {/* Grid */}
           {generateGridLines()}
           
-          {/* Data polygons */}
+          {/* Overall radar data - baseline gray */}
           <polygon
-            points={skillsPoints}
-            fill={skillsColor}
-            fillOpacity="0.3"
-            stroke={skillsColor}
-            strokeWidth="2"
+            points={overallPoints}
+            fill="#9CA3AF"
+            fillOpacity="0.1"
+            stroke="#9CA3AF"
+            strokeWidth="1"
+            strokeDasharray="2,2"
           />
           
-          {/* Data points */}
+          {/* Category layers - only render if breakdown is available */}
+          {categoryBreakdown && (
+            <>
+              {/* Temperament layer (back) */}
+              {temperamentPoints && (
+                <polygon
+                  points={temperamentPoints}
+                  fill={temperamentColor}
+                  fillOpacity="0.3"
+                  stroke={temperamentColor}
+                  strokeWidth="2"
+                />
+              )}
+              
+              {/* Values layer (middle) */}
+              {valuesPoints && (
+                <polygon
+                  points={valuesPoints}
+                  fill={valuesColor}
+                  fillOpacity="0.3"
+                  stroke={valuesColor}
+                  strokeWidth="2"
+                />
+              )}
+              
+              {/* Skills layer (front) */}
+              {skillsPoints && (
+                <polygon
+                  points={skillsPoints}
+                  fill={skillsColor}
+                  fillOpacity="0.3"
+                  stroke={skillsColor}
+                  strokeWidth="2"
+                />
+              )}
+            </>
+          )}
+          
+          {/* Overall data points */}
           {normalizedScores.map((score, index) => {
             const angleStep = (2 * Math.PI) / categories.length;
             const angle = (index * angleStep) - (Math.PI / 2);
@@ -146,13 +227,22 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '' }) => {
             const x = centerX + radius * Math.cos(angle);
             const y = centerY + radius * Math.sin(angle);
             
+            // Determine point color based on dominant category for this dimension
+            let pointColor = '#9CA3AF'; // Default gray
+            if (categoryBreakdown) {
+              const dim = radarDimensions[index];
+              if (dim?.category === 'skills') pointColor = skillsColor;
+              else if (dim?.category === 'values') pointColor = valuesColor;
+              else if (dim?.category === 'temperament') pointColor = temperamentColor;
+            }
+            
             return (
               <circle
                 key={`point-${index}`}
                 cx={x}
                 cy={y}
                 r="4"
-                fill={skillsColor}
+                fill={pointColor}
                 stroke="white"
                 strokeWidth="2"
               />
@@ -165,19 +255,41 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '' }) => {
       </div>
       
       {/* Legend */}
-      <div className="flex justify-center mt-4 space-x-6">
-        <div className="flex items-center space-x-2">
-          <div className="w-4 h-4 rounded" style={{ backgroundColor: skillsColor }}></div>
-          <span className="text-sm font-medium text-gray-700">Skills</span>
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="w-4 h-4 rounded" style={{ backgroundColor: valuesColor }}></div>
-          <span className="text-sm font-medium text-gray-700">Values</span>
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="w-4 h-4 rounded" style={{ backgroundColor: temperamentColor }}></div>
-          <span className="text-sm font-medium text-gray-700">Temperament</span>
-        </div>
+      <div className="mt-4">
+        {categoryBreakdown ? (
+          <>
+            <div className="flex justify-center space-x-6 mb-2">
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 rounded" style={{ backgroundColor: skillsColor }}></div>
+                <span className="text-sm font-medium text-gray-700">
+                  Skills ({Math.round((categoryBreakdown.skills || 0) * 100)}%)
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 rounded" style={{ backgroundColor: valuesColor }}></div>
+                <span className="text-sm font-medium text-gray-700">
+                  Values ({Math.round((categoryBreakdown.values || 0) * 100)}%)
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 rounded" style={{ backgroundColor: temperamentColor }}></div>
+                <span className="text-sm font-medium text-gray-700">
+                  Temperament ({Math.round((categoryBreakdown.temperament || 0) * 100)}%)
+                </span>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 text-center">
+              Overlapping colored areas show your match strength in each category
+            </p>
+          </>
+        ) : (
+          <div className="flex justify-center space-x-6">
+            <div className="flex items-center space-x-2">
+              <div className="w-4 h-4 rounded bg-gray-400"></div>
+              <span className="text-sm font-medium text-gray-700">Overall Profile</span>
+            </div>
+          </div>
+        )}
       </div>
       
       {/* Social Share Buttons */}

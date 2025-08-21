@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Layout from '../../components/Layout';
 import CareerMap from '../../components/CareerMap';
 import careerTrajectories from '../../data/careerTrajectories.json';
+import careerTaxonomy from '../../data/career_taxonomy.json';
 
 const CareerMapPage = () => {
   const router = useRouter();
@@ -28,6 +29,25 @@ const CareerMapPage = () => {
     return careerTrajectories.trajectories[careerPath]?.name || 
            careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
   };
+
+  const getCareerCategory = (careerPath) => {
+    const career = careerTaxonomy.career_paths.find(c => c.id === careerPath);
+    return career?.category || 'Other';
+  };
+
+  const careersByCategory = () => {
+    const categories = {};
+    careerPaths.forEach(path => {
+      const category = getCareerCategory(path);
+      if (!categories[category]) {
+        categories[category] = [];
+      }
+      categories[category].push(path);
+    });
+    return categories;
+  };
+
+  const categorizedCareers = careersByCategory();
 
   return (
     <Layout
@@ -63,12 +83,16 @@ const CareerMapPage = () => {
                 <select
                   value={selectedCareerPath}
                   onChange={(e) => handleCareerPathChange(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white min-w-64"
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white min-w-72"
                 >
-                  {careerPaths.map((path) => (
-                    <option key={path} value={path}>
-                      {getCareerPathDisplayName(path)}
-                    </option>
+                  {Object.entries(categorizedCareers).map(([category, paths]) => (
+                    <optgroup key={category} label={`${category} Careers`}>
+                      {paths.map((path) => (
+                        <option key={path} value={path}>
+                          {getCareerPathDisplayName(path)}
+                        </option>
+                      ))}
+                    </optgroup>
                   ))}
                 </select>
                 

@@ -1,183 +1,55 @@
 // /pages/api/matchCareer.js
-// Serverless function to match quiz answers to career paths
+// Serverless function to match quiz answers to career paths using career taxonomy
 
 import quizQuestions from '../../data/quizQuestions.json';
-import careerPaths from '../../data/careerPaths.json';
+import careerTaxonomy from '../../data/career_taxonomy.json';
 
 /**
- * Calculate radar chart data based on quiz answers
+ * Calculate radar chart data based on user's aggregated tags
  */
-function calculateRadarChartData(answers) {
-  // Initialize scores for each dimension
-  const dimensions = {
-    leadership: 0,
-    communication: 0,
-    research: 0,
-    problemSolving: 0,
-    independence: 0,
-    collaboration: 0,
-    intellectuality: 0,
-    autonomy: 0
+function calculateRadarChartData(userTags, userAnswers) {
+  // Define radar chart dimensions based on career taxonomy
+  const radarDimensions = {
+    'Technical Skills': ['data analysis', 'programming', 'experimental design', 'technical expertise', 'analytical thinking'],
+    'Communication': ['communication', 'public speaking', 'technical writing', 'relationship building', 'storytelling'],
+    'Leadership': ['leadership', 'project management', 'strategic thinking', 'teaching', 'negotiation'],
+    'Creativity': ['creativity', 'innovation', 'design thinking', 'aesthetics', 'user-centered design'],
+    'Independence': ['independence', 'entrepreneurship', 'risk-taking', 'practical impact'],
+    'Collaboration': ['collaboration', 'teamwork', 'community', 'knowledge-sharing', 'empathetic'],
+    'Impact Focus': ['societal impact', 'mission-driven work', 'ethics', 'education', 'knowledge creation'],
+    'Stability': ['stability', 'systematic', 'organized', 'reliable', 'conscientious']
   };
+
+  const dimensionScores = {};
   
-  const counts = { ...dimensions };
-  
-  // Process each answer to calculate dimension scores
-  Object.entries(answers).forEach(([questionId, answer]) => {
-    const question = quizQuestions.questions.find(q => q.id === questionId);
-    if (!question) return;
+  // Calculate scores for each radar dimension
+  Object.entries(radarDimensions).forEach(([dimension, relevantTags]) => {
+    let score = 0;
+    let totalPossible = 0;
     
-    // Map question responses to radar dimensions
-    if (question.category === 'skills') {
-      if (question.id === 'skills_1') {
-        // Technical skills question
-        const option = question.options.find(opt => opt.id === answer);
-        if (option) {
-          if (option.text.includes('Data analysis')) {
-            dimensions.research += 0.8;
-            dimensions.problemSolving += 0.7;
-            counts.research++;
-            counts.problemSolving++;
-          } else if (option.text.includes('Software development')) {
-            dimensions.problemSolving += 0.9;
-            dimensions.independence += 0.6;
-            counts.problemSolving++;
-            counts.independence++;
-          } else if (option.text.includes('Research methodology')) {
-            dimensions.research += 1.0;
-            dimensions.intellectuality += 0.8;
-            counts.research++;
-            counts.intellectuality++;
-          } else if (option.text.includes('Project management')) {
-            dimensions.leadership += 0.8;
-            dimensions.collaboration += 0.7;
-            counts.leadership++;
-            counts.collaboration++;
-          }
-        }
-      } else if (question.id === 'skills_2' && Array.isArray(answer)) {
-        // Multiple select skills question
-        answer.forEach(selectedId => {
-          const option = question.options.find(opt => opt.id === selectedId);
-          if (option) {
-            if (option.id === 'data_analysis') {
-              dimensions.research += 0.6;
-              dimensions.problemSolving += 0.6;
-              counts.research++;
-              counts.problemSolving++;
-            } else if (option.id === 'software_development') {
-              dimensions.problemSolving += 0.7;
-              dimensions.independence += 0.5;
-              counts.problemSolving++;
-              counts.independence++;
-            } else if (option.id === 'project_leadership') {
-              dimensions.leadership += 0.8;
-              dimensions.collaboration += 0.6;
-              counts.leadership++;
-              counts.collaboration++;
-            } else if (option.id === 'technical_writing') {
-              dimensions.communication += 0.7;
-              dimensions.intellectuality += 0.5;
-              counts.communication++;
-              counts.intellectuality++;
-            }
-          }
-        });
+    relevantTags.forEach(tag => {
+      if (userTags[tag]) {
+        score += userTags[tag];
       }
-    } else if (question.category === 'values') {
-      if (question.id === 'values_1' && Array.isArray(answer)) {
-        // Ranking question - higher rank = higher weight
-        answer.forEach((optionId, index) => {
-          const weight = (answer.length - index) / answer.length;
-          if (optionId === 'intellectual_challenge') {
-            dimensions.intellectuality += weight;
-            dimensions.research += weight * 0.6;
-            counts.intellectuality++;
-            counts.research++;
-          } else if (optionId === 'financial_reward') {
-            dimensions.independence += weight * 0.5;
-            counts.independence++;
-          } else if (optionId === 'work_life_balance') {
-            dimensions.autonomy += weight;
-            counts.autonomy++;
-          } else if (optionId === 'social_impact') {
-            dimensions.collaboration += weight * 0.7;
-            counts.collaboration++;
-          }
-        });
-      }
-    } else if (question.category === 'temperament') {
-      if (question.id === 'temperament_1') {
-        // Scale question about ambiguity tolerance
-        const scaleValue = parseInt(answer);
-        if (!isNaN(scaleValue)) {
-          const normalizedValue = scaleValue / 5; // Normalize to 0-1
-          dimensions.autonomy += normalizedValue;
-          dimensions.independence += normalizedValue;
-          dimensions.problemSolving += normalizedValue * 0.7;
-          counts.autonomy++;
-          counts.independence++;
-          counts.problemSolving++;
-        }
-      }
-    } else if (question.category === 'ambitions') {
-      if (question.id === 'ambitions_1') {
-        const option = question.options.find(opt => opt.id === answer);
-        if (option) {
-          if (option.text.includes('Deep technical specialization')) {
-            dimensions.research += 0.9;
-            dimensions.intellectuality += 0.8;
-            dimensions.independence += 0.7;
-            counts.research++;
-            counts.intellectuality++;
-            counts.independence++;
-          } else if (option.text.includes('Managing teams')) {
-            dimensions.leadership += 0.9;
-            dimensions.collaboration += 0.8;
-            dimensions.communication += 0.7;
-            counts.leadership++;
-            counts.collaboration++;
-            counts.communication++;
-          } else if (option.text.includes('Building products')) {
-            dimensions.problemSolving += 0.8;
-            dimensions.collaboration += 0.7;
-            dimensions.communication += 0.6;
-            counts.problemSolving++;
-            counts.collaboration++;
-            counts.communication++;
-          }
-        }
-      }
-    }
+      totalPossible += 1; // Each tag could contribute max 1 point per question
+    });
+    
+    // Normalize to 0-1 scale
+    dimensionScores[dimension] = totalPossible > 0 ? Math.min(score / totalPossible, 1.0) : 0;
   });
-  
-  // Normalize scores by dividing by count and ensuring 0-1 range
-  const normalizedScores = Object.keys(dimensions).map(key => {
-    const score = counts[key] > 0 ? dimensions[key] / counts[key] : 0;
-    return Math.min(Math.max(score, 0), 1); // Clamp between 0 and 1
-  });
-  
-  const categories = [
-    'Leadership',
-    'Communication',
-    'Research', 
-    'Problem Solving',
-    'Independence',
-    'Collaboration',
-    'Intellectuality',
-    'Autonomy'
-  ];
-  
+
+  const categories = Object.keys(dimensionScores);
+  const scores = Object.values(dimensionScores);
+
   return {
     categories,
-    scores: normalizedScores,
-    rawDimensions: dimensions
+    scores: scores.map(score => Math.max(0, Math.min(1, score))), // Ensure 0-1 range
+    rawDimensions: dimensionScores
   };
 }
 
 /**
- * Career matching algorithm
- * Takes quiz answers and returns ranked career matches
+ * Main API handler for career matching
  */
 export default function handler(req, res) {
   // Set CORS headers for cross-origin requests
@@ -210,19 +82,27 @@ export default function handler(req, res) {
       });
     }
 
-    // Calculate career matches
-    const matches = calculateCareerMatches(answers);
+    // Calculate career matches using the new tag-based system
+    const { matches, userTags } = calculateCareerMatches(answers);
     
     // Calculate radar chart data
-    const radarData = calculateRadarChartData(answers);
+    const radarData = calculateRadarChartData(userTags, answers);
+    
+    // Add category breakdown from top match for the radar chart
+    if (matches.length > 0) {
+      radarData.topMatchBreakdown = matches[0].categoryScores;
+    }
 
-    // Return sorted matches
+    // Return top 4 matches as specified in requirements
+    const topMatches = matches.slice(0, 4);
+
     res.status(200).json({
       success: true,
-      matches: matches.slice(0, 10), // Return top 10 matches
+      matches: topMatches,
       radarData,
       metadata: {
-        totalCareers: Object.keys(careerPaths.career_paths).length,
+        totalCareers: careerTaxonomy.career_paths.length,
+        userTagCount: Object.keys(userTags).length,
         timestamp: new Date().toISOString()
       }
     });
@@ -237,147 +117,213 @@ export default function handler(req, res) {
 }
 
 /**
- * Calculate career match scores based on quiz answers
+ * Calculate career match scores based on tag overlap with career taxonomy
  */
 function calculateCareerMatches(answers) {
-  const careerScores = {};
-  const weights = quizQuestions.scoring.weights;
-  const careers = Object.keys(careerPaths.career_paths);
-
-  // Initialize scores for all careers
-  careers.forEach(career => {
-    careerScores[career] = {
-      careerPath: career,
-      details: careerPaths.career_paths[career],
-      scores: { skills: 0, values: 0, temperament: 0, ambitions: 0 },
-      totalScore: 0,
-      matchLevel: 'poor_match'
-    };
+  // Step 1: Extract user tags from quiz answers
+  const userTags = extractUserTags(answers);
+  
+  // Step 2: Calculate match scores for each career
+  const careerScores = [];
+  
+  careerTaxonomy.career_paths.forEach(career => {
+    const matchScore = calculateCareerScore(career, userTags);
+    
+    careerScores.push({
+      careerPath: career.id,
+      name: career.name,
+      category: career.category,
+      description: career.description,
+      skills: career.skills,
+      values: career.values,
+      temperament: career.temperament,
+      totalScore: matchScore.total,
+      categoryScores: matchScore.categories,
+      matchLevel: getMatchLevel(matchScore.total),
+      score: Math.round(matchScore.total * 100) // Convert to percentage for display
+    });
   });
 
-  // Process each answer
+  // Step 3: Sort by total score and filter for positive matches
+  const sortedMatches = careerScores
+    .filter(career => career.totalScore > 0)
+    .sort((a, b) => b.totalScore - a.totalScore);
+
+  return { matches: sortedMatches, userTags };
+}
+
+/**
+ * Extract weighted tags from user's quiz answers
+ */
+function extractUserTags(answers) {
+  const userTags = {};
+  
   Object.entries(answers).forEach(([questionId, answer]) => {
     const question = quizQuestions.questions.find(q => q.id === questionId);
     if (!question) return;
-
+    
     const category = question.category;
-
+    const categoryWeight = quizQuestions.scoring.weights[category] || 1;
+    
     if (question.type === 'multiple_choice') {
-      processMultipleChoiceAnswer(question, answer, careerScores, category);
-    } else if (question.type === 'ranking') {
-      processRankingAnswer(question, answer, careerScores, category);
-    } else if (question.type === 'scale') {
-      processScaleAnswer(question, answer, careerScores, category);
+      processMultipleChoiceTags(question, answer, userTags, categoryWeight);
     } else if (question.type === 'multiple_select') {
-      processMultipleSelectAnswer(question, answer, careerScores, category);
+      processMultipleSelectTags(question, answer, userTags, categoryWeight);
+    } else if (question.type === 'ranking') {
+      processRankingTags(question, answer, userTags, categoryWeight);
+    } else if (question.type === 'scale') {
+      processScaleTags(question, answer, userTags, categoryWeight);
     }
   });
-
-  // Calculate final weighted scores and normalize properly
-  Object.values(careerScores).forEach(career => {
-    // Normalize each category score to 0-1 range first
-    const maxCategoryScore = 3.0; // Rough estimate of max possible score per category
-    career.scores.skills = Math.min(career.scores.skills / maxCategoryScore, 1.0);
-    career.scores.values = Math.min(career.scores.values / maxCategoryScore, 1.0);
-    career.scores.temperament = Math.min(career.scores.temperament / maxCategoryScore, 1.0);
-    career.scores.ambitions = Math.min(career.scores.ambitions / maxCategoryScore, 1.0);
-    
-    // Calculate weighted total score (already normalized to 0-1)
-    career.totalScore = 
-      career.scores.skills * weights.skills +
-      career.scores.values * weights.values +
-      career.scores.temperament * weights.temperament +
-      career.scores.ambitions * weights.ambitions;
-
-    // Determine match level
-    const score = career.totalScore;
-    const thresholds = quizQuestions.scoring.thresholds;
-    
-    if (score >= thresholds.excellent_match) {
-      career.matchLevel = 'Excellent Match';
-    } else if (score >= thresholds.good_match) {
-      career.matchLevel = 'Good Match';
-    } else if (score >= thresholds.moderate_match) {
-      career.matchLevel = 'Moderate Match';
-    } else {
-      career.matchLevel = 'Poor Match';
-    }
-
-    // Convert to percentage for display (0-100%)
-    career.score = Math.round(career.totalScore * 100);
-  });
-
-  // Sort by total score descending
-  return Object.values(careerScores)
-    .sort((a, b) => b.totalScore - a.totalScore)
-    .filter(career => career.totalScore > 0); // Only return careers with positive scores
+  
+  return userTags;
 }
 
 /**
- * Process multiple choice question answers
+ * Process multiple choice question tags
  */
-function processMultipleChoiceAnswer(question, answer, careerScores, category) {
+function processMultipleChoiceTags(question, answer, userTags, categoryWeight) {
   const selectedOption = question.options.find(opt => opt.id === answer);
-  if (!selectedOption || !selectedOption.weight) return;
-
-  Object.entries(selectedOption.weight).forEach(([career, weight]) => {
-    if (careerScores[career]) {
-      // Normalize weight to prevent scores > 1.0
-      const normalizedWeight = Math.min(weight, 1.0);
-      careerScores[career].scores[category] += normalizedWeight;
-    }
+  if (!selectedOption || !selectedOption.tags) return;
+  
+  selectedOption.tags.forEach(tag => {
+    userTags[tag] = (userTags[tag] || 0) + categoryWeight;
   });
 }
 
 /**
- * Process ranking question answers
+ * Process multiple select question tags
  */
-function processRankingAnswer(question, answer, careerScores, category) {
+function processMultipleSelectTags(question, answer, userTags, categoryWeight) {
   if (!Array.isArray(answer)) return;
-
-  answer.forEach((optionId, index) => {
-    const option = question.options.find(opt => opt.id === optionId);
-    if (!option || !option.weight) return;
-
-    // Higher rank (lower index) gets higher weight
-    const rankMultiplier = (answer.length - index) / answer.length;
-    
-    Object.entries(option.weight).forEach(([career, weight]) => {
-      if (careerScores[career]) {
-        careerScores[career].scores[category] += weight * rankMultiplier;
-      }
-    });
-  });
-}
-
-/**
- * Process scale question answers
- */
-function processScaleAnswer(question, answer, careerScores, category) {
-  const scaleValue = parseInt(answer);
-  if (isNaN(scaleValue) || !question.weights || !question.weights[scaleValue]) return;
-
-  Object.entries(question.weights[scaleValue]).forEach(([career, weight]) => {
-    if (careerScores[career]) {
-      careerScores[career].scores[category] += weight;
-    }
-  });
-}
-
-/**
- * Process multiple select question answers
- */
-function processMultipleSelectAnswer(question, answer, careerScores, category) {
-  if (!Array.isArray(answer)) return;
-
+  
   answer.forEach(selectedId => {
     const option = question.options.find(opt => opt.id === selectedId);
-    if (!option || !option.weight) return;
+    if (option && option.tags) {
+      option.tags.forEach(tag => {
+        userTags[tag] = (userTags[tag] || 0) + categoryWeight;
+      });
+    }
+  });
+}
 
-    Object.entries(option.weight).forEach(([career, weight]) => {
-      if (careerScores[career]) {
-        careerScores[career].scores[category] += weight;
+/**
+ * Process ranking question tags (higher rank = higher weight)
+ */
+function processRankingTags(question, answer, userTags, categoryWeight) {
+  if (!Array.isArray(answer)) return;
+  
+  answer.forEach((optionId, index) => {
+    const option = question.options.find(opt => opt.id === optionId);
+    if (option && option.tags) {
+      // Higher rank (lower index) gets higher weight
+      const rankMultiplier = (answer.length - index) / answer.length;
+      const weightedScore = categoryWeight * rankMultiplier;
+      
+      option.tags.forEach(tag => {
+        userTags[tag] = (userTags[tag] || 0) + weightedScore;
+      });
+    }
+  });
+}
+
+/**
+ * Process scale question tags
+ */
+function processScaleTags(question, answer, userTags, categoryWeight) {
+  const scaleValue = parseInt(answer);
+  if (isNaN(scaleValue) || !question.tags || !question.tags[scaleValue]) return;
+  
+  question.tags[scaleValue].forEach(tag => {
+    userTags[tag] = (userTags[tag] || 0) + categoryWeight;
+  });
+}
+
+/**
+ * Calculate match score between user tags and career requirements
+ */
+function calculateCareerScore(career, userTags) {
+  // First, determine the max possible tag value for normalization
+  const maxTagValue = Math.max(...Object.values(userTags), 1);
+  
+  const categoryScores = {
+    skills: 0,
+    values: 0,
+    temperament: 0
+  };
+  
+  // Calculate skills match
+  if (career.skills && career.skills.length > 0) {
+    let skillsTotal = 0;
+    let skillMatches = 0;
+    career.skills.forEach(skill => {
+      if (userTags[skill]) {
+        skillsTotal += userTags[skill] / maxTagValue; // Normalize each tag
+        skillMatches++;
       }
     });
-  });
+    // Average match strength for skills that were found
+    categoryScores.skills = skillMatches > 0 ? skillsTotal / career.skills.length : 0;
+  }
+  
+  // Calculate values match
+  if (career.values && career.values.length > 0) {
+    let valuesTotal = 0;
+    let valueMatches = 0;
+    career.values.forEach(value => {
+      if (userTags[value]) {
+        valuesTotal += userTags[value] / maxTagValue; // Normalize each tag
+        valueMatches++;
+      }
+    });
+    categoryScores.values = valueMatches > 0 ? valuesTotal / career.values.length : 0;
+  }
+  
+  // Calculate temperament match
+  if (career.temperament && career.temperament.length > 0) {
+    let temperamentTotal = 0;
+    let temperamentMatches = 0;
+    career.temperament.forEach(trait => {
+      if (userTags[trait]) {
+        temperamentTotal += userTags[trait] / maxTagValue; // Normalize each tag
+        temperamentMatches++;
+      }
+    });
+    categoryScores.temperament = temperamentMatches > 0 ? temperamentTotal / career.temperament.length : 0;
+  }
+  
+  // Calculate weighted total score (already normalized between 0-1)
+  const weights = quizQuestions.scoring.weights;
+  const totalScore = 
+    (categoryScores.skills * weights.skills) +
+    (categoryScores.values * weights.values) +
+    (categoryScores.temperament * weights.temperament);
+  
+  // Total score is already normalized since each category score is 0-1 and weights sum to 1
+  
+  return {
+    total: Math.max(0, Math.min(1, totalScore)),
+    categories: {
+      skills: Math.max(0, Math.min(1, categoryScores.skills)),
+      values: Math.max(0, Math.min(1, categoryScores.values)),
+      temperament: Math.max(0, Math.min(1, categoryScores.temperament))
+    }
+  };
+}
+
+/**
+ * Determine match level based on score
+ */
+function getMatchLevel(score) {
+  const thresholds = quizQuestions.scoring.thresholds;
+  
+  if (score >= thresholds.excellent_match) {
+    return 'Excellent Match';
+  } else if (score >= thresholds.good_match) {
+    return 'Good Match';
+  } else if (score >= thresholds.moderate_match) {
+    return 'Moderate Match';
+  } else {
+    return 'Poor Match';
+  }
 }
