@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import careerTrajectories from '../data/careerTrajectories.json';
+import SalaryTimelineGraph from './SalaryTimelineGraph';
 
 const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interactive = true }) => {
   const [selectedStage, setSelectedStage] = useState(null);
@@ -7,13 +8,32 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
   const [trajectory, setTrajectory] = useState(null);
 
   useEffect(() => {
-    if (careerTrajectories.trajectories[careerPath]) {
+    if (careerTrajectories?.trajectories?.[careerPath]) {
       setTrajectory(careerTrajectories.trajectories[careerPath]);
+    } else {
+      // Set a default trajectory for demonstration
+      setTrajectory(careerTrajectories?.trajectories?.data_scientist || null);
     }
   }, [careerPath]);
 
+  // Ensure we have trajectory data on initial load
+  useEffect(() => {
+    if (!trajectory && careerTrajectories?.trajectories?.data_scientist) {
+      setTrajectory(careerTrajectories.trajectories.data_scientist);
+    }
+  }, [trajectory]);
+
   if (!trajectory) {
-    return <div className="p-4 text-gray-500">Career path not found</div>;
+    return (
+      <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
+        <div className="bg-white rounded-lg shadow p-8 text-center">
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">Loading Career Data...</h2>
+          <p className="text-gray-600">
+            Career path data is being loaded. If this persists, the career path "{careerPath}" may not be available.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   const colors = careerTrajectories.visualization_settings?.stage_colors || {
@@ -209,32 +229,12 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
   );
 
   const TimelineOverview = () => (
-    <div className="bg-white rounded-lg shadow p-4 mb-6">
-      <h3 className="font-semibold mb-3">{trajectory.name} Career Timeline</h3>
-      <div className="text-sm text-gray-600 mb-4">
-        {trajectory.timeline_years}
-      </div>
-      
-      {/* Timeline Visualization */}
-      <div className="flex flex-col space-y-2">
-        {trajectory.stages.map((stage, index) => (
-          <div key={index} className="flex items-center space-x-3">
-            <div 
-              className="w-4 h-4 rounded-full"
-              style={{ backgroundColor: colors[stage.level] }}
-            ></div>
-            <div className="flex-1">
-              <div className="font-medium">{stage.title}</div>
-              <div className="text-sm text-gray-500">
-                {stage.years_experience} years • {stage.typical_duration}
-              </div>
-            </div>
-            <div className="text-sm font-medium text-green-600">
-              {stage.salary_range.split(' - ')[0]}
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="mb-6">
+      <SalaryTimelineGraph 
+        trajectory={trajectory} 
+        interactive={interactive}
+        showPivots={showPivots}
+      />
     </div>
   );
 
@@ -271,6 +271,179 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
             </div>
           ))}
         </div>
+      </div>
+    );
+  };
+
+  const HowToGetStarted = () => {
+    const gettingStarted = trajectory.getting_started;
+    
+    if (!gettingStarted) {
+      return (
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
+          <h3 className="text-xl font-bold text-blue-900 mb-3 flex items-center">
+            🚀 How to Get Started in {trajectory.name}
+          </h3>
+          <p className="text-blue-700 text-sm">
+            Getting started guidance for this career path is being developed. 
+            Check back soon for detailed prerequisites, preparation steps, and daily activities information!
+          </p>
+        </div>
+      );
+    }
+
+    return (
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
+        <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center">
+          🚀 How to Get Started in {trajectory.name}
+        </h3>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Prerequisites */}
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <h4 className="font-semibold text-blue-800 mb-3 flex items-center">
+              📚 Prerequisites
+            </h4>
+            <div className="space-y-2">
+              <div>
+                <h5 className="text-sm font-medium text-gray-700 mb-1">Education</h5>
+                <p className="text-sm text-gray-600">{gettingStarted.education}</p>
+              </div>
+              {gettingStarted.certifications && (
+                <div>
+                  <h5 className="text-sm font-medium text-gray-700 mb-1">Certifications</h5>
+                  <div className="flex flex-wrap gap-1">
+                    {gettingStarted.certifications.map((cert, idx) => (
+                      <span key={idx} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
+                        {typeof cert === 'object' && cert.url ? (
+                          <a 
+                            href={cert.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-700 hover:text-blue-900 hover:underline"
+                          >
+                            {cert.name}
+                          </a>
+                        ) : (
+                          cert
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {gettingStarted.key_skills && (
+                <div>
+                  <h5 className="text-sm font-medium text-gray-700 mb-1">Essential Skills</h5>
+                  <div className="flex flex-wrap gap-1">
+                    {gettingStarted.key_skills.map((skill, idx) => (
+                      <span key={idx} className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Preparation Steps */}
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <h4 className="font-semibold text-blue-800 mb-3 flex items-center">
+              🎯 How to Prepare
+            </h4>
+            <div className="space-y-3">
+              {gettingStarted.preparation_steps?.map((step, index) => (
+                <div key={index} className="flex items-start space-x-2">
+                  <div className="flex-shrink-0 w-5 h-5 bg-blue-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
+                    {index + 1}
+                  </div>
+                  <p className="text-sm text-gray-700">{step}</p>
+                </div>
+              ))}
+            </div>
+            
+            {gettingStarted.recommended_resources && (
+              <div className="mt-4 pt-3 border-t">
+                <h5 className="text-sm font-medium text-gray-700 mb-2">Recommended Resources</h5>
+                <div className="space-y-1">
+                  {gettingStarted.recommended_resources.map((resource, idx) => (
+                    <div key={idx} className="text-xs text-gray-600 flex items-center">
+                      <span className="w-2 h-2 bg-gray-400 rounded-full mr-2"></span>
+                      {typeof resource === 'object' && resource.url ? (
+                        <a 
+                          href={resource.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 hover:underline"
+                        >
+                          {resource.name}
+                        </a>
+                      ) : (
+                        resource
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Daily Activities */}
+          <div className="bg-white rounded-lg p-4 shadow-sm md:col-span-2 lg:col-span-1">
+            <h4 className="font-semibold text-blue-800 mb-3 flex items-center">
+              ⏰ Daily Activities
+            </h4>
+            <div className="space-y-2">
+              <p className="text-sm text-gray-600 mb-3">{gettingStarted.daily_overview}</p>
+              {gettingStarted.typical_day && (
+                <div className="space-y-2">
+                  {gettingStarted.typical_day.map((activity, index) => (
+                    <div key={index} className="flex items-start space-x-2">
+                      <div className="flex-shrink-0 w-1 h-1 bg-blue-400 rounded-full mt-2"></div>
+                      <p className="text-xs text-gray-600">{activity}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Timeline & Next Steps */}
+        {gettingStarted.timeline_to_entry && (
+          <div className="mt-6 bg-white rounded-lg p-4 shadow-sm">
+            <h4 className="font-semibold text-blue-800 mb-3 flex items-center">
+              ⏱️ Expected Timeline to Entry
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <p className="text-sm text-gray-700 mb-2">
+                  <span className="font-medium">Time to first role:</span> {gettingStarted.timeline_to_entry}
+                </p>
+                {gettingStarted.entry_level_positions && (
+                  <div>
+                    <p className="text-sm font-medium text-gray-700 mb-1">Common entry positions:</p>
+                    <div className="flex flex-wrap gap-1">
+                      {gettingStarted.entry_level_positions.map((position, idx) => (
+                        <span key={idx} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                          {position}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+              {gettingStarted.salary_expectations && (
+                <div>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-medium">Entry-level salary range:</span> {gettingStarted.salary_expectations}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     );
   };
@@ -356,6 +529,11 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
 
       {/* Alternative Paths */}
       <AlternativePaths />
+
+      {/* How to Get Started */}
+      <div className="mb-8">
+        <HowToGetStarted />
+      </div>
 
       {/* Skill Tooltip */}
       {hoveredSkill && (
