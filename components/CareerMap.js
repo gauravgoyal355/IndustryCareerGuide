@@ -29,7 +29,7 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
         <div className="bg-white rounded-lg shadow p-8 text-center">
           <h2 className="text-xl font-semibold text-gray-900 mb-2">Loading Career Data...</h2>
           <p className="text-gray-600">
-            Career path data is being loaded. If this persists, the career path "{careerPath}" may not be available.
+            Career path data is being loaded. If this persists, the career path &quot;{careerPath}&quot; may not be available.
           </p>
         </div>
       </div>
