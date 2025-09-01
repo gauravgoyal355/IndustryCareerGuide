@@ -118,8 +118,62 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
         )}
       </div>
 
-      <div className="flex justify-center relative overflow-x-auto">
-        <svg width={svgWidth} height={svgHeight} className={isMobile ? "min-w-full" : "overflow-visible"} style={{ zIndex: 1 }}>
+      {/* Mobile Vertical Layout */}
+      {isMobile ? (
+        <div className="space-y-4">
+          {/* PhD Entry Point Label */}
+          <div className="text-center mb-4">
+            <div className="inline-flex items-center bg-blue-50 rounded-full px-3 py-1">
+              <span className="text-sm font-medium text-blue-700">👨‍🎓 PhD Entry Point</span>
+            </div>
+          </div>
+          
+          {/* Vertical Career Steps */}
+          {mainPath.map((stage, index) => (
+            <div key={`mobile-${index}`} className="relative">
+              {/* Connector line */}
+              {index < mainPath.length - 1 && (
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-300 h-4 top-full z-0"></div>
+              )}
+              
+              {/* Career Step Card */}
+              <div 
+                className="bg-white border-2 rounded-xl p-4 shadow-md relative z-10"
+                style={{ borderColor: levelColors[stage.level] }}
+                onTouchStart={() => interactive && setHoveredPoint(`main-${index}`)}
+                onTouchEnd={() => setHoveredPoint(null)}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <div 
+                    className="w-6 h-6 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: levelColors[stage.level] }}
+                  ></div>
+                  {stage.timeToNext && (
+                    <span className="text-xs bg-gray-100 rounded-full px-2 py-1 text-gray-600">
+                      {stage.timeToNext}y to next
+                    </span>
+                  )}
+                </div>
+                
+                <h4 className="text-lg font-bold text-gray-900 mb-1">{stage.title}</h4>
+                <p className="text-sm font-semibold text-gray-700 mb-1">{stage.salary}</p>
+                <p className="text-xs text-gray-500">
+                  {stage.cumulativeYears} years total experience
+                </p>
+                
+                {stage.remoteFriendly && (
+                  <div className="mt-2 inline-flex items-center text-xs text-green-600">
+                    🏠 Remote OK
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        /* Desktop Horizontal Timeline */
+        <div className="flex justify-center relative overflow-x-auto">
+          <svg width={svgWidth} height={svgHeight} className="overflow-visible" style={{ zIndex: 1 }}>
           {/* Main timeline line */}
           <line
             x1={isMobile ? "50" : "100"}
@@ -462,7 +516,8 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
             );
           }
         })()}
-      </div>
+        </div>
+      )}
 
       {/* Mobile Pivot Opportunities */}
       {isMobile && showPivots && pivotOpportunities.length > 0 && (
