@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import careerData from '../data/careerTimelineData_PhDOptimized.json';
 
 const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = true }) => {
   const [hoveredPoint, setHoveredPoint] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const career = careerData.career_timelines[careerKey];
   
@@ -53,10 +61,12 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
     3: '#C2410C'    // Orange
   };
 
-  // SVG dimensions - compact height for efficient space usage
-  const svgWidth = 1200;
-  const svgHeight = 500;
-  const timelineY = 250;
+  // Responsive SVG dimensions
+  const svgWidth = isMobile ? 350 : 1200;
+  const svgHeight = isMobile ? 800 : 500;
+  const timelineY = isMobile ? 400 : 250;
+  const bubbleRadius = isMobile ? 30 : 38;
+  const hoveredBubbleRadius = isMobile ? 34 : 42;
 
   const mainPath = career.main_path;
   const pivotOpportunities = career.pivot_opportunities || [];
@@ -66,14 +76,17 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
     ...pivotOpportunities.flatMap(pivot => pivot.stages.map(s => s.cumulativeYears))
   ) + 2;
 
-  // Calculate X position with better spacing
+  // Calculate X position with responsive spacing
   const getXPosition = (years) => {
-    return 100 + (years / maxYears) * (svgWidth - 200);
+    const margin = isMobile ? 50 : 100;
+    const spacing = isMobile ? (svgWidth - 100) : (svgWidth - 200);
+    return margin + (years / maxYears) * spacing;
   };
 
   // Calculate X position for main path with extra spacing to compensate for larger bubbles
   const getMainPathXPosition = (years) => {
     const basePosition = getXPosition(years);
+    if (isMobile) return basePosition; // No extra spacing on mobile for simplicity
     // Add proportional spacing: 19px extra per bubble (57-38=19px difference in radius)
     const extraSpacing = years * 15; // 15px per year to compensate for larger bubbles
     return basePosition + extraSpacing * 0.3; // Scale factor to prevent over-extension
@@ -89,30 +102,32 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8">
+    <div className={isMobile ? "bg-white rounded-lg shadow-lg p-4" : "bg-white rounded-lg shadow-lg p-8"}>
       {/* Title */}
-      <div className="text-center mb-10">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+      <div className={isMobile ? "text-center mb-6" : "text-center mb-10"}>
+        <h3 className={isMobile ? "text-xl font-bold text-gray-900 mb-2" : "text-2xl font-bold text-gray-900 mb-2"}>
           {career.name} Career Timeline
         </h3>
-        <p className="text-sm text-gray-500 italic">
-          *Salary ranges based on US market averages (major tech hubs: SF Bay Area, Seattle, NYC)
+        <p className={isMobile ? "text-xs text-gray-500 italic" : "text-sm text-gray-500 italic"}>
+          *Salary ranges based on US market averages (major tech hubs)
         </p>
-        <p className="text-xs text-gray-400 mt-1">
-          💡 Hover over any position to see details
-        </p>
+        {!isMobile && (
+          <p className="text-xs text-gray-400 mt-1">
+            💡 Hover over any position to see details
+          </p>
+        )}
       </div>
 
-      <div className="flex justify-center relative">
-        <svg width={svgWidth} height={svgHeight} className="overflow-visible" style={{ zIndex: 1 }}>
+      <div className="flex justify-center relative overflow-x-auto">
+        <svg width={svgWidth} height={svgHeight} className={isMobile ? "min-w-full" : "overflow-visible"} style={{ zIndex: 1 }}>
           {/* Main timeline line */}
           <line
-            x1="100"
+            x1={isMobile ? "50" : "100"}
             y1={timelineY}
-            x2={svgWidth - 100}
+            x2={svgWidth - (isMobile ? 50 : 100)}
             y2={timelineY}
             stroke="#D1D5DB"
-            strokeWidth="8"
+            strokeWidth={isMobile ? "6" : "8"}
           />
 
           {/* Main path connections */}
@@ -173,9 +188,9 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                 {stage.timeToNext && (
                   <text
                     x={x + (getMainPathXPosition(mainPath[index + 1].cumulativeYears) - x) / 2}
-                    y={timelineY - 25}
+                    y={timelineY - (isMobile ? 20 : 25)}
                     textAnchor="middle"
-                    className="text-sm fill-gray-600 font-medium"
+                    className={isMobile ? "text-xs fill-gray-600 font-medium" : "text-sm fill-gray-600 font-medium"}
                   >
                     {stage.timeToNext}y
                   </text>
@@ -185,10 +200,10 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                 <circle
                   cx={x}
                   cy={timelineY}
-                  r={isHovered ? "63" : "57"}
+                  r={isHovered ? (isMobile ? 50 : 63) : (isMobile ? 45 : 57)}
                   fill={levelColors[stage.level]}
                   stroke="white"
-                  strokeWidth="4"
+                  strokeWidth={isMobile ? "3" : "4"}
                   className={`cursor-pointer transition-all duration-200 ${isHovered ? 'drop-shadow-lg' : 'drop-shadow-md'}`}
                   onMouseEnter={() => interactive && setHoveredPoint(`main-${index}`)}
                   onMouseLeave={() => setHoveredPoint(null)}
@@ -208,8 +223,8 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
             );
           })}
 
-          {/* Pivot Branches - positioned using A and 2A distance logic */}
-          {showPivots && (() => {
+          {/* Pivot Branches - hide on mobile for cleaner display */}
+          {showPivots && !isMobile && (() => {
             const A = 140; // Base distance from main path
             const positionedPivots = [];
             
@@ -327,10 +342,10 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                       <circle
                         cx={pivotX}
                         cy={pivot.pivotY}
-                        r={isHovered ? "42" : "38"}
+                        r={isHovered ? hoveredBubbleRadius : bubbleRadius}
                         fill={levelColors[pivotStage.level]}
                         stroke="white"
-                        strokeWidth="4"
+                        strokeWidth={isMobile ? "3" : "4"}
                         className={`cursor-pointer transition-all duration-200 ${isHovered ? 'drop-shadow-lg' : 'drop-shadow-md'}`}
                         onMouseEnter={() => interactive && setHoveredPoint(`pivot-${pivot.originalIndex}-${stageIndex}`)}
                         onMouseLeave={() => setHoveredPoint(null)}
@@ -449,18 +464,54 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
         })()}
       </div>
 
+      {/* Mobile Pivot Opportunities */}
+      {isMobile && showPivots && pivotOpportunities.length > 0 && (
+        <div className="mt-8">
+          <h4 className="text-lg font-bold text-gray-900 mb-4 text-center">Career Pivot Opportunities</h4>
+          <div className="space-y-4">
+            {pivotOpportunities.map((pivot, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-4">
+                <div className="flex items-center mb-2">
+                  <div 
+                    className="w-3 h-3 rounded-full mr-2"
+                    style={{ backgroundColor: pivot.color }}
+                  ></div>
+                  <h5 className="font-semibold text-gray-900">{pivot.branchName}</h5>
+                  <span className="ml-auto text-xs text-green-600 font-medium">
+                    {pivot.transitionSuccess} success rate
+                  </span>
+                </div>
+                <div className="text-xs text-gray-600 mb-2">
+                  From: {mainPath[pivot.branchFromIndex]?.title} ({mainPath[pivot.branchFromIndex]?.cumulativeYears}y)
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {pivot.stages.map((stage, stageIndex) => (
+                    <div key={stageIndex} className="bg-white rounded px-2 py-1 text-xs">
+                      <div className="font-medium">{stage.shortTitle}</div>
+                      <div className="text-gray-600">{stage.salary}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Legend */}
       <div className="mt-8 flex justify-center">
         <div className="bg-gray-50 rounded-lg p-6 max-w-lg">
-          <div className="text-sm font-medium text-gray-700 mb-4 text-center">Career Levels & Remote Work</div>
-          <div className="flex justify-center gap-6">
+          <div className={isMobile ? "text-xs font-medium text-gray-700 mb-4 text-center" : "text-sm font-medium text-gray-700 mb-4 text-center"}>
+            Career Levels & Remote Work
+          </div>
+          <div className={isMobile ? "flex justify-center gap-3 flex-wrap" : "flex justify-center gap-6"}>
             {Object.entries(levelColors).filter(([level]) => level !== 'entry').map(([level, color]) => (
-              <div key={level} className="flex items-center space-x-3">
+              <div key={level} className="flex items-center space-x-2">
                 <div 
-                  className="w-4 h-4 rounded-full flex-shrink-0"
+                  className="w-3 h-3 rounded-full flex-shrink-0"
                   style={{ backgroundColor: color, borderRadius: '50%' }}
                 ></div>
-                <span className="text-sm text-gray-600">
+                <span className={isMobile ? "text-xs text-gray-600" : "text-sm text-gray-600"}>
                   {level === 'mid' ? 'PhD Entry' : 
                    level === 'senior' ? 'Senior' : 
                    level === 'lead' ? 'Leadership' : 'Executive'}
@@ -470,7 +521,7 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
           </div>
           
           <div className="mt-4 pt-3 border-t border-gray-200 text-center">
-            <span className="text-xs text-gray-500">
+            <span className={isMobile ? "text-xs text-gray-500" : "text-xs text-gray-500"}>
               🏠 Remote OK indicates remote-friendly positions
             </span>
           </div>
