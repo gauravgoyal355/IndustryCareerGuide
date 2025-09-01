@@ -527,10 +527,6 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
             {pivotOpportunities.map((pivot, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-4">
                 <div className="flex items-center mb-2">
-                  <div 
-                    className="w-3 h-3 rounded-full mr-2"
-                    style={{ backgroundColor: pivot.color }}
-                  ></div>
                   <h5 className="font-semibold text-gray-900">{pivot.branchName}</h5>
                   <span className="ml-auto text-xs text-green-600 font-medium">
                     {pivot.transitionSuccess} success rate
