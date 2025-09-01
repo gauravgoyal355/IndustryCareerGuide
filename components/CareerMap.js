@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import careerTrajectories from '../data/careerTrajectories.json';
-import SalaryTimelineGraph from './SalaryTimelineGraph';
+import careerData from '../data/careerTimelineData_PhDOptimized.json';
+import DynamicCareerTimeline from './DynamicCareerTimeline';
 
 const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interactive = true }) => {
   const [selectedStage, setSelectedStage] = useState(null);
@@ -230,8 +231,8 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
 
   const TimelineOverview = () => (
     <div className="mb-6">
-      <SalaryTimelineGraph 
-        trajectory={trajectory} 
+      <DynamicCareerTimeline 
+        careerKey={careerPath} 
         interactive={interactive}
         showPivots={showPivots}
       />
@@ -460,8 +461,6 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
         </p>
       </div>
 
-      {/* Skill Legend */}
-      <SkillLegend />
 
       {/* Timeline Overview */}
       <TimelineOverview />

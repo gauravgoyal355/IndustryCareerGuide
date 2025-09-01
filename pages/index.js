@@ -35,23 +35,6 @@ const HomePage = () => {
     'program_management'
   ];
 
-  const testimonials = [
-    {
-      name: 'Dr. Sarah Chen',
-      role: 'Former Postdoc → Data Scientist at Google',
-      content: 'IndustryCareerGuide helped me transition from a biology postdoc to a data scientist role. The personalized action plan was incredibly valuable.'
-    },
-    {
-      name: 'Dr. Michael Rodriguez',
-      role: 'Former PhD → Product Manager at Microsoft',
-      content: 'The career assessment opened my eyes to product management. Within 8 months, I landed my dream role following their roadmap.'
-    },
-    {
-      name: 'Dr. Emily Watson',
-      role: 'Former Research Scientist → Technical Consultant',
-      content: 'The resume optimization and interview prep were game-changers. I increased my interview success rate by 300%.'
-    }
-  ];
 
   return (
     <Layout
@@ -83,29 +66,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-white py-12">
-        <div className="container-max">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-primary-600">10,000+</div>
-              <div className="text-sm text-gray-600">PhDs Helped</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600">85%</div>
-              <div className="text-sm text-gray-600">Success Rate</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600">12</div>
-              <div className="text-sm text-gray-600">Career Paths</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600">6 months</div>
-              <div className="text-sm text-gray-600">Avg. Transition Time</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Features Section */}
       <section className="bg-gray-50 section-padding">
@@ -212,34 +172,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-white section-padding">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Success Stories
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real PhDs who successfully transitioned to industry careers
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="card">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600">{testimonial.role}</div>
-                  </div>
-                </div>
-                <p className="text-gray-600 italic">&ldquo;{testimonial.content}&rdquo;</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-primary-600 to-purple-600 section-padding text-white">
@@ -248,20 +180,12 @@ const HomePage = () => {
             Ready to Transform Your Career?
           </h2>
           <p className="text-xl opacity-90 max-w-2xl mx-auto mb-8">
-            Join thousands of STEM PhDs who have successfully transitioned to rewarding industry careers.
+            Start your journey to a rewarding industry career with personalized guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/quiz/" className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200">
               Take Free Assessment
             </Link>
-            <a
-              href="https://industryresume.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
-            >
-              Get Resume Help
-            </a>
           </div>
         </div>
       </section>

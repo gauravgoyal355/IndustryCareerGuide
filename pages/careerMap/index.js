@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Layout from '../../components/Layout';
 import CareerMap from '../../components/CareerMap';
 import careerTrajectories from '../../data/careerTrajectories.json';
+import careerData from '../../data/careerTimelineData_PhDOptimized.json';
 import careerTaxonomy from '../../data/career_taxonomy.json';
 
 const CareerMapPage = () => {
@@ -12,7 +13,7 @@ const CareerMapPage = () => {
   const [selectedCareerPath, setSelectedCareerPath] = useState(path || 'data_scientist');
   const [showPivots, setShowPivots] = useState(true);
 
-  const careerPaths = Object.keys(careerTrajectories.trajectories || {});
+  const careerPaths = Object.keys(careerData.career_timelines || {});
 
   useEffect(() => {
     if (path && careerPaths.includes(path)) {
@@ -26,7 +27,7 @@ const CareerMapPage = () => {
   };
 
   const getCareerPathDisplayName = (careerPath) => {
-    return careerTrajectories.trajectories[careerPath]?.name || 
+    return careerData.career_timelines[careerPath]?.name || 
            careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
   };
 
@@ -207,7 +208,7 @@ const CareerMapPage = () => {
                     {getCareerPathDisplayName(path)}
                   </h4>
                   <p className="text-sm text-gray-600">
-                    {careerTrajectories.trajectories[path]?.timeline_years || 'View career progression'}
+                    View career progression timeline
                   </p>
                 </button>
               ))}

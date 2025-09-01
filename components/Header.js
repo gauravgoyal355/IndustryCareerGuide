@@ -49,14 +49,6 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <a
-              href="https://industryresume.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Resume Help →
-            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -92,14 +84,6 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <a
-                href="https://industryresume.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-block text-center"
-              >
-                Resume Help →
-              </a>
             </div>
           </div>
         )}
