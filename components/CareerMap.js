@@ -1,28 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import careerTrajectories from '../data/careerTrajectories.json';
 import careerData from '../data/careerTimelineData_PhDOptimized.json';
 import DynamicCareerTimeline from './DynamicCareerTimeline';
 
 const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interactive = true }) => {
   const [selectedStage, setSelectedStage] = useState(null);
-  const [hoveredSkill, setHoveredSkill] = useState(null);
   const [trajectory, setTrajectory] = useState(null);
 
   useEffect(() => {
-    if (careerTrajectories?.trajectories?.[careerPath]) {
-      setTrajectory(careerTrajectories.trajectories[careerPath]);
-    } else {
-      // Set a default trajectory for demonstration
-      setTrajectory(careerTrajectories?.trajectories?.data_scientist || null);
+    // Convert new PhD-optimized data to rich trajectory format
+    const newCareer = careerData?.career_timelines?.[careerPath] || careerData?.career_timelines?.data_scientist;
+    if (newCareer) {
+      const convertedTrajectory = {
+        name: newCareer.name,
+        timeline_years: `${Math.max(...newCareer.main_path.map(p => p.cumulativeYears))} years`,
+        stages: newCareer.main_path,
+        pivot_opportunities: newCareer.pivot_opportunities || [],
+        getting_started: {
+          education: "PhD in relevant STEM field - Optimized for doctoral-level industry entry",
+          daily_overview: `Advanced analytical work leveraging PhD research training and methodology expertise.`,
+          preparation_steps: newCareer.phdTransitionTips || [
+            "Translate academic research to industry language",
+            "Build portfolio showcasing quantitative expertise", 
+            "Network with PhD professionals in industry",
+            "Prepare for technical depth interviews",
+            "Research target companies' PhD career tracks"
+          ],
+          timeline_to_entry: "3-6 months focused industry preparation",
+          salary_expectations: newCareer.main_path[0]?.salary,
+          typical_day: [
+            "Advanced problem solving using research methodologies",
+            "Strategic analysis and data-driven decision making",
+            "Cross-functional collaboration and leadership",
+            "Mentoring teams and knowledge transfer",
+            "Innovation and methodology development"
+          ],
+          recommended_resources: [
+            "PhD to Industry transition programs",
+            "Professional networking for doctoral professionals", 
+            "Industry research publications and case studies",
+            "Academic-industry bridge fellowships"
+          ],
+          key_skills: [
+            "Advanced Analytics", "Research Methodology", "Statistical Modeling",
+            "Project Leadership", "Scientific Communication", "Strategic Thinking"
+          ]
+        },
+        newCareerData: newCareer // Keep reference to new data structure
+      };
+      setTrajectory(convertedTrajectory);
     }
   }, [careerPath]);
-
-  // Ensure we have trajectory data on initial load
-  useEffect(() => {
-    if (!trajectory && careerTrajectories?.trajectories?.data_scientist) {
-      setTrajectory(careerTrajectories.trajectories.data_scientist);
-    }
-  }, [trajectory]);
 
   if (!trajectory) {
     return (
@@ -465,61 +492,67 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
       {/* Timeline Overview */}
       <TimelineOverview />
 
-      {/* Main Career Progression */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Career Progression</h2>
-        
-        {/* Desktop View - Horizontal Layout */}
-        <div className="hidden lg:block">
-          <div className="flex items-start justify-between space-x-6 overflow-x-auto pb-4">
-            {trajectory.stages.map((stage, index) => (
-              <div key={index} className="flex-1 min-w-80">
-                <StageCard 
-                  stage={stage} 
-                  index={index} 
-                  isSelected={selectedStage === index}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Mobile/Tablet View - Vertical Layout */}
-        <div className="lg:hidden space-y-6">
-          {trajectory.stages.map((stage, index) => (
-            <StageCard 
-              key={index}
-              stage={stage} 
-              index={index} 
-              isSelected={selectedStage === index}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Pivot Opportunities */}
+      {/* Enhanced Pivot Opportunities */}
       {showPivots && (
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-6">Career Pivot Opportunities</h2>
+        <div className="mb-12 bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Strategic Career Pivots</h2>
+          <p className="text-gray-600 text-center mb-8 max-w-4xl mx-auto">
+            With {trajectory.pivot_opportunities?.length || 0} distinct pivot paths, {trajectory.name}s have exceptional flexibility to transition 
+            into specialized roles while leveraging their PhD analytical foundation and research expertise.
+          </p>
+          
           {trajectory.pivot_opportunities && trajectory.pivot_opportunities.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {trajectory.pivot_opportunities.map((pivot, index) => {
-                const fromStage = trajectory.stages.find(stage => stage.level === pivot.from_level);
-                return (
-                  <PivotOpportunity 
-                    key={index}
-                    pivot={pivot} 
-                    fromStage={fromStage}
-                  />
-                );
-              })}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {trajectory.pivot_opportunities.map((pivot, index) => (
+                <div key={index} className="bg-white rounded-lg p-6 shadow-lg border-l-4" style={{ borderLeftColor: pivot.color }}>
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-bold text-gray-900">{pivot.branchName}</h4>
+                    <span className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full font-semibold">
+                      {pivot.transitionSuccess} success
+                    </span>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-600 mb-2">
+                      <span className="font-semibold">Pivot from:</span> {trajectory.stages[pivot.branchFromIndex]?.title}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      At {trajectory.stages[pivot.branchFromIndex]?.cumulativeYears} years experience
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <h5 className="font-semibold text-gray-700 text-sm">Career Progression Path:</h5>
+                    {pivot.stages.map((stage, stageIndex) => (
+                      <div key={stageIndex} className="bg-gray-50 rounded-lg p-3">
+                        <div className="flex justify-between items-center">
+                          <span className="font-medium text-gray-900">{stage.title}</span>
+                          <span className="text-sm text-gray-600">{stage.cumulativeYears}y</span>
+                        </div>
+                        <div className="flex justify-between items-center mt-1">
+                          <span className="text-sm text-gray-600">{stage.salary}</span>
+                          {stage.remoteFriendly && (
+                            <span className="text-xs text-green-600">🏠 Remote OK</span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-4 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500">
+                      💡 Leverages PhD analytical skills and research methodology
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           ) : (
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
               <h3 className="font-semibold text-yellow-800 mb-2">Pivot Opportunities Coming Soon</h3>
               <p className="text-yellow-700 text-sm">
-                We&apos;re analyzing career transition data to provide specific pivot opportunities for this path. 
-                Check back soon for detailed transition guidance!
+                Advanced career transition analysis in progress for this path.
               </p>
             </div>
           )}
