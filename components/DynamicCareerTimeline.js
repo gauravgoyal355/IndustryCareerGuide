@@ -516,9 +516,8 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
             if (pivot) {
               stage = pivot.stages[stageIndex];
               
-              // Use exact same positioning logic as pivot bubble rendering
-              const firstPivotX = getXPosition(pivot.stages[0].cumulativeYears) + 60;
-              x = svgLeftOffset + getXPosition(stage.cumulativeYears) + 60;
+              // Use main path positioning approach for consistency
+              x = svgLeftOffset + getMainPathXPosition(stage.cumulativeYears);
               
               // Calculate positioning using same logic as rendering
               const A = 112; // Base distance from main path (20% smaller)
@@ -554,10 +553,11 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
           if (stage) {
             return (
               <div 
-                className="absolute bg-white border border-gray-300 rounded-lg p-4 shadow-xl pointer-events-none max-w-sm"
+                className="absolute bg-white border border-gray-300 rounded-lg p-4 shadow-xl pointer-events-none"
                 style={{
-                  left: Math.max(10, Math.min(x - 140, svgWidth - 310)),
+                  left: Math.max(10, Math.min(x - 140, svgWidth + 200)),
                   top: y - 20,
+                  width: '280px',
                   zIndex: 1000
                 }}
               >

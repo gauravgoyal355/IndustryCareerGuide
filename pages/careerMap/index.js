@@ -224,8 +224,8 @@ const CareerMapPage = () => {
                   💡 How to Use This Map
                 </h3>
                 <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• Click on career stages to expand detailed information</li>
-                  <li>• Review skill requirements for each progression level</li>
+                  <li>• Hover over career bubbles to see detailed progression information</li>
+                  <li>• Review skills needed to advance to the next career level</li>
                   <li>• Explore pivot opportunities to related career paths</li>
                   <li>• Use salary ranges to plan your financial trajectory</li>
                 </ul>
