@@ -534,9 +534,7 @@
           {"name": "Python for Data Analysis by Wes McKinney", "url": "https://wesmckinney.com/book/"},
           {"name": "Kaggle Learn (free micro-courses)", "url": "https://www.kaggle.com/learn"},
           {"name": "Coursera Machine Learning Specialization", "url": "https://www.coursera.org/specializations/machine-learning-introduction"},
-          {"name": "Towards Data Science (Medium publication)", "url": "https://towardsdatascience.com/"},
-          {"name": "Versatile PhD - Industry Transition Resources", "url": "https://versatilephd.com/"},
-          {"name": "Beyond the Professoriate Career Guides", "url": "https://beyondtheprofssoriate.com/"}
+          {"name": "Towards Data Science (Medium publication)", "url": "https://towardsdatascience.com/"}
         ],
         "daily_overview": "Data scientists apply the same analytical rigor you use in research to solve business challenges - designing experiments (A/B tests), analyzing complex datasets, and communicating findings to drive strategic decisions.",
         "typical_day": [

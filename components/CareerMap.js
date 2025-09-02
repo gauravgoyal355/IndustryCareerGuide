@@ -7,6 +7,14 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
   const [selectedStage, setSelectedStage] = useState(null);
   const [trajectory, setTrajectory] = useState(null);
   const [hoveredSkill, setHoveredSkill] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Function to generate PhD-optimized getting started content for each career path
   const generateGettingStartedContent = (career, careerPath) => {
@@ -1051,7 +1059,7 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
     const config = careerConfigs[careerPath] || {
       education: `PhD in relevant STEM field with demonstrated expertise in research methodology, analytical thinking, and problem-solving`,
       certifications: [
-        { name: "Versatile PhD Professional Development", url: "https://versatilephd.com/" },
+        { name: "Project Management Professional (PMP)", url: "https://www.pmi.org/certifications/project-management-pmp" },
         { name: "Coursera Professional Certificates", url: "https://www.coursera.org/professional-certificates" },
         { name: "LinkedIn Learning Career Paths", url: "https://www.linkedin.com/learning/" },
         { name: "Industry-Specific Certifications", url: "https://www.edx.org/professional-education" }
@@ -1402,7 +1410,7 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
               </div>
               {gettingStarted.certifications && (
                 <div>
-                  <h5 className="text-sm font-medium text-gray-700 mb-1">Certifications</h5>
+                  <h5 className="text-sm font-medium text-gray-700 mb-1">Helpful Certifications</h5>
                   <div className="flex flex-wrap gap-1">
                     {gettingStarted.certifications.map((cert, idx) => (
                       <span key={idx} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
@@ -1556,8 +1564,8 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
       <TimelineOverview />
 
 
-      {/* Enhanced Pivot Opportunities */}
-      {showPivots && (
+      {/* Enhanced Pivot Opportunities - Mobile Only */}
+      {showPivots && isMobile && (
         <div className="mb-12 bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Strategic Career Pivots</h2>
           <p className="text-gray-600 text-center mb-8 max-w-4xl mx-auto">
@@ -1566,18 +1574,37 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
           </p>
           
           {trajectory.pivot_opportunities && trajectory.pivot_opportunities.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {trajectory.pivot_opportunities.map((pivot, index) => (
-                <div key={index} className="bg-white rounded-lg p-6 shadow-lg border-l-4" style={{ borderLeftColor: pivot.color }}>
-                  <div className="flex items-center justify-between mb-4">
-                    <h4 className="text-lg font-bold text-gray-900">{pivot.branchName}</h4>
-                    <span className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full font-semibold">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {trajectory.pivot_opportunities.map((pivot, index) => {
+                // Skills needed for each pivot path
+                const pivotSkills = {
+                  'Biotech Leadership': ['Strategic Planning', 'Team Management', 'Business Development', 'Regulatory Knowledge', 'Financial Acumen'],
+                  'Entrepreneurship': ['Business Strategy', 'Fundraising', 'Market Analysis', 'Product Development', 'Leadership'],
+                  'Product Development': ['Product Strategy', 'Market Research', 'Cross-functional Leadership', 'User Experience', 'Technical Communication'],
+                  'Executive Consulting': ['Strategic Thinking', 'Client Management', 'Business Analysis', 'Presentation Skills', 'Problem Solving']
+                };
+                
+                // Colors for pivot path lines to match timeline visualization
+                const pivotLineColors = {
+                  0: '#E11D48',   // Rose
+                  1: '#7C2D12',   // Brown
+                  2: '#0F766E',   // Teal
+                  3: '#6366F1'    // Indigo
+                };
+                
+                return (
+                <div key={index} className="bg-white rounded-lg p-4 shadow-lg border-l-4 flex flex-col" style={{ borderLeftColor: pivotLineColors[index] || pivot.color, minHeight: '320px' }}>
+                  {/* Section 1: Title and Success Rate - Fixed Height */}
+                  <div className="h-16 flex items-center justify-between mb-3">
+                    <h4 className="text-lg font-bold text-gray-900 leading-tight">{pivot.branchName}</h4>
+                    <span className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full font-semibold whitespace-nowrap">
                       {pivot.transitionSuccess} success
                     </span>
                   </div>
                   
-                  <div className="mb-4">
-                    <p className="text-sm text-gray-600 mb-2">
+                  {/* Section 2: Pivot Information - Fixed Height */}
+                  <div className="h-12 mb-3">
+                    <p className="text-sm text-gray-600 mb-1">
                       <span className="font-semibold">Pivot from:</span> {trajectory.stages[pivot.branchFromIndex]?.title}
                     </p>
                     <p className="text-sm text-gray-500">
@@ -1585,16 +1612,17 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
                     </p>
                   </div>
                   
-                  <div className="space-y-3">
+                  {/* Section 3: Career Progression Path - Flexible Height */}
+                  <div className="flex-grow space-y-2 mt-2">
                     <h5 className="font-semibold text-gray-700 text-sm">Career Progression Path:</h5>
                     {pivot.stages.map((stage, stageIndex) => (
-                      <div key={stageIndex} className="bg-gray-50 rounded-lg p-3">
+                      <div key={stageIndex} className="bg-gray-50 rounded-lg p-2">
                         <div className="flex justify-between items-center">
-                          <span className="font-medium text-gray-900">{stage.title}</span>
-                          <span className="text-sm text-gray-600">{stage.cumulativeYears}y</span>
+                          <span className="font-medium text-gray-900 text-sm">{stage.title}</span>
+                          <span className="text-xs text-gray-600">{stage.cumulativeYears}y</span>
                         </div>
                         <div className="flex justify-between items-center mt-1">
-                          <span className="text-sm text-gray-600">{stage.salary}</span>
+                          <span className="text-xs text-gray-600">{stage.salary}</span>
                           {stage.remoteFriendly && (
                             <span className="text-xs text-green-600">🏠 Remote OK</span>
                           )}
@@ -1603,13 +1631,38 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
                     ))}
                   </div>
                   
-                  <div className="mt-4 pt-3 border-t border-gray-200">
-                    <p className="text-xs text-gray-500">
-                      💡 Leverages PhD analytical skills and research methodology
-                    </p>
+                  {/* Section 4: Skills Needed with Tooltip */}
+                  <div className="mt-3 pt-3 border-t border-gray-200">
+                    <div 
+                      className="relative group cursor-help"
+                      onMouseEnter={() => setHoveredSkill(`pivot-${index}`)}
+                      onMouseLeave={() => setHoveredSkill(null)}
+                    >
+                      <p className="text-sm font-semibold text-gray-700 flex items-center">
+                        🎯 Skills Needed
+                        <span className="ml-1 text-gray-400">ⓘ</span>
+                      </p>
+                      
+                      {/* Hover Tooltip */}
+                      {hoveredSkill === `pivot-${index}` && (
+                        <div className="absolute bottom-full left-0 mb-2 w-64 bg-gray-900 text-white text-xs rounded-lg p-3 shadow-xl z-50">
+                          <div className="font-semibold mb-2">Key Skills to Develop:</div>
+                          <div className="space-y-1">
+                            {(pivotSkills[pivot.branchName] || ['Strategic Planning', 'Leadership', 'Communication']).map((skill, skillIndex) => (
+                              <div key={skillIndex} className="flex items-center">
+                                <span className="text-blue-300 mr-2">•</span>
+                                {skill}
+                              </div>
+                            ))}
+                          </div>
+                          {/* Tooltip arrow */}
+                          <div className="absolute top-full left-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              ))}
+              )})}
             </div>
           ) : (
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
@@ -1622,8 +1675,6 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
         </div>
       )}
 
-      {/* Alternative Paths */}
-      <AlternativePaths />
 
       {/* How to Get Started */}
       <div className="mb-8">

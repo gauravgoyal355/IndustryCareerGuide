@@ -615,10 +615,117 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                   </div>
                 )}
 
-                {/* PhD Transition Insights */}
-                <div className="text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded">
-                  💡 PhD skills highly valued at this level
-                </div>
+                {/* Progressive Skills Needed */}
+                {(() => {
+                  // Define progressive skills for each career level
+                  const progressiveSkills = {
+                    'data_scientist': {
+                      0: ['Python/R Programming', 'Statistical Analysis', 'Business Communication', 'SQL Databases'],
+                      1: ['Machine Learning', 'Product Analytics', 'Stakeholder Management', 'Cloud Platforms'],
+                      2: ['Team Leadership', 'Strategic Planning', 'Advanced ML/AI', 'Executive Communication'],
+                      3: ['Organizational Strategy', 'P&L Management', 'Innovation Leadership', 'Board Reporting']
+                    },
+                    'research_scientist': {
+                      0: ['Research Design', 'Data Analysis', 'Scientific Communication', 'Project Management'],
+                      1: ['Grant Writing', 'Team Leadership', 'Regulatory Knowledge', 'Technology Transfer'],
+                      2: ['Strategic Planning', 'Budget Management', 'Partnership Development', 'Innovation Strategy'],
+                      3: ['Executive Leadership', 'P&L Responsibility', 'Board Relations', 'Corporate Strategy']
+                    },
+                    'r_and_d_scientist': {
+                      0: ['Research Methodology', 'Technical Writing', 'Laboratory Management', 'Data Analysis'],
+                      1: ['Project Leadership', 'Innovation Strategy', 'Cross-functional Collaboration', 'Technology Development'],
+                      2: ['Strategic Planning', 'Budget Management', 'Team Leadership', 'Portfolio Management'],
+                      3: ['Executive Leadership', 'P&L Management', 'Board Reporting', 'Innovation Strategy']
+                    },
+                    'product_manager': {
+                      0: ['Product Strategy', 'Market Research', 'User Experience', 'Technical Communication'],
+                      1: ['Strategic Planning', 'Cross-functional Leadership', 'Data-driven Decision Making', 'Stakeholder Management'],
+                      2: ['Portfolio Management', 'P&L Ownership', 'Executive Communication', 'Innovation Leadership'],
+                      3: ['Organizational Strategy', 'Board Relations', 'Market Strategy', 'Corporate Development']
+                    },
+                    'management_consultant': {
+                      0: ['Business Analysis', 'Financial Modeling', 'Client Communication', 'Problem Solving'],
+                      1: ['Strategic Thinking', 'Project Leadership', 'Executive Presentation', 'Industry Expertise'],
+                      2: ['Business Development', 'Team Management', 'Thought Leadership', 'Client Relationship Management'],
+                      3: ['Partnership Development', 'P&L Management', 'Organizational Strategy', 'Board Advisory']
+                    },
+                    'software_engineering': {
+                      0: ['Programming Languages', 'System Design', 'Code Quality', 'Debugging'],
+                      1: ['Architecture Design', 'Technical Leadership', 'Mentoring', 'Project Management'],
+                      2: ['Strategic Planning', 'Engineering Management', 'Technology Strategy', 'Cross-functional Leadership'],
+                      3: ['Organizational Leadership', 'Technology Vision', 'Executive Communication', 'Innovation Strategy']
+                    },
+                    // Pivot-specific skills for R&D Scientist paths
+                    'biotech_leadership': {
+                      0: ['Business Development', 'Regulatory Knowledge', 'Strategic Planning', 'Team Management'],
+                      1: ['Scientific Strategy', 'P&L Management', 'Partnership Development', 'Board Communication'],
+                      2: ['Executive Leadership', 'Corporate Strategy', 'Innovation Vision', 'Stakeholder Management']
+                    },
+                    'entrepreneurship': {
+                      0: ['Business Planning', 'Fundraising', 'Market Analysis', 'Technology Commercialization'],
+                      1: ['Leadership & Vision', 'Financial Management', 'Strategic Partnerships', 'Scaling Operations'],
+                      2: ['Serial Entrepreneurship', 'Portfolio Management', 'Investment Strategy', 'Mentorship']
+                    },
+                    'product_development': {
+                      0: ['Product Strategy', 'Market Research', 'Cross-functional Leadership', 'User Experience'],
+                      1: ['Portfolio Management', 'Go-to-Market Strategy', 'Team Leadership', 'P&L Ownership'],
+                      2: ['Product Vision', 'Innovation Strategy', 'Executive Communication', 'Market Strategy']
+                    },
+                    'executive_consulting': {
+                      0: ['Client Relationship Management', 'Business Analysis', 'Strategic Thinking', 'Presentation Skills'],
+                      1: ['Thought Leadership', 'Business Development', 'Team Management', 'Industry Expertise'],
+                      2: ['Partnership Development', 'P&L Management', 'Corporate Strategy', 'Board Advisory']
+                    }
+                  };
+                  
+                  let currentStageIndex, nextStageIndex, skillsKey, isLastStage, skillsNeeded;
+                  
+                  if (hoveredPoint.startsWith('main-')) {
+                    // Main path skills
+                    currentStageIndex = parseInt(hoveredPoint.replace('main-', ''));
+                    nextStageIndex = currentStageIndex + 1;
+                    skillsKey = careerKey || 'data_scientist';
+                    isLastStage = nextStageIndex >= mainPath.length;
+                    skillsNeeded = progressiveSkills[skillsKey]?.[nextStageIndex] || 
+                                   progressiveSkills[skillsKey]?.[currentStageIndex] || 
+                                   ['Leadership', 'Strategic Thinking', 'Communication', 'Technical Expertise'];
+                  } else if (hoveredPoint.startsWith('pivot-')) {
+                    // Pivot path skills
+                    const [_, originalIndex, stageIndex] = hoveredPoint.split('-').map(Number);
+                    const pivot = pivotOpportunities[originalIndex];
+                    currentStageIndex = stageIndex;
+                    nextStageIndex = stageIndex + 1;
+                    
+                    // Map pivot branch names to skill keys
+                    const pivotSkillKeys = {
+                      'Biotech Leadership': 'biotech_leadership',
+                      'Entrepreneurship': 'entrepreneurship', 
+                      'Product Development': 'product_development',
+                      'Executive Consulting': 'executive_consulting'
+                    };
+                    
+                    skillsKey = pivotSkillKeys[pivot.branchName] || 'biotech_leadership';
+                    isLastStage = nextStageIndex >= pivot.stages.length;
+                    skillsNeeded = progressiveSkills[skillsKey]?.[nextStageIndex] || 
+                                   progressiveSkills[skillsKey]?.[currentStageIndex] || 
+                                   ['Leadership', 'Strategic Thinking', 'Communication', 'Technical Expertise'];
+                  }
+                  
+                  return (
+                    <div className="text-xs text-purple-700 bg-purple-50 px-2 py-1 rounded">
+                      <div className="font-semibold mb-1">
+                        🎯 {isLastStage ? 'Key Skills at This Level' : 'Skills Needed for Next Level'}
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        {skillsNeeded.map((skill, idx) => (
+                          <span key={idx} className="bg-purple-200 text-purple-800 px-1 py-0.5 rounded text-xs">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             );
           }
