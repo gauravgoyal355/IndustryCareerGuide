@@ -32,8 +32,75 @@ const CareerMapPage = () => {
   };
 
   const getCareerCategory = (careerPath) => {
-    const career = careerTaxonomy.career_paths.find(c => c.id === careerPath);
-    return career?.category || 'Other';
+    // Smart categorization for PhD professionals
+    const categoryMap = {
+      // Data & Analytics
+      'data_scientist': 'Data & Analytics',
+      'data_analyst': 'Data & Analytics', 
+      'biostatistician': 'Data & Analytics',
+      'quantitative_analyst': 'Data & Analytics',
+      'market_analyst': 'Data & Analytics',
+      'market_research_analyst': 'Data & Analytics',
+      'public_health_analyst': 'Data & Analytics',
+      'financial_analyst': 'Data & Analytics',
+      
+      // Technology & Engineering
+      'software_engineering': 'Technology & Engineering',
+      'ai_ml_engineer': 'Technology & Engineering',
+      'devops_engineer': 'Technology & Engineering',
+      'systems_engineer': 'Technology & Engineering',
+      'cybersecurity_analyst': 'Technology & Engineering',
+      'biomedical_engineer': 'Technology & Engineering',
+      'chemical_engineer': 'Technology & Engineering',
+      'electrical_engineer': 'Technology & Engineering',
+      'mechanical_engineer': 'Technology & Engineering',
+      'materials_scientist': 'Technology & Engineering',
+      
+      // Research & Development  
+      'research_scientist': 'Research & Development',
+      'r_and_d_scientist': 'Research & Development',
+      'bioinformatics_scientist': 'Research & Development',
+      'process_development_scientist': 'Research & Development',
+      'digital_health_scientist': 'Research & Development',
+      'environmental_scientist': 'Research & Development',
+      
+      // Business & Strategy
+      'product_manager': 'Business & Strategy',
+      'management_consultant': 'Business & Strategy', 
+      'technical_consulting': 'Business & Strategy',
+      'business_development_manager': 'Business & Strategy',
+      'program_management': 'Business & Strategy',
+      'operations_manager': 'Business & Strategy',
+      'venture_capital_analyst': 'Business & Strategy',
+      'entrepreneur_startup_founder': 'Business & Strategy',
+      
+      // Healthcare & Life Sciences
+      'medical_science_liaison': 'Healthcare & Life Sciences',
+      'clinical_research_associate': 'Healthcare & Life Sciences',
+      'clinical_data_manager': 'Healthcare & Life Sciences',
+      'regulatory_affairs_specialist': 'Healthcare & Life Sciences',
+      'quality_assurance_specialist': 'Healthcare & Life Sciences',
+      
+      // Communication & Creative
+      'ux_researcher': 'Communication & Creative',
+      'scientific_writer': 'Communication & Creative',
+      'technical_writer': 'Communication & Creative',
+      'copywriter': 'Communication & Creative',
+      'science_communicator': 'Communication & Creative',
+      'science_illustrator': 'Communication & Creative',
+      
+      // Policy & Social Impact
+      'science_policy_analyst': 'Policy & Social Impact',
+      'education_and_outreach_specialist': 'Policy & Social Impact',
+      'ngo_researcher': 'Policy & Social Impact',
+      'nonprofit_program_manager': 'Policy & Social Impact',
+      
+      // Legal & IP
+      'intellectual_property_analyst': 'Legal & Intellectual Property',
+      'technology_transfer_officer': 'Legal & Intellectual Property'
+    };
+    
+    return categoryMap[careerPath] || 'Other';
   };
 
   const careersByCategory = () => {
@@ -45,7 +112,35 @@ const CareerMapPage = () => {
       }
       categories[category].push(path);
     });
-    return categories;
+    
+    // Define the desired order of categories
+    const categoryOrder = [
+      'Research & Development',
+      'Healthcare & Life Sciences', 
+      'Data & Analytics',
+      'Technology & Engineering',
+      'Business & Strategy',
+      'Communication & Creative',
+      'Policy & Social Impact',
+      'Legal & Intellectual Property'
+    ];
+    
+    // Return categories in the specified order
+    const orderedCategories = {};
+    categoryOrder.forEach(category => {
+      if (categories[category]) {
+        orderedCategories[category] = categories[category];
+      }
+    });
+    
+    // Add any remaining categories not in the order list
+    Object.keys(categories).forEach(category => {
+      if (!orderedCategories[category]) {
+        orderedCategories[category] = categories[category];
+      }
+    });
+    
+    return orderedCategories;
   };
 
   const categorizedCareers = careersByCategory();
@@ -178,14 +273,6 @@ const CareerMapPage = () => {
               </Link>
               <a href={`/actionPlan/?career=${selectedCareerPath}`} className="btn-secondary text-lg px-8 py-3">
                 Get Action Plan
-              </a>
-              <a
-                href="https://industryresume.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200"
-              >
-                Optimize Resume
               </a>
             </div>
           </div>

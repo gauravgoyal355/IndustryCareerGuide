@@ -14,23 +14,92 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
 
   const career = careerData.career_timelines[careerKey];
   
-  // Function to create better abbreviations for bubble labels
-  const getBubbleLabel = (shortTitle, title) => {
-    // Common abbreviations for better fit
+  // Function to create better abbreviations for bubble labels with dynamic sizing
+  const getBubbleLabel = (shortTitle, title, bubbleRadius = 36) => {
+    // Enhanced abbreviations for better fit
     const abbreviations = {
       'Data Scientist': 'DS',
+      'Senior Data Scientist': 'Sr DS', 
+      'Staff Data Scientist': 'Staff DS',
+      'Principal Data Scientist': 'Principal',
+      'VP of Data': 'VP Data',
+      'Chief Data Officer': 'CDO',
+      'Chief Technology Officer': 'CTO',
+      
+      // Analytics roles
+      'Quantitative Analyst': 'QA',
+      'Quantitative Researcher': 'QR', 
+      'Quant Researcher': 'QR',
+      'Senior Quantitative Analyst': 'Sr QA',
+      'Portfolio Manager': 'Portfolio',
+      'Risk Analyst': 'RA',
+      'Risk Manager': 'RM',
+      'Risk': 'Risk',
+      'Senior Risk Manager': 'Sr RM',
+      
+      // Engineering roles
       'Software Engineer': 'SWE', 
       'Product Manager': 'PM',
-      'Research Scientist': 'RS',
+      'Data Product Manager': 'Data PM',
+      'VP Product': 'VP Product',
+      'Chief Product Officer': 'CPO',
+      'Research Scientist': 'Research',
+      'Industry Research': 'Industry R',
+      'Research Director': 'Research D',
+      'Chief Science Officer': 'CSO',
       'Senior Consultant': 'Sr Con',
       'Principal Consultant': 'Principal',
       'ML Engineer': 'ML Eng',
+      'Senior ML Engineer': 'Sr ML',
+      'Principal ML Engineer': 'Principal',
       'DevOps Engineer': 'DevOps',
-      'Security Analyst': 'Sec',
+      'Security Analyst': 'Security',
       'Business Development': 'BizDev'
     };
     
-    return abbreviations[title] || shortTitle;
+    const label = abbreviations[title] || shortTitle || title;
+    
+    // For very small bubbles (pivot paths), use even shorter labels
+    if (bubbleRadius <= 30) {
+      const ultraShort = {
+        'QA': 'QA',
+        'QR': 'QR', 
+        'RA': 'RA',
+        'RM': 'RM',
+        'Sr RM': 'SRM',
+        'Risk': 'Risk',
+        'DS': 'DS',
+        'Sr DS': 'SrDS', 
+        'Staff DS': 'Staff',
+        'Principal': 'Prin',
+        'VP Data': 'VP',
+        'CDO': 'CDO',
+        'CTO': 'CTO',
+        'Research': 'R&D',
+        'Security': 'Sec',
+        'PM': 'PM',
+        'Sr PM': 'SPM',
+        'ML Eng': 'MLE',
+        'Sr ML': 'SML'
+      };
+      return ultraShort[label] || label.substring(0, 5);
+    }
+    
+    return label;
+  };
+
+  // Function to get appropriate font size based on text length and bubble size
+  const getFontSize = (text, bubbleRadius, isMobile) => {
+    const textLength = text.length;
+    const baseFontSize = isMobile ? 10 : 12;
+    
+    if (bubbleRadius <= 30) { // Small pivot bubbles
+      return textLength > 6 ? '9px' : '10px';
+    } else if (bubbleRadius <= 36) { // Main path bubbles
+      return textLength > 8 ? '11px' : textLength > 6 ? '12px' : '13px';
+    } else { // Large/hovered bubbles
+      return textLength > 10 ? '12px' : '14px';
+    }
   };
   
   if (!career || !career.main_path) {
@@ -62,34 +131,32 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
   };
 
   // Responsive SVG dimensions
-  const svgWidth = isMobile ? 350 : 1200;
-  const svgHeight = isMobile ? 800 : 500;
-  const timelineY = isMobile ? 400 : 250;
-  const bubbleRadius = isMobile ? 30 : 38;
-  const hoveredBubbleRadius = isMobile ? 34 : 42;
+  const svgWidth = isMobile ? 350 : 768; // Further reduced from 960 to 768 (additional 20% smaller)
+  const svgHeight = isMobile ? 800 : 360; // Increased from 320 to 360 to add top padding
+  const timelineY = isMobile ? (svgWidth - 280) : 180; // Increased from 160 to 180 to add top whitespace
+  const pivotBubbleRadius = isMobile ? 30 : 30; // Pivot path bubble size
+  const mainBubbleRadius = isMobile ? 45 : 36; // Main path bubbles 20% larger than pivot bubbles
+  const hoveredPivotRadius = isMobile ? 34 : 34; // Pivot hover size
+  const hoveredMainRadius = isMobile ? 50 : 40; // Main path hover size
 
   const mainPath = career.main_path;
   const pivotOpportunities = career.pivot_opportunities || [];
 
-  const maxYears = Math.max(
-    ...mainPath.map(p => p.cumulativeYears),
-    ...pivotOpportunities.flatMap(pivot => pivot.stages.map(s => s.cumulativeYears))
-  ) + 2;
+  // Use only main path for maxYears to ensure consistent main timeline spacing
+  const maxYears = Math.max(...mainPath.map(p => p.cumulativeYears)) + 2;
 
-  // Calculate X position with responsive spacing
+  // Calculate X position with responsive spacing - ensure everything fits in canvas
   const getXPosition = (years) => {
-    const margin = isMobile ? 50 : 100;
-    const spacing = isMobile ? (svgWidth - 100) : (svgWidth - 200);
-    return margin + (years / maxYears) * spacing;
+    // Reserve space for pivot labels on the right
+    const reservedSpace = 120; // Space for pivot path labels
+    const timelineWidth = svgWidth - reservedSpace - 160; // Available width minus margins and label space
+    const margin = isMobile ? 50 : 80; // Left margin
+    return margin + (years / maxYears) * timelineWidth;
   };
 
-  // Calculate X position for main path with extra spacing to compensate for larger bubbles
+  // Calculate X position for main path with pure proportional spacing
   const getMainPathXPosition = (years) => {
-    const basePosition = getXPosition(years);
-    if (isMobile) return basePosition; // No extra spacing on mobile for simplicity
-    // Add proportional spacing: 19px extra per bubble (57-38=19px difference in radius)
-    const extraSpacing = years * 15; // 15px per year to compensate for larger bubbles
-    return basePosition + extraSpacing * 0.3; // Scale factor to prevent over-extension
+    return getXPosition(years);
   };
 
   // Calculate dynamic tooltip width based on text length
@@ -103,20 +170,6 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
 
   return (
     <div className={isMobile ? "bg-white rounded-lg shadow-lg p-4" : "bg-white rounded-lg shadow-lg p-8"}>
-      {/* Title */}
-      <div className={isMobile ? "text-center mb-6" : "text-center mb-10"}>
-        <h3 className={isMobile ? "text-xl font-bold text-gray-900 mb-2" : "text-2xl font-bold text-gray-900 mb-2"}>
-          {career.name} Career Timeline
-        </h3>
-        <p className={isMobile ? "text-xs text-gray-500 italic" : "text-sm text-gray-500 italic"}>
-          *Salary ranges based on US market averages (major tech hubs)
-        </p>
-        {!isMobile && (
-          <p className="text-xs text-gray-400 mt-1">
-            💡 Hover over any position to see details
-          </p>
-        )}
-      </div>
 
       {/* Mobile Vertical Layout */}
       {isMobile ? (
@@ -172,16 +225,16 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
         </div>
       ) : (
         /* Desktop Horizontal Timeline */
-        <div className="flex justify-center relative overflow-x-auto">
+        <div className="flex justify-center relative">
           <svg width={svgWidth} height={svgHeight} className="overflow-visible" style={{ zIndex: 1 }}>
           {/* Main timeline line */}
           <line
-            x1={isMobile ? "50" : "100"}
+            x1={isMobile ? "50" : "80"}
             y1={timelineY}
-            x2={svgWidth - (isMobile ? 50 : 100)}
+            x2={svgWidth - (isMobile ? 50 : 80)}
             y2={timelineY}
             stroke="#D1D5DB"
-            strokeWidth={isMobile ? "6" : "8"}
+            strokeWidth={isMobile ? "6" : "6"}
           />
 
           {/* Main path connections */}
@@ -212,17 +265,17 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                 </marker>
               </defs>
               <line
-                x1={getMainPathXPosition(mainPath[0].cumulativeYears) - 20}
-                y1={timelineY - 100}
-                x2={getMainPathXPosition(mainPath[0].cumulativeYears) - 20}
-                y2={timelineY - 70}
+                x1={getMainPathXPosition(mainPath[0].cumulativeYears)}
+                y1={timelineY - 90}
+                x2={getMainPathXPosition(mainPath[0].cumulativeYears)}
+                y2={timelineY - 60}
                 stroke="#6B7280"
                 strokeWidth="2"
                 markerEnd="url(#arrowhead)"
               />
               <text
-                x={getMainPathXPosition(mainPath[0].cumulativeYears) - 20}
-                y={timelineY - 110}
+                x={getMainPathXPosition(mainPath[0].cumulativeYears)}
+                y={timelineY - 100}
                 textAnchor="middle"
                 className="text-sm font-semibold fill-gray-700"
               >
@@ -254,7 +307,7 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                 <circle
                   cx={x}
                   cy={timelineY}
-                  r={isHovered ? (isMobile ? 50 : 63) : (isMobile ? 45 : 57)}
+                  r={isHovered ? hoveredMainRadius : mainBubbleRadius}
                   fill={levelColors[stage.level]}
                   stroke="white"
                   strokeWidth={isMobile ? "3" : "4"}
@@ -268,9 +321,10 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                   x={x}
                   y={timelineY + 3}
                   textAnchor="middle"
-                  className="text-sm font-bold fill-white pointer-events-none"
+                  className="font-bold fill-white pointer-events-none"
+                  style={{ fontSize: getFontSize(getBubbleLabel(stage.shortTitle, stage.title, mainBubbleRadius), mainBubbleRadius, isMobile) }}
                 >
-                  {getBubbleLabel(stage.shortTitle, stage.title)}
+                  {getBubbleLabel(stage.shortTitle, stage.title, mainBubbleRadius)}
                 </text>
 
               </g>
@@ -279,7 +333,7 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
 
           {/* Pivot Branches - hide on mobile for cleaner display */}
           {showPivots && !isMobile && (() => {
-            const A = 140; // Base distance from main path
+            const A = 112; // Base distance from main path (20% smaller)
             const positionedPivots = [];
             
             // Separate pivots into above and below groups
@@ -327,19 +381,19 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
             return positionedPivots;
           })().map((pivot) => {
             const branchFromX = getMainPathXPosition(mainPath[pivot.branchFromIndex].cumulativeYears);
-            const firstPivotX = branchFromX + 100; // Position first pivot bubble 100px right of main bubble center
+            const firstPivotX = branchFromX + 50; // Reduced to fit in canvas
             
             return (
               <g key={`pivot-branch-${pivot.originalIndex}`}>
                 {/* Smooth curved branch */}
                 <path
                   d={pivot.isAbove ? 
-                    `M ${branchFromX},${timelineY - 57} 
-                     Q ${(branchFromX + firstPivotX - 38) / 2},${(timelineY - 57 + pivot.pivotY) / 2 - 30} 
-                     ${firstPivotX - 38},${pivot.pivotY}` :
-                    `M ${branchFromX},${timelineY + 57} 
-                     Q ${(branchFromX + firstPivotX - 38) / 2},${(timelineY + 57 + pivot.pivotY) / 2 + 30} 
-                     ${firstPivotX - 38},${pivot.pivotY}`
+                    `M ${branchFromX},${timelineY - mainBubbleRadius} 
+                     Q ${(branchFromX + firstPivotX - pivotBubbleRadius) / 2},${(timelineY - mainBubbleRadius + pivot.pivotY) / 2 - 24} 
+                     ${firstPivotX - pivotBubbleRadius},${pivot.pivotY}` :
+                    `M ${branchFromX},${timelineY + mainBubbleRadius} 
+                     Q ${(branchFromX + firstPivotX - pivotBubbleRadius) / 2},${(timelineY + mainBubbleRadius + pivot.pivotY) / 2 + 24} 
+                     ${firstPivotX - pivotBubbleRadius},${pivot.pivotY}`
                   }
                   fill="none"
                   stroke={pivotLineColors[pivot.originalIndex] || pivot.color}
@@ -351,28 +405,29 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                 <line
                   x1={firstPivotX}
                   y1={pivot.pivotY}
-                  x2={firstPivotX + ((pivot.stages[pivot.stages.length - 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * (svgWidth - 200)}
+                  x2={firstPivotX + ((pivot.stages[pivot.stages.length - 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * ((svgWidth - 280))}
                   y2={pivot.pivotY}
                   stroke={pivotLineColors[pivot.originalIndex] || pivot.color}
                   strokeWidth="4"
                   opacity="0.8"
                 />
 
-                {/* Pivot path label - positioned dynamically based on text length */}
+                {/* Pivot path label - centered above last bubble */}
                 <text
-                  x={firstPivotX - Math.max(180, pivot.branchName.length * 8 + 50)}
-                  y={pivot.pivotY + 4}
-                  className="text-sm font-medium"
+                  x={firstPivotX + ((pivot.stages[pivot.stages.length - 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * ((svgWidth - 280))}
+                  y={pivot.pivotY - 35}
+                  className="text-sm font-bold"
+                  textAnchor="middle"
                   style={{ fill: pivotLineColors[pivot.originalIndex] || pivot.color }}
                 >
-                  {pivot.branchName}
+                  {pivot.branchName} Path
                 </text>
 
                 {/* Pivot stage bubbles */}
                 {pivot.stages.map((pivotStage, stageIndex) => {
                   // First bubble at fixed position, subsequent bubbles based on timeline
                   const pivotX = stageIndex === 0 ? firstPivotX : 
-                    firstPivotX + ((pivotStage.cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * (svgWidth - 200);
+                    firstPivotX + ((pivotStage.cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * ((svgWidth - 280));
                   const isHovered = hoveredPoint === `pivot-${pivot.originalIndex}-${stageIndex}`;
 
                   return (
@@ -381,8 +436,8 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                       {pivotStage.timeToNext && stageIndex < pivot.stages.length - 1 && (
                         <text
                           x={pivotX + (stageIndex === 0 ? 
-                            (firstPivotX + ((pivot.stages[1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * (svgWidth - 200) - pivotX) / 2 :
-                            (firstPivotX + ((pivot.stages[stageIndex + 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * (svgWidth - 200) - pivotX) / 2)}
+                            (firstPivotX + ((pivot.stages[1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * ((svgWidth - 280)) - pivotX) / 2 :
+                            (firstPivotX + ((pivot.stages[stageIndex + 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * ((svgWidth - 280)) - pivotX) / 2)}
                           y={pivot.isAbove ? pivot.pivotY + 25 : pivot.pivotY - 25}
                           textAnchor="middle"
                           className="text-sm font-medium"
@@ -396,7 +451,7 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                       <circle
                         cx={pivotX}
                         cy={pivot.pivotY}
-                        r={isHovered ? hoveredBubbleRadius : bubbleRadius}
+                        r={isHovered ? hoveredPivotRadius : pivotBubbleRadius}
                         fill={levelColors[pivotStage.level]}
                         stroke="white"
                         strokeWidth={isMobile ? "3" : "4"}
@@ -410,9 +465,10 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                         x={pivotX}
                         y={pivot.pivotY + 2}
                         textAnchor="middle"
-                        className="text-xs font-bold fill-white pointer-events-none"
+                        className="font-bold fill-white pointer-events-none"
+                        style={{ fontSize: getFontSize(getBubbleLabel(pivotStage.shortTitle, pivotStage.title, pivotBubbleRadius), pivotBubbleRadius, isMobile) }}
                       >
-                        {getBubbleLabel(pivotStage.shortTitle, pivotStage.title)}
+                        {getBubbleLabel(pivotStage.shortTitle, pivotStage.title, pivotBubbleRadius)}
                       </text>
 
 
@@ -422,8 +478,8 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
                           x1={pivotX + 38}
                           y1={pivot.pivotY}
                           x2={(stageIndex === pivot.stages.length - 2 ? 
-                            firstPivotX + ((pivot.stages[stageIndex + 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * (svgWidth - 200) :
-                            firstPivotX + ((pivot.stages[stageIndex + 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * (svgWidth - 200)) - 38}
+                            firstPivotX + ((pivot.stages[stageIndex + 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * ((svgWidth - 280)) :
+                            firstPivotX + ((pivot.stages[stageIndex + 1].cumulativeYears - pivot.stages[0].cumulativeYears) / maxYears) * ((svgWidth - 280))) - 38}
                           y2={pivot.pivotY}
                           stroke={pivotLineColors[pivot.originalIndex] || pivot.color}
                           strokeWidth="4"
@@ -444,21 +500,28 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
         {hoveredPoint && (() => {
           let stage, x, y, tooltipWidth;
           
+          // Calculate SVG container left offset (centered container)
+          const containerWidth = 768; // SVG width
+          const svgLeftOffset = (typeof window !== 'undefined' ? (window.innerWidth - containerWidth) / 2 : 0);
+          
           if (hoveredPoint.startsWith('main-')) {
             const stageIndex = parseInt(hoveredPoint.replace('main-', ''));
             stage = mainPath[stageIndex];
-            x = getMainPathXPosition(stage.cumulativeYears);
-            y = timelineY + 55;
+            x = svgLeftOffset + getMainPathXPosition(stage.cumulativeYears);
+            y = 120; // Fixed position relative to component
             tooltipWidth = getTooltipWidth(stage.title, stage.salary);
           } else if (hoveredPoint.startsWith('pivot-')) {
             const [_, originalIndex, stageIndex] = hoveredPoint.split('-').map(Number);
             const pivot = pivotOpportunities[originalIndex];
             if (pivot) {
               stage = pivot.stages[stageIndex];
-              x = getXPosition(stage.cumulativeYears);
+              
+              // Use exact same positioning logic as pivot bubble rendering
+              const firstPivotX = getXPosition(pivot.stages[0].cumulativeYears) + 60;
+              x = svgLeftOffset + getXPosition(stage.cumulativeYears) + 60;
               
               // Calculate positioning using same logic as rendering
-              const A = 140;
+              const A = 112; // Base distance from main path (20% smaller)
               const abovePivots = [];
               const belowPivots = [];
               
@@ -478,13 +541,11 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
               
               if (aboveIndex !== -1) {
                 const distance = aboveIndex === 0 ? A * 0.75 : A * 1.5;
-                const pivotY = timelineY - distance;
-                y = pivotY - 100;
+                y = 180 - distance - 70; // Fixed position relative to component
                 tooltipWidth = getTooltipWidth(stage.title, stage.salary);
               } else if (belowIndex !== -1) {
                 const distance = belowIndex === 0 ? A * 0.75 : A * 1.5;
-                const pivotY = timelineY + distance;
-                y = pivotY + 45;
+                y = 180 + distance + 40; // Fixed position relative to component
                 tooltipWidth = getTooltipWidth(stage.title, stage.salary);
               }
             }
@@ -493,25 +554,71 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
           if (stage) {
             return (
               <div 
-                className="absolute bg-white bg-opacity-95 border border-gray-300 rounded-lg p-3 shadow-xl pointer-events-none"
+                className="absolute bg-white border border-gray-300 rounded-lg p-4 shadow-xl pointer-events-none max-w-sm"
                 style={{
-                  left: x - tooltipWidth/2,
-                  top: y,
-                  width: tooltipWidth,
+                  left: Math.max(10, Math.min(x - 140, svgWidth - 310)),
+                  top: y - 20,
                   zIndex: 1000
                 }}
               >
-                <div className="text-base font-bold text-gray-900 mb-1">
-                  {stage.title}
+                {/* Header */}
+                <div className="border-b pb-2 mb-3">
+                  <div className="text-lg font-bold text-gray-900 mb-1">
+                    {stage.title}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm font-semibold text-green-600">
+                      {stage.salary}
+                    </div>
+                    {stage.remoteFriendly && (
+                      <div className="text-sm text-green-600 font-medium">
+                        🏠 Remote OK
+                      </div>
+                    )}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    {stage.cumulativeYears} years experience • {stage.timeToNext ? `${stage.timeToNext}y to next level` : 'Final level'}
+                  </div>
                 </div>
-                <div className="text-sm text-gray-700 mb-1">
-                  {stage.salary}
-                </div>
-                {stage.remoteFriendly && (
-                  <div className="text-sm text-green-600 font-medium">
-                    🏠 Remote OK
+
+                {/* Typical Positions */}
+                {stage.positions && stage.positions.length > 0 && (
+                  <div className="mb-3">
+                    <div className="text-sm font-semibold text-gray-700 mb-1">Typical Positions</div>
+                    <div className="space-y-1">
+                      {stage.positions.slice(0, 3).map((position, idx) => (
+                        <div key={idx} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-700">
+                          {position}
+                        </div>
+                      ))}
+                      {stage.positions.length > 3 && (
+                        <div className="text-xs text-gray-500">+{stage.positions.length - 3} more roles</div>
+                      )}
+                    </div>
                   </div>
                 )}
+
+                {/* Key Skills */}
+                {stage.core_skills && stage.core_skills.length > 0 && (
+                  <div className="mb-3">
+                    <div className="text-sm font-semibold text-gray-700 mb-1">Key Skills</div>
+                    <div className="flex flex-wrap gap-1">
+                      {stage.core_skills.slice(0, 4).map((skill, idx) => (
+                        <span key={idx} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
+                          {skill}
+                        </span>
+                      ))}
+                      {stage.core_skills.length > 4 && (
+                        <span className="text-xs text-gray-500">+{stage.core_skills.length - 4}</span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* PhD Transition Insights */}
+                <div className="text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded">
+                  💡 PhD skills highly valued at this level
+                </div>
               </div>
             );
           }
@@ -571,10 +678,18 @@ const DynamicCareerTimeline = ({ careerKey, interactive = true, showPivots = tru
             ))}
           </div>
           
-          <div className="mt-4 pt-3 border-t border-gray-200 text-center">
-            <span className={isMobile ? "text-xs text-gray-500" : "text-xs text-gray-500"}>
+          <div className="mt-4 pt-3 border-t border-gray-200 text-center space-y-2">
+            <span className={isMobile ? "text-xs text-gray-500 block" : "text-xs text-gray-500 block"}>
               🏠 Remote OK indicates remote-friendly positions
             </span>
+            <span className={isMobile ? "text-xs text-gray-500 italic block" : "text-xs text-gray-500 italic block"}>
+              *Salary ranges based on US market averages (major tech hubs)
+            </span>
+            {!isMobile && (
+              <span className="text-xs text-gray-(svgWidth - 280) block">
+                💡 Hover over any position to see details
+              </span>
+            )}
           </div>
         </div>
       </div>
