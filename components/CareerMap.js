@@ -1052,6 +1052,1142 @@ const CareerMap = ({ careerPath = 'data_scientist', showPivots = true, interacti
           "User Research & Analytics", "Agile Project Management", "Technical Communication",
           "Market Research & Competitive Analysis", "Stakeholder Management", "Business Strategy"
         ]
+      },
+      quality_assurance_specialist: {
+        education: "PhD in Chemistry, Biology, Engineering, or related field with strong analytical and research methodology background",
+        certifications: [
+          { name: "Certified Quality Engineer (CQE)", url: "https://asq.org/cert/quality-engineer" },
+          { name: "Six Sigma Green Belt", url: "https://asq.org/cert/six-sigma-green-belt" },
+          { name: "ISO 9001 Lead Auditor", url: "https://www.iso.org/certification.html" },
+          { name: "Pharmaceutical Quality Systems", url: "https://www.coursera.org/learn/pharmaceutical-biotechnology-product-development" },
+          { name: "Good Manufacturing Practice (GMP)", url: "https://www.fda.gov/drugs/pharmaceutical-quality-resources/current-good-manufacturing-practice-cgmp-regulations" }
+        ],
+        daily_overview: `Apply your doctoral research rigor to ensure pharmaceutical, biotech, or medical device products meet the highest quality standards. Leverage your experimental design expertise and attention to detail to develop quality control processes, validate manufacturing procedures, and maintain regulatory compliance throughout product lifecycles.`,
+        preparation_steps: [
+          "Study FDA regulations, GMP guidelines, and quality management systems specific to your target industry",
+          "Learn quality control statistical methods and process validation techniques beyond your research background",
+          "Understand manufacturing processes and how quality assurance integrates with production workflows",
+          "Network with QA professionals in pharmaceutical, biotech, or medical device companies",
+          "Practice translating research methodology into industrial quality control procedures and documentation",
+          "Gain familiarity with quality management software systems like TrackWise, MasterControl, or similar platforms",
+          "Develop expertise in risk assessment methodologies and corrective/preventive action (CAPA) processes"
+        ],
+        typical_day: [
+          "Review and approve manufacturing batch records using your analytical skills to ensure compliance",
+          "Investigate quality deviations using systematic troubleshooting similar to experimental troubleshooting",
+          "Design and execute validation protocols leveraging your experimental design expertise",
+          "Collaborate with cross-functional teams to resolve quality issues - similar to research collaboration",
+          "Audit manufacturing processes and documentation with the same rigor you applied to research methodology",
+          "Analyze quality metrics and trends to drive continuous improvement initiatives",
+          "Prepare regulatory submissions and respond to inspections using your technical writing skills"
+        ],
+        recommended_resources: [
+          { name: "American Society for Quality (ASQ)", url: "https://asq.org/" },
+          { name: "Pharmaceutical Quality Assurance Society", url: "https://www.pqas.org/" },
+          { name: "International Society for Pharmaceutical Engineering", url: "https://ispe.org/" },
+          { name: "FDA Guidance Documents", url: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents" },
+          { name: "Quality Assurance & Quality Control Network", url: "https://www.linkedin.com/groups/112292/" },
+          { name: "PharmaJobs Quality Positions", url: "https://www.pharmajobs.com/" },
+          { name: "BioPharma International Magazine", url: "https://www.biopharminternational.com/" }
+        ],
+        key_skills: [
+          "Regulatory Compliance", "Quality Control Systems", "Statistical Process Control",
+          "Risk Assessment", "Documentation & SOPs", "Process Validation",
+          "Root Cause Analysis", "Cross-functional Collaboration", "Continuous Improvement"
+        ]
+      },
+      clinical_data_manager: {
+        education: "PhD in Life Sciences, Biostatistics, Epidemiology, or related field with strong data analysis and research methodology background",
+        certifications: [
+          { name: "Certified Clinical Data Manager (CCDM)", url: "https://www.scdm.org/certification/" },
+          { name: "Clinical Research Coordinator Certification", url: "https://www.acrpnet.org/certification/" },
+          { name: "Good Clinical Practice (GCP)", url: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r2-good-clinical-practice-integrated-addendum-ich-e6r1" },
+          { name: "SAS Clinical Programming", url: "https://www.sas.com/en_us/certification/credentials/advanced-analytics/clinical-trials-programming.html" },
+          { name: "CDISC Standards Training", url: "https://www.cdisc.org/education" }
+        ],
+        daily_overview: `Apply your doctoral research expertise to manage clinical trial data integrity, ensuring accurate collection, validation, and analysis of patient data. Leverage your statistical analysis background and attention to detail to oversee database design, implement data quality checks, and support regulatory submissions for life-saving medical treatments.`,
+        preparation_steps: [
+          "Master clinical data management systems like Medidata Rave, Oracle Clinical, or REDCap",
+          "Learn FDA regulations (21 CFR Part 11) and ICH-GCP guidelines governing clinical data integrity",
+          "Understand CDISC standards (CDASH, SDTM, ADaM) for clinical data exchange and submission",
+          "Network with clinical data managers in pharmaceutical companies and CROs (Contract Research Organizations)",
+          "Practice translating your statistical analysis skills to clinical data validation and quality control",
+          "Gain familiarity with clinical trial protocols and how data collection supports regulatory endpoints",
+          "Develop expertise in database design and electronic data capture (EDC) system configuration"
+        ],
+        typical_day: [
+          "Design and configure clinical databases using your research data management expertise",
+          "Validate clinical trial data using statistical methods and quality control procedures similar to research",
+          "Resolve data queries and discrepancies through systematic investigation - like debugging research findings",
+          "Collaborate with biostatisticians and clinical teams to ensure data supports regulatory analyses",
+          "Create and maintain data management plans and standard operating procedures",
+          "Generate datasets for statistical analysis and regulatory submissions using your data analysis skills",
+          "Support regulatory inspections by providing clean, traceable, and compliant clinical datasets"
+        ],
+        recommended_resources: [
+          { name: "Society for Clinical Data Management (SCDM)", url: "https://www.scdm.org/" },
+          { name: "Clinical Data Management Course (Duke)", url: "https://www.coursera.org/learn/clinical-data-management" },
+          { name: "FDA Clinical Data Interchange Standards", url: "https://www.fda.gov/industry/fda-data-standards-advisory-board/clinical-data-interchange-standards-consortium-cdisc" },
+          { name: "PharmaSUG Clinical Programming", url: "https://www.pharmasug.org/" },
+          { name: "Applied Clinical Trials Magazine", url: "https://www.appliedclinicaltrialsonline.com/" },
+          { name: "Clinical Research Professionals LinkedIn", url: "https://www.linkedin.com/groups/54761/" },
+          { name: "CDISC Community Portal", url: "https://www.cdisc.org/" }
+        ],
+        key_skills: [
+          "Clinical Database Design", "Data Validation & Quality Control", "Regulatory Compliance (FDA/ICH)",
+          "CDISC Standards", "Statistical Analysis", "Clinical Trial Operations",
+          "Electronic Data Capture (EDC)", "Data Query Resolution", "Cross-functional Collaboration"
+        ]
+      },
+      data_analyst: {
+        education: "PhD in quantitative sciences (Statistics, Mathematics, Computer Science, Engineering, Economics) with strong analytical and data visualization background",
+        certifications: [
+          { name: "Tableau Desktop Specialist", url: "https://www.tableau.com/learn/certification" },
+          { name: "Microsoft Power BI Data Analyst", url: "https://docs.microsoft.com/en-us/learn/certifications/data-analyst-associate/" },
+          { name: "Google Analytics Individual Qualification", url: "https://skillshop.exceedlms.com/student/path/2938" },
+          { name: "SQL for Data Science (Coursera)", url: "https://www.coursera.org/learn/sql-for-data-science" },
+          { name: "Advanced Excel Certification", url: "https://www.microsoft.com/en-us/learning/excel-certification.aspx" }
+        ],
+        daily_overview: `Transform raw business data into actionable insights using your doctoral analytical expertise. Leverage your research methodology background to design analytics frameworks, create compelling data visualizations, and support strategic decision-making across marketing, operations, and product development initiatives.`,
+        preparation_steps: [
+          "Master business intelligence tools like Tableau, Power BI, and SQL for enterprise data analysis",
+          "Learn business metrics and KPIs specific to your target industry (tech, finance, healthcare, consulting)",
+          "Practice translating complex analytical findings into executive-ready business recommendations",
+          "Build a portfolio showcasing data visualization projects that demonstrate business impact",
+          "Network with data analysts in your target companies and learn their day-to-day challenges",
+          "Understand data warehousing concepts and how business data flows through organizational systems",
+          "Develop expertise in A/B testing and experimentation frameworks used in business contexts"
+        ],
+        typical_day: [
+          "Query databases and extract business data using SQL - similar to research data collection but for business metrics",
+          "Create dashboards and visualizations to track company performance - like research data presentation but for executives",
+          "Analyze trends and patterns to identify business opportunities - applying your research pattern recognition skills",
+          "Collaborate with product, marketing, and operations teams to answer data-driven questions",
+          "Present findings to stakeholders using clear, business-focused language - leveraging your conference presentation skills",
+          "Design and analyze A/B tests to optimize business processes - similar to experimental design in research",
+          "Automate reporting processes and build scalable analytics solutions for ongoing business monitoring"
+        ],
+        recommended_resources: [
+          { name: "Kaggle Learn SQL and Data Visualization", url: "https://www.kaggle.com/learn" },
+          { name: "Analytics Vidhya Community", url: "https://www.analyticsvidhya.com/" },
+          { name: "Tableau Community Forums", url: "https://community.tableau.com/" },
+          { name: "Data Analysis LinkedIn Groups", url: "https://www.linkedin.com/groups/57467/" },
+          { name: "Local Analytics Meetups", url: "https://www.meetup.com/topics/analytics/" },
+          { name: "Harvard Business Analytics Program", url: "https://online-learning.harvard.edu/course/introduction-data-analytics" },
+          { name: "Google Analytics Academy", url: "https://analytics.google.com/analytics/academy/" }
+        ],
+        key_skills: [
+          "SQL Programming", "Data Visualization", "Business Intelligence", "Statistical Analysis",
+          "Dashboard Design", "Excel/Spreadsheets", "A/B Testing", "Report Writing", "Business Communication"
+        ]
+      },
+      biostatistician: {
+        education: "PhD in Statistics, Biostatistics, Mathematics, or related quantitative field with strong background in experimental design and clinical research methodology",
+        certifications: [
+          { name: "SAS Certified Clinical Trials Programmer", url: "https://www.sas.com/en_us/certification/credentials/advanced-analytics/clinical-trials-programming.html" },
+          { name: "R for Clinical Statistics", url: "https://www.coursera.org/learn/statistical-analysis-r" },
+          { name: "Certified Clinical Data Manager (CCDM)", url: "https://www.scdm.org/certification/" },
+          { name: "Good Clinical Practice (GCP)", url: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r2-good-clinical-practice-integrated-addendum-ich-e6r1" },
+          { name: "CDISC Clinical Research", url: "https://www.cdisc.org/education" }
+        ],
+        daily_overview: `Apply your doctoral statistical expertise to design, analyze, and interpret clinical trials for life-saving pharmaceutical and medical device development. Leverage your experimental design background and advanced statistical knowledge to ensure clinical studies meet regulatory standards and provide robust evidence for drug efficacy and safety.`,
+        preparation_steps: [
+          "Master clinical trial design principles including randomization, blinding, and power calculations",
+          "Learn FDA statistical guidance documents and ICH guidelines for clinical trial analysis",
+          "Understand CDISC standards (SDTM, ADaM) for clinical data submission and regulatory review",
+          "Network with biostatisticians in pharmaceutical companies, CROs, and regulatory agencies",
+          "Practice translating your academic statistical expertise to clinical trial methodology and drug development",
+          "Gain familiarity with SAS programming for clinical data analysis and regulatory submissions",
+          "Develop expertise in adaptive trial designs and Bayesian methods increasingly used in modern drug development"
+        ],
+        typical_day: [
+          "Design statistical analysis plans for clinical trials using your experimental design expertise",
+          "Analyze clinical trial data using advanced statistical methods - similar to research data analysis",
+          "Collaborate with clinical teams to interpret results and assess drug efficacy - like research collaboration",
+          "Prepare statistical sections for regulatory submissions using your scientific writing skills",
+          "Review and critique clinical study protocols to ensure statistical rigor and regulatory compliance",
+          "Support regulatory meetings by presenting statistical evidence and addressing agency questions",
+          "Mentor junior statisticians and provide statistical guidance across multiple drug development programs"
+        ],
+        recommended_resources: [
+          { name: "American Statistical Association", url: "https://www.amstat.org/" },
+          { name: "Society for Clinical Trials", url: "https://www.sctweb.org/" },
+          { name: "FDA Statistical Guidance", url: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents" },
+          { name: "PharmaSUG Statistical Conference", url: "https://www.pharmasug.org/" },
+          { name: "Clinical Biostatistics Jobs", url: "https://www.biospace.com/jobs/" },
+          { name: "International Biometric Society", url: "https://www.biometricsociety.org/" },
+          { name: "Journal of Biopharmaceutical Statistics", url: "https://www.tandfonline.com/toc/lbps20/current" }
+        ],
+        key_skills: [
+          "Clinical Trial Design", "SAS Programming", "Regulatory Statistics", "Experimental Design",
+          "Advanced Statistical Methods", "Clinical Data Analysis", "Regulatory Submissions", "Statistical Planning", "Cross-functional Collaboration"
+        ]
+      },
+      quantitative_analyst: {
+        education: "PhD in Mathematics, Statistics, Physics, Engineering, or Economics with strong mathematical modeling and programming background",
+        certifications: [
+          { name: "CFA Charter", url: "https://www.cfainstitute.org/en/programs/cfa" },
+          { name: "Financial Risk Manager (FRM)", url: "https://www.garp.org/frm" },
+          { name: "Certificate in Quantitative Finance (CQF)", url: "https://www.cqf.com/" },
+          { name: "Python for Finance Certification", url: "https://www.coursera.org/specializations/python-trading" },
+          { name: "Machine Learning for Trading", url: "https://www.coursera.org/specializations/machine-learning-trading" }
+        ],
+        daily_overview: `Apply your doctoral mathematical expertise to develop sophisticated financial models, trading algorithms, and risk management systems. Leverage your research background in mathematical modeling and statistical analysis to drive investment decisions, optimize portfolios, and manage financial risk for hedge funds, investment banks, and asset management firms.`,
+        preparation_steps: [
+          "Master financial markets fundamentals including derivatives, fixed income, and portfolio theory",
+          "Learn programming languages used in finance (Python, R, C++) and financial data sources (Bloomberg, Reuters)",
+          "Understand risk management frameworks including Value at Risk (VaR), stress testing, and scenario analysis",
+          "Network with quantitative analysts in hedge funds, investment banks, and asset management companies",
+          "Practice translating your mathematical modeling expertise to financial applications and trading strategies",
+          "Study algorithmic trading concepts and high-frequency trading infrastructure requirements",
+          "Develop expertise in alternative data sources and machine learning applications in finance"
+        ],
+        typical_day: [
+          "Develop mathematical models for pricing derivatives and managing portfolio risk - leveraging your PhD modeling skills",
+          "Analyze market data and identify trading opportunities using statistical methods similar to research analysis",
+          "Implement trading algorithms and optimize execution strategies using your programming expertise",
+          "Collaborate with portfolio managers and traders to translate models into investment decisions",
+          "Monitor risk exposures and stress test portfolios under various market scenarios",
+          "Research new quantitative strategies and present findings to investment committees",
+          "Validate model performance and refine algorithms based on market feedback and changing conditions"
+        ],
+        recommended_resources: [
+          { name: "CFA Institute", url: "https://www.cfainstitute.org/" },
+          { name: "Global Association of Risk Professionals", url: "https://www.garp.org/" },
+          { name: "Quantitative Finance Stack Exchange", url: "https://quant.stackexchange.com/" },
+          { name: "Wilmott Quantitative Finance Community", url: "https://www.wilmott.com/" },
+          { name: "QuantStart Quantitative Trading", url: "https://www.quantstart.com/" },
+          { name: "International Association of Financial Engineers", url: "https://www.iafe.org/" },
+          { name: "Alternative Investment Management Association", url: "https://www.aima.org/" }
+        ],
+        key_skills: [
+          "Mathematical Modeling", "Python/R Programming", "Financial Markets", "Risk Management",
+          "Derivatives Pricing", "Portfolio Optimization", "Machine Learning", "Algorithmic Trading", "Statistical Analysis"
+        ]
+      },
+      market_analyst: {
+        education: "PhD in Economics, Business, Statistics, or related field with strong analytical and research methodology background",
+        certifications: [
+          { name: "Market Research Society Certification", url: "https://www.mrs.org.uk/" },
+          { name: "Marketing Research Association", url: "https://www.marketingresearch.org/" },
+          { name: "Google Analytics Certification", url: "https://skillshop.exceedlms.com/student/path/2938" },
+          { name: "Tableau Business Intelligence", url: "https://www.tableau.com/learn/certification" },
+          { name: "Strategic Market Intelligence", url: "https://www.coursera.org/learn/market-research" }
+        ],
+        daily_overview: `Apply your doctoral research expertise to analyze market trends, competitive landscapes, and industry dynamics. Leverage your analytical methodology and data interpretation skills to provide strategic insights that guide business decisions, market entry strategies, and competitive positioning for companies across diverse industries.`,
+        preparation_steps: [
+          "Study market research methodologies including primary research, surveys, and competitive analysis techniques",
+          "Learn industry analysis frameworks and how to assess market size, growth potential, and competitive dynamics",
+          "Understand business strategy concepts and how market intelligence supports strategic decision-making",
+          "Network with market analysts in consulting firms, corporations, and market research companies",
+          "Practice translating your research methodology into business-focused market analysis and strategic insights",
+          "Gain familiarity with market research tools like Mintel, IBISWorld, and industry databases",
+          "Develop expertise in presenting complex market data to executives and strategic planning teams"
+        ],
+        typical_day: [
+          "Conduct market research using systematic methodology similar to academic research design",
+          "Analyze competitive landscapes and industry trends using your pattern recognition and analytical skills",
+          "Synthesize multiple data sources to create comprehensive market intelligence reports",
+          "Collaborate with strategy and business development teams to identify market opportunities",
+          "Present market findings to executive teams using clear, business-focused communication",
+          "Monitor market developments and provide real-time intelligence on competitive threats and opportunities",
+          "Support strategic planning processes by providing data-driven market insights and recommendations"
+        ],
+        recommended_resources: [
+          { name: "Market Research Association", url: "https://www.marketingresearch.org/" },
+          { name: "Strategic Business Intelligence", url: "https://www.coursera.org/learn/business-intelligence-tools" },
+          { name: "McKinsey Global Institute", url: "https://www.mckinsey.com/mgi/overview" },
+          { name: "Harvard Business Review Strategy", url: "https://hbr.org/topic/strategy" },
+          { name: "Competitive Intelligence Professionals", url: "https://www.scip.org/" },
+          { name: "IBISWorld Industry Research", url: "https://www.ibisworld.com/" },
+          { name: "CB Insights Market Intelligence", url: "https://www.cbinsights.com/" }
+        ],
+        key_skills: [
+          "Market Research", "Competitive Analysis", "Industry Analysis", "Strategic Planning",
+          "Data Analysis", "Report Writing", "Business Intelligence", "Presentation Skills", "Research Methodology"
+        ]
+      },
+      market_research_analyst: {
+        education: "PhD in Psychology, Sociology, Statistics, Economics, or related field with strong research methodology and survey design background",
+        certifications: [
+          { name: "Professional Researcher Certification (PRC)", url: "https://www.marketingresearch.org/professional-researcher-certification" },
+          { name: "Insights Association Certification", url: "https://www.insightsassociation.org/" },
+          { name: "Qualtrics Research Certification", url: "https://www.qualtrics.com/support/survey-platform/getting-started/qualtrics-university/" },
+          { name: "Survey Research Methods", url: "https://www.coursera.org/learn/survey-data-collection" },
+          { name: "Consumer Behavior Analysis", url: "https://www.edx.org/course/consumer-behavior" }
+        ],
+        daily_overview: `Apply your doctoral research methodology to understand consumer behavior, market trends, and brand perception. Leverage your survey design expertise and statistical analysis background to conduct primary research studies, analyze consumer data, and provide strategic insights that drive marketing strategies and product development decisions.`,
+        preparation_steps: [
+          "Master market research tools including Qualtrics, SurveyMonkey, and advanced survey design techniques",
+          "Learn consumer behavior theories and how market research informs business strategy and marketing decisions",
+          "Understand sample design, statistical significance testing, and how to ensure research validity in business contexts",
+          "Network with market research professionals in agencies, consulting firms, and corporate insights teams",
+          "Practice translating your academic research skills to business-focused consumer and market studies",
+          "Gain familiarity with syndicated research sources like Nielsen, Euromonitor, and industry-specific databases",
+          "Develop expertise in presenting research findings to marketing teams and business stakeholders"
+        ],
+        typical_day: [
+          "Design and execute primary research studies using your doctoral survey design and methodology expertise",
+          "Analyze consumer survey data using statistical methods similar to your academic research analysis",
+          "Interview focus group participants and conduct qualitative research - leveraging your data collection skills",
+          "Collaborate with marketing and product teams to translate research into actionable business strategies",
+          "Present research findings to clients or internal teams using clear, business-focused communication",
+          "Monitor market trends and competitive activities to provide ongoing intelligence and strategic insights",
+          "Validate research methodologies and ensure data quality using the same rigor applied to academic research"
+        ],
+        recommended_resources: [
+          { name: "Insights Association", url: "https://www.insightsassociation.org/" },
+          { name: "Market Research Society", url: "https://www.mrs.org.uk/" },
+          { name: "Quirks Market Research Media", url: "https://www.quirks.com/" },
+          { name: "Research Industry Coalition", url: "https://www.researchindustrycoalition.org/" },
+          { name: "CASRO Market Research Standards", url: "https://www.casro.org/" },
+          { name: "Nielsen Consumer Insights", url: "https://www.nielsen.com/insights/" },
+          { name: "Kantar Market Research", url: "https://www.kantar.com/" }
+        ],
+        key_skills: [
+          "Survey Design", "Consumer Research", "Statistical Analysis", "Market Intelligence",
+          "Qualitative Research", "Data Visualization", "Research Methodology", "Client Presentation", "Strategic Insights"
+        ]
+      },
+      public_health_analyst: {
+        education: "PhD in Public Health, Epidemiology, Biostatistics, or related field with strong population health research and policy analysis background",
+        certifications: [
+          { name: "Certified in Public Health (CPH)", url: "https://www.nbphe.org/" },
+          { name: "Epidemiology Certificate", url: "https://www.coursera.org/learn/epidemiology" },
+          { name: "Health Policy Analysis", url: "https://www.edx.org/course/health-policy" },
+          { name: "SAS Public Health Programming", url: "https://www.sas.com/en_us/certification.html" },
+          { name: "CDC Public Health Training", url: "https://www.cdc.gov/learning/" }
+        ],
+        daily_overview: `Apply your doctoral public health expertise to analyze population health trends, evaluate public health programs, and inform evidence-based policy decisions. Leverage your epidemiological research background and statistical analysis skills to support government agencies, non-profits, and healthcare organizations in addressing community health challenges and improving health outcomes.`,
+        preparation_steps: [
+          "Study public health surveillance systems and how population health data is collected and analyzed",
+          "Learn health policy development processes and how research evidence informs public health decision-making",
+          "Understand program evaluation methodologies and how to assess public health intervention effectiveness",
+          "Network with public health analysts in government agencies (CDC, state health departments), NGOs, and healthcare systems",
+          "Practice translating your epidemiological research skills to population health analysis and policy applications",
+          "Gain familiarity with public health databases, surveillance systems, and data visualization for policy audiences",
+          "Develop expertise in health economics and cost-effectiveness analysis for public health programs"
+        ],
+        typical_day: [
+          "Analyze population health data using epidemiological methods similar to your doctoral research methodology",
+          "Evaluate public health programs and interventions using your research design and statistical analysis expertise",
+          "Collaborate with public health officials to design surveillance studies and monitoring systems",
+          "Prepare policy briefs and recommendations based on evidence analysis - leveraging your scientific writing skills",
+          "Present findings to government officials, community leaders, and public health stakeholders",
+          "Monitor disease outbreaks and health trends to inform public health response strategies",
+          "Support grant writing and funding applications for public health research and intervention programs"
+        ],
+        recommended_resources: [
+          { name: "American Public Health Association", url: "https://www.apha.org/" },
+          { name: "CDC Career Development", url: "https://www.cdc.gov/careers/" },
+          { name: "National Association of County Health Officials", url: "https://www.naccho.org/" },
+          { name: "Public Health Jobs Board", url: "https://www.publichealthjobs.org/" },
+          { name: "Health Affairs Policy Journal", url: "https://www.healthaffairs.org/" },
+          { name: "Coursera Public Health Specialization", url: "https://www.coursera.org/specializations/public-health" },
+          { name: "Robert Wood Johnson Foundation", url: "https://www.rwjf.org/" }
+        ],
+        key_skills: [
+          "Epidemiological Methods", "Public Health Data Analysis", "Program Evaluation", "Health Policy",
+          "Statistical Analysis", "Population Health", "Data Visualization", "Policy Writing", "Community Engagement"
+        ]
+      },
+      financial_analyst: {
+        education: "PhD in Economics, Finance, Mathematics, Statistics, or related quantitative field with strong analytical and modeling background",
+        certifications: [
+          { name: "Chartered Financial Analyst (CFA)", url: "https://www.cfainstitute.org/en/programs/cfa" },
+          { name: "Financial Modeling & Valuation", url: "https://www.coursera.org/specializations/financial-modeling" },
+          { name: "Bloomberg Market Concepts", url: "https://portal.bloombergforeducation.com/bmc/" },
+          { name: "Excel Financial Modeling", url: "https://www.wallstreetprep.com/" },
+          { name: "Corporate Finance Institute", url: "https://corporatefinanceinstitute.com/" }
+        ],
+        daily_overview: `Apply your doctoral quantitative expertise to analyze financial data, build valuation models, and support strategic financial decisions. Leverage your research methodology and analytical skills to evaluate investment opportunities, assess financial risk, and provide data-driven recommendations that guide corporate finance, investment, and strategic planning initiatives.`,
+        preparation_steps: [
+          "Master financial statement analysis and learn to interpret income statements, balance sheets, and cash flow statements",
+          "Study valuation methodologies including DCF modeling, comparable company analysis, and precedent transactions",
+          "Learn financial markets and understand how economic factors impact corporate performance and investment decisions",
+          "Network with financial analysts in investment banks, corporate finance, consulting, and asset management",
+          "Practice translating your quantitative research skills to financial modeling and investment analysis",
+          "Gain proficiency in Excel financial modeling and financial databases like Bloomberg, FactSet, or Capital IQ",
+          "Develop expertise in industry analysis and how to assess business models and competitive positioning"
+        ],
+        typical_day: [
+          "Build financial models and perform valuation analysis using your mathematical modeling expertise",
+          "Analyze company financial statements and market data using statistical methods similar to research analysis",
+          "Research industry trends and competitive dynamics - applying your systematic research methodology",
+          "Collaborate with investment teams to evaluate investment opportunities and provide analytical support",
+          "Present financial analysis and recommendations to senior management using your presentation skills",
+          "Monitor portfolio performance and market developments to identify risks and opportunities",
+          "Support strategic planning processes by providing financial analysis and scenario modeling"
+        ],
+        recommended_resources: [
+          { name: "CFA Institute", url: "https://www.cfainstitute.org/" },
+          { name: "Financial Planning Association", url: "https://www.onefpa.org/" },
+          { name: "Wall Street Prep Financial Modeling", url: "https://www.wallstreetprep.com/" },
+          { name: "Morningstar Investment Research", url: "https://www.morningstar.com/" },
+          { name: "Financial Analysts Journal", url: "https://www.cfapubs.org/journal/faj" },
+          { name: "Corporate Finance LinkedIn Groups", url: "https://www.linkedin.com/groups/146556/" },
+          { name: "Bloomberg Professional Training", url: "https://www.bloomberg.com/professional/expertise/" }
+        ],
+        key_skills: [
+          "Financial Modeling", "Valuation Analysis", "Financial Statement Analysis", "Investment Research",
+          "Risk Assessment", "Excel/Financial Software", "Market Analysis", "Business Communication", "Strategic Analysis"
+        ]
+      },
+      business_development_manager: {
+        education: "PhD in Business, Economics, Engineering, or related field with strong analytical and strategic thinking background",
+        certifications: [
+          { name: "Certified Business Development Professional", url: "https://www.cbdp.org/" },
+          { name: "Strategic Partnership Management", url: "https://www.coursera.org/learn/strategic-partnerships" },
+          { name: "Sales Management Certification", url: "https://www.salesmanagement.org/" },
+          { name: "CRM and Sales Analytics", url: "https://trailhead.salesforce.com/" },
+          { name: "Negotiation and Influence", url: "https://www.coursera.org/learn/negotiation" }
+        ],
+        daily_overview: `Apply your doctoral analytical expertise to identify growth opportunities, build strategic partnerships, and drive revenue expansion. Leverage your research methodology and systematic thinking to analyze markets, develop business cases, and negotiate partnerships that accelerate company growth and market expansion.`,
+        preparation_steps: [
+          "Study business development frameworks including market analysis, competitive positioning, and partnership strategy",
+          "Learn sales methodologies and CRM systems used to track opportunities and manage client relationships",
+          "Understand contract negotiation and partnership structuring for strategic business relationships",
+          "Network with business development professionals in your target industries and company sizes",
+          "Practice translating your research analysis skills to market opportunity identification and business case development",
+          "Gain familiarity with sales analytics, pipeline management, and revenue forecasting tools",
+          "Develop expertise in relationship building and how to create mutually beneficial strategic partnerships"
+        ],
+        typical_day: [
+          "Analyze market opportunities and competitive landscapes using your systematic research methodology",
+          "Develop business cases for new partnerships and growth initiatives - leveraging your analytical skills",
+          "Build relationships with potential partners and clients through strategic networking and communication",
+          "Collaborate with product, marketing, and operations teams to support business development initiatives",
+          "Present partnership proposals and growth strategies to executive teams using your presentation skills",
+          "Negotiate contract terms and partnership agreements using your critical thinking and problem-solving abilities",
+          "Track and analyze business development metrics to optimize strategies and demonstrate ROI"
+        ],
+        recommended_resources: [
+          { name: "Business Development Institute", url: "https://www.bdi.org/" },
+          { name: "Strategic Account Management Association", url: "https://www.strategicaccounts.org/" },
+          { name: "Harvard Business Development Program", url: "https://www.harvard.edu/programs/" },
+          { name: "Partnership Leaders Community", url: "https://partnershipleaders.com/" },
+          { name: "Sales Enablement Society", url: "https://www.salesenablementsociety.org/" },
+          { name: "Business Development LinkedIn Groups", url: "https://www.linkedin.com/groups/1804/" },
+          { name: "HubSpot Sales & Business Development", url: "https://academy.hubspot.com/" }
+        ],
+        key_skills: [
+          "Business Development", "Strategic Partnerships", "Market Analysis", "Sales Strategy",
+          "Relationship Building", "Contract Negotiation", "Revenue Growth", "Business Communication", "Strategic Planning"
+        ]
+      },
+      program_management: {
+        education: "PhD in Engineering, Business, or related field with strong project management and systems thinking background",
+        certifications: [
+          { name: "Program Management Professional (PgMP)", url: "https://www.pmi.org/certifications/program-management-pgmp" },
+          { name: "Project Management Professional (PMP)", url: "https://www.pmi.org/certifications/project-management-pmp" },
+          { name: "Agile Program Management", url: "https://www.scaledagile.com/certification/" },
+          { name: "Portfolio Management Professional", url: "https://www.pmi.org/certifications/portfolio-management-pfmp" },
+          { name: "Change Management Certification", url: "https://www.prosci.com/certification" }
+        ],
+        daily_overview: `Apply your doctoral project management expertise to coordinate complex, multi-disciplinary initiatives that drive organizational objectives. Leverage your research program management experience and systematic thinking to oversee portfolio programs, manage stakeholder relationships, and ensure strategic initiatives deliver measurable business value.`,
+        preparation_steps: [
+          "Master program management frameworks including portfolio management, resource allocation, and strategic alignment",
+          "Learn agile and waterfall methodologies used in corporate program management and project delivery",
+          "Understand stakeholder management and how to coordinate across multiple departments and external partners",
+          "Network with program managers in your target industries and learn their day-to-day challenges",
+          "Practice translating your research program coordination skills to business program management contexts",
+          "Gain familiarity with program management tools like Microsoft Project, Smartsheet, and enterprise PMO software",
+          "Develop expertise in change management and how to drive adoption of new initiatives across organizations"
+        ],
+        typical_day: [
+          "Coordinate complex, multi-team initiatives using your doctoral program management and organizational skills",
+          "Analyze program performance and risks using systematic methodology similar to research project management",
+          "Facilitate stakeholder meetings and drive alignment across departments - like interdisciplinary research collaboration",
+          "Develop program roadmaps and strategic plans using your analytical and planning expertise",
+          "Present program status and recommendations to executive leadership using your communication skills",
+          "Manage program budgets and resources using your grant management and resource allocation experience",
+          "Identify and mitigate program risks using the same systematic approach applied to research challenges"
+        ],
+        recommended_resources: [
+          { name: "Project Management Institute (PMI)", url: "https://www.pmi.org/" },
+          { name: "Scaled Agile Framework", url: "https://www.scaledagile.com/" },
+          { name: "Program Management Academy", url: "https://www.projectmanagementacademy.net/" },
+          { name: "Change Management Institute", url: "https://www.change-management-institute.com/" },
+          { name: "Corporate Program Managers LinkedIn", url: "https://www.linkedin.com/groups/37888/" },
+          { name: "Harvard Project Management", url: "https://www.harvard.edu/programs/" },
+          { name: "PMI Program Management Community", url: "https://www.pmi.org/membership/communities" }
+        ],
+        key_skills: [
+          "Program Management", "Strategic Planning", "Stakeholder Management", "Cross-functional Leadership",
+          "Portfolio Management", "Change Management", "Risk Assessment", "Resource Allocation", "Executive Communication"
+        ]
+      },
+      operations_manager: {
+        education: "PhD in Engineering, Business, Operations Research, or related field with strong analytical and process optimization background",
+        certifications: [
+          { name: "Certified Supply Chain Professional (CSCP)", url: "https://www.apics.org/cscp" },
+          { name: "Lean Six Sigma Black Belt", url: "https://www.iassc.org/" },
+          { name: "Operations Management Certificate", url: "https://www.coursera.org/learn/operations-management" },
+          { name: "Project Management Professional (PMP)", url: "https://www.pmi.org/certifications/project-management-pmp" },
+          { name: "Business Process Management", url: "https://www.abpmp.org/" }
+        ],
+        daily_overview: `Apply your doctoral analytical expertise to optimize business operations, improve efficiency, and drive operational excellence. Leverage your systematic problem-solving skills and process optimization background to manage day-to-day operations, implement process improvements, and ensure organizational objectives are met through efficient resource allocation and workflow management.`,
+        preparation_steps: [
+          "Study operations management principles including supply chain, inventory management, and process optimization",
+          "Learn lean methodologies, Six Sigma, and continuous improvement frameworks used in business operations",
+          "Understand financial operations including budgeting, cost management, and operational metrics",
+          "Network with operations managers in manufacturing, tech, healthcare, and service industries",
+          "Practice translating your research process optimization skills to business operations and efficiency improvement",
+          "Gain familiarity with enterprise software like ERP systems, supply chain management, and operations analytics",
+          "Develop expertise in team leadership and how to drive operational change across diverse organizational functions"
+        ],
+        typical_day: [
+          "Analyze operational processes and identify improvement opportunities using your systematic research methodology",
+          "Optimize workflows and resource allocation using your analytical and problem-solving expertise",
+          "Manage cross-functional teams to execute operational initiatives - similar to research team coordination",
+          "Monitor key performance indicators and operational metrics using your data analysis skills",
+          "Collaborate with various departments to ensure operational alignment and efficiency",
+          "Present operational performance and improvement recommendations to executive leadership",
+          "Implement process changes and manage organizational transformation using your change management skills"
+        ],
+        recommended_resources: [
+          { name: "Association for Operations Management", url: "https://www.apics.org/" },
+          { name: "Institute for Operations Research", url: "https://www.informs.org/" },
+          { name: "Lean Enterprise Institute", url: "https://www.lean.org/" },
+          { name: "Supply Chain Management Review", url: "https://www.scmr.com/" },
+          { name: "Operations Leadership Network", url: "https://www.mckinsey.com/business-functions/operations" },
+          { name: "Harvard Operations Management", url: "https://online-learning.harvard.edu/" },
+          { name: "MIT Operations Research", url: "https://www.mit.edu/" }
+        ],
+        key_skills: [
+          "Operations Management", "Process Optimization", "Supply Chain Management", "Team Leadership",
+          "Performance Analytics", "Quality Management", "Strategic Planning", "Budget Management", "Cross-functional Collaboration"
+        ]
+      },
+      entrepreneur_startup_founder: {
+        education: "PhD in any STEM field with strong innovation, problem-solving, and leadership background, plus entrepreneurial mindset and business acumen",
+        certifications: [
+          { name: "Entrepreneurship Specialization (Coursera)", url: "https://www.coursera.org/specializations/entrepreneurship" },
+          { name: "Startup School (Y Combinator)", url: "https://www.startupschool.org/" },
+          { name: "Venture Capital and Startup Financing", url: "https://www.edx.org/course/entrepreneurship" },
+          { name: "Technology Commercialization", url: "https://www.coursera.org/learn/technology-commercialization" },
+          { name: "Lean Startup Methodology", url: "https://leanstartup.co/" }
+        ],
+        daily_overview: `Apply your doctoral innovation expertise to build and scale technology startups that solve complex problems. Leverage your research background in identifying unsolved problems, systematic experimentation, and persistence to develop innovative products, raise funding, and build teams that translate cutting-edge science into market-changing companies.`,
+        preparation_steps: [
+          "Validate your startup idea through customer discovery and market research using your systematic research methodology",
+          "Learn startup fundamentals including business model development, fundraising, and go-to-market strategy",
+          "Understand venture capital ecosystem and how to present your technology innovation to potential investors",
+          "Network with entrepreneurs, venture capitalists, and startup ecosystem participants in your field",
+          "Practice translating your research innovation into commercial opportunities and compelling business narratives",
+          "Gain familiarity with startup legal structures, equity allocation, and intellectual property considerations",
+          "Develop leadership and team-building skills to attract and retain top talent for your venture"
+        ],
+        typical_day: [
+          "Develop innovative products and solutions using your research problem-solving and innovation expertise",
+          "Conduct market validation and customer discovery using systematic methodology similar to research design",
+          "Lead product development and technical strategy leveraging your deep scientific and technical knowledge",
+          "Pitch to investors and raise funding by translating your innovation into compelling business opportunities",
+          "Build and manage teams using your mentoring and leadership skills from academic research supervision",
+          "Make strategic business decisions under uncertainty using your analytical thinking and risk assessment abilities",
+          "Iterate on products and business model based on market feedback - applying your experimental learning approach"
+        ],
+        recommended_resources: [
+          { name: "Y Combinator Startup School", url: "https://www.startupschool.org/" },
+          { name: "Techstars Entrepreneur Toolkit", url: "https://www.techstars.com/" },
+          { name: "National Science Foundation I-Corps", url: "https://www.nsf.gov/news/special_reports/i-corps/" },
+          { name: "Entrepreneur's Organization", url: "https://www.eonetwork.org/" },
+          { name: "AngelList Startup Resources", url: "https://angel.co/" },
+          { name: "Harvard Innovation Labs", url: "https://innovationlabs.harvard.edu/" },
+          { name: "SCORE Mentorship Program", url: "https://www.score.org/" }
+        ],
+        key_skills: [
+          "Innovation & Product Development", "Business Strategy", "Fundraising & Investment", "Team Leadership",
+          "Market Validation", "Technology Commercialization", "Strategic Vision", "Risk Management", "Stakeholder Communication"
+        ]
+      },
+      technical_writer: {
+        education: "PhD in Engineering, Computer Science, or technical field with strong writing and communication background",
+        certifications: [
+          { name: "Society for Technical Communication (STC)", url: "https://www.stc.org/" },
+          { name: "Technical Writing Certificate", url: "https://www.coursera.org/learn/technical-writing" },
+          { name: "API Documentation Best Practices", url: "https://idratherbewriting.com/" },
+          { name: "Content Strategy Certification", url: "https://www.contentmarketinginstitute.com/" },
+          { name: "Information Architecture", url: "https://www.uxbooth.com/articles/complete-beginners-guide-to-information-architecture/" }
+        ],
+        daily_overview: `Apply your doctoral technical expertise and scientific writing skills to create clear, comprehensive documentation for complex technical products and systems. Leverage your research communication background to translate technical concepts into user-friendly guides, API documentation, and product materials that enable successful technology adoption.`,
+        preparation_steps: [
+          "Master technical writing tools including documentation platforms, version control, and content management systems",
+          "Learn software development workflows and how technical documentation integrates with product development cycles",
+          "Understand user experience principles and how documentation supports product usability and adoption",
+          "Network with technical writers in software companies, startups, and technology organizations",
+          "Practice translating your academic writing skills to user-focused technical documentation and guides",
+          "Gain familiarity with API documentation, developer tools, and how to write for technical audiences",
+          "Develop expertise in information architecture and content strategy for complex technical products"
+        ],
+        typical_day: [
+          "Create comprehensive technical documentation using your scientific writing and communication expertise",
+          "Collaborate with engineers and product teams to understand complex technical systems - like interdisciplinary research",
+          "Design information architecture and user guides that make technical concepts accessible",
+          "Interview subject matter experts and gather information using your research methodology skills",
+          "Edit and review technical content for accuracy, clarity, and user experience",
+          "Maintain documentation systems and ensure content stays current with product developments",
+          "Analyze user feedback and usage metrics to improve documentation effectiveness"
+        ],
+        recommended_resources: [
+          { name: "Society for Technical Communication", url: "https://www.stc.org/" },
+          { name: "Write the Docs Community", url: "https://www.writethedocs.org/" },
+          { name: "I'd Rather Be Writing Blog", url: "https://idratherbewriting.com/" },
+          { name: "Technical Writing Courses", url: "https://www.coursera.org/courses?query=technical%20writing" },
+          { name: "Content Strategy Alliance", url: "https://www.contentstrategy.com/" },
+          { name: "API Documentation Tools", url: "https://swagger.io/" },
+          { name: "Technical Communication LinkedIn", url: "https://www.linkedin.com/groups/112089/" }
+        ],
+        key_skills: [
+          "Technical Writing", "Documentation Strategy", "Information Architecture", "Content Management",
+          "API Documentation", "User Experience Writing", "Version Control", "Cross-functional Collaboration", "Technical Communication"
+        ]
+      },
+      copywriter: {
+        education: "PhD in English, Communications, Psychology, or related field with strong writing and persuasive communication background",
+        certifications: [
+          { name: "Copywriting Certification (AWAI)", url: "https://www.awai.com/" },
+          { name: "Google Ads Certification", url: "https://skillshop.exceedlms.com/" },
+          { name: "Content Marketing Institute", url: "https://www.contentmarketinginstitute.com/" },
+          { name: "HubSpot Content Marketing", url: "https://academy.hubspot.com/" },
+          { name: "Facebook Blueprint Advertising", url: "https://www.facebook.com/business/learn" }
+        ],
+        daily_overview: `Apply your doctoral writing expertise and understanding of human psychology to create compelling marketing copy that drives business results. Leverage your research communication skills and analytical thinking to develop persuasive content across digital campaigns, product marketing, and brand communication that resonates with target audiences and achieves measurable outcomes.`,
+        preparation_steps: [
+          "Study copywriting frameworks including AIDA, PAS, and other persuasive writing methodologies",
+          "Learn digital marketing fundamentals including email marketing, social media, and conversion optimization",
+          "Understand brand voice development and how to adapt writing style for different audiences and channels",
+          "Network with copywriters in agencies, tech companies, and marketing departments",
+          "Practice translating your academic writing skills to persuasive, results-driven marketing communication",
+          "Gain familiarity with marketing automation tools, A/B testing, and performance analytics",
+          "Develop expertise in understanding target audiences and crafting messages that drive action"
+        ],
+        typical_day: [
+          "Create persuasive copy for digital campaigns, emails, and marketing materials using your writing expertise",
+          "Analyze campaign performance and optimize copy based on data - applying your analytical research skills",
+          "Collaborate with designers, marketers, and product teams to develop cohesive brand messaging",
+          "Research target audiences and market positioning to inform copy strategy and messaging",
+          "Test different copy variations and analyze results to improve conversion rates",
+          "Adapt technical or complex information into accessible, compelling marketing messages",
+          "Present copy concepts and campaign ideas to marketing teams and stakeholders"
+        ],
+        recommended_resources: [
+          { name: "American Writers & Artists Inc. (AWAI)", url: "https://www.awai.com/" },
+          { name: "Copyblogger Content Marketing", url: "https://copyblogger.com/" },
+          { name: "Content Marketing Institute", url: "https://www.contentmarketinginstitute.com/" },
+          { name: "Direct Marketing Association", url: "https://thedma.org/" },
+          { name: "Copywriting LinkedIn Groups", url: "https://www.linkedin.com/groups/146207/" },
+          { name: "ConversionXL Copywriting", url: "https://conversionxl.com/" },
+          { name: "MarketingProfs Copywriting", url: "https://www.marketingprofs.com/" }
+        ],
+        key_skills: [
+          "Persuasive Writing", "Brand Voice Development", "Digital Marketing", "Content Strategy",
+          "A/B Testing", "Conversion Optimization", "Audience Research", "Campaign Development", "Marketing Communication"
+        ]
+      },
+      science_communicator: {
+        education: "PhD in any scientific field with strong public communication and educational outreach background",
+        certifications: [
+          { name: "Science Communication Certificate", url: "https://www.coursera.org/learn/science-communication" },
+          { name: "Public Relations Society of America", url: "https://www.prsa.org/" },
+          { name: "Content Marketing Certification", url: "https://www.contentmarketinginstitute.com/" },
+          { name: "Science Writing Specialization", url: "https://www.coursera.org/specializations/science-writing" },
+          { name: "Digital Storytelling Certificate", url: "https://www.edx.org/course/digital-storytelling" }
+        ],
+        daily_overview: `Apply your doctoral scientific expertise to bridge the gap between complex research and public understanding. Leverage your deep subject matter knowledge and communication skills to create engaging content that makes science accessible, builds public trust in research, and supports evidence-based decision-making across media, nonprofits, and corporate communications.`,
+        preparation_steps: [
+          "Study science communication best practices including storytelling, visual communication, and audience engagement",
+          "Learn digital media platforms and content creation tools for social media, podcasts, and video production",
+          "Understand journalism fundamentals and how to work with media outlets and science reporters",
+          "Network with science communicators in museums, nonprofits, media companies, and corporate communications",
+          "Practice translating your research expertise into accessible, engaging content for diverse audiences",
+          "Gain familiarity with public engagement strategies and how to measure communication impact and effectiveness",
+          "Develop expertise in crisis communication and how to address scientific misinformation"
+        ],
+        typical_day: [
+          "Create engaging science content for various platforms using your deep scientific knowledge and communication skills",
+          "Translate complex research findings into accessible stories that resonate with public audiences",
+          "Collaborate with researchers, media teams, and educational organizations to develop communication strategies",
+          "Respond to media inquiries and provide expert commentary on scientific developments in your field",
+          "Design and deliver public presentations, workshops, or educational programs",
+          "Monitor public discourse around scientific topics and develop communication strategies to address misconceptions",
+          "Measure and analyze communication impact using data-driven approaches similar to research evaluation"
+        ],
+        recommended_resources: [
+          { name: "National Association of Science Writers", url: "https://www.nasw.org/" },
+          { name: "Science Communication Network", url: "https://www.sciencecommunication.network/" },
+          { name: "Alan Alda Center for Communicating Science", url: "https://www.aldacenter.org/" },
+          { name: "SciComm Twitter Community", url: "https://twitter.com/hashtag/scicomm" },
+          { name: "Science Communication Training", url: "https://www.coursera.org/learn/science-communication" },
+          { name: "Museum Science Communication", url: "https://www.astc.org/" },
+          { name: "Public Understanding of Science", url: "https://journals.sagepub.com/home/pus" }
+        ],
+        key_skills: [
+          "Science Communication", "Public Engagement", "Content Creation", "Digital Media",
+          "Storytelling", "Media Relations", "Educational Design", "Social Media", "Crisis Communication"
+        ]
+      },
+      science_illustrator: {
+        education: "PhD in scientific field with strong visual arts, design, or illustration background, or formal training in scientific illustration",
+        certifications: [
+          { name: "Guild of Natural Science Illustrators", url: "https://www.gnsi.org/" },
+          { name: "Adobe Creative Suite Certification", url: "https://www.adobe.com/certification.html" },
+          { name: "Medical Illustration Certificate", url: "https://www.coursera.org/learn/medical-illustration" },
+          { name: "Scientific Visualization", url: "https://www.edx.org/course/scientific-visualization" },
+          { name: "Digital Art and Design", url: "https://www.skillshare.com/browse/design" }
+        ],
+        daily_overview: `Apply your doctoral scientific knowledge and artistic skills to create precise, educational visual representations of complex scientific concepts. Leverage your deep understanding of scientific principles and visual communication expertise to produce illustrations, animations, and interactive media that enhance scientific understanding across educational, research, and commercial applications.`,
+        preparation_steps: [
+          "Master digital illustration tools including Adobe Creative Suite, Blender, and specialized scientific visualization software",
+          "Study scientific illustration principles including accuracy, clarity, and educational effectiveness",
+          "Understand different applications of scientific illustration from textbooks to journal publications to museum exhibits",
+          "Network with scientific illustrators in publishing, museums, medical companies, and educational organizations",
+          "Practice translating your scientific expertise into compelling visual narratives and educational illustrations",
+          "Gain familiarity with different illustration techniques including traditional drawing, 3D modeling, and animation",
+          "Develop expertise in working with scientists, educators, and editors to create scientifically accurate visual content"
+        ],
+        typical_day: [
+          "Create scientific illustrations and visualizations that accurately represent complex concepts using your scientific knowledge",
+          "Collaborate with researchers, educators, and publishers to understand illustration requirements and scientific accuracy",
+          "Research scientific topics thoroughly to ensure illustrations are factually correct and scientifically sound",
+          "Use digital art tools to produce illustrations, animations, or interactive media for various platforms",
+          "Review and revise illustrations based on scientist and editor feedback to ensure accuracy and clarity",
+          "Stay current with scientific developments in your field to maintain accuracy in ongoing illustration projects",
+          "Manage multiple illustration projects with varying deadlines and client requirements"
+        ],
+        recommended_resources: [
+          { name: "Guild of Natural Science Illustrators", url: "https://www.gnsi.org/" },
+          { name: "Association of Medical Illustrators", url: "https://www.ami.org/" },
+          { name: "Scientific Illustration Jobs Board", url: "https://www.scienceillustration.com/" },
+          { name: "Nature Scientific Illustration", url: "https://www.nature.com/nature/for-authors/scientific-illustration" },
+          { name: "Adobe Creative Tutorials", url: "https://helpx.adobe.com/creative-suite/tutorials.html" },
+          { name: "Blender Scientific Visualization", url: "https://www.blender.org/" },
+          { name: "Scientific American Illustration", url: "https://www.scientificamerican.com/" }
+        ],
+        key_skills: [
+          "Scientific Illustration", "Digital Art & Design", "Adobe Creative Suite", "3D Modeling",
+          "Scientific Accuracy", "Visual Communication", "Educational Design", "Animation", "Cross-functional Collaboration"
+        ]
+      },
+      devops_engineer: {
+        education: "PhD in Computer Science, Engineering, or related technical field with strong systems thinking and automation background",
+        certifications: [
+          { name: "AWS Certified DevOps Engineer", url: "https://aws.amazon.com/certification/certified-devops-engineer-professional/" },
+          { name: "Google Cloud Professional DevOps Engineer", url: "https://cloud.google.com/certification/cloud-devops-engineer" },
+          { name: "Docker Certified Associate", url: "https://www.docker.com/certification" },
+          { name: "Kubernetes Certification (CKA)", url: "https://www.cncf.io/certification/cka/" },
+          { name: "Terraform Associate Certification", url: "https://www.hashicorp.com/certification/terraform-associate" }
+        ],
+        daily_overview: `Apply your doctoral systems thinking and analytical expertise to build and manage automated infrastructure that enables software teams to deploy code rapidly and reliably. Leverage your research background in complex systems and problem-solving to create CI/CD pipelines, manage cloud infrastructure, and implement monitoring solutions that support scalable technology operations.`,
+        preparation_steps: [
+          "Master cloud platforms (AWS, Azure, GCP) and infrastructure as code tools like Terraform and CloudFormation",
+          "Learn containerization technologies (Docker, Kubernetes) and how to orchestrate microservices architectures",
+          "Understand CI/CD pipeline design and automation tools like Jenkins, GitLab CI, or GitHub Actions",
+          "Network with DevOps engineers in tech companies and learn about site reliability engineering practices",
+          "Practice translating your systems analysis skills to infrastructure automation and deployment optimization",
+          "Gain familiarity with monitoring and observability tools for tracking system performance and reliability",
+          "Develop expertise in security practices for cloud infrastructure and automated deployment systems"
+        ],
+        typical_day: [
+          "Design and maintain automated deployment pipelines using your systematic approach to complex system design",
+          "Monitor system performance and troubleshoot infrastructure issues using your analytical problem-solving skills",
+          "Collaborate with software teams to optimize deployment processes and improve development velocity",
+          "Implement infrastructure changes using code-based approaches similar to systematic research methodology",
+          "Respond to system alerts and incidents using structured debugging approaches from your research background",
+          "Design scalable infrastructure solutions that support growing user bases and system complexity",
+          "Automate repetitive operations tasks and improve system reliability through continuous improvement"
+        ],
+        recommended_resources: [
+          { name: "DevOps Institute", url: "https://devopsinstitute.com/" },
+          { name: "Cloud Native Computing Foundation", url: "https://www.cncf.io/" },
+          { name: "AWS Training and Certification", url: "https://aws.amazon.com/training/" },
+          { name: "DevOps Weekly Newsletter", url: "https://www.devopsweekly.com/" },
+          { name: "Kubernetes Community", url: "https://kubernetes.io/community/" },
+          { name: "Site Reliability Engineering Book", url: "https://sre.google/" },
+          { name: "DevOps LinkedIn Groups", url: "https://www.linkedin.com/groups/2825397/" }
+        ],
+        key_skills: [
+          "Cloud Infrastructure", "CI/CD Pipelines", "Container Orchestration", "Infrastructure as Code",
+          "System Monitoring", "Automation", "Security Practices", "Problem Solving", "Cross-functional Collaboration"
+        ]
+      },
+      systems_engineer: {
+        education: "PhD in Systems Engineering, Computer Science, or related engineering field with strong systems integration and architecture background",
+        certifications: [
+          { name: "Certified Systems Engineering Professional (CSEP)", url: "https://www.incose.org/certification" },
+          { name: "AWS Solutions Architect", url: "https://aws.amazon.com/certification/certified-solutions-architect-professional/" },
+          { name: "Systems Architecture Certification", url: "https://www.coursera.org/learn/systems-architecture" },
+          { name: "Enterprise Architecture Certification", url: "https://www.opengroup.org/certifications" },
+          { name: "Project Management Professional (PMP)", url: "https://www.pmi.org/certifications/project-management-pmp" }
+        ],
+        daily_overview: `Apply your doctoral systems thinking and engineering expertise to design, integrate, and optimize complex technical systems across organizations. Leverage your research background in analyzing complex relationships and dependencies to architect solutions that meet business requirements while ensuring scalability, reliability, and performance.`,
+        preparation_steps: [
+          "Master systems engineering methodologies including requirements analysis, system architecture, and integration planning",
+          "Learn enterprise technologies and how different systems integrate across business and technical domains",
+          "Understand business requirements gathering and how to translate business needs into technical specifications",
+          "Network with systems engineers in enterprise technology companies and learn about large-scale system challenges",
+          "Practice translating your research systems analysis skills to business system design and optimization",
+          "Gain familiarity with enterprise architecture frameworks and systems integration best practices",
+          "Develop expertise in stakeholder management and communicating technical concepts to business audiences"
+        ],
+        typical_day: [
+          "Design system architectures and integration solutions using your systematic analytical approach",
+          "Analyze complex system requirements and dependencies using methodology similar to research system design",
+          "Collaborate with multiple technical teams to coordinate system integration and ensure compatibility",
+          "Troubleshoot system performance issues using structured debugging approaches from research experience",
+          "Present technical solutions and recommendations to stakeholders using your communication skills",
+          "Evaluate new technologies and assess their fit within existing system architectures",
+          "Manage system documentation and ensure knowledge transfer across engineering teams"
+        ],
+        recommended_resources: [
+          { name: "International Council on Systems Engineering (INCOSE)", url: "https://www.incose.org/" },
+          { name: "IEEE Systems Engineering Society", url: "https://ieeexplore.ieee.org/" },
+          { name: "Systems Engineering Body of Knowledge", url: "https://www.sebokwiki.org/" },
+          { name: "Enterprise Architecture Institute", url: "https://www.enterprise-architecture.info/" },
+          { name: "Systems Engineering LinkedIn", url: "https://www.linkedin.com/groups/77777/" },
+          { name: "MIT Systems Engineering", url: "https://esd.mit.edu/" },
+          { name: "Systems Engineering Magazine", url: "https://www.incose.org/publications" }
+        ],
+        key_skills: [
+          "Systems Architecture", "Requirements Analysis", "System Integration", "Technical Leadership",
+          "Enterprise Architecture", "Project Management", "Stakeholder Management", "Problem Solving", "Cross-functional Collaboration"
+        ]
+      },
+      biomedical_engineer: {
+        education: "PhD in Biomedical Engineering, Bioengineering, or related field with strong medical device and healthcare technology background",
+        certifications: [
+          { name: "Biomedical Engineering Society (BMES)", url: "https://www.bmes.org/" },
+          { name: "FDA Medical Device Regulations", url: "https://www.fda.gov/medical-devices" },
+          { name: "ISO 13485 Quality Management", url: "https://www.iso.org/iso-13485-medical-devices.html" },
+          { name: "Clinical Engineering Certification", url: "https://www.aami.org/certification/" },
+          { name: "Medical Device Product Development", url: "https://www.coursera.org/learn/medical-device-development" }
+        ],
+        daily_overview: `Apply your doctoral biomedical engineering expertise to develop life-saving medical devices and healthcare technologies. Leverage your research background in biological systems and engineering principles to design innovative medical solutions, navigate regulatory requirements, and translate cutting-edge research into commercial healthcare products.`,
+        preparation_steps: [
+          "Study FDA medical device regulations and quality management systems (ISO 13485) for healthcare products",
+          "Learn medical device development lifecycle from concept through clinical trials to market approval",
+          "Understand healthcare market dynamics and how medical devices are evaluated, purchased, and adopted",
+          "Network with biomedical engineers in medical device companies, hospitals, and regulatory organizations",
+          "Practice translating your research engineering skills to commercial medical device development and manufacturing",
+          "Gain familiarity with clinical validation processes and how medical devices are tested for safety and efficacy",
+          "Develop expertise in cross-functional collaboration with clinicians, regulatory teams, and business stakeholders"
+        ],
+        typical_day: [
+          "Design and develop medical devices using your biomedical engineering expertise and research methodology",
+          "Collaborate with clinical teams to understand user needs and validate device performance in healthcare settings",
+          "Navigate regulatory requirements and prepare submission documents using your technical writing skills",
+          "Test and validate medical device prototypes using systematic experimental approaches from research",
+          "Work with manufacturing teams to scale device production while maintaining quality and regulatory compliance",
+          "Present technical findings and product updates to cross-functional teams and executive stakeholders",
+          "Support clinical studies and post-market surveillance to ensure device safety and effectiveness"
+        ],
+        recommended_resources: [
+          { name: "Biomedical Engineering Society (BMES)", url: "https://www.bmes.org/" },
+          { name: "Medical Device Manufacturers Association", url: "https://www.medicaldevices.org/" },
+          { name: "FDA Medical Device Network", url: "https://www.fda.gov/medical-devices" },
+          { name: "IEEE Engineering in Medicine & Biology", url: "https://www.embs.org/" },
+          { name: "Association for the Advancement of Medical Instrumentation", url: "https://www.aami.org/" },
+          { name: "Medical Design & Outsourcing", url: "https://www.medicaldesignandoutsourcing.com/" },
+          { name: "BioWorld Medical Device News", url: "https://www.bioworld.com/" }
+        ],
+        key_skills: [
+          "Medical Device Development", "FDA Regulations", "Clinical Validation", "Product Development",
+          "Quality Management", "Cross-functional Collaboration", "Technical Leadership", "Biomedical Research", "Regulatory Affairs"
+        ]
+      },
+      chemical_engineer: {
+        education: "PhD in Chemical Engineering or related field with strong process design and manufacturing background",
+        certifications: [
+          { name: "Professional Engineer (PE) License", url: "https://www.nspe.org/" },
+          { name: "American Institute of Chemical Engineers (AIChE)", url: "https://www.aiche.org/" },
+          { name: "Process Safety Management", url: "https://www.aiche.org/ccps" },
+          { name: "Six Sigma Green Belt", url: "https://www.iassc.org/" },
+          { name: "Project Management Professional (PMP)", url: "https://www.pmi.org/certifications/project-management-pmp" }
+        ],
+        daily_overview: `Apply your doctoral chemical engineering expertise to design, optimize, and scale chemical and manufacturing processes for diverse industries. Leverage your research background in reaction kinetics, thermodynamics, and process optimization to develop efficient production systems, ensure safety compliance, and drive innovation in chemical manufacturing and processing.`,
+        preparation_steps: [
+          "Study industrial process design including scaling from lab to pilot to commercial production",
+          "Learn manufacturing operations and how chemical processes integrate with business operations and quality control",
+          "Understand process safety management and environmental compliance requirements for chemical manufacturing",
+          "Network with chemical engineers in petrochemical, pharmaceutical, food processing, and specialty chemical industries",
+          "Practice translating your research process development skills to commercial manufacturing and process optimization",
+          "Gain familiarity with process simulation software and industrial control systems used in manufacturing",
+          "Develop expertise in project management and how to lead cross-functional process development initiatives"
+        ],
+        typical_day: [
+          "Design and optimize chemical processes using your doctoral expertise in reaction engineering and thermodynamics",
+          "Analyze process performance data and identify optimization opportunities using systematic analytical approaches",
+          "Collaborate with operations teams to troubleshoot manufacturing issues and implement process improvements",
+          "Lead process scale-up projects from laboratory to commercial production using your research scaling experience",
+          "Ensure process safety and environmental compliance using systematic risk assessment methodologies",
+          "Present process improvements and cost savings recommendations to management using your communication skills",
+          "Mentor junior engineers and provide technical guidance on complex chemical engineering challenges"
+        ],
+        recommended_resources: [
+          { name: "American Institute of Chemical Engineers", url: "https://www.aiche.org/" },
+          { name: "Chemical Engineering Magazine", url: "https://www.chemengonline.com/" },
+          { name: "Process Safety Center", url: "https://www.aiche.org/ccps" },
+          { name: "National Society of Professional Engineers", url: "https://www.nspe.org/" },
+          { name: "Chemical Engineering LinkedIn", url: "https://www.linkedin.com/groups/96977/" },
+          { name: "Process Engineering Associates", url: "https://process-engineering.com/" },
+          { name: "Chemical Processing Magazine", url: "https://www.chemicalprocessing.com/" }
+        ],
+        key_skills: [
+          "Process Design & Optimization", "Chemical Engineering Fundamentals", "Process Safety", "Manufacturing Operations",
+          "Project Management", "Data Analysis", "Process Control", "Regulatory Compliance", "Cross-functional Leadership"
+        ]
+      },
+      electrical_engineer: {
+        education: "PhD in Electrical Engineering, Electronics, or related field with strong circuit design and systems integration background",
+        certifications: [
+          { name: "Professional Engineer (PE) License", url: "https://www.nspe.org/" },
+          { name: "IEEE Professional Certification", url: "https://www.ieee.org/membership/professional-certification.html" },
+          { name: "Certified Electronics Technician", url: "https://www.eta-i.org/" },
+          { name: "Project Management Professional (PMP)", url: "https://www.pmi.org/certifications/project-management-pmp" },
+          { name: "Systems Engineering Certification", url: "https://www.incose.org/certification" }
+        ],
+        daily_overview: `Apply your doctoral electrical engineering expertise to design, develop, and optimize electronic systems and products across diverse technology applications. Leverage your research background in circuit analysis, signal processing, and system design to create innovative electronic solutions, lead technical projects, and drive product development in technology companies.`,
+        preparation_steps: [
+          "Master commercial electronic design tools including CAD software, simulation tools, and PCB design systems",
+          "Learn product development lifecycle and how electrical engineering integrates with mechanical, software, and systems engineering",
+          "Understand manufacturing processes for electronic products including testing, quality control, and production scaling",
+          "Network with electrical engineers in consumer electronics, automotive, aerospace, and technology companies",
+          "Practice translating your research circuit design skills to commercial product development and manufacturing",
+          "Gain familiarity with industry standards, compliance requirements, and certification processes for electronic products",
+          "Develop expertise in project management and leading cross-functional hardware development teams"
+        ],
+        typical_day: [
+          "Design and analyze electronic circuits and systems using your advanced electrical engineering knowledge",
+          "Collaborate with mechanical and software engineers to integrate electrical systems into complete products",
+          "Test and validate electronic designs using systematic experimental approaches from your research background",
+          "Troubleshoot complex technical issues and optimize system performance using analytical problem-solving skills",
+          "Present technical designs and recommendations to product teams and management using your communication skills",
+          "Ensure designs meet safety, regulatory, and performance requirements through rigorous analysis and testing",
+          "Lead technical projects and mentor junior engineers using your research supervision and leadership experience"
+        ],
+        recommended_resources: [
+          { name: "Institute of Electrical and Electronics Engineers (IEEE)", url: "https://www.ieee.org/" },
+          { name: "National Society of Professional Engineers", url: "https://www.nspe.org/" },
+          { name: "Electronic Design Magazine", url: "https://www.electronicdesign.com/" },
+          { name: "IEEE Spectrum Magazine", url: "https://spectrum.ieee.org/" },
+          { name: "Electrical Engineering LinkedIn", url: "https://www.linkedin.com/groups/70964/" },
+          { name: "EE Times Engineering News", url: "https://www.eetimes.com/" },
+          { name: "Design News Engineering", url: "https://www.designnews.com/" }
+        ],
+        key_skills: [
+          "Circuit Design & Analysis", "Systems Integration", "Electronic Product Development", "Technical Leadership",
+          "Testing & Validation", "Project Management", "Regulatory Compliance", "Problem Solving", "Cross-functional Collaboration"
+        ]
+      },
+      mechanical_engineer: {
+        education: "PhD in Mechanical Engineering or related field with strong product design and manufacturing background",
+        certifications: [
+          { name: "Professional Engineer (PE) License", url: "https://www.nspe.org/" },
+          { name: "American Society of Mechanical Engineers (ASME)", url: "https://www.asme.org/" },
+          { name: "SolidWorks Certification", url: "https://www.solidworks.com/sw/education/certification.htm" },
+          { name: "Project Management Professional (PMP)", url: "https://www.pmi.org/certifications/project-management-pmp" },
+          { name: "Lean Manufacturing Certification", url: "https://www.sme.org/" }
+        ],
+        daily_overview: `Apply your doctoral mechanical engineering expertise to design, develop, and optimize mechanical systems and products across diverse industries. Leverage your research background in mechanics, thermodynamics, and materials science to create innovative mechanical solutions, lead product development, and drive manufacturing optimization in technology and industrial companies.`,
+        preparation_steps: [
+          "Master commercial CAD software and product development tools including SolidWorks, AutoCAD, and simulation software",
+          "Learn manufacturing processes including machining, additive manufacturing, and assembly line optimization",
+          "Understand product lifecycle management and how mechanical engineering integrates with business requirements",
+          "Network with mechanical engineers in automotive, aerospace, consumer products, and industrial equipment industries",
+          "Practice translating your research mechanical design skills to commercial product development and manufacturing",
+          "Gain familiarity with industry standards, safety requirements, and certification processes for mechanical products",
+          "Develop expertise in project management and leading cross-functional product development teams"
+        ],
+        typical_day: [
+          "Design and analyze mechanical systems and products using your advanced engineering knowledge and simulation skills",
+          "Collaborate with electrical, software, and systems engineers to develop integrated product solutions",
+          "Test and validate mechanical designs using experimental methods similar to your research validation approaches",
+          "Optimize manufacturing processes and improve product performance using systematic engineering analysis",
+          "Present design concepts and recommendations to product teams and management using your communication skills",
+          "Ensure designs meet safety, performance, and cost requirements through rigorous engineering analysis",
+          "Lead product development projects and mentor junior engineers using your research supervision experience"
+        ],
+        recommended_resources: [
+          { name: "American Society of Mechanical Engineers", url: "https://www.asme.org/" },
+          { name: "National Society of Professional Engineers", url: "https://www.nspe.org/" },
+          { name: "Mechanical Engineering Magazine", url: "https://www.asme.org/topics-resources/content/mechanical-engineering-magazine" },
+          { name: "Design News Engineering", url: "https://www.designnews.com/" },
+          { name: "Society of Manufacturing Engineers", url: "https://www.sme.org/" },
+          { name: "Mechanical Engineering LinkedIn", url: "https://www.linkedin.com/groups/1720277/" },
+          { name: "Product Development & Management", url: "https://www.pdma.org/" }
+        ],
+        key_skills: [
+          "Mechanical Design & Analysis", "CAD/CAM Software", "Manufacturing Processes", "Product Development",
+          "Project Management", "Testing & Validation", "Materials Selection", "Technical Leadership", "Cross-functional Collaboration"
+        ]
+      },
+      materials_scientist: {
+        education: "PhD in Materials Science, Materials Engineering, or related field with strong materials characterization and development background",
+        certifications: [
+          { name: "Materials Research Society (MRS)", url: "https://www.mrs.org/" },
+          { name: "ASM International Certification", url: "https://www.asminternational.org/" },
+          { name: "Professional Engineer (PE) License", url: "https://www.nspe.org/" },
+          { name: "Six Sigma Green Belt", url: "https://www.iassc.org/" },
+          { name: "Project Management Professional (PMP)", url: "https://www.pmi.org/certifications/project-management-pmp" }
+        ],
+        daily_overview: `Apply your doctoral materials science expertise to develop and optimize advanced materials for innovative applications across industries. Leverage your research background in materials characterization, synthesis, and testing to create new materials solutions, improve existing products, and drive innovation in aerospace, electronics, automotive, and energy sectors.`,
+        preparation_steps: [
+          "Study commercial materials development including scaling from lab synthesis to industrial production",
+          "Learn manufacturing processes and how materials science integrates with product design and production systems",
+          "Understand materials supply chains and the business aspects of materials selection and sourcing",
+          "Network with materials scientists in aerospace, automotive, electronics, and energy companies",
+          "Practice translating your research materials development skills to commercial applications and product innovation",
+          "Gain familiarity with industry testing standards and quality control processes for materials characterization",
+          "Develop expertise in intellectual property and how to commercialize materials innovations and technologies"
+        ],
+        typical_day: [
+          "Develop and characterize advanced materials using your doctoral expertise in materials synthesis and analysis",
+          "Collaborate with product development teams to select and optimize materials for specific applications",
+          "Conduct materials testing and validation using systematic experimental approaches from your research background",
+          "Analyze materials performance data and identify improvement opportunities using your analytical skills",
+          "Present materials solutions and recommendations to engineering teams and management",
+          "Support manufacturing teams in materials processing and quality control implementation",
+          "Research new materials technologies and assess their potential for commercial applications and innovation"
+        ],
+        recommended_resources: [
+          { name: "Materials Research Society", url: "https://www.mrs.org/" },
+          { name: "ASM International", url: "https://www.asminternational.org/" },
+          { name: "The Minerals, Metals & Materials Society", url: "https://www.tms.org/" },
+          { name: "Materials Science & Engineering", url: "https://www.journals.elsevier.com/materials-science-and-engineering-a" },
+          { name: "Advanced Materials Magazine", url: "https://onlinelibrary.wiley.com/journal/15214095" },
+          { name: "Materials Science LinkedIn", url: "https://www.linkedin.com/groups/1816347/" },
+          { name: "Nature Materials", url: "https://www.nature.com/nmat/" }
+        ],
+        key_skills: [
+          "Materials Characterization", "Materials Development", "Manufacturing Processes", "Product Development",
+          "Testing & Validation", "Quality Control", "Technical Leadership", "Innovation Management", "Cross-functional Collaboration"
+        ]
+      },
+      education_and_outreach_specialist: {
+        education: "PhD in any scientific field with strong public engagement, education, and communication background",
+        certifications: [
+          { name: "Science Education Certificate", url: "https://www.coursera.org/learn/science-education" },
+          { name: "Public Engagement Training", url: "https://www.britishscienceassociation.org/" },
+          { name: "Educational Program Development", url: "https://www.edx.org/course/education-program-design" },
+          { name: "Science Communication Certification", url: "https://www.coursera.org/learn/science-communication" },
+          { name: "Museum Education Professional", url: "https://www.aam-us.org/" }
+        ],
+        daily_overview: `Apply your doctoral scientific expertise to design and deliver educational programs that inspire public understanding of science. Leverage your research background and communication skills to create engaging outreach initiatives, develop educational content, and build bridges between scientific institutions and diverse communities through museums, nonprofits, and educational organizations.`,
+        preparation_steps: [
+          "Study educational program design including curriculum development, assessment, and adult learning principles",
+          "Learn public engagement strategies and how to make science accessible to diverse audiences and age groups",
+          "Understand nonprofit operations and how educational programs integrate with organizational missions and funding",
+          "Network with education professionals in science museums, nonprofits, universities, and government agencies",
+          "Practice translating your research expertise into engaging educational content and interactive programming",
+          "Gain familiarity with educational technology, multimedia tools, and digital platforms for science education",
+          "Develop expertise in program evaluation and how to measure educational impact and community engagement"
+        ],
+        typical_day: [
+          "Design educational programs and outreach initiatives using your scientific knowledge and pedagogical skills",
+          "Develop educational content and materials that make complex science accessible to diverse audiences",
+          "Collaborate with educators, community leaders, and organizational teams to deliver effective programming",
+          "Facilitate workshops, presentations, and educational events using your teaching and communication experience",
+          "Evaluate program effectiveness and gather feedback to improve educational outcomes",
+          "Write grants and secure funding for educational initiatives using your research proposal writing skills",
+          "Build partnerships with schools, community organizations, and other institutions to expand program reach"
+        ],
+        recommended_resources: [
+          { name: "National Science Teachers Association", url: "https://www.nsta.org/" },
+          { name: "Association of Science-Technology Centers", url: "https://www.astc.org/" },
+          { name: "National Association for Interpretation", url: "https://www.interpnet.com/" },
+          { name: "Science Learning Network", url: "https://www.exploratorium.edu/" },
+          { name: "Museum Education Roundtable", url: "https://mer-online.org/" },
+          { name: "STEM Education Coalition", url: "https://stemedcoalition.org/" },
+          { name: "International Association of Science Parks", url: "https://www.iasp.ws/" }
+        ],
+        key_skills: [
+          "Educational Program Design", "Public Engagement", "Science Communication", "Community Outreach",
+          "Program Management", "Grant Writing", "Curriculum Development", "Event Planning", "Partnership Development"
+        ]
+      },
+      ngo_researcher: {
+        education: "PhD in relevant field (Social Sciences, Environmental Science, Public Health, etc.) with strong research methodology and social impact background",
+        certifications: [
+          { name: "Nonprofit Management Certificate", url: "https://www.coursera.org/learn/nonprofit-management" },
+          { name: "Grant Writing Certification", url: "https://www.grantspace.org/" },
+          { name: "Program Evaluation Certificate", url: "https://www.eval.org/" },
+          { name: "Social Impact Measurement", url: "https://www.edx.org/course/social-impact-measurement" },
+          { name: "Research Ethics Training", url: "https://www.citiprogram.org/" }
+        ],
+        daily_overview: `Apply your doctoral research expertise to conduct impactful studies that address pressing social, environmental, or global challenges. Leverage your research methodology and analytical skills to design and execute research projects, evaluate program effectiveness, and generate evidence that informs policy decisions and drives positive social change through nonprofit and advocacy organizations.`,
+        preparation_steps: [
+          "Study nonprofit sector dynamics including funding sources, organizational structures, and impact measurement",
+          "Learn applied research methodologies for program evaluation, policy analysis, and social impact assessment",
+          "Understand grant writing and funding strategies for nonprofit research and advocacy organizations",
+          "Network with researchers in NGOs, think tanks, foundations, and advocacy organizations",
+          "Practice translating your academic research skills to mission-driven applied research and evaluation",
+          "Gain familiarity with participatory research methods and community-based research approaches",
+          "Develop expertise in stakeholder engagement and communicating research findings to diverse audiences"
+        ],
+        typical_day: [
+          "Design and conduct research studies that address social challenges using your doctoral research methodology",
+          "Analyze data and evaluate program effectiveness using statistical methods from your research background",
+          "Write research reports and policy briefs that translate findings into actionable recommendations",
+          "Collaborate with program staff, community partners, and external stakeholders to gather data and insights",
+          "Present research findings to donors, board members, and policy makers using your communication skills",
+          "Write grant proposals and secure funding for research initiatives using your proposal writing experience",
+          "Ensure research ethics and community engagement principles are maintained throughout all research activities"
+        ],
+        recommended_resources: [
+          { name: "Independent Sector", url: "https://www.independentsector.org/" },
+          { name: "Association for Research on Nonprofit Organizations", url: "https://www.arnova.org/" },
+          { name: "American Evaluation Association", url: "https://www.eval.org/" },
+          { name: "GrantSpace by Candid", url: "https://grantspace.org/" },
+          { name: "Nonprofit Research Collaborative", url: "https://www.nonprofitresearchcollaborative.org/" },
+          { name: "Social Science Research Network", url: "https://www.ssrn.com/" },
+          { name: "Chronicle of Philanthropy", url: "https://www.philanthropy.com/" }
+        ],
+        key_skills: [
+          "Applied Research Methods", "Program Evaluation", "Grant Writing", "Data Analysis",
+          "Policy Analysis", "Community Engagement", "Report Writing", "Stakeholder Management", "Social Impact Assessment"
+        ]
+      },
+      nonprofit_program_manager: {
+        education: "PhD in relevant field with strong program management, leadership, and social impact background",
+        certifications: [
+          { name: "Certified Fund Raising Executive (CFRE)", url: "https://cfre.org/" },
+          { name: "Nonprofit Management Certificate", url: "https://www.coursera.org/learn/nonprofit-management" },
+          { name: "Program Management Professional (PgMP)", url: "https://www.pmi.org/certifications/program-management-pgmp" },
+          { name: "Grant Management Certification", url: "https://www.grantprofessionals.org/" },
+          { name: "Social Impact Measurement", url: "https://www.plusacumen.org/" }
+        ],
+        daily_overview: `Apply your doctoral project management and analytical expertise to design, implement, and evaluate programs that create positive social impact. Leverage your research background in systematic planning and evaluation to manage complex nonprofit initiatives, coordinate multiple stakeholders, and ensure programs deliver measurable outcomes for communities and causes you care about.`,
+        preparation_steps: [
+          "Study nonprofit program management including program design, implementation, and evaluation methodologies",
+          "Learn fundraising strategies and donor relations for sustaining and scaling nonprofit programs",
+          "Understand nonprofit governance, board relations, and how programs align with organizational missions",
+          "Network with program managers in nonprofits, foundations, and social impact organizations",
+          "Practice translating your research project management skills to mission-driven program implementation",
+          "Gain familiarity with impact measurement frameworks and tools for tracking social and community outcomes",
+          "Develop expertise in community partnerships and collaborative approaches to program delivery"
+        ],
+        typical_day: [
+          "Manage complex social impact programs using your doctoral program coordination and analytical expertise",
+          "Evaluate program effectiveness and measure outcomes using systematic evaluation methods from research",
+          "Coordinate with community partners, volunteers, and staff to ensure successful program delivery",
+          "Write grant reports and communicate program impact to funders, board members, and stakeholders",
+          "Develop new program initiatives and strategic plans using your analytical and planning skills",
+          "Manage program budgets and resources using your grant management and financial oversight experience",
+          "Build and maintain relationships with community partners, government agencies, and other collaborators"
+        ],
+        recommended_resources: [
+          { name: "Association of Fundraising Professionals", url: "https://afpglobal.org/" },
+          { name: "National Council of Nonprofits", url: "https://www.councilofnonprofits.org/" },
+          { name: "BoardSource Nonprofit Leadership", url: "https://boardsource.org/" },
+          { name: "GrantSpace Learning Center", url: "https://grantspace.org/" },
+          { name: "Nonprofit Finance Fund", url: "https://nff.org/" },
+          { name: "Idealist Nonprofit Careers", url: "https://www.idealist.org/" },
+          { name: "Chronicle of Philanthropy", url: "https://www.philanthropy.com/" }
+        ],
+        key_skills: [
+          "Program Management", "Nonprofit Leadership", "Grant Management", "Fundraising",
+          "Impact Measurement", "Community Engagement", "Strategic Planning", "Budget Management", "Stakeholder Relations"
+        ]
       }
     };
 

@@ -1028,41 +1028,6 @@
       ],
       "pivot_opportunities": [
         {
-          "branchFromIndex": 1,
-          "branchName": "Engineering Management",
-          "color": "#DC2626",
-          "transitionSuccess": "70%",
-          "stages": [
-            {
-              "title": "Engineering Manager",
-              "shortTitle": "Eng Manager",
-              "level": "senior",
-              "cumulativeYears": 2.5,
-              "salary": "$190k-$250k",
-              "timeToNext": 2.5,
-              "remoteFriendly": true
-            },
-            {
-              "title": "Senior Engineering Manager",
-              "shortTitle": "Sr Eng Mgr",
-              "level": "lead",
-              "cumulativeYears": 5,
-              "salary": "$250k-$350k",
-              "timeToNext": 3,
-              "remoteFriendly": true
-            },
-            {
-              "title": "VP Engineering",
-              "shortTitle": "VP Eng",
-              "level": "exec",
-              "cumulativeYears": 8,
-              "salary": "$350k-$600k",
-              "timeToNext": null,
-              "remoteFriendly": true
-            }
-          ]
-        },
-        {
           "branchFromIndex": 0,
           "branchName": "Research Engineering",
           "color": "#7C3AED",
@@ -1331,6 +1296,76 @@
               "remoteFriendly": true
             }
           ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Biotech Product Management",
+          "color": "#F59E0B",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Technical Product Manager",
+              "shortTitle": "Tech PM",
+              "level": "lead",
+              "cumulativeYears": 5,
+              "salary": "$170k-$230k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Product Manager",
+              "shortTitle": "Sr PM",
+              "level": "lead",
+              "cumulativeYears": 7.5,
+              "salary": "$230k-$320k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VP of Product",
+              "shortTitle": "VP Product",
+              "level": "exec",
+              "cumulativeYears": 10.5,
+              "salary": "$320k-$500k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 3,
+          "branchName": "Scientific Consulting",
+          "color": "#059669",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Senior Scientific Consultant",
+              "shortTitle": "Sr Consultant",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$180k-$280k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Consultant",
+              "shortTitle": "Principal",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$280k-$420k",
+              "timeToNext": 4,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Partner/Director",
+              "shortTitle": "Partner",
+              "level": "exec",
+              "cumulativeYears": 15,
+              "salary": "$380k-$700k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -1493,6 +1528,76 @@
               "level": "exec",
               "cumulativeYears": 8,
               "salary": "$280k-$420k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Medical Affairs Leadership",
+          "color": "#F59E0B",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Medical Affairs Manager",
+              "shortTitle": "MA Manager",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$200k-$260k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Medical Affairs Director",
+              "shortTitle": "MA Director",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$280k-$380k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "VP Medical Affairs",
+              "shortTitle": "VP Medical",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$380k-$550k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 3,
+          "branchName": "Pharmaceutical Marketing",
+          "color": "#059669",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Senior Product Manager",
+              "shortTitle": "Sr PM",
+              "level": "lead",
+              "cumulativeYears": 9,
+              "salary": "$160k-$220k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Marketing Director",
+              "shortTitle": "Marketing Dir",
+              "level": "exec",
+              "cumulativeYears": 12,
+              "salary": "$250k-$350k",
+              "timeToNext": 4,
+              "remoteFriendly": false
+            },
+            {
+              "title": "VP Marketing",
+              "shortTitle": "VP Marketing",
+              "level": "exec",
+              "cumulativeYears": 16,
+              "salary": "$350k-$500k",
               "timeToNext": null,
               "remoteFriendly": false
             }
@@ -1898,6 +2003,76 @@
               "remoteFriendly": true
             }
           ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Algorithmic Trading",
+          "color": "#0F766E",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Algorithmic Trading Developer",
+              "shortTitle": "Algo Dev",
+              "level": "senior",
+              "cumulativeYears": 1.5,
+              "salary": "$180k-$250k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Algorithmic Trader",
+              "shortTitle": "Sr Algo",
+              "level": "lead",
+              "cumulativeYears": 4,
+              "salary": "$250k-$400k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Head of Algorithmic Trading",
+              "shortTitle": "Head Algo",
+              "level": "exec",
+              "cumulativeYears": 7,
+              "salary": "$400k-$800k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Financial Data Science",
+          "color": "#6366F1",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Financial Data Scientist",
+              "shortTitle": "Financial DS",
+              "level": "senior",
+              "cumulativeYears": 2.5,
+              "salary": "$170k-$230k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Financial Data Scientist",
+              "shortTitle": "Principal FDS",
+              "level": "lead",
+              "cumulativeYears": 5,
+              "salary": "$230k-$350k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Financial Data Science",
+              "shortTitle": "Director FDS",
+              "level": "exec",
+              "cumulativeYears": 8,
+              "salary": "$350k-$550k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -2294,6 +2469,76 @@
               "level": "lead",
               "cumulativeYears": 8,
               "salary": "$190k-$270k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Regulatory Writing",
+          "color": "#0F766E",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Regulatory Writer",
+              "shortTitle": "Reg Writer",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$105k-$140k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Regulatory Writer",
+              "shortTitle": "Sr Reg Writer",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$145k-$195k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director Regulatory Writing",
+              "shortTitle": "Director",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$200k-$275k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Grant Writing",
+          "color": "#6366F1",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Grant Writer",
+              "shortTitle": "Grant Writer",
+              "level": "senior",
+              "cumulativeYears": 1,
+              "salary": "$70k-$95k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Grant Writer",
+              "shortTitle": "Sr Grant",
+              "level": "lead",
+              "cumulativeYears": 4,
+              "salary": "$100k-$135k",
+              "timeToNext": 3.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Grant Development",
+              "shortTitle": "Director",
+              "level": "lead",
+              "cumulativeYears": 7.5,
+              "salary": "$140k-$190k",
               "timeToNext": null,
               "remoteFriendly": true
             }
@@ -3734,6 +3979,41 @@
               "remoteFriendly": true
             }
           ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Business Development",
+          "color": "#6366F1",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Business Development Manager",
+              "shortTitle": "BD Manager",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$120k-$160k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Business Development Manager",
+              "shortTitle": "Sr BD Mgr",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$150k-$200k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VP Business Development",
+              "shortTitle": "VP BD",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$220k-$320k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -3897,6 +4177,76 @@
               "salary": "$200k-$280k",
               "timeToNext": null,
               "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Technical Operations",
+          "color": "#F59E0B",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Operations Manager",
+              "shortTitle": "Ops Manager",
+              "level": "lead",
+              "cumulativeYears": 5,
+              "salary": "$140k-$180k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Director Operations",
+              "shortTitle": "Dir Ops",
+              "level": "lead",
+              "cumulativeYears": 7.5,
+              "salary": "$190k-$260k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "VP Operations",
+              "shortTitle": "VP Ops",
+              "level": "exec",
+              "cumulativeYears": 10.5,
+              "salary": "$280k-$400k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 3,
+          "branchName": "Process Consulting",
+          "color": "#059669",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Senior Process Consultant",
+              "shortTitle": "Sr Consultant",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$160k-$240k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Consultant",
+              "shortTitle": "Principal",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$250k-$380k",
+              "timeToNext": 4,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Partner/Director",
+              "shortTitle": "Partner",
+              "level": "exec",
+              "cumulativeYears": 15,
+              "salary": "$350k-$600k",
+              "timeToNext": null,
+              "remoteFriendly": true
             }
           ]
         }
@@ -4730,6 +5080,111 @@
               "level": "exec",
               "cumulativeYears": 8.5,
               "salary": "$200k-$300k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Content Strategy",
+          "color": "#7C2D12",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Content Strategist",
+              "shortTitle": "Strategist",
+              "level": "senior",
+              "cumulativeYears": 1,
+              "salary": "$85k-$115k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Content Strategist",
+              "shortTitle": "Sr Strategist",
+              "level": "lead",
+              "cumulativeYears": 4,
+              "salary": "$135k-$180k",
+              "timeToNext": 3.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Head of Content",
+              "shortTitle": "Head Content",
+              "level": "lead",
+              "cumulativeYears": 7.5,
+              "salary": "$180k-$250k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Public Relations",
+          "color": "#0F766E",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "PR Manager",
+              "shortTitle": "PR Manager",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$90k-$125k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior PR Manager",
+              "shortTitle": "Sr PR Mgr",
+              "level": "lead",
+              "cumulativeYears": 6,
+              "salary": "$130k-$175k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Communications",
+              "shortTitle": "Director",
+              "level": "lead",
+              "cumulativeYears": 9,
+              "salary": "$175k-$240k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Educational Content",
+          "color": "#6366F1",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Educational Content Developer",
+              "shortTitle": "Content Dev",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$80k-$110k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Educational Content Manager",
+              "shortTitle": "Sr Edu Mgr",
+              "level": "lead",
+              "cumulativeYears": 6,
+              "salary": "$115k-$155k",
+              "timeToNext": 3.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Learning",
+              "shortTitle": "Director",
+              "level": "lead",
+              "cumulativeYears": 9.5,
+              "salary": "$160k-$220k",
               "timeToNext": null,
               "remoteFriendly": true
             }
@@ -5873,6 +6328,41 @@
               "remoteFriendly": false
             }
           ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Product Marketing",
+          "color": "#7C2D12",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Product Marketing Manager",
+              "shortTitle": "PMM",
+              "level": "senior",
+              "cumulativeYears": 1,
+              "salary": "$90k-$125k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Product Marketing Manager",
+              "shortTitle": "Sr PMM",
+              "level": "lead",
+              "cumulativeYears": 3.5,
+              "salary": "$140k-$185k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VP Product Marketing",
+              "shortTitle": "VP PMM",
+              "level": "exec",
+              "cumulativeYears": 6.5,
+              "salary": "$220k-$320k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -6708,6 +7198,76 @@
               "remoteFriendly": false
             }
           ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Social Impact Consulting",
+          "color": "#7C2D12",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Social Impact Consultant",
+              "shortTitle": "Impact Consult",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$90k-$125k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Impact Consultant",
+              "shortTitle": "Sr Impact",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$135k-$180k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Impact Practice Lead",
+              "shortTitle": "Practice Lead",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$190k-$260k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Corporate Social Responsibility",
+          "color": "#0F766E",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "CSR Manager",
+              "shortTitle": "CSR Manager",
+              "level": "senior",
+              "cumulativeYears": 5,
+              "salary": "$80k-$110k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior CSR Manager",
+              "shortTitle": "Sr CSR Mgr",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$120k-$160k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Sustainability",
+              "shortTitle": "Sustain Dir",
+              "level": "lead",
+              "cumulativeYears": 11,
+              "salary": "$160k-$220k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -6834,6 +7394,76 @@
               "level": "lead",
               "cumulativeYears": 8.5,
               "salary": "$160k-$220k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Technical Writing",
+          "color": "#0F766E",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Technical Writer",
+              "shortTitle": "Tech Writer",
+              "level": "senior",
+              "cumulativeYears": 1.5,
+              "salary": "$70k-$95k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Technical Writer",
+              "shortTitle": "Sr Tech Writer",
+              "level": "lead",
+              "cumulativeYears": 4,
+              "salary": "$95k-$130k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Documentation Manager",
+              "shortTitle": "Doc Manager",
+              "level": "lead",
+              "cumulativeYears": 7,
+              "salary": "$130k-$175k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Communications/Marketing",
+          "color": "#7C2D12",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Communications Specialist",
+              "shortTitle": "Comms Spec",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$75k-$100k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Marketing Communications Manager",
+              "shortTitle": "MarComms Mgr",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$110k-$150k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Communications",
+              "shortTitle": "Comms Dir",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$150k-$200k",
               "timeToNext": null,
               "remoteFriendly": true
             }
@@ -6968,6 +7598,111 @@
               "remoteFriendly": true
             }
           ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Healthcare Analytics",
+          "color": "#DC2626",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Healthcare Data Analyst",
+              "shortTitle": "Healthcare Analyst",
+              "level": "senior",
+              "cumulativeYears": 2,
+              "salary": "$75k-$105k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Healthcare Analyst",
+              "shortTitle": "Sr Healthcare",
+              "level": "lead",
+              "cumulativeYears": 4.5,
+              "salary": "$105k-$145k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Healthcare Analytics",
+              "shortTitle": "Healthcare Dir",
+              "level": "exec",
+              "cumulativeYears": 7.5,
+              "salary": "$145k-$210k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Policy Research",
+          "color": "#7C2D12",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Policy Research Analyst",
+              "shortTitle": "Policy Analyst",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$95k-$130k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Policy Researcher",
+              "shortTitle": "Sr Policy",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$130k-$180k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Policy Research",
+              "shortTitle": "Policy Director",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$180k-$260k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Health Data Science",
+          "color": "#0F766E",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Health Data Scientist",
+              "shortTitle": "Health DS",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$100k-$140k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Health Data Scientist",
+              "shortTitle": "Sr Health DS",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$140k-$200k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Health Data Scientist",
+              "shortTitle": "Principal HDS",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$200k-$290k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -7096,6 +7831,76 @@
               "salary": "$140k-$190k",
               "timeToNext": null,
               "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Impact Consulting",
+          "color": "#7C2D12",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Impact Consultant",
+              "shortTitle": "Consultant",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$85k-$120k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Impact Consultant",
+              "shortTitle": "Sr Consultant",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$130k-$175k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Impact Partner",
+              "shortTitle": "Partner",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$180k-$250k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Foundation Program Officer",
+          "color": "#0F766E",
+          "transitionSuccess": "65%",
+          "stages": [
+            {
+              "title": "Program Officer",
+              "shortTitle": "Prog Officer",
+              "level": "senior",
+              "cumulativeYears": 5,
+              "salary": "$90k-$125k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Senior Program Officer",
+              "shortTitle": "Sr Prog Off",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$130k-$170k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Program Director",
+              "shortTitle": "Prog Director",
+              "level": "lead",
+              "cumulativeYears": 11,
+              "salary": "$170k-$230k",
+              "timeToNext": null,
+              "remoteFriendly": false
             }
           ]
         }
@@ -7463,6 +8268,111 @@
               "remoteFriendly": true
             }
           ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Corporate Development",
+          "color": "#DC2626",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Corporate Development Analyst",
+              "shortTitle": "Corp Dev",
+              "level": "senior",
+              "cumulativeYears": 2,
+              "salary": "$110k-$145k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Corp Dev Manager",
+              "shortTitle": "Sr Corp Dev",
+              "level": "lead",
+              "cumulativeYears": 4.5,
+              "salary": "$145k-$200k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Corporate Development",
+              "shortTitle": "Corp Dev Dir",
+              "level": "exec",
+              "cumulativeYears": 7.5,
+              "salary": "$200k-$300k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Venture Capital",
+          "color": "#7C2D12",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "VC Associate",
+              "shortTitle": "VC Associate",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$150k-$220k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VC Principal",
+              "shortTitle": "VC Principal",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$220k-$350k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VC Partner",
+              "shortTitle": "VC Partner",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$350k-$600k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Financial Planning",
+          "color": "#0F766E",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Financial Planning Analyst",
+              "shortTitle": "FP&A Analyst",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$95k-$130k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior FP&A Manager",
+              "shortTitle": "Sr FP&A",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$130k-$180k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Financial Planning",
+              "shortTitle": "FP&A Director",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$180k-$260k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -7589,6 +8499,111 @@
               "level": "lead",
               "cumulativeYears": 8,
               "salary": "$260k-$380k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Business Intelligence",
+          "color": "#7C2D12",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "BI Analyst",
+              "shortTitle": "BI Analyst",
+              "level": "senior",
+              "cumulativeYears": 5,
+              "salary": "$120k-$165k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior BI Analyst",
+              "shortTitle": "Sr BI",
+              "level": "lead",
+              "cumulativeYears": 7.5,
+              "salary": "$165k-$220k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Business Intelligence",
+              "shortTitle": "BI Director",
+              "level": "exec",
+              "cumulativeYears": 10.5,
+              "salary": "$220k-$320k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Product Analytics",
+          "color": "#0F766E",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Product Analyst",
+              "shortTitle": "Product Analyst",
+              "level": "senior",
+              "cumulativeYears": 2.5,
+              "salary": "$110k-$150k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Product Analyst",
+              "shortTitle": "Sr Product",
+              "level": "lead",
+              "cumulativeYears": 5,
+              "salary": "$150k-$210k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Head of Product Analytics",
+              "shortTitle": "Head Product",
+              "level": "exec",
+              "cumulativeYears": 8,
+              "salary": "$210k-$300k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Marketing Analytics",
+          "color": "#6366F1",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Marketing Analyst",
+              "shortTitle": "Marketing Analyst",
+              "level": "senior",
+              "cumulativeYears": 1.5,
+              "salary": "$85k-$120k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Marketing Analyst",
+              "shortTitle": "Sr Marketing",
+              "level": "lead",
+              "cumulativeYears": 4,
+              "salary": "$120k-$170k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Marketing Analytics",
+              "shortTitle": "Marketing Dir",
+              "level": "exec",
+              "cumulativeYears": 7,
+              "salary": "$170k-$250k",
               "timeToNext": null,
               "remoteFriendly": true
             }
@@ -7723,6 +8738,111 @@
               "remoteFriendly": true
             }
           ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Consumer Insights",
+          "color": "#DC2626",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Consumer Insights Analyst",
+              "shortTitle": "CI Analyst",
+              "level": "senior",
+              "cumulativeYears": 2,
+              "salary": "$75k-$105k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Consumer Insights Manager",
+              "shortTitle": "Sr CI Manager",
+              "level": "lead",
+              "cumulativeYears": 4.5,
+              "salary": "$120k-$165k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Consumer Insights",
+              "shortTitle": "CI Director",
+              "level": "exec",
+              "cumulativeYears": 7.5,
+              "salary": "$165k-$240k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Market Strategy",
+          "color": "#7C2D12",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Market Strategy Analyst",
+              "shortTitle": "Strategy Analyst",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$130k-$175k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Strategy Manager",
+              "shortTitle": "Sr Strategy",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$175k-$240k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VP Market Strategy",
+              "shortTitle": "VP Strategy",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$240k-$360k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "UX Research",
+          "color": "#0F766E",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "UX Researcher",
+              "shortTitle": "UX Researcher",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$95k-$135k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior UX Researcher",
+              "shortTitle": "Sr UXR",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$135k-$190k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Head of UX Research",
+              "shortTitle": "Head UXR",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$190k-$280k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -7853,6 +8973,111 @@
               "remoteFriendly": false
             }
           ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Process Improvement",
+          "color": "#7C3AED",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Process Improvement Specialist",
+              "shortTitle": "PI Specialist",
+              "level": "senior",
+              "cumulativeYears": 1,
+              "salary": "$85k-$115k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Process Improvement Manager",
+              "shortTitle": "PI Manager",
+              "level": "lead",
+              "cumulativeYears": 4,
+              "salary": "$130k-$175k",
+              "timeToNext": 4,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Director Process Excellence",
+              "shortTitle": "Dir Process",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$190k-$260k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Operations Management",
+          "color": "#F59E0B",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Operations Manager",
+              "shortTitle": "Ops Manager",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$120k-$160k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Senior Operations Manager",
+              "shortTitle": "Sr Ops Mgr",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$170k-$230k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "VP Operations",
+              "shortTitle": "VP Ops",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$250k-$350k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 3,
+          "branchName": "Quality Consulting",
+          "color": "#059669",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Quality Consultant",
+              "shortTitle": "QA Consultant",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$140k-$190k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Quality Consultant",
+              "shortTitle": "Principal QC",
+              "level": "exec",
+              "cumulativeYears": 11.5,
+              "salary": "$210k-$300k",
+              "timeToNext": 4,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Partner/Director",
+              "shortTitle": "Partner",
+              "level": "exec",
+              "cumulativeYears": 15.5,
+              "salary": "$280k-$420k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -7979,6 +9204,111 @@
               "level": "lead",
               "cumulativeYears": 8.5,
               "salary": "$220k-$320k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Biostatistics",
+          "color": "#7C3AED",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Biostatistician",
+              "shortTitle": "Biostat",
+              "level": "senior",
+              "cumulativeYears": 1,
+              "salary": "$95k-$130k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Biostatistician",
+              "shortTitle": "Sr Biostat",
+              "level": "lead",
+              "cumulativeYears": 4,
+              "salary": "$140k-$190k",
+              "timeToNext": 4,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director Biostatistics",
+              "shortTitle": "Dir Biostat",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$200k-$280k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Data Science",
+          "color": "#F59E0B",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Data Scientist",
+              "shortTitle": "Data Sci",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$130k-$180k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Data Scientist",
+              "shortTitle": "Sr DS",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$180k-$250k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Data Scientist",
+              "shortTitle": "Principal DS",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$250k-$380k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 3,
+          "branchName": "Clinical Technology",
+          "color": "#059669",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Clinical Technology Manager",
+              "shortTitle": "ClinTech Mgr",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$150k-$200k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director Clinical Technology",
+              "shortTitle": "Dir ClinTech",
+              "level": "exec",
+              "cumulativeYears": 11.5,
+              "salary": "$220k-$320k",
+              "timeToNext": 4,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VP Clinical Technology",
+              "shortTitle": "VP ClinTech",
+              "level": "exec",
+              "cumulativeYears": 15.5,
+              "salary": "$320k-$480k",
               "timeToNext": null,
               "remoteFriendly": true
             }
@@ -8183,6 +9513,41 @@
               "remoteFriendly": false
             }
           ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Quality Engineering",
+          "color": "#7C2D12",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Quality Engineer",
+              "shortTitle": "Quality Eng",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$110k-$150k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Quality Manager",
+              "shortTitle": "Quality Mgr",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$150k-$200k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Director of Quality",
+              "shortTitle": "Dir Quality",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$200k-$280k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -8311,6 +9676,111 @@
               "salary": "$320k-$480k",
               "timeToNext": null,
               "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Engineering Management",
+          "color": "#7C2D12",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Engineering Manager",
+              "shortTitle": "Eng Manager",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$140k-$180k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Senior Engineering Manager",
+              "shortTitle": "Sr Eng Mgr",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$180k-$240k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "VP Engineering",
+              "shortTitle": "VP Engineering",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$240k-$350k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Technical Consulting",
+          "color": "#0F766E",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Technical Consultant",
+              "shortTitle": "Tech Consultant",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$120k-$160k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Consultant",
+              "shortTitle": "Principal",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$170k-$230k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Partner/Managing Director",
+              "shortTitle": "Partner",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$250k-$400k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Product Management",
+          "color": "#6366F1",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Technical Product Manager",
+              "shortTitle": "Tech PM",
+              "level": "senior",
+              "cumulativeYears": 1,
+              "salary": "$130k-$170k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Product Manager",
+              "shortTitle": "Sr PM",
+              "level": "lead",
+              "cumulativeYears": 3.5,
+              "salary": "$170k-$220k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Product",
+              "shortTitle": "Dir Product",
+              "level": "exec",
+              "cumulativeYears": 6.5,
+              "salary": "$220k-$320k",
+              "timeToNext": null,
+              "remoteFriendly": true
             }
           ]
         }
@@ -8443,6 +9913,111 @@
               "remoteFriendly": false
             }
           ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Environmental Policy",
+          "color": "#7C3AED",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Environmental Policy Analyst",
+              "shortTitle": "Policy Analyst",
+              "level": "senior",
+              "cumulativeYears": 1,
+              "salary": "$75k-$105k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Policy Manager",
+              "shortTitle": "Sr Policy Mgr",
+              "level": "lead",
+              "cumulativeYears": 4,
+              "salary": "$120k-$160k",
+              "timeToNext": 4,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director Environmental Policy",
+              "shortTitle": "Dir Policy",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$180k-$250k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Climate Tech",
+          "color": "#F59E0B",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Climate Tech Scientist",
+              "shortTitle": "Climate Tech",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$140k-$190k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Climate Scientist",
+              "shortTitle": "Sr Climate",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$190k-$270k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VP Climate Solutions",
+              "shortTitle": "VP Climate",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$270k-$400k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 3,
+          "branchName": "Environmental Consulting",
+          "color": "#059669",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Senior Environmental Consultant",
+              "shortTitle": "Sr Consultant",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$130k-$180k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Consultant",
+              "shortTitle": "Principal",
+              "level": "exec",
+              "cumulativeYears": 11.5,
+              "salary": "$200k-$300k",
+              "timeToNext": 4,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Partner/Director",
+              "shortTitle": "Partner",
+              "level": "exec",
+              "cumulativeYears": 15.5,
+              "salary": "$280k-$450k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -8573,6 +10148,111 @@
               "remoteFriendly": false
             }
           ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Process Engineering",
+          "color": "#7C2D12",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Process Engineer",
+              "shortTitle": "Process Eng",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$100k-$140k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Senior Process Engineer",
+              "shortTitle": "Sr Process",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$140k-$190k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Process Engineering Manager",
+              "shortTitle": "Process Mgr",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$190k-$270k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "R&D Management",
+          "color": "#0F766E",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "R&D Manager",
+              "shortTitle": "R&D Mgr",
+              "level": "senior",
+              "cumulativeYears": 6,
+              "salary": "$130k-$180k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Director of R&D",
+              "shortTitle": "Dir R&D",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$180k-$250k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "VP Research & Development",
+              "shortTitle": "VP R&D",
+              "level": "exec",
+              "cumulativeYears": 11.5,
+              "salary": "$250k-$400k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Technical Consulting",
+          "color": "#6366F1",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Materials Consultant",
+              "shortTitle": "Mat Consultant",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$110k-$150k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Consultant",
+              "shortTitle": "Principal",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$150k-$220k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Partner/Managing Director",
+              "shortTitle": "Partner",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$220k-$350k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -8699,6 +10379,111 @@
               "level": "exec",
               "cumulativeYears": 8.5,
               "salary": "$240k-$350k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Process Engineering Management",
+          "color": "#7C2D12",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Process Engineering Manager",
+              "shortTitle": "Process Mgr",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$130k-$170k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Director Process Engineering",
+              "shortTitle": "Dir Process",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$170k-$230k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "VP Operations",
+              "shortTitle": "VP Ops",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$230k-$320k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Technical Consulting",
+          "color": "#0F766E",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Process Consultant",
+              "shortTitle": "Process Consult",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$120k-$160k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Consultant",
+              "shortTitle": "Principal",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$170k-$240k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Partner/Managing Director",
+              "shortTitle": "Partner",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$260k-$420k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Manufacturing Engineering",
+          "color": "#DC2626",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Manufacturing Engineer",
+              "shortTitle": "Mfg Engineer",
+              "level": "mid",
+              "cumulativeYears": 1,
+              "salary": "$90k-$120k",
+              "timeToNext": 2,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Senior Manufacturing Engineer",
+              "shortTitle": "Sr Mfg Eng",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$120k-$160k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Manufacturing Engineering Manager",
+              "shortTitle": "Mfg Eng Mgr",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$160k-$220k",
               "timeToNext": null,
               "remoteFriendly": false
             }
@@ -8833,6 +10618,111 @@
               "remoteFriendly": false
             }
           ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Manufacturing Engineering",
+          "color": "#7C2D12",
+          "transitionSuccess": "85%",
+          "stages": [
+            {
+              "title": "Manufacturing Engineer",
+              "shortTitle": "Mfg Engineer",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$95k-$130k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Senior Manufacturing Engineer",
+              "shortTitle": "Sr Mfg Eng",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$130k-$175k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Manufacturing Engineering Manager",
+              "shortTitle": "Mfg Eng Mgr",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$175k-$240k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Project Management",
+          "color": "#0F766E",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Project Manager",
+              "shortTitle": "Project Mgr",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$100k-$140k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Project Manager",
+              "shortTitle": "Sr PM",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$140k-$190k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Programs",
+              "shortTitle": "Dir Programs",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$190k-$280k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Technical Consulting",
+          "color": "#6366F1",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Mechanical Design Consultant",
+              "shortTitle": "Mech Consultant",
+              "level": "senior",
+              "cumulativeYears": 6,
+              "salary": "$120k-$170k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Principal Consultant",
+              "shortTitle": "Principal",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$170k-$250k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Partner/Managing Director",
+              "shortTitle": "Partner",
+              "level": "exec",
+              "cumulativeYears": 11.5,
+              "salary": "$250k-$400k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -8963,6 +10853,111 @@
               "remoteFriendly": false
             }
           ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Systems Engineering",
+          "color": "#7C2D12",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Systems Engineer",
+              "shortTitle": "Sys Engineer",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$120k-$160k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Senior Systems Engineer",
+              "shortTitle": "Sr Sys Eng",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$160k-$220k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Chief Systems Engineer",
+              "shortTitle": "Chief SE",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$220k-$320k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Engineering Management",
+          "color": "#0F766E",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Engineering Manager",
+              "shortTitle": "Eng Manager",
+              "level": "senior",
+              "cumulativeYears": 6,
+              "salary": "$150k-$200k",
+              "timeToNext": 2.5,
+              "remoteFriendly": false
+            },
+            {
+              "title": "Director of Engineering",
+              "shortTitle": "Dir Engineering",
+              "level": "lead",
+              "cumulativeYears": 8.5,
+              "salary": "$200k-$280k",
+              "timeToNext": 3,
+              "remoteFriendly": false
+            },
+            {
+              "title": "VP Engineering",
+              "shortTitle": "VP Engineering",
+              "level": "exec",
+              "cumulativeYears": 11.5,
+              "salary": "$280k-$400k",
+              "timeToNext": null,
+              "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Technical Product Management",
+          "color": "#6366F1",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Technical Product Manager",
+              "shortTitle": "Tech PM",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$140k-$180k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Product Manager",
+              "shortTitle": "Sr PM",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$180k-$240k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Director of Product",
+              "shortTitle": "Dir Product",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$240k-$360k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
         }
       ],
       "phdAdvantages": [
@@ -9091,6 +11086,111 @@
               "salary": "$250k-$350k",
               "timeToNext": null,
               "remoteFriendly": false
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 0,
+          "branchName": "Product Management",
+          "color": "#7C2D12",
+          "transitionSuccess": "75%",
+          "stages": [
+            {
+              "title": "Product Manager",
+              "shortTitle": "PM",
+              "level": "senior",
+              "cumulativeYears": 1,
+              "salary": "$110k-$140k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Product Manager",
+              "shortTitle": "Sr PM",
+              "level": "lead",
+              "cumulativeYears": 3.5,
+              "salary": "$160k-$220k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VP Product",
+              "shortTitle": "VP Product",
+              "level": "exec",
+              "cumulativeYears": 6.5,
+              "salary": "$250k-$380k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Operations Management",
+          "color": "#0F766E",
+          "transitionSuccess": "80%",
+          "stages": [
+            {
+              "title": "Operations Manager",
+              "shortTitle": "Ops Manager",
+              "level": "senior",
+              "cumulativeYears": 3,
+              "salary": "$105k-$140k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Operations Manager",
+              "shortTitle": "Sr Ops Mgr",
+              "level": "lead",
+              "cumulativeYears": 5.5,
+              "salary": "$160k-$220k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "VP Operations",
+              "shortTitle": "VP Ops",
+              "level": "exec",
+              "cumulativeYears": 8.5,
+              "salary": "$240k-$350k",
+              "timeToNext": null,
+              "remoteFriendly": true
+            }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Strategy Consulting",
+          "color": "#6366F1",
+          "transitionSuccess": "70%",
+          "stages": [
+            {
+              "title": "Strategy Consultant",
+              "shortTitle": "Strategy",
+              "level": "senior",
+              "cumulativeYears": 5.5,
+              "salary": "$140k-$180k",
+              "timeToNext": 2.5,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Senior Strategy Consultant",
+              "shortTitle": "Sr Strategy",
+              "level": "lead",
+              "cumulativeYears": 8,
+              "salary": "$200k-$280k",
+              "timeToNext": 3,
+              "remoteFriendly": true
+            },
+            {
+              "title": "Strategy Director",
+              "shortTitle": "Strategy Dir",
+              "level": "exec",
+              "cumulativeYears": 11,
+              "salary": "$280k-$400k",
+              "timeToNext": null,
+              "remoteFriendly": true
             }
           ]
         }

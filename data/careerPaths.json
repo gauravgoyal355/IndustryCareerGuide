@@ -437,6 +437,261 @@
         "geographic_hotspots": ["San Francisco", "New York", "Seattle", "Austin", "Boston"],
         "remote_opportunities": "High"
       }
+    },
+    "medical_science_liaison": {
+      "name": "Medical Science Liaison",
+      "description": "Bridge the gap between pharmaceutical companies and healthcare providers by communicating scientific data and building relationships with key opinion leaders.",
+      "match_profile": {
+        "skills": ["Medical communication", "Scientific presentation", "Relationship building", "Clinical knowledge"],
+        "values": ["Scientific integrity", "Healthcare impact", "Continuous learning", "Professional networking"],
+        "temperament": ["Strong communication", "Relationship-oriented", "Detail-oriented", "Travel-comfortable"],
+        "industries": ["Pharmaceutical", "Biotechnology", "Medical Devices", "CRO"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Medical Science Liaison", "MSL"],
+          "salary_range": "$130,000 - $170,000",
+          "years_experience": "0-2",
+          "key_skills": ["Medical communication", "Clinical knowledge", "Presentation skills", "Relationship building"],
+          "responsibilities": ["KOL engagement", "Medical education", "Scientific support", "Clinical insights"]
+        },
+        "mid_level": {
+          "titles": ["Senior MSL", "MSL Manager"],
+          "salary_range": "$170,000 - $280,000",
+          "years_experience": "2-7",
+          "key_skills": ["Team leadership", "Strategic planning", "Medical affairs", "Cross-functional collaboration"],
+          "responsibilities": ["Lead MSL teams", "Develop medical strategies", "Manage therapeutic areas", "Drive medical education"]
+        },
+        "senior_level": {
+          "titles": ["Medical Affairs Director", "VP Medical Affairs"],
+          "salary_range": "$280,000 - $380,000+",
+          "years_experience": "7+",
+          "key_skills": ["Strategic leadership", "Medical strategy", "Team management", "Executive communication"],
+          "responsibilities": ["Set medical affairs strategy", "Lead medical teams", "Drive therapeutic area growth"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Medical/clinical knowledge", "Scientific communication", "Presentation skills", "Relationship building"],
+        "recommended_courses": [
+          {
+            "name": "Medical Science Liaison Certificate",
+            "provider": "MSL Society",
+            "duration": "6 months",
+            "cost": "$2,500"
+          }
+        ],
+        "certifications": ["MSL Certificate", "Project Management Professional (PMP)"]
+      },
+      "market_outlook": {
+        "growth_rate": "8% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["Boston", "San Francisco", "New Jersey", "North Carolina", "Philadelphia"],
+        "remote_opportunities": "Medium"
+      }
+    },
+    "regulatory_affairs_specialist": {
+      "name": "Regulatory Affairs Specialist", 
+      "description": "Navigate complex regulatory requirements to ensure pharmaceutical and medical device products meet compliance standards and gain market approval.",
+      "match_profile": {
+        "skills": ["Regulatory knowledge", "Documentation", "Attention to detail", "Project management"],
+        "values": ["Compliance excellence", "Patient safety", "Scientific rigor", "Process improvement"],
+        "temperament": ["Detail-oriented", "Process-focused", "Analytical thinking", "Collaborative"],
+        "industries": ["Pharmaceutical", "Biotechnology", "Medical Devices", "Food & Beverage"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Regulatory Affairs Specialist", "RA Specialist"],
+          "salary_range": "$75,000 - $105,000",
+          "years_experience": "0-2",
+          "key_skills": ["FDA regulations", "Regulatory submissions", "Documentation", "Compliance management"],
+          "responsibilities": ["Prepare regulatory submissions", "Ensure compliance", "Document management", "Regulatory research"]
+        },
+        "mid_level": {
+          "titles": ["Senior RA Specialist", "Regulatory Manager"],
+          "salary_range": "$105,000 - $160,000",
+          "years_experience": "2-7",
+          "key_skills": ["Regulatory strategy", "Team leadership", "Global regulations", "Cross-functional collaboration"],
+          "responsibilities": ["Lead regulatory projects", "Develop strategies", "Manage teams", "Interface with agencies"]
+        },
+        "senior_level": {
+          "titles": ["Regulatory Director", "VP Regulatory Affairs"],
+          "salary_range": "$160,000 - $280,000+",
+          "years_experience": "7+",
+          "key_skills": ["Strategic leadership", "Regulatory vision", "Executive communication", "Global strategy"],
+          "responsibilities": ["Set regulatory strategy", "Lead regulatory organization", "Executive stakeholder management"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Regulatory knowledge", "Documentation skills", "Attention to detail", "Project management"],
+        "recommended_courses": [
+          {
+            "name": "Regulatory Affairs Professional Certificate",
+            "provider": "Regulatory Affairs Professional Society (RAPS)",
+            "duration": "6-12 months",
+            "cost": "$1,500"
+          }
+        ],
+        "certifications": ["RAC (Regulatory Affairs Certification)", "Project Management Professional (PMP)"]
+      },
+      "market_outlook": {
+        "growth_rate": "7% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["Boston", "Washington DC", "San Francisco", "New Jersey", "Maryland"],
+        "remote_opportunities": "Medium"
+      }
+    },
+    "clinical_research_associate": {
+      "name": "Clinical Research Associate",
+      "description": "Oversee clinical trials to ensure they are conducted safely, ethically, and in compliance with regulatory requirements while maintaining data integrity.",
+      "match_profile": {
+        "skills": ["Clinical trial management", "GCP knowledge", "Data collection", "Site management"],
+        "values": ["Patient safety", "Scientific integrity", "Attention to detail", "Healthcare advancement"],
+        "temperament": ["Detail-oriented", "Travel-comfortable", "Analytical thinking", "Problem-solving"],
+        "industries": ["CRO", "Pharmaceutical", "Biotechnology", "Medical Devices"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Clinical Research Associate", "CRA"],
+          "salary_range": "$65,000 - $85,000",
+          "years_experience": "0-2", 
+          "key_skills": ["GCP knowledge", "Clinical monitoring", "Data collection", "Site management"],
+          "responsibilities": ["Monitor clinical sites", "Ensure GCP compliance", "Data verification", "Site training"]
+        },
+        "mid_level": {
+          "titles": ["Senior CRA", "Lead CRA", "Clinical Project Manager"],
+          "salary_range": "$85,000 - $140,000",
+          "years_experience": "2-7",
+          "key_skills": ["Project management", "Team leadership", "Clinical operations", "Strategic planning"],
+          "responsibilities": ["Lead clinical projects", "Manage CRA teams", "Drive operational excellence", "Client relationships"]
+        },
+        "senior_level": {
+          "titles": ["Clinical Operations Director", "VP Clinical Operations"],
+          "salary_range": "$140,000 - $220,000+",
+          "years_experience": "7+",
+          "key_skills": ["Strategic leadership", "Clinical strategy", "Executive communication", "Operational excellence"],
+          "responsibilities": ["Set clinical strategy", "Lead clinical operations", "Drive organizational growth"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Clinical research knowledge", "GCP certification", "Project management", "Attention to detail"],
+        "recommended_courses": [
+          {
+            "name": "Clinical Research Fundamentals",
+            "provider": "Association of Clinical Research Professionals (ACRP)",
+            "duration": "3-6 months",
+            "cost": "$800"
+          }
+        ],
+        "certifications": ["ACRP Certified Clinical Research Associate (CCRA)", "Project Management Professional (PMP)"]
+      },
+      "market_outlook": {
+        "growth_rate": "9% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["Boston", "San Francisco", "Research Triangle Park", "Philadelphia", "Chicago"],
+        "remote_opportunities": "Low"
+      }
+    },
+    "clinical_data_manager": {
+      "name": "Clinical Data Manager",
+      "description": "Design and manage clinical databases, ensure data quality and integrity, and support statistical analysis for clinical trials and research studies.",
+      "match_profile": {
+        "skills": ["Database management", "Clinical data", "Data quality", "Statistical analysis"],
+        "values": ["Data integrity", "Scientific accuracy", "Process improvement", "Healthcare advancement"],
+        "temperament": ["Detail-oriented", "Analytical thinking", "Problem-solving", "Quality-focused"],
+        "industries": ["CRO", "Pharmaceutical", "Biotechnology", "Medical Devices"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["Clinical Data Manager", "CDM"],
+          "salary_range": "$75,000 - $100,000",
+          "years_experience": "0-2",
+          "key_skills": ["Clinical databases", "Data quality", "SAS/R", "Regulatory compliance"],
+          "responsibilities": ["Database design", "Data cleaning", "Quality control", "Statistical support"]
+        },
+        "mid_level": {
+          "titles": ["Senior CDM", "Principal CDM"],
+          "salary_range": "$100,000 - $175,000",
+          "years_experience": "2-7",
+          "key_skills": ["Data strategy", "Team leadership", "Advanced analytics", "Process improvement"],
+          "responsibilities": ["Lead data projects", "Develop data strategies", "Manage teams", "Drive innovation"]
+        },
+        "senior_level": {
+          "titles": ["Clinical Data Director", "VP Data Sciences"],
+          "salary_range": "$175,000 - $240,000+",
+          "years_experience": "7+",
+          "key_skills": ["Strategic leadership", "Data vision", "Technology strategy", "Executive communication"],
+          "responsibilities": ["Set data strategy", "Lead data organization", "Drive digital transformation"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Database management", "Statistical software", "Clinical trial knowledge", "Data quality"],
+        "recommended_courses": [
+          {
+            "name": "Clinical Data Management Certificate",
+            "provider": "Society for Clinical Data Management (SCDM)",
+            "duration": "4-6 months",
+            "cost": "$1,200"
+          }
+        ],
+        "certifications": ["Certified Clinical Data Manager (CCDM)", "SAS Certified Specialist"]
+      },
+      "market_outlook": {
+        "growth_rate": "11% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["Boston", "San Francisco", "Research Triangle Park", "New Jersey", "Philadelphia"],
+        "remote_opportunities": "High"
+      }
+    },
+    "quality_assurance_specialist": {
+      "name": "Quality Assurance Specialist",
+      "description": "Develop and maintain quality management systems to ensure products and processes meet regulatory standards and industry best practices.",
+      "match_profile": {
+        "skills": ["Quality systems", "GMP knowledge", "Audit management", "Process improvement"],
+        "values": ["Quality excellence", "Regulatory compliance", "Continuous improvement", "Patient safety"],
+        "temperament": ["Detail-oriented", "Process-focused", "Analytical thinking", "Systematic approach"],
+        "industries": ["Manufacturing", "Pharmaceutical", "Medical Devices", "Food & Beverage"]
+      },
+      "career_progression": {
+        "entry_level": {
+          "titles": ["QA Specialist", "Quality Assurance Specialist"],
+          "salary_range": "$70,000 - $90,000",
+          "years_experience": "0-2",
+          "key_skills": ["Quality systems", "GMP guidelines", "Documentation", "Audit support"],
+          "responsibilities": ["Quality inspections", "Documentation review", "Compliance monitoring", "Process validation"]
+        },
+        "mid_level": {
+          "titles": ["Senior QA Specialist", "QA Manager"],
+          "salary_range": "$90,000 - $165,000",
+          "years_experience": "2-7",
+          "key_skills": ["Quality strategy", "Team leadership", "Process improvement", "Risk management"],
+          "responsibilities": ["Lead quality initiatives", "Manage QA teams", "Develop quality systems", "Drive compliance"]
+        },
+        "senior_level": {
+          "titles": ["QA Director", "VP Quality"],
+          "salary_range": "$165,000 - $230,000+",
+          "years_experience": "7+",
+          "key_skills": ["Strategic leadership", "Quality vision", "Organizational development", "Executive communication"],
+          "responsibilities": ["Set quality strategy", "Lead quality organization", "Drive operational excellence"]
+        }
+      },
+      "transition_requirements": {
+        "essential_skills": ["Quality management", "Regulatory knowledge", "Process improvement", "Documentation skills"],
+        "recommended_courses": [
+          {
+            "name": "Quality Management Systems",
+            "provider": "American Society for Quality (ASQ)",
+            "duration": "3-6 months",
+            "cost": "$900"
+          }
+        ],
+        "certifications": ["Certified Quality Auditor (CQA)", "Six Sigma Green Belt"]
+      },
+      "market_outlook": {
+        "growth_rate": "6% (2022-2032)",
+        "job_availability": "High",
+        "geographic_hotspots": ["Boston", "San Francisco", "Research Triangle Park", "Chicago", "Philadelphia"],
+        "remote_opportunities": "Medium"
+      }
     }
   },
   "pivot_opportunities": {
