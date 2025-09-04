@@ -1,16 +1,16 @@
 import React from 'react';
 
 const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', categoryBreakdown = null }) => {
-  // The 8 radar dimensions and their mapping to categories
+  // The 8 radar dimensions and their mapping to categories (arranged like Image #2)
   const radarDimensions = [
-    { name: 'Technical Skills', category: 'skills' },
-    { name: 'Communication', category: 'skills' },
     { name: 'Leadership', category: 'skills' },
-    { name: 'Creativity', category: 'values' },
+    { name: 'Communication', category: 'skills' }, 
+    { name: 'Research', category: 'skills' },
+    { name: 'Problem Solving', category: 'skills' },
     { name: 'Independence', category: 'values' },
     { name: 'Collaboration', category: 'values' },
-    { name: 'Impact Focus', category: 'values' },
-    { name: 'Stability', category: 'temperament' }
+    { name: 'Autonomy', category: 'values' },
+    { name: 'Intellectuality', category: 'temperament' }
   ];
 
   const categories = skillCategories.length > 0 ? skillCategories : radarDimensions.map(d => d.name);
@@ -36,21 +36,18 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
       };
     }
 
-    // Create layers where each dimension shows the intensity for its category
-    // This creates overlapping areas that represent the different category strengths
+    // Create layers where each dimension shows the actual score for its category only
+    // Each layer only shows values for dimensions belonging to that category
     const skillsLayer = radarDimensions.map((dim, index) => 
-      dim.category === 'skills' ? 
-        Math.min(normalizedScores[index] || 0, categoryBreakdown.skills || 0) : 0
+      dim.category === 'skills' ? (normalizedScores[index] || 0) : 0
     );
     
     const valuesLayer = radarDimensions.map((dim, index) => 
-      dim.category === 'values' ? 
-        Math.min(normalizedScores[index] || 0, categoryBreakdown.values || 0) : 0
+      dim.category === 'values' ? (normalizedScores[index] || 0) : 0
     );
     
     const temperamentLayer = radarDimensions.map((dim, index) => 
-      dim.category === 'temperament' ? 
-        Math.min(normalizedScores[index] || 0, categoryBreakdown.temperament || 0) : 0
+      dim.category === 'temperament' ? (normalizedScores[index] || 0) : 0
     );
 
     return {
@@ -184,35 +181,35 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
           {/* Category layers - only render if breakdown is available */}
           {categoryBreakdown && (
             <>
-              {/* Temperament layer (back) */}
-              {temperamentPoints && (
+              {/* Skills layer (blue) */}
+              {skillsPoints && (
                 <polygon
-                  points={temperamentPoints}
-                  fill={temperamentColor}
-                  fillOpacity="0.3"
-                  stroke={temperamentColor}
+                  points={skillsPoints}
+                  fill={skillsColor}
+                  fillOpacity="0.4"
+                  stroke={skillsColor}
                   strokeWidth="2"
                 />
               )}
               
-              {/* Values layer (middle) */}
+              {/* Values layer (orange) */}
               {valuesPoints && (
                 <polygon
                   points={valuesPoints}
                   fill={valuesColor}
-                  fillOpacity="0.3"
+                  fillOpacity="0.4"
                   stroke={valuesColor}
                   strokeWidth="2"
                 />
               )}
               
-              {/* Skills layer (front) */}
-              {skillsPoints && (
+              {/* Temperament layer (purple) */}
+              {temperamentPoints && (
                 <polygon
-                  points={skillsPoints}
-                  fill={skillsColor}
-                  fillOpacity="0.3"
-                  stroke={skillsColor}
+                  points={temperamentPoints}
+                  fill={temperamentColor}
+                  fillOpacity="0.4"
+                  stroke={temperamentColor}
                   strokeWidth="2"
                 />
               )}
