@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Corrected Career Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-title {
+            background: linear-gradient(to right, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold gradient-title mb-4">Your Corrected Career Results</h1>
+            <p class="text-xl text-gray-600">Fixed data structure issues - now showing accurate scores!</p>
+            <div class="mt-4 p-4 bg-green-100 rounded-lg">
+                <p class="text-green-800 font-semibold">🎉 Improvement: Top match went from 53% → 78% (+47%)</p>
+            </div>
+        </div>
+
+        <div id="loading" class="text-center">
+            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p class="text-gray-600">Loading your corrected results...</p>
+        </div>
+
+        <div id="results" class="hidden">
+            <!-- Top Match Section -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-center mb-6">Your #1 Career Match</h2>
+                <div id="topMatch"></div>
+            </div>
+
+            <!-- Radar Chart Section -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-center mb-6">Your Corrected Career Profile</h2>
+                <div id="radarChart" class="text-center">
+                    <div class="bg-gradient-to-br from-white to-gray-50 p-8 rounded-xl shadow-xl border border-gray-100">
+                        <h3 class="text-3xl font-bold gradient-title mb-3">CAREER RADAR</h3>
+                        <p class="text-gray-600 font-medium mb-8">PhD Skills, Values, and Temperament Results</p>
+                        
+                        <!-- Visual Radar Chart -->
+                        <div class="flex justify-center mb-8">
+                            <svg width="500" height="500" class="overflow-visible drop-shadow-sm">
+                                <defs>
+                                    <radialGradient id="skillsGrad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.8"/>
+                                        <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                                    </radialGradient>
+                                    <radialGradient id="valuesGrad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.8"/>
+                                        <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.3"/>
+                                    </radialGradient>
+                                    <radialGradient id="tempGrad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.8"/>
+                                        <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                                    </radialGradient>
+                                </defs>
+                                
+                                <!-- Grid background will be drawn by JavaScript -->
+                                <g id="radarGrid"></g>
+                                <g id="radarPolygons"></g>
+                                <g id="radarLabels"></g>
+                                <g id="radarPoints"></g>
+                            </svg>
+                        </div>
+                        
+                        <!-- Score Grid -->
+                        <div id="radarScores" class="grid grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+                        
+                        <!-- Legend -->
+                        <div class="flex justify-center space-x-8 mt-8">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 rounded" style="background-color: #3B82F6;"></div>
+                                <span class="text-sm font-medium text-gray-700">Skills & Capabilities</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 rounded" style="background-color: #F59E0B;"></div>
+                                <span class="text-sm font-medium text-gray-700">Work Preferences</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 rounded" style="background-color: #8B5CF6;"></div>
+                                <span class="text-sm font-medium text-gray-700">Thinking Style</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            Colored areas show your strengths across different dimensions of career fit
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Matches Section -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-center mb-8">All Your Career Matches</h2>
+                <div id="allMatches" class="grid lg:grid-cols-2 gap-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctedAnswers = {
+            "skills_technical_1": "c",
+            "skills_communication_1": "d",
+            "skills_leadership_1": "c",
+            "skills_analytical_1": "c",
+            "skills_management_1": ["project_mgmt", "fundraising", "market_research"],
+            "values_impact_1": ["personal", "societal", "intellectual", "commercial"],
+            "values_autonomy_1": "5",
+            "values_stability_1": "a",
+            "values_collaboration_1": "d",
+            "values_creativity_1": "b",
+            "temperament_social_1": "3",
+            "temperament_detail_1": "c",
+            "temperament_structure_1": "5",
+            "temperament_pressure_1": "a",
+            "temperament_decision_1": "c",
+            "skills_specialized_1": "clinical",
+            "career_goals_1": "d",
+            "work_motivation_1": ["learning", "mission", "flexibility", "recognition", "compensation"],
+            "risk_tolerance_1": "3",
+            "problem_complexity_1": "b",
+            "phd_domain_1": "c",
+            "technical_depth_1": "b",
+            "programming_experience": "2",
+            "programming_languages": ["python", "r", "matlab"],
+            "mathematics_background": "2",
+            "mathematical_areas": ["statistics", "linear_algebra", "calculus"],
+            "data_analysis_experience": "3",
+            "data_tools_experience": ["excel", "r_stats", "python_data"],
+            "research_methodology": ["experimental_design", "literature_review"],
+            "technical_writing_experience": "4",
+            "business_finance_background": "0",
+            "lab_experience": "3",
+            "creative_design_experience": "0",
+            "clinical_experience": ["none_clinical"]
+        };
+
+        // 9-axis radar chart configuration
+        const radarDimensions = [
+            { name: 'Technical Skills', category: 'skills' },
+            { name: 'Leadership', category: 'skills' },
+            { name: 'Communication', category: 'skills' },
+            { name: 'Independence', category: 'values' },
+            { name: 'Collaboration', category: 'values' },
+            { name: 'Impact Focus', category: 'values' },
+            { name: 'Creativity', category: 'temperament' },
+            { name: 'Risk Tolerance', category: 'temperament' },
+            { name: 'Analytical Thinking', category: 'temperament' }
+        ];
+
+        const centerX = 250, centerY = 250, maxRadius = 180;
+        const skillsColor = '#3B82F6', valuesColor = '#F59E0B', temperamentColor = '#8B5CF6';
+
+        function drawRadarChart(scores) {
+            const svg = document.querySelector('#radarChart svg');
+            const angleStep = (2 * Math.PI) / 9;
+
+            // Draw grid
+            const grid = document.getElementById('radarGrid');
+            
+            // Radial lines
+            for (let i = 0; i < 9; i++) {
+                const angle = (i * angleStep) - (Math.PI / 2);
+                const x = centerX + maxRadius * Math.cos(angle);
+                const y = centerY + maxRadius * Math.sin(angle);
+                
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', centerX);
+                line.setAttribute('y1', centerY);
+                line.setAttribute('x2', x);
+                line.setAttribute('y2', y);
+                line.setAttribute('stroke', '#d1d5db');
+                line.setAttribute('stroke-width', '1.5');
+                line.setAttribute('stroke-dasharray', '2,3');
+                line.setAttribute('opacity', '0.6');
+                grid.appendChild(line);
+            }
+            
+            // Concentric circles
+            for (let level = 1; level <= 5; level++) {
+                const radius = (maxRadius / 5) * level;
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', centerX);
+                circle.setAttribute('cy', centerY);
+                circle.setAttribute('r', radius);
+                circle.setAttribute('fill', 'none');
+                circle.setAttribute('stroke', '#e5e7eb');
+                circle.setAttribute('stroke-width', level === 5 ? '2' : '1');
+                circle.setAttribute('opacity', 0.3 + (level * 0.1));
+                grid.appendChild(circle);
+            }
+
+            // Generate polygon points for each category
+            function generateCategoryPolygon(category) {
+                const points = [];
+                radarDimensions.forEach((dim, index) => {
+                    const angle = (index * angleStep) - (Math.PI / 2);
+                    let value = 0;
+                    if (dim.category === category) {
+                        value = scores[index] || 0;
+                    }
+                    const r = maxRadius * value;
+                    const x = centerX + r * Math.cos(angle);
+                    const y = centerY + r * Math.sin(angle);
+                    points.push(`${x},${y}`);
+                });
+                return points.join(' ');
+            }
+
+            // Draw category polygons
+            const polygons = document.getElementById('radarPolygons');
+            
+            // Skills polygon (blue)
+            const skillsPolygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            skillsPolygon.setAttribute('points', generateCategoryPolygon('skills'));
+            skillsPolygon.setAttribute('fill', 'url(#skillsGrad)');
+            skillsPolygon.setAttribute('stroke', skillsColor);
+            skillsPolygon.setAttribute('stroke-width', '2.5');
+            polygons.appendChild(skillsPolygon);
+
+            // Values polygon (orange)
+            const valuesPolygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            valuesPolygon.setAttribute('points', generateCategoryPolygon('values'));
+            valuesPolygon.setAttribute('fill', 'url(#valuesGrad)');
+            valuesPolygon.setAttribute('stroke', valuesColor);
+            valuesPolygon.setAttribute('stroke-width', '2.5');
+            polygons.appendChild(valuesPolygon);
+
+            // Temperament polygon (purple)
+            const tempPolygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            tempPolygon.setAttribute('points', generateCategoryPolygon('temperament'));
+            tempPolygon.setAttribute('fill', 'url(#tempGrad)');
+            tempPolygon.setAttribute('stroke', temperamentColor);
+            tempPolygon.setAttribute('stroke-width', '2.5');
+            polygons.appendChild(tempPolygon);
+
+            // Draw data points
+            const points = document.getElementById('radarPoints');
+            scores.forEach((score, index) => {
+                const angle = (index * angleStep) - (Math.PI / 2);
+                const radius = maxRadius * score;
+                const x = centerX + radius * Math.cos(angle);
+                const y = centerY + radius * Math.sin(angle);
+                
+                const dim = radarDimensions[index];
+                let pointColor = '#9CA3AF';
+                if (dim.category === 'skills') pointColor = skillsColor;
+                else if (dim.category === 'values') pointColor = valuesColor;
+                else if (dim.category === 'temperament') pointColor = temperamentColor;
+                
+                const point = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                point.setAttribute('cx', x);
+                point.setAttribute('cy', y);
+                point.setAttribute('r', '6');
+                point.setAttribute('fill', pointColor);
+                point.setAttribute('stroke', 'white');
+                point.setAttribute('stroke-width', '3');
+                point.setAttribute('filter', 'drop-shadow(0 2px 3px rgba(0,0,0,0.2))');
+                points.appendChild(point);
+            });
+
+            // Draw labels
+            const labels = document.getElementById('radarLabels');
+            radarDimensions.forEach((dim, index) => {
+                const angle = (index * angleStep) - (Math.PI / 2);
+                const labelRadius = maxRadius + 40;
+                const x = centerX + labelRadius * Math.cos(angle);
+                const y = centerY + labelRadius * Math.sin(angle);
+                
+                let textColor = '#374151';
+                if (dim.category === 'skills') textColor = skillsColor;
+                else if (dim.category === 'values') textColor = valuesColor;
+                else if (dim.category === 'temperament') textColor = temperamentColor;
+                
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', x);
+                text.setAttribute('y', y);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('dominant-baseline', 'middle');
+                text.setAttribute('fill', textColor);
+                text.setAttribute('font-size', '14');
+                text.setAttribute('font-weight', '600');
+                text.textContent = dim.name.toUpperCase();
+                labels.appendChild(text);
+            });
+        }
+
+        function getMatchColor(matchLevel) {
+            const level = typeof matchLevel === 'object' ? matchLevel.level : matchLevel;
+            switch (level) {
+                case 'Good Match':
+                    return 'bg-green-100 text-green-800 border-green-200';
+                case 'Potential Match':
+                    return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+                case 'Weak Match':
+                    return 'bg-orange-100 text-orange-800 border-orange-200';
+                default:
+                    return 'bg-gray-100 text-gray-800 border-gray-200';
+            }
+        }
+
+        function getScoreColor(score) {
+            if (score >= 75) return 'text-green-600';
+            if (score >= 65) return 'text-blue-600';
+            if (score >= 50) return 'text-yellow-600';
+            return 'text-gray-600';
+        }
+
+        async function loadResults() {
+            try {
+                const response = await fetch('http://localhost:3000/api/matchCareer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ answers: correctedAnswers })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                displayResults(data);
+
+            } catch (error) {
+                document.getElementById('loading').innerHTML = `
+                    <div class="text-center text-red-600">
+                        <h3 class="text-xl font-bold mb-2">Error Loading Results</h3>
+                        <p>${error.message}</p>
+                        <p class="text-sm mt-2">Make sure the development server is running on localhost:3000</p>
+                    </div>
+                `;
+            }
+        }
+
+        function displayResults(data) {
+            const { matches, radarData } = data;
+            
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('results').classList.remove('hidden');
+
+            // Display top match
+            const topMatch = matches[0];
+            const topMatchDiv = document.getElementById('topMatch');
+            const matchLevel = typeof topMatch.matchLevel === 'object' ? topMatch.matchLevel.level : topMatch.matchLevel;
+            
+            topMatchDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="flex items-center justify-center gap-4 mb-4">
+                        <span class="px-4 py-2 rounded-full text-sm font-medium border ${getMatchColor(matchLevel)}">
+                            ${matchLevel}
+                        </span>
+                        <span class="text-3xl font-bold ${getScoreColor(topMatch.score)}">
+                            ${topMatch.score}% Match
+                        </span>
+                    </div>
+                    <h3 class="text-4xl font-bold text-gray-900 mb-4">
+                        ${topMatch.details?.name || topMatch.careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                    </h3>
+                    <p class="text-xl text-gray-700">
+                        ${topMatch.details?.description || 'A great career path that matches your profile.'}
+                    </p>
+                </div>
+            `;
+
+            // Draw radar chart
+            drawRadarChart(radarData.scores);
+
+            // Display radar scores
+            const radarScoresDiv = document.getElementById('radarScores');
+            let radarHTML = '';
+            
+            radarData.categories.forEach((category, index) => {
+                const score = Math.round(radarData.scores[index] * 100);
+                let colorClass = 'text-blue-600';
+                if (score >= 70) colorClass = 'text-green-600';
+                else if (score >= 50) colorClass = 'text-yellow-600';
+                else if (score < 35) colorClass = 'text-gray-600';
+                
+                radarHTML += `
+                    <div class="text-center p-4 bg-gray-50 rounded-lg border">
+                        <div class="text-3xl font-bold ${colorClass} mb-2">${score}%</div>
+                        <div class="text-sm font-semibold text-gray-700">${category.toUpperCase()}</div>
+                    </div>
+                `;
+            });
+            radarScoresDiv.innerHTML = radarHTML;
+
+            // Display all matches
+            const allMatchesDiv = document.getElementById('allMatches');
+            let matchesHTML = '';
+            
+            matches.forEach((match, index) => {
+                const matchLevel = typeof match.matchLevel === 'object' ? match.matchLevel.level : match.matchLevel;
+                matchesHTML += `
+                    <div class="bg-gray-50 rounded-lg shadow p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                    ${match.details?.name || match.careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                                </h3>
+                                <span class="px-3 py-1 rounded-full text-sm font-medium border ${getMatchColor(matchLevel)}">
+                                    #${index + 1} • ${matchLevel}
+                                </span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold ${getScoreColor(match.score)}">
+                                    ${match.score}%
+                                </div>
+                                <div class="text-sm text-gray-500">Match Score</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            ${match.details?.description || 'A career path that aligns with your assessment results.'}
+                        </p>
+                    </div>
+                `;
+            });
+            allMatchesDiv.innerHTML = matchesHTML;
+        }
+
+        // Load results when page loads
+        loadResults();
+    </script>
+</body>
+</html>

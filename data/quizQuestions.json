@@ -179,6 +179,11 @@
           "id": "risk_mgmt",
           "text": "Risk assessment and management",
           "tags": ["risk assessment", "risk management"]
+        },
+        {
+          "id": "none_mgmt",
+          "text": "None of these apply to me",
+          "tags": []
         }
       ]
     },
@@ -187,7 +192,7 @@
       "category": "values",
       "type": "ranking",
       "question": "Rank these types of impact in order of importance to you",
-      "description": "Drag to rank from most important (1st) to least important (4th).",
+      "description": "Click to rank from most important (1st) to least important (4th).",
       "options": [
         {
           "id": "intellectual",
@@ -547,7 +552,7 @@
       "category": "values",
       "type": "ranking",
       "question": "Rank these work motivators in order of importance to you",
-      "description": "Drag to rank from most important (1st) to least important (5th).",
+      "description": "Click to rank from most important (1st) to least important (5th).",
       "options": [
         {
           "id": "learning",

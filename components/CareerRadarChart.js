@@ -1,28 +1,36 @@
 import React from 'react';
 
 const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', categoryBreakdown = null }) => {
-  // The 8 radar dimensions and their mapping to categories (arranged like Image #2)
+  // 9 radar dimensions organized with same-category dimensions adjacent for proper polygons
   const radarDimensions = [
+    { name: 'Technical Skills', category: 'skills' },
     { name: 'Leadership', category: 'skills' },
-    { name: 'Communication', category: 'skills' }, 
-    { name: 'Research', category: 'skills' },
-    { name: 'Problem Solving', category: 'skills' },
+    { name: 'Communication', category: 'skills' },
     { name: 'Independence', category: 'values' },
     { name: 'Collaboration', category: 'values' },
-    { name: 'Autonomy', category: 'values' },
-    { name: 'Intellectuality', category: 'temperament' }
+    { name: 'Impact Focus', category: 'values' },
+    { name: 'Creativity', category: 'temperament' },
+    { name: 'Risk Tolerance', category: 'temperament' },
+    { name: 'Analytical Thinking', category: 'temperament' }
   ];
 
-  const categories = skillCategories.length > 0 ? skillCategories : radarDimensions.map(d => d.name);
+  // Always use the predefined radar dimensions for consistent layout
+  const categories = radarDimensions.map(d => d.name);
   
-  // Default scores if none provided (for demo purposes)
-  const defaultScores = [0.7, 0.8, 0.9, 0.8, 0.6, 0.7, 0.9, 0.7];
-  const finalScores = scores && scores.length > 0 ? scores : defaultScores;
-
-  // Ensure we have the same number of scores as categories
-  const normalizedScores = categories.map((_, index) => 
-    finalScores[index] || 0
-  );
+  // Map incoming scores to the expected dimension order
+  const normalizedScores = radarDimensions.map((dimension, index) => {
+    // If we have skillCategories and scores from API, try to match them
+    if (skillCategories.length > 0 && scores && scores.length > 0) {
+      const apiCategoryIndex = skillCategories.indexOf(dimension.name);
+      if (apiCategoryIndex >= 0 && apiCategoryIndex < scores.length) {
+        return scores[apiCategoryIndex];
+      }
+    }
+    
+    // Default scores for demo/fallback (9 dimensions)
+    const defaultScores = [0.7, 0.8, 0.9, 0.6, 0.7, 0.8, 0.9, 0.5, 0.8];
+    return defaultScores[index] || 0;
+  });
 
   // Create separate layer data for skills, values, temperament
   const createCategoryLayers = () => {
@@ -77,12 +85,12 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
     }).join(' ');
   };
 
-  // Generate grid lines
+  // Generate grid lines with improved styling
   const generateGridLines = () => {
     const lines = [];
     const angleStep = (2 * Math.PI) / categories.length;
     
-    // Radial lines
+    // Radial lines with gradient effect
     categories.forEach((_, index) => {
       const angle = (index * angleStep) - (Math.PI / 2);
       const x = centerX + maxRadius * Math.cos(angle);
@@ -94,26 +102,30 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
           y1={centerY}
           x2={x}
           y2={y}
-          stroke="#e5e7eb"
-          strokeWidth="1"
+          stroke="#d1d5db"
+          strokeWidth="1.5"
+          strokeDasharray="2,3"
+          opacity="0.6"
         />
       );
     });
 
-    // Concentric polygons
+    // Concentric polygons with better styling
     for (let level = 1; level <= numLevels; level++) {
       const radius = (maxRadius / numLevels) * level;
       const points = generatePolygonPoints(
         new Array(categories.length).fill(1),
         radius
       );
+      const opacity = 0.3 + (level * 0.1); // Increasing opacity toward center
       lines.push(
         <polygon
           key={`grid-${level}`}
           points={points}
           fill="none"
-          stroke="#f3f4f6"
-          strokeWidth="1"
+          stroke="#e5e7eb"
+          strokeWidth={level === numLevels ? "2" : "1"}
+          opacity={opacity}
         />
       );
     }
@@ -121,14 +133,21 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
     return lines;
   };
 
-  // Generate labels
+  // Generate labels with better spacing and styling
   const generateLabels = () => {
     const angleStep = (2 * Math.PI) / categories.length;
     return categories.map((category, index) => {
       const angle = (index * angleStep) - (Math.PI / 2);
-      const labelRadius = maxRadius + 25;
+      const labelRadius = maxRadius + 35; // Increased distance for better readability
       const x = centerX + labelRadius * Math.cos(angle);
       const y = centerY + labelRadius * Math.sin(angle);
+      
+      // Get category color based on dimension category
+      const dimension = radarDimensions[index];
+      let textColor = '#374151'; // Default gray
+      if (dimension.category === 'skills') textColor = skillsColor;
+      else if (dimension.category === 'values') textColor = valuesColor;
+      else if (dimension.category === 'temperament') textColor = temperamentColor;
       
       return (
         <text
@@ -137,7 +156,9 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
           y={y}
           textAnchor="middle"
           dominantBaseline="middle"
-          className="text-sm font-medium fill-gray-700"
+          className="text-sm font-semibold"
+          fill={textColor}
+          style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}
         >
           {category.toUpperCase()}
         </text>
@@ -157,14 +178,29 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
   const temperamentColor = '#8B5CF6'; // Purple
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <div className="text-center mb-4">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">CAREER RADAR</h3>
-        <p className="text-gray-600">PhD Skills, Values, and Temperament Results</p>
+    <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-xl border border-gray-100">
+      <div className="text-center mb-6">
+        <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">CAREER RADAR</h3>
+        <p className="text-gray-600 font-medium">PhD Skills, Values, and Temperament Results</p>
       </div>
       
       <div className="flex justify-center">
-        <svg width="400" height="400" className="overflow-visible">
+        <svg width="450" height="450" className="overflow-visible drop-shadow-sm">
+          {/* Gradient Definitions */}
+          <defs>
+            <radialGradient id="skillsGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={skillsColor} stopOpacity="0.8"/>
+              <stop offset="100%" stopColor={skillsColor} stopOpacity="0.3"/>
+            </radialGradient>
+            <radialGradient id="valuesGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={valuesColor} stopOpacity="0.8"/>
+              <stop offset="100%" stopColor={valuesColor} stopOpacity="0.3"/>
+            </radialGradient>
+            <radialGradient id="temperamentGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={temperamentColor} stopOpacity="0.8"/>
+              <stop offset="100%" stopColor={temperamentColor} stopOpacity="0.3"/>
+            </radialGradient>
+          </defs>
           {/* Grid */}
           {generateGridLines()}
           
@@ -185,10 +221,10 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
               {skillsPoints && (
                 <polygon
                   points={skillsPoints}
-                  fill={skillsColor}
-                  fillOpacity="0.4"
+                  fill="url(#skillsGradient)"
                   stroke={skillsColor}
-                  strokeWidth="2"
+                  strokeWidth="2.5"
+                  filter="drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3))"
                 />
               )}
               
@@ -196,10 +232,10 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
               {valuesPoints && (
                 <polygon
                   points={valuesPoints}
-                  fill={valuesColor}
-                  fillOpacity="0.4"
+                  fill="url(#valuesGradient)"
                   stroke={valuesColor}
-                  strokeWidth="2"
+                  strokeWidth="2.5"
+                  filter="drop-shadow(0 2px 4px rgba(245, 158, 11, 0.3))"
                 />
               )}
               
@@ -207,10 +243,10 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
               {temperamentPoints && (
                 <polygon
                   points={temperamentPoints}
-                  fill={temperamentColor}
-                  fillOpacity="0.4"
+                  fill="url(#temperamentGradient)"
                   stroke={temperamentColor}
-                  strokeWidth="2"
+                  strokeWidth="2.5"
+                  filter="drop-shadow(0 2px 4px rgba(139, 92, 246, 0.3))"
                 />
               )}
             </>
@@ -238,10 +274,12 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
                 key={`point-${index}`}
                 cx={x}
                 cy={y}
-                r="4"
+                r="5"
                 fill={pointColor}
                 stroke="white"
-                strokeWidth="2"
+                strokeWidth="3"
+                filter="drop-shadow(0 2px 3px rgba(0,0,0,0.2))"
+                className="hover:r-6 transition-all duration-200"
               />
             );
           })}
@@ -259,24 +297,24 @@ const CareerRadarChart = ({ scores, skillCategories = [], shareText = '', catego
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 rounded" style={{ backgroundColor: skillsColor }}></div>
                 <span className="text-sm font-medium text-gray-700">
-                  Skills ({Math.round((categoryBreakdown.skills || 0) * 100)}%)
+                  Skills & Capabilities
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 rounded" style={{ backgroundColor: valuesColor }}></div>
                 <span className="text-sm font-medium text-gray-700">
-                  Values ({Math.round((categoryBreakdown.values || 0) * 100)}%)
+                  Work Preferences
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 rounded" style={{ backgroundColor: temperamentColor }}></div>
                 <span className="text-sm font-medium text-gray-700">
-                  Temperament ({Math.round((categoryBreakdown.temperament || 0) * 100)}%)
+                  Thinking Style
                 </span>
               </div>
             </div>
             <p className="text-xs text-gray-500 text-center">
-              Overlapping colored areas show your match strength in each category
+              Colored areas show your strengths across different dimensions of career fit
             </p>
           </>
         ) : (

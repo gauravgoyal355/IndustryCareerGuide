@@ -57,13 +57,21 @@ const ResultsPage = () => {
   };
 
   const getMatchColor = (matchLevel) => {
-    switch (matchLevel) {
+    const tier = typeof matchLevel === 'object' ? matchLevel.tier : matchLevel;
+    switch (tier) {
+      case 'strong_match':
       case 'Excellent Match':
         return 'bg-green-100 text-green-800 border-green-200';
+      case 'good_match':
       case 'Good Match':
         return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'potential_match':
       case 'Moderate Match':
         return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+      case 'weak_match':
+        return 'bg-orange-100 text-orange-800 border-orange-200';
+      case 'gap_to_bridge':
+        return 'bg-red-100 text-red-800 border-red-200';
       default:
         return 'bg-gray-100 text-gray-800 border-gray-200';
     }
@@ -168,7 +176,7 @@ const ResultsPage = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Your #1 Career Match</h2>
               <div className="flex items-center justify-center gap-4">
                 <span className={`px-4 py-2 rounded-full text-sm font-medium border ${getMatchColor(topMatch.matchLevel)}`}>
-                  {topMatch.matchLevel}
+                  {typeof topMatch.matchLevel === 'object' ? topMatch.matchLevel.level : topMatch.matchLevel}
                 </span>
                 <span className={`text-2xl font-bold ${getScoreColor(topMatch.score)}`}>
                   {topMatch.score > 1 ? Math.round(topMatch.score) : Math.round(topMatch.score * 100)}% Match
@@ -265,7 +273,7 @@ const ResultsPage = () => {
                         {match.details?.name || match.careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
                       </h3>
                       <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getMatchColor(match.matchLevel)}`}>
-                        #{index + 1} • {match.matchLevel}
+                        #{index + 1} • {typeof match.matchLevel === 'object' ? match.matchLevel.level : match.matchLevel}
                       </span>
                     </div>
                     <div className="text-right">

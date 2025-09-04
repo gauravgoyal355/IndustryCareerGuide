@@ -104,32 +104,41 @@ const QuizPage = () => {
         const scaleMax = question.scale?.max || 5;
         const labels = question.scale?.labels || {};
         return (
-          <div className="space-y-6">
-            <div className="flex justify-between items-center">
-              {Array.from({ length: scaleMax - scaleMin + 1 }, (_, i) => {
-                const value = scaleMin + i;
-                return (
-                  <button
-                    key={value}
-                    onClick={() => handleAnswerSelect(value.toString())}
-                    className={`w-12 h-12 rounded-full border-2 font-bold transition-all duration-200 ${
-                      selectedAnswer === value.toString()
-                        ? 'border-primary-500 bg-primary-500 text-white'
-                        : 'border-gray-300 hover:border-gray-400 text-gray-600'
-                    }`}
-                  >
-                    {value}
-                  </button>
-                );
-              })}
-            </div>
-            <div className="space-y-2 text-sm text-gray-600">
-              {Object.entries(labels).map(([value, label]) => (
-                <div key={value} className="text-center">
-                  <span className="font-medium">{value}:</span> {label}
-                </div>
-              ))}
-            </div>
+          <div className="space-y-3">
+            {Array.from({ length: scaleMax - scaleMin + 1 }, (_, i) => {
+              const value = scaleMin + i;
+              const isSelected = selectedAnswer === value.toString();
+              const label = labels[value] || `Option ${value}`;
+              
+              return (
+                <button
+                  key={value}
+                  onClick={() => handleAnswerSelect(value.toString())}
+                  className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                    isSelected
+                      ? 'border-primary-500 bg-primary-50 shadow-md'
+                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-start">
+                    <div className={`w-5 h-5 rounded-full border-2 mr-4 mt-0.5 flex items-center justify-center flex-shrink-0 ${
+                      isSelected
+                        ? 'border-primary-500 bg-primary-500'
+                        : 'border-gray-300'
+                    }`}>
+                      {isSelected && (
+                        <div className="text-white text-xs font-bold">✓</div>
+                      )}
+                    </div>
+                    <div>
+                      <span className="text-gray-800 font-medium block">
+                        {label}
+                      </span>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         );
       

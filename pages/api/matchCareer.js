@@ -10,34 +10,44 @@ import careerTimelineData from '../../data/careerTimelineData_PhDOptimized.json'
  * Calculate radar chart data based on user's aggregated tags
  */
 function calculateRadarChartData(userTags, userAnswers) {
-  // Define radar chart dimensions based on career taxonomy
+  // Define radar chart dimensions to match the new 9-axis layout
   const radarDimensions = {
-    'Technical Skills': ['data analysis', 'programming', 'experimental design', 'technical expertise', 'analytical thinking'],
-    'Communication': ['communication', 'public speaking', 'technical writing', 'relationship building', 'storytelling'],
+    'Technical Skills': ['data analysis', 'programming', 'experimental design', 'technical expertise', 'computational modeling'],
     'Leadership': ['leadership', 'project management', 'strategic thinking', 'teaching', 'negotiation'],
+    'Communication': ['communication', 'public speaking', 'technical writing', 'relationship building', 'storytelling'],
     'Creativity': ['creativity', 'innovation', 'design thinking', 'aesthetics', 'user-centered design'],
-    'Independence': ['independence', 'entrepreneurship', 'risk-taking', 'practical impact'],
+    'Independence': ['independence', 'entrepreneurship', 'autonomy', 'self-directed', 'practical impact'],
     'Collaboration': ['collaboration', 'teamwork', 'community', 'knowledge-sharing', 'empathetic'],
     'Impact Focus': ['societal impact', 'mission-driven work', 'ethics', 'education', 'knowledge creation'],
-    'Stability': ['stability', 'systematic', 'organized', 'reliable', 'conscientious']
+    'Risk Tolerance': ['risk-taking', 'entrepreneurship', 'innovation', 'adaptable', 'uncertainty'],
+    'Analytical Thinking': ['analytical thinking', 'systematic', 'methodical', 'problem-solving', 'logical reasoning']
   };
 
   const dimensionScores = {};
   
+  // Find the maximum tag value for normalization
+  const maxTagValue = Math.max(...Object.values(userTags), 1);
+  
   // Calculate scores for each radar dimension
   Object.entries(radarDimensions).forEach(([dimension, relevantTags]) => {
     let score = 0;
-    let totalPossible = 0;
+    let tagsFound = 0;
     
     relevantTags.forEach(tag => {
       if (userTags[tag]) {
         score += userTags[tag];
+        tagsFound++;
       }
-      totalPossible += 1; // Each tag could contribute max 1 point per question
     });
     
-    // Normalize to 0-1 scale
-    dimensionScores[dimension] = totalPossible > 0 ? Math.min(score / totalPossible, 1.0) : 0;
+    // Normalize based on tags actually found, not total possible
+    // This rewards specialization rather than penalizing for not hitting every tag
+    if (tagsFound > 0) {
+      const avgScore = score / tagsFound; // Average score for tags found
+      dimensionScores[dimension] = Math.min(avgScore / maxTagValue, 1.0);
+    } else {
+      dimensionScores[dimension] = 0;
+    }
   });
 
   const categories = Object.keys(dimensionScores);
@@ -485,7 +495,7 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
         temperamentMatches++;
       }
     });
-    categoryScores.temperament = temperamentMatches > 0 ? temperamentTotal / career.temperament.length : 0;
+    categoryScores.temperament = temperamentMatches > 0 ? temperamentTotal / temperamentMatches : 0;
   }
   
   // Calculate weighted total score with category-specific weights
@@ -631,8 +641,8 @@ function calculateCareerScore(career, userTags) {
         skillMatches++;
       }
     });
-    // Average match strength for skills that were found
-    categoryScores.skills = skillMatches > 0 ? skillsTotal / career.skills.length : 0;
+    // Use average of matched skills, not divided by total required skills
+    categoryScores.skills = skillMatches > 0 ? skillsTotal / skillMatches : 0;
   }
   
   // Calculate values match
@@ -645,7 +655,7 @@ function calculateCareerScore(career, userTags) {
         valueMatches++;
       }
     });
-    categoryScores.values = valueMatches > 0 ? valuesTotal / career.values.length : 0;
+    categoryScores.values = valueMatches > 0 ? valuesTotal / valueMatches : 0;
   }
   
   // Calculate temperament match
@@ -658,7 +668,7 @@ function calculateCareerScore(career, userTags) {
         temperamentMatches++;
       }
     });
-    categoryScores.temperament = temperamentMatches > 0 ? temperamentTotal / career.temperament.length : 0;
+    categoryScores.temperament = temperamentMatches > 0 ? temperamentTotal / temperamentMatches : 0;
   }
   
   // Calculate weighted total score (already normalized between 0-1)
