@@ -61,19 +61,61 @@ const ResultsPage = () => {
     switch (tier) {
       case 'strong_match':
       case 'Excellent Match':
-        return 'bg-green-100 text-green-800 border-green-200';
+        return 'bg-green-100 text-green-800 border-green-300';
       case 'good_match':
       case 'Good Match':
-        return 'bg-blue-100 text-blue-800 border-blue-200';
+        return 'bg-blue-100 text-blue-800 border-blue-300';
       case 'potential_match':
       case 'Moderate Match':
-        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+        return 'bg-yellow-100 text-yellow-800 border-yellow-300';
       case 'weak_match':
-        return 'bg-orange-100 text-orange-800 border-orange-200';
+        return 'bg-orange-100 text-orange-800 border-orange-300';
       case 'gap_to_bridge':
-        return 'bg-red-100 text-red-800 border-red-200';
+        return 'bg-red-100 text-red-800 border-red-300';
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-200';
+        return 'bg-gray-100 text-gray-800 border-gray-300';
+    }
+  };
+
+  const getMatchEmoji = (matchLevel) => {
+    const tier = typeof matchLevel === 'object' ? matchLevel.tier : matchLevel;
+    switch (tier) {
+      case 'strong_match':
+      case 'Excellent Match':
+        return '🟢';
+      case 'good_match':
+      case 'Good Match':
+        return '🟡';
+      case 'potential_match':
+      case 'Moderate Match':
+        return '🟠';
+      case 'weak_match':
+        return '🔴';
+      case 'gap_to_bridge':
+        return '⚫';
+      default:
+        return '⚪';
+    }
+  };
+
+  const getMatchDescription = (matchLevel) => {
+    const tier = typeof matchLevel === 'object' ? matchLevel.tier : matchLevel;
+    switch (tier) {
+      case 'strong_match':
+      case 'Excellent Match':
+        return 'Outstanding alignment with your skills, values, and background. Prerequisites met with high compatibility.';
+      case 'good_match':
+      case 'Good Match':
+        return 'Strong alignment with your profile. Prerequisites met with good compatibility.';
+      case 'potential_match':
+      case 'Moderate Match':
+        return 'Moderate fit with some skill development needed. Prerequisites met but consider building complementary skills.';
+      case 'weak_match':
+        return 'Limited alignment. Significant skill gaps need to be addressed.';
+      case 'gap_to_bridge':
+        return 'High potential but missing critical prerequisites. Substantial preparation required.';
+      default:
+        return 'Career match assessment available.';
     }
   };
 
@@ -84,6 +126,73 @@ const ResultsPage = () => {
     if (normalizedScore >= 0.65) return 'text-blue-600';
     if (normalizedScore >= 0.5) return 'text-yellow-600';
     return 'text-gray-600';
+  };
+
+  // MatchCard component for the new tiered display
+  const MatchCard = ({ match, index, tier }) => {
+    const matchLevel = typeof match.matchLevel === 'object' ? match.matchLevel : { level: match.matchLevel, tier: tier };
+    
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-200 border border-gray-100">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex-1">
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              {match.details?.name || match.careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+            </h4>
+            <div className="flex items-center gap-3 mb-3">
+              <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getMatchColor(matchLevel)}`}>
+                {getMatchEmoji(matchLevel)} {matchLevel.level}
+              </span>
+              {match.prerequisites && match.prerequisites.length > 0 && (
+                <span className="text-xs text-green-600 font-medium">✓ Prerequisites met</span>
+              )}
+            </div>
+          </div>
+        </div>
+        
+        <p className="text-gray-600 mb-4 line-clamp-3">
+          {match.details?.description || 'A career path that aligns with your assessment results.'}
+        </p>
+
+        {/* Match explanation */}
+        <div className="bg-gray-50 rounded-lg p-3 mb-4">
+          <p className="text-sm text-gray-700">{getMatchDescription(matchLevel)}</p>
+        </div>
+
+        {/* Prerequisites or skill gaps */}
+        {match.prerequisites && match.prerequisites.length > 0 && (
+          <div className="mb-4">
+            <h5 className="text-sm font-semibold text-gray-700 mb-2">Prerequisites Met:</h5>
+            <div className="flex flex-wrap gap-2">
+              {match.prerequisites.slice(0, 3).map((prereq, idx) => (
+                <span key={idx} className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                  ✓ {prereq.replace(/[_:]/g, ' ')}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="mb-4">
+          <MiniCareerMap careerPath={match.careerPath} maxStages={3} />
+        </div>
+        
+        <div className="flex gap-3">
+          <Link 
+            href={`/careerMap/?path=${match.careerPath}`}
+            className="flex-1 text-center py-2 px-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium"
+          >
+            View Details
+          </Link>
+          <Link 
+            href={`/actionPlan/?career=${match.careerPath}`}
+            className="flex-1 text-center py-2 px-4 border-2 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-medium"
+          >
+            Action Plan
+          </Link>
+        </div>
+      </div>
+    );
   };
 
   if (loading) {
@@ -173,15 +282,15 @@ const ResultsPage = () => {
         <section className="bg-white border-b">
           <div className="container-max section-padding">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Your #1 Career Match</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Your Top Career Match</h2>
               <div className="flex items-center justify-center gap-4">
-                <span className={`px-4 py-2 rounded-full text-sm font-medium border ${getMatchColor(topMatch.matchLevel)}`}>
-                  {typeof topMatch.matchLevel === 'object' ? topMatch.matchLevel.level : topMatch.matchLevel}
-                </span>
-                <span className={`text-2xl font-bold ${getScoreColor(topMatch.score)}`}>
-                  {topMatch.score > 1 ? Math.round(topMatch.score) : Math.round(topMatch.score * 100)}% Match
+                <span className={`px-6 py-3 rounded-full text-lg font-semibold border-2 ${getMatchColor(topMatch.matchLevel)}`}>
+                  {getMatchEmoji(topMatch.matchLevel)} {typeof topMatch.matchLevel === 'object' ? topMatch.matchLevel.level : topMatch.matchLevel}
                 </span>
               </div>
+              <p className="text-gray-600 mt-4 max-w-xl mx-auto">
+                {getMatchDescription(topMatch.matchLevel)}
+              </p>
             </div>
             
             <div className="max-w-4xl mx-auto">
@@ -261,54 +370,108 @@ const ResultsPage = () => {
         <section className="section-padding">
           <div className="container-max">
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              All Your Career Matches
+              Your Career Match Analysis
             </h2>
             
-            <div className="grid lg:grid-cols-2 gap-8">
-              {matches.map((match, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                  <div className="flex items-start justify-between mb-4">
+            {/* Group matches by tier */}
+            {(() => {
+              // Group matches by their matchLevel tier
+              const groupedMatches = matches.reduce((groups, match) => {
+                const tier = typeof match.matchLevel === 'object' ? match.matchLevel.tier : 
+                  (match.matchLevel === 'Excellent Match' ? 'strong_match' :
+                   match.matchLevel === 'Good Match' ? 'good_match' :
+                   match.matchLevel === 'Moderate Match' ? 'potential_match' :
+                   match.matchLevel === 'Weak Match' ? 'weak_match' : 'gap_to_bridge');
+                
+                if (!groups[tier]) groups[tier] = [];
+                groups[tier].push(match);
+                return groups;
+              }, {});
+              
+              return (
+                <div className="space-y-12">
+                  {/* Strong Matches */}
+                  {groupedMatches.strong_match && groupedMatches.strong_match.length > 0 && (
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
-                        {match.details?.name || match.careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                      </h3>
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getMatchColor(match.matchLevel)}`}>
-                        #{index + 1} • {typeof match.matchLevel === 'object' ? match.matchLevel.level : match.matchLevel}
-                      </span>
-                    </div>
-                    <div className="text-right">
-                      <div className={`text-2xl font-bold ${getScoreColor(match.score)}`}>
-                        {match.score > 1 ? Math.round(match.score) : Math.round(match.score * 100)}%
+                      <div className="flex items-center mb-6">
+                        <span className="text-2xl mr-3">🟢</span>
+                        <h3 className="text-xl font-bold text-green-800">EXCELLENT MATCHES</h3>
+                        <span className="ml-3 text-sm text-green-600">Prerequisites met + high compatibility</span>
                       </div>
-                      <div className="text-sm text-gray-500">Match Score</div>
+                      <div className="grid lg:grid-cols-2 gap-6">
+                        {groupedMatches.strong_match.map((match, index) => (
+                          <MatchCard key={match.careerPath} match={match} index={index} tier="strong" />
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  
-                  <p className="text-gray-600 mb-4">
-                    {match.details?.description || 'A career path that aligns with your assessment results.'}
-                  </p>
-                  
-                  <div className="mb-4">
-                    <MiniCareerMap careerPath={match.careerPath} maxStages={3} />
-                  </div>
-                  
-                  <div className="flex gap-3">
-                    <Link 
-                      href={`/careerMap/?path=${match.careerPath}`}
-                      className="flex-1 text-center py-2 px-4 bg-primary-600 text-white rounded hover:bg-primary-700 transition-colors"
-                    >
-                      View Details
-                    </Link>
-                    <Link 
-                      href={`/actionPlan/?career=${match.careerPath}`}
-                      className="flex-1 text-center py-2 px-4 border border-primary-600 text-primary-600 rounded hover:bg-primary-50 transition-colors"
-                    >
-                      Action Plan
-                    </Link>
-                  </div>
+                  )}
+
+                  {/* Good Matches */}
+                  {groupedMatches.good_match && groupedMatches.good_match.length > 0 && (
+                    <div>
+                      <div className="flex items-center mb-6">
+                        <span className="text-2xl mr-3">🟡</span>
+                        <h3 className="text-xl font-bold text-blue-800">STRONG MATCHES</h3>
+                        <span className="ml-3 text-sm text-blue-600">Prerequisites met + good compatibility</span>
+                      </div>
+                      <div className="grid lg:grid-cols-2 gap-6">
+                        {groupedMatches.good_match.map((match, index) => (
+                          <MatchCard key={match.careerPath} match={match} index={index} tier="good" />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Potential Matches */}
+                  {groupedMatches.potential_match && groupedMatches.potential_match.length > 0 && (
+                    <div>
+                      <div className="flex items-center mb-6">
+                        <span className="text-2xl mr-3">🟠</span>
+                        <h3 className="text-xl font-bold text-yellow-800">POTENTIAL MATCHES</h3>
+                        <span className="ml-3 text-sm text-yellow-600">Some development needed</span>
+                      </div>
+                      <div className="grid lg:grid-cols-2 gap-6">
+                        {groupedMatches.potential_match.map((match, index) => (
+                          <MatchCard key={match.careerPath} match={match} index={index} tier="potential" />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Weak Matches */}
+                  {groupedMatches.weak_match && groupedMatches.weak_match.length > 0 && (
+                    <div>
+                      <div className="flex items-center mb-6">
+                        <span className="text-2xl mr-3">🔴</span>
+                        <h3 className="text-xl font-bold text-red-800">DEVELOPMENT NEEDED</h3>
+                        <span className="ml-3 text-sm text-red-600">Significant skill gaps to address</span>
+                      </div>
+                      <div className="grid lg:grid-cols-2 gap-6">
+                        {groupedMatches.weak_match.slice(0, 4).map((match, index) => (
+                          <MatchCard key={match.careerPath} match={match} index={index} tier="weak" />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Gap to Bridge */}
+                  {groupedMatches.gap_to_bridge && groupedMatches.gap_to_bridge.length > 0 && (
+                    <div>
+                      <div className="flex items-center mb-6">
+                        <span className="text-2xl mr-3">⚫</span>
+                        <h3 className="text-xl font-bold text-gray-800">MAJOR PREPARATION REQUIRED</h3>
+                        <span className="ml-3 text-sm text-gray-600">Missing critical prerequisites</span>
+                      </div>
+                      <div className="grid lg:grid-cols-2 gap-6">
+                        {groupedMatches.gap_to_bridge.slice(0, 2).map((match, index) => (
+                          <MatchCard key={match.careerPath} match={match} index={index} tier="gap" />
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              ))}
-            </div>
+              );
+            })()}
           </div>
         </section>
 
