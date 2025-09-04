@@ -416,9 +416,15 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
   
   // Get category-specific weights or use defaults
   const categoryKey = career.category?.toLowerCase().replace(/\s+/g, '_') || 'general';
-  const categoryWeights = enhancedTaxonomy.category_weights[categoryKey] || {
+  let categoryWeights = enhancedTaxonomy.category_weights[categoryKey] || {
     skills: 0.5, values: 0.3, temperament: 0.2
   };
+  
+  // Boost technical skill weights for data/engineering roles
+  const technicalCategories = ['data_science', 'software_engineering', 'ai_ml', 'biotech_engineering'];
+  if (technicalCategories.some(cat => career.category?.toLowerCase().includes(cat.replace('_', '')))) {
+    categoryWeights = { skills: 0.7, values: 0.2, temperament: 0.1 };
+  }
   
   const categoryScores = {
     skills: 0,
@@ -430,11 +436,14 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
   let domainBonus = 0;
   if (userDomain && career.domain_expertise) {
     const domainMatch = career.domain_expertise.includes(userDomain) || 
-                       career.domain_expertise.includes('any_technical') ||
-                       career.domain_expertise.includes('any');
+                       career.domain_expertise.includes('any_technical');
     if (domainMatch) {
       const domainData = enhancedTaxonomy.phd_domains[userDomain];
-      domainBonus = domainData ? domainData.bonus_multiplier - 1 : 0.15; // Default 15% bonus
+      domainBonus = domainData ? domainData.bonus_multiplier - 1 : 0.40; // Increased to 40% bonus
+    }
+    // Reduced bonus for 'any' domain to prevent over-matching
+    else if (career.domain_expertise.includes('any')) {
+      domainBonus = 0.05; // Only 5% bonus for generic matches
     }
   }
   
@@ -448,20 +457,22 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
       if (userTags[skill]) {
         let skillScore = userTags[skill] / maxTagValue;
         
-        // Apply complexity multiplier if available
+        // Apply complexity multiplier if available, but cap inflation
         if (career.skills.complexity_levels && career.skills.complexity_levels[skill]) {
           const complexity = career.skills.complexity_levels[skill];
           const complexityData = enhancedTaxonomy.skill_complexity[complexity];
           if (complexityData) {
-            skillScore *= complexityData.multiplier;
+            // Cap complexity multipliers to prevent over-inflation
+            const cappedMultiplier = Math.min(complexityData.multiplier, 1.5);
+            skillScore *= cappedMultiplier;
           }
         }
         
         // Apply domain expertise bonus to technical skills
         const technicalSkills = ['experimental design', 'computational biology', 'data modeling', 
-                                'machine learning', 'algorithms', 'programming'];
+                                'machine learning', 'algorithms', 'programming', 'data analysis'];
         if (technicalSkills.includes(skill) && domainBonus > 0) {
-          skillScore *= (1 + domainBonus * 0.4); // 40% of domain bonus applies to technical skills
+          skillScore *= (1 + domainBonus * 0.6); // Increased to 60% of domain bonus for technical skills
         }
         
         skillsTotal += skillScore;
@@ -469,7 +480,8 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
       }
     });
     
-    categoryScores.skills = skillMatches > 0 ? skillsTotal / skillsArray.length : 0;
+    // Use average of matched skills to reward specialization
+    categoryScores.skills = skillMatches > 0 ? skillsTotal / skillMatches : 0;
   }
   
   // Values calculation (unchanged for now)
@@ -482,7 +494,7 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
         valueMatches++;
       }
     });
-    categoryScores.values = valueMatches > 0 ? valuesTotal / career.values.length : 0;
+    categoryScores.values = valueMatches > 0 ? valuesTotal / valueMatches : 0;
   }
   
   // Temperament calculation (unchanged for now)
@@ -504,8 +516,19 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
     (categoryScores.values * categoryWeights.values) +
     (categoryScores.temperament * categoryWeights.temperament);
   
-  // Apply overall domain bonus
-  const finalScore = totalScore * (1 + domainBonus);
+  // Apply overall domain bonus with improved weighting
+  let finalScore = totalScore * (1 + domainBonus);
+  
+  // Special handling for intellectual property analyst - add prerequisite checking
+  if (career.id === 'intellectual_property_analyst') {
+    // Require evidence of technical writing or patent experience
+    const hasRelevantBackground = userTags['technical writing'] > 0 || 
+                                  userTags['patent law basics'] > 0 ||
+                                  userTags['research'] > 1;
+    if (!hasRelevantBackground) {
+      finalScore *= 0.3; // Significant penalty without relevant background
+    }
+  }
   
   return {
     total: Math.max(0, Math.min(1, finalScore)),
