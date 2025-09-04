@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "version": "3.0", 
-    "totalQuestions": 14,
-    "estimatedTime": "10-12 minutes",
-    "scoringCategories": ["skills", "values", "temperament"],
-    "features": ["PhD domain expertise matching", "Enhanced technical skill weighting", "All 49 career coverage"]
+    "version": "4.0", 
+    "totalQuestions": 22,
+    "estimatedTime": "12-15 minutes",
+    "scoringCategories": ["skills", "values", "temperament", "technical_prerequisites"],
+    "features": ["PhD domain expertise matching", "Technical prerequisite screening", "Knockout rules for realistic matching", "All 49 career coverage"]
   },
   "questions": [
     {
@@ -664,6 +664,11 @@
           "id": "e",
           "text": "Interdisciplinary (Computational Biology, Environmental Science)",
           "tags": ["interdisciplinary_domain", "cross_domain_expertise", "systems_approach"]
+        },
+        {
+          "id": "f",
+          "text": "Social Sciences (Psychology, Economics, Political Science)",
+          "tags": ["social_sciences_domain", "behavioral_research", "policy_research"]
         }
       ]
     },
@@ -700,13 +705,518 @@
           "tags": ["tool_development", "infrastructure", "technical_enablement"]
         }
       ]
+    },
+    {
+      "id": "programming_experience",
+      "category": "technical_prerequisites",
+      "type": "scale",
+      "question": "Rate your programming experience (any language):",
+      "description": "Consider your overall coding ability across any programming languages.",
+      "scale": {
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "None - No programming experience",
+          "1": "Basic - Simple scripts, basic syntax",
+          "2": "Intermediate - Can build applications, familiar with data structures",
+          "3": "Advanced - Complex projects, multiple languages, frameworks", 
+          "4": "Expert - Architecture design, optimization, teaching others"
+        }
+      }
+    },
+    {
+      "id": "programming_languages",
+      "category": "technical_prerequisites",
+      "type": "multiple_select",
+      "question": "Which programming languages have you used productively?",
+      "description": "Select all languages you've used for real projects or research.",
+      "options": [
+        {
+          "id": "python",
+          "text": "Python",
+          "tags": ["python", "data_science_tools", "ml_capable"]
+        },
+        {
+          "id": "r",
+          "text": "R",
+          "tags": ["r", "statistics_tools", "data_analysis"]
+        },
+        {
+          "id": "matlab",
+          "text": "MATLAB",
+          "tags": ["matlab", "mathematical_computing", "engineering_tools"]
+        },
+        {
+          "id": "cpp",
+          "text": "C/C++",
+          "tags": ["cpp", "systems_programming", "performance_critical"]
+        },
+        {
+          "id": "java",
+          "text": "Java",
+          "tags": ["java", "enterprise_development", "object_oriented"]
+        },
+        {
+          "id": "javascript",
+          "text": "JavaScript",
+          "tags": ["javascript", "web_development", "full_stack"]
+        },
+        {
+          "id": "sql",
+          "text": "SQL",
+          "tags": ["sql", "database_management", "data_querying"]
+        },
+        {
+          "id": "none",
+          "text": "None of these",
+          "tags": ["no_programming"]
+        }
+      ]
+    },
+    {
+      "id": "mathematics_background",
+      "category": "technical_prerequisites", 
+      "type": "scale",
+      "question": "Rate your mathematics/statistics background:",
+      "description": "Consider your formal training and practical application of mathematical concepts.",
+      "scale": {
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "High school level - Basic algebra, geometry",
+          "1": "Undergraduate - Calculus, basic statistics",
+          "2": "Graduate coursework - Advanced statistics, linear algebra",
+          "3": "Research level - Applied mathematical methods in research",
+          "4": "Expert level - Developing new mathematical approaches"
+        }
+      }
+    },
+    {
+      "id": "mathematical_areas",
+      "category": "technical_prerequisites",
+      "type": "multiple_select", 
+      "question": "Which mathematical areas have you studied/used?",
+      "description": "Select all areas where you have substantial knowledge.",
+      "options": [
+        {
+          "id": "statistics",
+          "text": "Statistics & Probability",
+          "tags": ["statistics", "probability", "data_analysis"]
+        },
+        {
+          "id": "linear_algebra", 
+          "text": "Linear Algebra",
+          "tags": ["linear_algebra", "matrix_operations", "ml_foundations"]
+        },
+        {
+          "id": "calculus",
+          "text": "Calculus & Differential Equations",
+          "tags": ["calculus", "differential_equations", "mathematical_modeling"]
+        },
+        {
+          "id": "optimization",
+          "text": "Optimization Theory",
+          "tags": ["optimization", "mathematical_optimization", "operations_research"]
+        },
+        {
+          "id": "numerical_methods",
+          "text": "Numerical Methods",
+          "tags": ["numerical_methods", "computational_mathematics", "simulation"]
+        },
+        {
+          "id": "none_advanced",
+          "text": "None of these advanced areas",
+          "tags": ["basic_mathematics"]
+        }
+      ]
+    },
+    {
+      "id": "data_analysis_experience",
+      "category": "technical_prerequisites",
+      "type": "scale", 
+      "question": "Rate your data analysis experience:",
+      "description": "Consider your ability to work with datasets and extract insights.",
+      "scale": {
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "None - No data analysis experience",
+          "1": "Basic - Excel, simple charts and calculations",
+          "2": "Statistical software - SPSS, SAS, basic R/Python",
+          "3": "Programming-based - Python/R for complex analysis",
+          "4": "Advanced - Machine learning, big data, predictive modeling"
+        }
+      }
+    },
+    {
+      "id": "data_tools_experience",
+      "category": "technical_prerequisites",
+      "type": "multiple_select",
+      "question": "Which data analysis tools have you used?",
+      "description": "Select all tools you've used for data analysis or research.",
+      "options": [
+        {
+          "id": "excel",
+          "text": "Excel/Google Sheets",
+          "tags": ["excel", "basic_data_tools", "spreadsheet_analysis"]
+        },
+        {
+          "id": "spss_sas",
+          "text": "SPSS/SAS",
+          "tags": ["spss", "sas", "statistical_software", "click_based_analysis"]
+        },
+        {
+          "id": "r_stats",
+          "text": "R (for statistics)",
+          "tags": ["r", "statistical_programming", "data_science"]
+        },
+        {
+          "id": "python_data",
+          "text": "Python (pandas/scikit-learn)",
+          "tags": ["python", "programming_based_analysis", "ml_tools"]
+        },
+        {
+          "id": "sql_databases",
+          "text": "SQL/Database querying", 
+          "tags": ["sql", "database_analysis", "data_querying"]
+        },
+        {
+          "id": "cloud_platforms",
+          "text": "Cloud platforms (AWS/GCP/Azure)",
+          "tags": ["cloud_computing", "scalable_analysis", "enterprise_tools"]
+        },
+        {
+          "id": "no_tools",
+          "text": "None of these",
+          "tags": ["no_data_tools"]
+        }
+      ]
+    },
+    {
+      "id": "research_methodology",
+      "category": "technical_prerequisites",
+      "type": "multiple_select",
+      "question": "Which research methodologies have you used extensively?",
+      "description": "Select methodologies you've applied in your research work.",
+      "options": [
+        {
+          "id": "experimental_design",
+          "text": "Experimental design & hypothesis testing",
+          "tags": ["experimental_design", "hypothesis_testing", "controlled_experiments"]
+        },
+        {
+          "id": "computational_modeling",
+          "text": "Computational modeling & simulation",
+          "tags": ["computational_modeling", "simulation", "mathematical_modeling"]
+        },
+        {
+          "id": "field_studies",
+          "text": "Field studies & observational research",
+          "tags": ["field_research", "observational_studies", "real_world_data"]
+        },
+        {
+          "id": "clinical_trials",
+          "text": "Clinical trials & human subjects research",
+          "tags": ["clinical_research", "human_subjects", "medical_research"]
+        },
+        {
+          "id": "survey_research",
+          "text": "Survey design & social science methods",
+          "tags": ["survey_research", "social_science", "qualitative_methods"]
+        },
+        {
+          "id": "literature_review",
+          "text": "Systematic literature review & meta-analysis",
+          "tags": ["literature_review", "meta_analysis", "systematic_review"]
+        }
+      ]
+    },
+    {
+      "id": "technical_writing_experience",
+      "category": "technical_prerequisites",
+      "type": "scale",
+      "question": "Rate your technical writing experience:",
+      "description": "Consider your ability to write technical documents, papers, and reports.",
+      "scale": {
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Minimal - Basic lab reports only",
+          "1": "Basic - Course assignments and simple reports", 
+          "2": "Intermediate - Research papers, detailed documentation",
+          "3": "Advanced - Published papers, grant writing",
+          "4": "Expert - Extensive publications, editorial experience"
+        }
+      }
+    },
+    {
+      "id": "business_finance_background",
+      "category": "technical_prerequisites",
+      "type": "scale",
+      "question": "Rate your business/finance background:",
+      "description": "Consider formal education or practical experience with business concepts.",
+      "scale": {
+        "min": 0,
+        "max": 3,
+        "labels": {
+          "0": "None - No business or finance background",
+          "1": "Basic - Some coursework or self-study",
+          "2": "Intermediate - Formal training, MBA, or significant experience", 
+          "3": "Advanced - Deep expertise in business/finance domains"
+        }
+      }
+    },
+    {
+      "id": "lab_experience",
+      "category": "technical_prerequisites",
+      "type": "scale",
+      "question": "Rate your hands-on laboratory experience:",
+      "description": "Consider wet lab, dry lab, field work, and experimental procedures.",
+      "scale": {
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "None - No laboratory experience",
+          "1": "Basic - Undergraduate labs, basic procedures",
+          "2": "Intermediate - Independent research, routine techniques", 
+          "3": "Advanced - Method development, complex protocols",
+          "4": "Expert - Lab management, novel technique development"
+        }
+      }
+    },
+    {
+      "id": "creative_design_experience",
+      "category": "technical_prerequisites", 
+      "type": "scale",
+      "question": "Rate your creative design experience:",
+      "description": "Consider illustration, graphic design, digital art, or visual communication.",
+      "scale": {
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "None - No design or artistic experience",
+          "1": "Basic - Hobbyist level, simple graphics",
+          "2": "Intermediate - Formal training, portfolio work",
+          "3": "Advanced - Professional projects, client work", 
+          "4": "Expert - Established artist, published work"
+        }
+      }
+    },
+    {
+      "id": "clinical_experience",
+      "category": "technical_prerequisites",
+      "type": "multiple_select",
+      "question": "Which clinical/medical experiences have you had?",
+      "description": "Select all relevant clinical or medical research experiences.",
+      "options": [
+        {
+          "id": "clinical_trials",
+          "text": "Clinical trials coordination or monitoring",
+          "tags": ["clinical_trials_experience", "human_subjects", "regulatory_compliance"]
+        },
+        {
+          "id": "patient_interaction",
+          "text": "Direct patient interaction or care",
+          "tags": ["patient_care", "clinical_communication", "healthcare_experience"]
+        },
+        {
+          "id": "medical_research",
+          "text": "Medical research or translational studies",
+          "tags": ["medical_research", "translational_science", "clinical_applications"]
+        },
+        {
+          "id": "regulatory_submission",
+          "text": "Regulatory submissions or compliance work",
+          "tags": ["regulatory_experience", "compliance", "documentation"]
+        },
+        {
+          "id": "none_clinical",
+          "text": "None of these",
+          "tags": ["no_clinical_experience"]
+        }
+      ]
     }
   ],
+  "knockout_rules": {
+    "ai_ml_engineer": {
+      "programming_experience": {"min": 2, "description": "Requires intermediate+ programming skills"},
+      "mathematics_background": {"min": 2, "description": "Requires graduate-level mathematics"},
+      "data_analysis_experience": {"min": 3, "description": "Requires programming-based data analysis"},
+      "required_tools": ["python_data", "r_stats"],
+      "required_math_areas": ["statistics", "linear_algebra"]
+    },
+    "quantitative_analyst": {
+      "mathematics_background": {"min": 2, "description": "Requires graduate-level mathematics"},
+      "data_analysis_experience": {"min": 2, "description": "Requires statistical software experience"},
+      "programming_experience": {"min": 1, "description": "Requires basic programming skills"},
+      "required_math_areas": ["statistics"],
+      "business_finance_background": {"min": 1, "description": "Requires some finance background"}
+    },
+    "bioinformatics_scientist": {
+      "phd_domain_1": ["a", "b"], 
+      "programming_experience": {"min": 2, "description": "Requires intermediate+ programming"},
+      "data_analysis_experience": {"min": 3, "description": "Requires programming-based analysis"},
+      "required_tools": ["python_data", "r_stats"],
+      "required_methods": ["computational_modeling", "experimental_design"]
+    },
+    "software_engineering": {
+      "programming_experience": {"min": 2, "description": "Requires intermediate+ programming"},
+      "required_languages": ["python", "java", "cpp", "javascript"],
+      "mathematics_background": {"min": 1, "description": "Requires undergraduate+ mathematics"}
+    },
+    "devops_engineer": {
+      "programming_experience": {"min": 2, "description": "Requires intermediate+ programming"},
+      "required_tools": ["python_data", "sql_databases", "cloud_platforms"],
+      "mathematics_background": {"min": 1, "description": "Requires undergraduate+ mathematics"}
+    },
+    "cybersecurity_analyst": {
+      "programming_experience": {"min": 1, "description": "Requires basic+ programming"},
+      "mathematics_background": {"min": 1, "description": "Requires undergraduate+ mathematics"},
+      "phd_domain_1": ["c", "d"]
+    },
+    "data_scientist": {
+      "programming_experience": {"min": 2, "description": "Requires intermediate+ programming"},
+      "mathematics_background": {"min": 2, "description": "Requires graduate-level mathematics"},
+      "data_analysis_experience": {"min": 3, "description": "Requires programming-based analysis"},
+      "required_tools": ["python_data", "r_stats"],
+      "required_math_areas": ["statistics"]
+    },
+    "biostatistician": {
+      "mathematics_background": {"min": 2, "description": "Requires graduate-level statistics"},
+      "data_analysis_experience": {"min": 2, "description": "Requires statistical analysis experience"},
+      "phd_domain_1": ["a"],
+      "required_math_areas": ["statistics"],
+      "required_methods": ["experimental_design"]
+    },
+    "financial_analyst": {
+      "mathematics_background": {"min": 1, "description": "Requires undergraduate+ mathematics"},
+      "data_analysis_experience": {"min": 2, "description": "Requires statistical analysis"},
+      "business_finance_background": {"min": 1, "description": "Requires finance background"},
+      "required_math_areas": ["statistics"]
+    },
+    "venture_capital_analyst": {
+      "business_finance_background": {"min": 1, "description": "Requires business background"},
+      "data_analysis_experience": {"min": 1, "description": "Requires basic analysis skills"}
+    },
+    "management_consultant": {
+      "data_analysis_experience": {"min": 2, "description": "Requires analytical capabilities"},
+      "mathematics_background": {"min": 1, "description": "Requires quantitative background"}
+    },
+    "technical_consulting": {
+      "programming_experience": {"min": 1, "description": "Requires technical background"},
+      "mathematics_background": {"min": 1, "description": "Requires quantitative skills"}
+    },
+    "r_and_d_scientist": {
+      "required_methods": ["experimental_design"],
+      "phd_domain_1": ["a", "b", "c"],
+      "lab_experience": {"min": 2, "description": "Requires hands-on laboratory experience"}
+    },
+    "process_development_scientist": {
+      "required_methods": ["experimental_design"],
+      "phd_domain_1": ["a", "b", "c"],
+      "lab_experience": {"min": 2, "description": "Requires laboratory and process experience"}
+    },
+    "research_scientist": {
+      "required_methods": ["experimental_design", "computational_modeling", "literature_review"],
+      "lab_experience": {"min": 1, "description": "Requires some research experience"}
+    },
+    "materials_scientist": {
+      "phd_domain_1": ["b", "c"],
+      "required_methods": ["experimental_design"],
+      "lab_experience": {"min": 2, "description": "Requires materials characterization experience"}
+    },
+    "chemical_engineer": {
+      "phd_domain_1": ["b", "c"],
+      "mathematics_background": {"min": 1, "description": "Requires mathematical background"},
+      "lab_experience": {"min": 1, "description": "Requires some experimental experience"}
+    },
+    "mechanical_engineer": {
+      "phd_domain_1": ["b", "c"],
+      "mathematics_background": {"min": 1, "description": "Requires mathematical background"}
+    },
+    "electrical_engineer": {
+      "phd_domain_1": ["b", "c"],
+      "mathematics_background": {"min": 1, "description": "Requires mathematical background"},
+      "programming_experience": {"min": 1, "description": "Requires basic programming"}
+    },
+    "biomedical_engineer": {
+      "phd_domain_1": ["a", "c"],
+      "mathematics_background": {"min": 1, "description": "Requires mathematical background"},
+      "lab_experience": {"min": 1, "description": "Requires experimental or design experience"}
+    },
+    "systems_engineer": {
+      "phd_domain_1": ["c"],
+      "mathematics_background": {"min": 1, "description": "Requires mathematical background"},
+      "programming_experience": {"min": 1, "description": "Requires technical skills"}
+    },
+    "regulatory_affairs_specialist": {
+      "phd_domain_1": ["a", "c"],
+      "technical_writing_experience": {"min": 2, "description": "Requires strong writing skills"},
+      "required_clinical": ["regulatory_submission", "medical_research"]
+    },
+    "clinical_research_associate": {
+      "phd_domain_1": ["a"],
+      "required_methods": ["clinical_trials", "experimental_design"],
+      "required_clinical": ["clinical_trials", "medical_research"]
+    },
+    "medical_science_liaison": {
+      "phd_domain_1": ["a"],
+      "technical_writing_experience": {"min": 2, "description": "Requires communication skills"},
+      "required_clinical": ["medical_research", "patient_interaction"]
+    },
+    "digital_health_scientist": {
+      "phd_domain_1": ["a"],
+      "data_analysis_experience": {"min": 2, "description": "Requires data analysis skills"},
+      "programming_experience": {"min": 1, "description": "Requires basic programming for health tech"}
+    },
+    "quality_assurance_specialist": {
+      "phd_domain_1": ["a", "c"],
+      "required_methods": ["experimental_design"],
+      "lab_experience": {"min": 1, "description": "Requires understanding of lab processes"}
+    },
+    "clinical_data_manager": {
+      "phd_domain_1": ["a"],
+      "data_analysis_experience": {"min": 2, "description": "Requires data management skills"},
+      "required_clinical": ["clinical_trials", "medical_research"]
+    },
+    "environmental_scientist": {
+      "phd_domain_1": ["a", "b", "e"],
+      "required_methods": ["field_studies", "experimental_design"],
+      "lab_experience": {"min": 1, "description": "Requires field or lab experience"}
+    },
+    "public_health_analyst": {
+      "phd_domain_1": ["a", "f"],
+      "data_analysis_experience": {"min": 2, "description": "Requires statistical analysis"},
+      "required_math_areas": ["statistics"]
+    },
+    "science_illustrator": {
+      "creative_design_experience": {"min": 2, "description": "Requires artistic and design skills"},
+      "technical_writing_experience": {"min": 1, "description": "Requires ability to understand technical content"}
+    },
+    "science_communicator": {
+      "technical_writing_experience": {"min": 2, "description": "Requires strong communication skills"}
+    },
+    "technical_writer": {
+      "technical_writing_experience": {"min": 2, "description": "Requires strong technical writing background"}
+    },
+    "scientific_writer": {
+      "technical_writing_experience": {"min": 3, "description": "Requires advanced scientific writing skills"},
+      "phd_domain_1": ["a", "b", "c", "d", "e"]
+    },
+    "copywriter": {
+      "technical_writing_experience": {"min": 1, "description": "Requires basic writing skills"}
+    },
+    "ux_researcher": {
+      "required_methods": ["survey_research", "field_studies"],
+      "data_analysis_experience": {"min": 1, "description": "Requires basic data analysis for user research"}
+    }
+  },
   "scoring": {
     "weights": {
-      "skills": 0.4,
-      "values": 0.35, 
-      "temperament": 0.25
+      "skills": 0.35,
+      "values": 0.3, 
+      "temperament": 0.2,
+      "technical_prerequisites": 0.15
     },
     "thresholds": {
       "excellent_match": 0.75,

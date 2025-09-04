@@ -95,12 +95,13 @@ export default function handler(req, res) {
       radarData.topMatchBreakdown = matches[0].categoryScores;
     }
 
-    // Return top 6 matches to account for better diversity with enhanced scoring
-    const topMatches = matches.slice(0, 6);
+    // Group matches by tier for better presentation
+    const groupedMatches = groupMatchesByTier(matches.slice(0, 8));
 
     res.status(200).json({
       success: true,
-      matches: topMatches,
+      matches: groupedMatches.all,
+      groupedMatches: groupedMatches.byTier,
       radarData,
       userProfile: {
         domain: userDomain,
@@ -109,11 +110,13 @@ export default function handler(req, res) {
           .slice(0, 5)
           .map(([tag]) => tag)
       },
+      recommendations: generateCareerRecommendations(groupedMatches.byTier, userDomain),
       metadata: {
         totalCareers: Object.keys(careerTimelineData.career_timelines).length,
         userTagCount: Object.keys(userTags).length,
         domainExpertise: userDomain,
         enhancedScoring: true,
+        qualifiedCareers: matches.length,
         timestamp: new Date().toISOString()
       }
     });
@@ -143,6 +146,12 @@ function calculateCareerMatches(answers) {
   allCareers.forEach(careerId => {
     const careerData = careerTimelineData.career_timelines[careerId];
     
+    // Check knockout rules first - skip career if user doesn't meet prerequisites
+    const knockoutResult = checkKnockoutRules(careerId, answers);
+    if (!knockoutResult.qualifies) {
+      return; // Skip this career entirely
+    }
+    
     // Try enhanced taxonomy first, fallback to original
     let careerProfile = enhancedTaxonomy.career_paths.find(c => c.id === careerId);
     if (!careerProfile) {
@@ -166,7 +175,8 @@ function calculateCareerMatches(answers) {
       totalScore: matchScore.total,
       categoryScores: matchScore.categories,
       domainMatch: matchScore.domainBonus,
-      matchLevel: getMatchLevel(matchScore.total),
+      prerequisites: knockoutResult.metRequirements,
+      matchLevel: getMatchLevel(matchScore.total, true, []),
       score: Math.round(matchScore.total * 100),
       details: {
         name: careerData.name,
@@ -230,6 +240,7 @@ function extractUserTagsWithDomain(answers) {
         else if (selectedOption.tags.includes('engineering_domain')) userDomain = 'engineering';
         else if (selectedOption.tags.includes('mathematical_domain')) userDomain = 'mathematical';
         else if (selectedOption.tags.includes('interdisciplinary_domain')) userDomain = 'interdisciplinary';
+        else if (selectedOption.tags.includes('social_sciences_domain')) userDomain = 'social_sciences';
       }
     }
     
@@ -245,6 +256,146 @@ function extractUserTagsWithDomain(answers) {
   });
   
   return { userTags, userDomain };
+}
+
+/**
+ * Check if user meets technical prerequisites for a specific career
+ */
+function checkKnockoutRules(careerId, answers) {
+  const rules = quizQuestions.knockout_rules?.[careerId];
+  if (!rules) {
+    return { qualifies: true, metRequirements: [], failedRequirements: [] };
+  }
+  
+  const metRequirements = [];
+  const failedRequirements = [];
+  
+  // Check minimum scale requirements
+  Object.entries(rules).forEach(([ruleKey, ruleValue]) => {
+    if (ruleKey.endsWith('_experience') || ruleKey.endsWith('_background')) {
+      const userResponse = parseInt(answers[ruleKey]) || 0;
+      const minRequired = ruleValue.min;
+      
+      if (userResponse >= minRequired) {
+        metRequirements.push(`${ruleKey}: ${userResponse} >= ${minRequired}`);
+      } else {
+        failedRequirements.push({
+          rule: ruleKey,
+          description: ruleValue.description,
+          userLevel: userResponse,
+          required: minRequired
+        });
+      }
+    }
+  });
+  
+  // Check PhD domain requirements
+  if (rules.phd_domain_1) {
+    const userDomain = answers.phd_domain_1;
+    if (rules.phd_domain_1.includes(userDomain)) {
+      metRequirements.push(`PhD domain: ${userDomain} matches required`);
+    } else {
+      failedRequirements.push({
+        rule: 'phd_domain_1',
+        description: 'PhD field requirement not met',
+        userChoice: userDomain,
+        required: rules.phd_domain_1
+      });
+    }
+  }
+  
+  // Check required tools (user must have selected at least one)
+  if (rules.required_tools) {
+    const userTools = answers.data_tools_experience || [];
+    const hasRequiredTool = rules.required_tools.some(tool => userTools.includes(tool));
+    
+    if (hasRequiredTool) {
+      metRequirements.push(`Required tools: has ${userTools.filter(t => rules.required_tools.includes(t)).join(', ')}`);
+    } else {
+      failedRequirements.push({
+        rule: 'required_tools',
+        description: 'Missing required data analysis tools',
+        userTools: userTools,
+        required: rules.required_tools
+      });
+    }
+  }
+  
+  // Check required programming languages (user must have at least one)
+  if (rules.required_languages) {
+    const userLanguages = answers.programming_languages || [];
+    const hasRequiredLanguage = rules.required_languages.some(lang => userLanguages.includes(lang));
+    
+    if (hasRequiredLanguage) {
+      metRequirements.push(`Programming: has ${userLanguages.filter(l => rules.required_languages.includes(l)).join(', ')}`);
+    } else {
+      failedRequirements.push({
+        rule: 'required_languages', 
+        description: 'Missing required programming languages',
+        userLanguages: userLanguages,
+        required: rules.required_languages
+      });
+    }
+  }
+  
+  // Check required mathematical areas (user must have at least one)
+  if (rules.required_math_areas) {
+    const userMathAreas = answers.mathematical_areas || [];
+    const hasRequiredMath = rules.required_math_areas.some(area => userMathAreas.includes(area));
+    
+    if (hasRequiredMath) {
+      metRequirements.push(`Math areas: has ${userMathAreas.filter(a => rules.required_math_areas.includes(a)).join(', ')}`);
+    } else {
+      failedRequirements.push({
+        rule: 'required_math_areas',
+        description: 'Missing required mathematical background',
+        userAreas: userMathAreas,
+        required: rules.required_math_areas
+      });
+    }
+  }
+  
+  // Check required research methods (user must have at least one)
+  if (rules.required_methods) {
+    const userMethods = answers.research_methodology || [];
+    const hasRequiredMethod = rules.required_methods.some(method => userMethods.includes(method));
+    
+    if (hasRequiredMethod) {
+      metRequirements.push(`Research methods: has ${userMethods.filter(m => rules.required_methods.includes(m)).join(', ')}`);
+    } else {
+      failedRequirements.push({
+        rule: 'required_methods',
+        description: 'Missing required research methodology background',
+        userMethods: userMethods,
+        required: rules.required_methods
+      });
+    }
+  }
+  
+  // Check required clinical experience (user must have at least one)
+  if (rules.required_clinical) {
+    const userClinical = answers.clinical_experience || [];
+    const hasRequiredClinical = rules.required_clinical.some(exp => userClinical.includes(exp));
+    
+    if (hasRequiredClinical) {
+      metRequirements.push(`Clinical experience: has ${userClinical.filter(c => rules.required_clinical.includes(c)).join(', ')}`);
+    } else {
+      failedRequirements.push({
+        rule: 'required_clinical',
+        description: 'Missing required clinical/medical experience',
+        userExperience: userClinical,
+        required: rules.required_clinical
+      });
+    }
+  }
+  
+  const qualifies = failedRequirements.length === 0;
+  
+  return {
+    qualifies,
+    metRequirements,
+    failedRequirements
+  };
 }
 
 /**
@@ -377,7 +528,7 @@ function calculateCareerMatches_Legacy(answers) {
       temperament: career.temperament,
       totalScore: matchScore.total,
       categoryScores: matchScore.categories,
-      matchLevel: getMatchLevel(matchScore.total),
+      matchLevel: getMatchLevel(matchScore.total, true, []),
       score: Math.round(matchScore.total * 100)
     });
   });
@@ -530,18 +681,109 @@ function calculateCareerScore(career, userTags) {
 }
 
 /**
- * Determine match level based on score
+ * Get match level and tier with qualitative feedback
  */
-function getMatchLevel(score) {
-  const thresholds = quizQuestions.scoring.thresholds;
-  
-  if (score >= thresholds.excellent_match) {
-    return 'Excellent Match';
-  } else if (score >= thresholds.good_match) {
-    return 'Good Match';
-  } else if (score >= thresholds.moderate_match) {
-    return 'Moderate Match';
-  } else {
-    return 'Poor Match';
+function getMatchLevel(score, hasAllPrereqs = true, failedRequirements = []) {
+  if (!hasAllPrereqs) {
+    return {
+      tier: 'gap_to_bridge',
+      level: 'Gap to Bridge',
+      emoji: '🔴',
+      description: 'High compatibility but missing key prerequisites',
+      gapCount: failedRequirements.length
+    };
   }
+  
+  if (score >= 0.80) {
+    return {
+      tier: 'strong_match',
+      level: 'Strong Match', 
+      emoji: '🟢',
+      description: 'Prerequisites met with high compatibility'
+    };
+  }
+  
+  if (score >= 0.60) {
+    return {
+      tier: 'good_match',
+      level: 'Good Match',
+      emoji: '🟡', 
+      description: 'Prerequisites met with good compatibility'
+    };
+  }
+  
+  if (score >= 0.40) {
+    return {
+      tier: 'potential_match',
+      level: 'Potential Match',
+      emoji: '🟠',
+      description: 'Prerequisites met but consider skill development'
+    };
+  }
+  
+  return {
+    tier: 'weak_match',
+    level: 'Weak Match',
+    emoji: '⚪',
+    description: 'Prerequisites met but low compatibility'
+  };
+}
+
+/**
+ * Group career matches by tier for presentation
+ */
+function groupMatchesByTier(matches) {
+  const byTier = {
+    strong_match: [],
+    good_match: [], 
+    potential_match: [],
+    weak_match: [],
+    gap_to_bridge: []
+  };
+  
+  matches.forEach(match => {
+    const tier = match.matchLevel.tier;
+    if (byTier[tier]) {
+      byTier[tier].push(match);
+    }
+  });
+  
+  return {
+    byTier,
+    all: matches
+  };
+}
+
+/**
+ * Generate personalized career recommendations
+ */
+function generateCareerRecommendations(groupedMatches, userDomain) {
+  const recommendations = {
+    immediate: [],
+    withPreparation: [],
+    gapAnalysis: []
+  };
+  
+  // Immediate recommendations (Strong + Good matches)
+  const immediate = [...groupedMatches.strong_match, ...groupedMatches.good_match];
+  if (immediate.length > 0) {
+    recommendations.immediate = immediate.slice(0, 3).map(match => ({
+      career: match.name,
+      reason: `Your ${userDomain || 'academic'} background and skills align well with this role`,
+      nextSteps: `Highlight your ${match.prerequisites.slice(0, 2).join(', ')} in applications`
+    }));
+  }
+  
+  // With preparation (Potential matches)
+  if (groupedMatches.potential_match.length > 0) {
+    recommendations.withPreparation = groupedMatches.potential_match.slice(0, 2).map(match => ({
+      career: match.name,
+      reason: "Prerequisites met but consider developing complementary skills",
+      skillGaps: ["Consider industry-specific training", "Build professional network in this field"]
+    }));
+  }
+  
+  // Gap analysis for blocked careers would go here
+  
+  return recommendations;
 }
