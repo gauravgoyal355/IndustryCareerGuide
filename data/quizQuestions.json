@@ -1,9 +1,10 @@
 {
   "metadata": {
-    "version": "2.0",
-    "totalQuestions": 20,
-    "estimatedTime": "8-10 minutes",
-    "scoringCategories": ["skills", "values", "temperament"]
+    "version": "3.0", 
+    "totalQuestions": 14,
+    "estimatedTime": "10-12 minutes",
+    "scoringCategories": ["skills", "values", "temperament"],
+    "features": ["PhD domain expertise matching", "Enhanced technical skill weighting", "All 49 career coverage"]
   },
   "questions": [
     {
@@ -629,6 +630,74 @@
           "id": "e",
           "text": "Social problems requiring policy and systemic change",
           "tags": ["policy analysis", "stakeholder engagement", "research"]
+        }
+      ]
+    },
+    {
+      "id": "phd_domain_1",
+      "category": "skills",
+      "type": "multiple_choice",
+      "question": "Which domain best describes your PhD/research background?",
+      "description": "This helps us match you with careers that leverage your specific expertise.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Life Sciences (Biology, Biochemistry, Genetics, Neuroscience)",
+          "tags": ["life_sciences_domain", "experimental_expertise", "biological_systems"]
+        },
+        {
+          "id": "b",
+          "text": "Physical Sciences (Physics, Chemistry, Materials, Earth Sciences)",
+          "tags": ["physical_sciences_domain", "quantitative_modeling", "laboratory_expertise"]
+        },
+        {
+          "id": "c",
+          "text": "Engineering (Biomedical, Chemical, Mechanical, Electrical)",
+          "tags": ["engineering_domain", "systems_thinking", "technical_design"]
+        },
+        {
+          "id": "d",
+          "text": "Mathematical/Computational (Math, Statistics, Computer Science)",
+          "tags": ["mathematical_domain", "computational_expertise", "algorithmic_thinking"]
+        },
+        {
+          "id": "e",
+          "text": "Interdisciplinary (Computational Biology, Environmental Science)",
+          "tags": ["interdisciplinary_domain", "cross_domain_expertise", "systems_approach"]
+        }
+      ]
+    },
+    {
+      "id": "technical_depth_1",
+      "category": "skills",
+      "type": "multiple_choice",
+      "question": "How do you prefer to apply your technical expertise?",
+      "description": "Consider where your specialized knowledge adds the most value.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deep research and experimental work in my domain",
+          "tags": ["domain_expertise", "experimental_design", "research_depth"]
+        },
+        {
+          "id": "b", 
+          "text": "Cross-domain collaboration and knowledge integration",
+          "tags": ["interdisciplinary_work", "knowledge_synthesis", "collaboration"]
+        },
+        {
+          "id": "c",
+          "text": "Translating technical knowledge for business applications",
+          "tags": ["technical_translation", "business_application", "communication"]
+        },
+        {
+          "id": "d",
+          "text": "Teaching and mentoring others in technical concepts",
+          "tags": ["knowledge_transfer", "teaching", "mentoring"]
+        },
+        {
+          "id": "e",
+          "text": "Building tools and systems that enable others' research",
+          "tags": ["tool_development", "infrastructure", "technical_enablement"]
         }
       ]
     }

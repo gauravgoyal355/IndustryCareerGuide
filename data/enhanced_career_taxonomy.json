@@ -1,0 +1,1033 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "description": "Complete enhanced career taxonomy with domain expertise weighting for improved PhD-to-industry matching",
+    "total_careers": 49,
+    "scoring_features": [
+      "Domain expertise weighting (40% of technical score)",
+      "Skill complexity levels (1x-3x multipliers)", 
+      "PhD field alignment bonuses (25% multiplier)",
+      "Category-specific scoring weights",
+      "Technical depth requirements"
+    ]
+  },
+  "phd_domains": {
+    "life_sciences": {
+      "fields": ["biology", "biochemistry", "genetics", "neuroscience", "pharmacology", "immunology", "microbiology"],
+      "bonus_multiplier": 1.25
+    },
+    "physical_sciences": {
+      "fields": ["physics", "chemistry", "materials", "geology", "astronomy"],
+      "bonus_multiplier": 1.25
+    },
+    "engineering": {
+      "fields": ["biomedical", "chemical", "mechanical", "electrical", "computer", "systems"],
+      "bonus_multiplier": 1.25
+    },
+    "mathematical": {
+      "fields": ["mathematics", "statistics", "computer_science", "operations_research"],
+      "bonus_multiplier": 1.25
+    },
+    "social_sciences": {
+      "fields": ["psychology", "sociology", "anthropology", "political_science", "economics"],
+      "bonus_multiplier": 1.15
+    },
+    "interdisciplinary": {
+      "fields": ["computational_biology", "bioinformatics", "data_science", "environmental_science"],
+      "bonus_multiplier": 1.3
+    }
+  },
+  "skill_complexity": {
+    "basic": {
+      "multiplier": 1.0,
+      "examples": ["communication", "teamwork", "organization"]
+    },
+    "intermediate": {
+      "multiplier": 1.5,
+      "examples": ["project_management", "data_analysis", "programming"]
+    },
+    "advanced": {
+      "multiplier": 2.0,
+      "examples": ["machine_learning", "clinical_trials", "patent_analysis"]
+    },
+    "expert": {
+      "multiplier": 3.0,
+      "examples": ["computational_biology", "regulatory_strategy", "ip_portfolio"]
+    }
+  },
+  "category_weights": {
+    "research_development": {
+      "skills": 0.6,
+      "values": 0.25,
+      "temperament": 0.15
+    },
+    "healthcare_lifesciences": {
+      "skills": 0.55,
+      "values": 0.3,
+      "temperament": 0.15
+    },
+    "data_analytics": {
+      "skills": 0.7,
+      "values": 0.2,
+      "temperament": 0.1
+    },
+    "business_strategy": {
+      "skills": 0.4,
+      "values": 0.4,
+      "temperament": 0.2
+    },
+    "communication_creative": {
+      "skills": 0.45,
+      "values": 0.35,
+      "temperament": 0.2
+    },
+    "technology_engineering": {
+      "skills": 0.65,
+      "values": 0.2,
+      "temperament": 0.15
+    },
+    "policy_social": {
+      "skills": 0.4,
+      "values": 0.45,
+      "temperament": 0.15
+    },
+    "legal_ip": {
+      "skills": 0.5,
+      "values": 0.3,
+      "temperament": 0.2
+    }
+  },
+  "career_paths": [
+    {
+      "id": "data_scientist",
+      "name": "Data Scientist",
+      "category": "data_analytics",
+      "description": "Analyzes complex datasets and builds predictive models to drive business insights",
+      "domain_expertise": ["mathematical", "life_sciences", "interdisciplinary"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["data analysis", "statistics", "programming", "machine learning"],
+        "complexity_levels": {
+          "data analysis": "intermediate",
+          "statistics": "advanced", 
+          "programming": "intermediate",
+          "machine learning": "advanced"
+        }
+      },
+      "values": ["innovation", "evidence-based decisions", "intellectual challenge"],
+      "temperament": ["analytical", "independent", "curious"]
+    },
+    {
+      "id": "r_and_d_scientist",
+      "name": "R&D Scientist",
+      "category": "research_development",
+      "description": "Conducts experiments and develops new products or technologies within biotech, pharma, or industry labs",
+      "domain_expertise": ["life_sciences", "physical_sciences", "engineering"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["experimental design", "lab techniques", "data analysis", "scientific method"],
+        "complexity_levels": {
+          "experimental design": "expert",
+          "lab techniques": "advanced",
+          "data analysis": "intermediate",
+          "scientific method": "expert"
+        }
+      },
+      "values": ["innovation", "problem-solving", "intellectual challenge"],
+      "temperament": ["detail-oriented", "persistent", "curious"]
+    },
+    {
+      "id": "product_manager",
+      "name": "Product Manager", 
+      "category": "business_strategy",
+      "description": "Coordinates between science, engineering, and business to develop and launch products",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["project management", "market analysis", "communication", "strategic thinking"],
+        "complexity_levels": {
+          "project management": "intermediate",
+          "market analysis": "intermediate",
+          "communication": "basic",
+          "strategic thinking": "advanced"
+        }
+      },
+      "values": ["impact", "efficiency", "customer focus"],
+      "temperament": ["decisive", "strategic", "organized"]
+    },
+    {
+      "id": "management_consultant",
+      "name": "Management Consultant",
+      "category": "business_strategy", 
+      "description": "Advises companies on strategy, operations, and growth opportunities using analytical expertise",
+      "domain_expertise": ["any"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["problem-solving", "data analysis", "communication", "strategic thinking"],
+        "complexity_levels": {
+          "problem-solving": "advanced",
+          "data analysis": "advanced",
+          "communication": "intermediate",
+          "strategic thinking": "advanced"
+        }
+      },
+      "values": ["impact", "challenge", "efficiency"],
+      "temperament": ["analytical", "adaptable", "persuasive"]
+    },
+    {
+      "id": "software_engineering",
+      "name": "Software Engineer",
+      "category": "technology_engineering",
+      "description": "Designs and develops software applications and systems",
+      "domain_expertise": ["mathematical", "engineering"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["programming", "algorithms", "system design", "problem-solving"],
+        "complexity_levels": {
+          "programming": "advanced",
+          "algorithms": "advanced", 
+          "system design": "advanced",
+          "problem-solving": "intermediate"
+        }
+      },
+      "values": ["innovation", "precision", "technical excellence"],
+      "temperament": ["logical", "persistent", "detail-oriented"]
+    },
+    {
+      "id": "bioinformatics_scientist",
+      "name": "Bioinformatics Scientist",
+      "category": "data_analytics",
+      "description": "Uses computational tools to analyze biological data such as genomics, proteomics, or imaging",
+      "domain_expertise": ["interdisciplinary", "life_sciences", "mathematical"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["computational biology", "programming", "data modeling", "biological knowledge"],
+        "complexity_levels": {
+          "computational biology": "expert",
+          "programming": "advanced",
+          "data modeling": "advanced",
+          "biological knowledge": "expert"
+        }
+      },
+      "values": ["precision", "innovation", "cross-disciplinary work"],
+      "temperament": ["logical", "curious", "persistent"]
+    },
+    {
+      "id": "medical_science_liaison",
+      "name": "Medical Science Liaison",
+      "category": "healthcare_lifesciences",
+      "description": "Serves as scientific expert connecting pharma/biotech companies with clinicians and researchers",
+      "domain_expertise": ["life_sciences"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["communication", "scientific expertise", "relationship building", "medical knowledge"],
+        "complexity_levels": {
+          "communication": "advanced",
+          "scientific expertise": "expert",
+          "relationship building": "intermediate",
+          "medical knowledge": "advanced"
+        }
+      },
+      "values": ["collaboration", "knowledge-sharing", "impact"],
+      "temperament": ["extroverted", "empathetic", "credible"]
+    },
+    {
+      "id": "ai_ml_engineer",
+      "name": "AI/ML Engineer",
+      "category": "technology_engineering",
+      "description": "Develops and deploys machine learning systems and artificial intelligence applications",
+      "domain_expertise": ["mathematical", "engineering", "interdisciplinary"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["machine learning", "programming", "algorithms", "data modeling"],
+        "complexity_levels": {
+          "machine learning": "expert",
+          "programming": "advanced",
+          "algorithms": "expert",
+          "data modeling": "advanced"
+        }
+      },
+      "values": ["innovation", "technical excellence", "intellectual challenge"],
+      "temperament": ["logical", "persistent", "curious"]
+    },
+    {
+      "id": "quantitative_analyst",
+      "name": "Quantitative Analyst",
+      "category": "data_analytics",
+      "description": "Applies mathematical and statistical methods to analyze financial markets and risk",
+      "domain_expertise": ["mathematical", "physical_sciences"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["financial modeling", "statistics", "programming", "risk assessment"],
+        "complexity_levels": {
+          "financial modeling": "expert",
+          "statistics": "expert",
+          "programming": "advanced",
+          "risk assessment": "advanced"
+        }
+      },
+      "values": ["precision", "analytical rigor", "financial success"],
+      "temperament": ["analytical", "detail-oriented", "systematic"]
+    },
+    {
+      "id": "venture_capital_analyst",
+      "name": "Venture Capital Analyst",
+      "category": "business_strategy",
+      "description": "Evaluates startup technologies, performs due diligence, and advises investment decisions",
+      "domain_expertise": ["any"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["financial modeling", "market analysis", "technical assessment", "strategic thinking"],
+        "complexity_levels": {
+          "financial modeling": "advanced",
+          "market analysis": "advanced",
+          "technical assessment": "advanced",
+          "strategic thinking": "advanced"
+        }
+      },
+      "values": ["innovation", "entrepreneurship", "risk-taking"],
+      "temperament": ["curious", "strategic", "decisive"]
+    },
+    {
+      "id": "scientific_writer",
+      "name": "Scientific Writer",
+      "category": "communication_creative",
+      "description": "Translates complex scientific information into clear, accessible documents for publications, grants, or industry",
+      "domain_expertise": ["life_sciences", "physical_sciences", "any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["scientific writing", "editing", "literature analysis", "communication"],
+        "complexity_levels": {
+          "scientific writing": "advanced",
+          "editing": "intermediate",
+          "literature analysis": "advanced",
+          "communication": "intermediate"
+        }
+      },
+      "values": ["clarity", "knowledge-sharing", "precision"],
+      "temperament": ["detail-oriented", "patient", "independent"]
+    },
+    {
+      "id": "ux_researcher",
+      "name": "UX Researcher",
+      "category": "communication_creative",
+      "description": "Applies research skills to study user behavior and improve product interfaces",
+      "domain_expertise": ["social_sciences", "interdisciplinary"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["user research", "data analysis", "design thinking", "communication"],
+        "complexity_levels": {
+          "user research": "intermediate",
+          "data analysis": "intermediate",
+          "design thinking": "intermediate",
+          "communication": "intermediate"
+        }
+      },
+      "values": ["user-centered design", "innovation", "efficiency"],
+      "temperament": ["empathetic", "curious", "collaborative"]
+    },
+    {
+      "id": "technical_consulting",
+      "name": "Technical Consultant",
+      "category": "business_strategy",
+      "description": "Provides specialized technical expertise to solve complex business and technical challenges",
+      "domain_expertise": ["any"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["technical expertise", "problem-solving", "communication", "project management"],
+        "complexity_levels": {
+          "technical expertise": "expert",
+          "problem-solving": "advanced",
+          "communication": "advanced",
+          "project management": "intermediate"
+        }
+      },
+      "values": ["impact", "challenge", "knowledge-sharing"],
+      "temperament": ["analytical", "adaptable", "communicative"]
+    },
+    {
+      "id": "biostatistician",
+      "name": "Biostatistician",
+      "category": "data_analytics",
+      "description": "Applies statistical methods to biological and health data for research and clinical applications",
+      "domain_expertise": ["life_sciences", "mathematical"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["statistics", "data analysis", "experimental design", "biological knowledge"],
+        "complexity_levels": {
+          "statistics": "expert",
+          "data analysis": "advanced",
+          "experimental design": "advanced",
+          "biological knowledge": "intermediate"
+        }
+      },
+      "values": ["precision", "evidence-based decisions", "scientific rigor"],
+      "temperament": ["analytical", "detail-oriented", "systematic"]
+    },
+    {
+      "id": "regulatory_affairs_specialist",
+      "name": "Regulatory Affairs Specialist",
+      "category": "healthcare_lifesciences",
+      "description": "Ensures compliance with government regulations for new drugs, devices, or technologies",
+      "domain_expertise": ["life_sciences", "engineering"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["regulatory knowledge", "technical writing", "risk assessment", "project management"],
+        "complexity_levels": {
+          "regulatory knowledge": "advanced",
+          "technical writing": "intermediate",
+          "risk assessment": "advanced",
+          "project management": "intermediate"
+        }
+      },
+      "values": ["compliance", "safety", "accuracy"],
+      "temperament": ["organized", "risk-aware", "conscientious"]
+    },
+    {
+      "id": "clinical_research_associate",
+      "name": "Clinical Research Associate",
+      "category": "healthcare_lifesciences",
+      "description": "Oversees clinical trials and ensures protocols and safety regulations are followed",
+      "domain_expertise": ["life_sciences"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["clinical trial management", "data monitoring", "regulatory knowledge", "project management"],
+        "complexity_levels": {
+          "clinical trial management": "advanced",
+          "data monitoring": "intermediate",
+          "regulatory knowledge": "intermediate",
+          "project management": "intermediate"
+        }
+      },
+      "values": ["ethics", "patient safety", "precision"],
+      "temperament": ["responsible", "detail-focused", "calm under pressure"]
+    },
+    {
+      "id": "technology_transfer_officer",
+      "name": "Technology Transfer Officer",
+      "category": "business_strategy",
+      "description": "Helps move innovations from academia into commercial applications through licensing and partnerships",
+      "domain_expertise": ["any"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["IP knowledge", "negotiation", "market assessment", "technical evaluation"],
+        "complexity_levels": {
+          "IP knowledge": "advanced",
+          "negotiation": "intermediate",
+          "market assessment": "intermediate",
+          "technical evaluation": "advanced"
+        }
+      },
+      "values": ["innovation", "commercialization", "translation to impact"],
+      "temperament": ["pragmatic", "strategic", "communicative"]
+    },
+    {
+      "id": "intellectual_property_analyst",
+      "name": "Intellectual Property Analyst",
+      "category": "legal_ip",
+      "description": "Assesses patent landscapes, writes patents, and helps organizations protect their innovations",
+      "domain_expertise": ["any"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["patent law basics", "analytical thinking", "technical writing", "research"],
+        "complexity_levels": {
+          "patent law basics": "advanced",
+          "analytical thinking": "advanced",
+          "technical writing": "advanced",
+          "research": "advanced"
+        }
+      },
+      "values": ["protection", "strategy", "innovation"],
+      "temperament": ["detail-oriented", "systematic", "precise"]
+    },
+    {
+      "id": "process_development_scientist",
+      "name": "Process Development Scientist",
+      "category": "research_development",
+      "description": "Optimizes lab discoveries into scalable, manufacturable processes for industry use",
+      "domain_expertise": ["life_sciences", "engineering", "physical_sciences"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["process optimization", "quality control", "project management", "technical expertise"],
+        "complexity_levels": {
+          "process optimization": "advanced",
+          "quality control": "advanced",
+          "project management": "intermediate",
+          "technical expertise": "expert"
+        }
+      },
+      "values": ["efficiency", "practical impact", "teamwork"],
+      "temperament": ["structured", "methodical", "reliable"]
+    },
+    {
+      "id": "devops_engineer",
+      "name": "DevOps Engineer",
+      "category": "technology_engineering",
+      "description": "Builds and maintains infrastructure and deployment pipelines for software applications",
+      "domain_expertise": ["engineering", "mathematical"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["system administration", "automation", "programming", "infrastructure"],
+        "complexity_levels": {
+          "system administration": "advanced",
+          "automation": "advanced",
+          "programming": "intermediate",
+          "infrastructure": "advanced"
+        }
+      },
+      "values": ["efficiency", "reliability", "automation"],
+      "temperament": ["systematic", "problem-solving", "detail-oriented"]
+    },
+    {
+      "id": "cybersecurity_analyst",
+      "name": "Cybersecurity Analyst",
+      "category": "technology_engineering",
+      "description": "Protects organizations from cyber threats through security analysis and risk management",
+      "domain_expertise": ["engineering", "mathematical"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["security analysis", "risk assessment", "technical expertise", "problem-solving"],
+        "complexity_levels": {
+          "security analysis": "advanced",
+          "risk assessment": "advanced",
+          "technical expertise": "advanced",
+          "problem-solving": "intermediate"
+        }
+      },
+      "values": ["security", "risk management", "protection"],
+      "temperament": ["analytical", "detail-oriented", "vigilant"]
+    },
+    {
+      "id": "digital_health_scientist",
+      "name": "Digital Health Scientist",
+      "category": "healthcare_lifesciences",
+      "description": "Develops digital health technologies and analyzes health data for improved patient outcomes",
+      "domain_expertise": ["life_sciences", "interdisciplinary"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["health informatics", "data analysis", "medical knowledge", "technology"],
+        "complexity_levels": {
+          "health informatics": "advanced",
+          "data analysis": "advanced",
+          "medical knowledge": "advanced",
+          "technology": "intermediate"
+        }
+      },
+      "values": ["patient care", "innovation", "health impact"],
+      "temperament": ["analytical", "empathetic", "innovative"]
+    },
+    {
+      "id": "science_communicator",
+      "name": "Science Communicator",
+      "category": "communication_creative",
+      "description": "Engages public audiences with science via media, events, podcasts, or museums",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["public speaking", "storytelling", "digital media", "communication"],
+        "complexity_levels": {
+          "public speaking": "intermediate",
+          "storytelling": "intermediate",
+          "digital media": "basic",
+          "communication": "advanced"
+        }
+      },
+      "values": ["education", "engagement", "creativity"],
+      "temperament": ["outgoing", "empathetic", "expressive"]
+    },
+    {
+      "id": "science_illustrator",
+      "name": "Science Illustrator",
+      "category": "communication_creative",
+      "description": "Creates visuals and animations that explain scientific processes and data",
+      "domain_expertise": ["life_sciences", "physical_sciences"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["illustration", "animation", "design software", "scientific knowledge"],
+        "complexity_levels": {
+          "illustration": "advanced",
+          "animation": "intermediate",
+          "design software": "intermediate",
+          "scientific knowledge": "advanced"
+        }
+      },
+      "values": ["clarity", "creativity", "aesthetics"],
+      "temperament": ["visual thinker", "creative", "patient"]
+    },
+    {
+      "id": "technical_writer",
+      "name": "Technical Writer",
+      "category": "communication_creative",
+      "description": "Writes manuals, documentation, and user guides for complex technologies",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["technical writing", "editing", "information structuring", "communication"],
+        "complexity_levels": {
+          "technical writing": "advanced",
+          "editing": "intermediate",
+          "information structuring": "intermediate",
+          "communication": "intermediate"
+        }
+      },
+      "values": ["clarity", "accuracy", "usability"],
+      "temperament": ["detail-focused", "organized", "independent"]
+    },
+    {
+      "id": "copywriter",
+      "name": "Copywriter",
+      "category": "communication_creative",
+      "description": "Crafts persuasive marketing and branding content for companies with technical products",
+      "domain_expertise": ["any"],
+      "technical_complexity": "basic",
+      "skills": {
+        "required": ["storytelling", "marketing", "writing", "communication"],
+        "complexity_levels": {
+          "storytelling": "intermediate",
+          "marketing": "basic",
+          "writing": "intermediate",
+          "communication": "intermediate"
+        }
+      },
+      "values": ["persuasion", "creativity", "impact"],
+      "temperament": ["expressive", "creative", "adaptable"]
+    },
+    {
+      "id": "market_analyst",
+      "name": "Market Analyst",
+      "category": "business_strategy",
+      "description": "Analyzes market trends, competition, and opportunities to guide business decisions",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["market research", "data analysis", "forecasting", "strategic thinking"],
+        "complexity_levels": {
+          "market research": "intermediate",
+          "data analysis": "intermediate",
+          "forecasting": "advanced",
+          "strategic thinking": "intermediate"
+        }
+      },
+      "values": ["strategy", "impact", "evidence-based decisions"],
+      "temperament": ["analytical", "curious", "systematic"]
+    },
+    {
+      "id": "business_development_manager",
+      "name": "Business Development Manager",
+      "category": "business_strategy",
+      "description": "Builds partnerships, negotiates deals, and drives growth opportunities for companies",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["negotiation", "relationship building", "strategic thinking", "communication"],
+        "complexity_levels": {
+          "negotiation": "advanced",
+          "relationship building": "intermediate",
+          "strategic thinking": "advanced",
+          "communication": "intermediate"
+        }
+      },
+      "values": ["growth", "partnerships", "impact"],
+      "temperament": ["extroverted", "strategic", "decisive"]
+    },
+    {
+      "id": "entrepreneur_startup_founder",
+      "name": "Entrepreneur/Startup Founder",
+      "category": "business_strategy",
+      "description": "Leverages scientific expertise to create and grow a new company or product",
+      "domain_expertise": ["any"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["entrepreneurship", "fundraising", "risk management", "leadership"],
+        "complexity_levels": {
+          "entrepreneurship": "advanced",
+          "fundraising": "intermediate",
+          "risk management": "advanced",
+          "leadership": "intermediate"
+        }
+      },
+      "values": ["independence", "innovation", "risk-taking"],
+      "temperament": ["resilient", "decisive", "visionary"]
+    },
+    {
+      "id": "operations_manager",
+      "name": "Operations Manager",
+      "category": "business_strategy",
+      "description": "Oversees teams, resources, and workflows to ensure organizational efficiency",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["leadership", "project management", "operations", "process optimization"],
+        "complexity_levels": {
+          "leadership": "intermediate",
+          "project management": "intermediate",
+          "operations": "advanced",
+          "process optimization": "advanced"
+        }
+      },
+      "values": ["efficiency", "stability", "team success"],
+      "temperament": ["organized", "decisive", "practical"]
+    },
+    {
+      "id": "science_policy_analyst",
+      "name": "Science Policy Analyst",
+      "category": "policy_social",
+      "description": "Advises policymakers and organizations on science-related issues and policies",
+      "domain_expertise": ["any"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["policy analysis", "communication", "research", "stakeholder engagement"],
+        "complexity_levels": {
+          "policy analysis": "advanced",
+          "communication": "advanced",
+          "research": "advanced",
+          "stakeholder engagement": "intermediate"
+        }
+      },
+      "values": ["societal impact", "ethics", "evidence-based decisions"],
+      "temperament": ["strategic", "analytical", "communicative"]
+    },
+    {
+      "id": "nonprofit_program_manager",
+      "name": "Nonprofit Program Manager",
+      "category": "policy_social",
+      "description": "Manages programs in education, health, or environment at mission-driven organizations",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["program management", "fundraising", "stakeholder engagement", "project management"],
+        "complexity_levels": {
+          "program management": "intermediate",
+          "fundraising": "intermediate",
+          "stakeholder engagement": "intermediate",
+          "project management": "intermediate"
+        }
+      },
+      "values": ["mission-driven work", "impact", "community"],
+      "temperament": ["empathetic", "organized", "pragmatic"]
+    },
+    {
+      "id": "education_and_outreach_specialist",
+      "name": "STEM Education Specialist",
+      "category": "policy_social",
+      "description": "Designs and runs outreach or educational programs to inspire students and the public",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["teaching", "curriculum design", "communication", "program management"],
+        "complexity_levels": {
+          "teaching": "intermediate",
+          "curriculum design": "intermediate",
+          "communication": "intermediate",
+          "program management": "basic"
+        }
+      },
+      "values": ["education", "community", "inspiration"],
+      "temperament": ["patient", "outgoing", "supportive"]
+    },
+    {
+      "id": "public_health_analyst",
+      "name": "Public Health Analyst",
+      "category": "policy_social",
+      "description": "Analyzes health data and policies to improve community and population health outcomes",
+      "domain_expertise": ["life_sciences", "social_sciences"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["epidemiology", "data analysis", "policy knowledge", "statistical analysis"],
+        "complexity_levels": {
+          "epidemiology": "advanced",
+          "data analysis": "advanced",
+          "policy knowledge": "intermediate",
+          "statistical analysis": "advanced"
+        }
+      },
+      "values": ["health equity", "impact", "evidence-based decisions"],
+      "temperament": ["analytical", "responsible", "collaborative"]
+    },
+    {
+      "id": "ngo_researcher",
+      "name": "NGO Researcher",
+      "category": "policy_social",
+      "description": "Conducts evidence-based studies for organizations shaping global or social policies",
+      "domain_expertise": ["any"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["research", "writing", "policy analysis", "data analysis"],
+        "complexity_levels": {
+          "research": "advanced",
+          "writing": "intermediate",
+          "policy analysis": "advanced",
+          "data analysis": "intermediate"
+        }
+      },
+      "values": ["impact", "justice", "knowledge creation"],
+      "temperament": ["curious", "analytical", "mission-driven"]
+    },
+    {
+      "id": "research_scientist",
+      "name": "Research Scientist",
+      "category": "research_development",
+      "description": "Conducts fundamental or applied research to advance scientific knowledge and innovation",
+      "domain_expertise": ["any"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["experimental design", "research methodology", "data analysis", "scientific method"],
+        "complexity_levels": {
+          "experimental design": "expert",
+          "research methodology": "expert",
+          "data analysis": "advanced",
+          "scientific method": "expert"
+        }
+      },
+      "values": ["intellectual challenge", "innovation", "knowledge creation"],
+      "temperament": ["curious", "persistent", "analytical"]
+    },
+    {
+      "id": "financial_analyst",
+      "name": "Financial Analyst",
+      "category": "business_strategy",
+      "description": "Analyzes financial data and market trends to guide investment and business decisions",
+      "domain_expertise": ["mathematical"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["financial modeling", "data analysis", "forecasting", "market analysis"],
+        "complexity_levels": {
+          "financial modeling": "advanced",
+          "data analysis": "intermediate",
+          "forecasting": "advanced",
+          "market analysis": "intermediate"
+        }
+      },
+      "values": ["precision", "analytical rigor", "financial success"],
+      "temperament": ["analytical", "detail-oriented", "systematic"]
+    },
+    {
+      "id": "data_analyst",
+      "name": "Data Analyst",
+      "category": "data_analytics",
+      "description": "Collects, processes, and analyzes data to provide actionable business insights",
+      "domain_expertise": ["mathematical", "interdisciplinary"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["data analysis", "statistics", "data visualization", "communication"],
+        "complexity_levels": {
+          "data analysis": "intermediate",
+          "statistics": "intermediate",
+          "data visualization": "basic",
+          "communication": "basic"
+        }
+      },
+      "values": ["evidence-based decisions", "clarity", "efficiency"],
+      "temperament": ["analytical", "detail-oriented", "systematic"]
+    },
+    {
+      "id": "market_research_analyst",
+      "name": "Market Research Analyst",
+      "category": "business_strategy",
+      "description": "Studies market conditions and consumer behavior to guide business strategy",
+      "domain_expertise": ["social_sciences", "mathematical"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["market research", "data analysis", "statistical analysis", "communication"],
+        "complexity_levels": {
+          "market research": "intermediate",
+          "data analysis": "intermediate",
+          "statistical analysis": "intermediate",
+          "communication": "basic"
+        }
+      },
+      "values": ["evidence-based decisions", "market understanding", "strategic impact"],
+      "temperament": ["analytical", "curious", "systematic"]
+    },
+    {
+      "id": "quality_assurance_specialist",
+      "name": "Quality Assurance Specialist",
+      "category": "healthcare_lifesciences",
+      "description": "Ensures products and processes meet quality standards and regulatory requirements",
+      "domain_expertise": ["life_sciences", "engineering"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["quality control", "process optimization", "regulatory knowledge", "documentation"],
+        "complexity_levels": {
+          "quality control": "intermediate",
+          "process optimization": "intermediate",
+          "regulatory knowledge": "intermediate",
+          "documentation": "basic"
+        }
+      },
+      "values": ["quality", "compliance", "safety"],
+      "temperament": ["detail-oriented", "systematic", "conscientious"]
+    },
+    {
+      "id": "clinical_data_manager",
+      "name": "Clinical Data Manager",
+      "category": "healthcare_lifesciences",
+      "description": "Manages and ensures quality of clinical trial data for regulatory submissions",
+      "domain_expertise": ["life_sciences"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["clinical trial management", "data management", "regulatory knowledge", "quality control"],
+        "complexity_levels": {
+          "clinical trial management": "advanced",
+          "data management": "intermediate",
+          "regulatory knowledge": "intermediate",
+          "quality control": "intermediate"
+        }
+      },
+      "values": ["data integrity", "compliance", "patient safety"],
+      "temperament": ["detail-oriented", "systematic", "reliable"]
+    },
+    {
+      "id": "biomedical_engineer",
+      "name": "Biomedical Engineer",
+      "category": "technology_engineering",
+      "description": "Designs and develops medical devices and technologies for healthcare applications",
+      "domain_expertise": ["engineering", "life_sciences"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["engineering design", "medical knowledge", "technical expertise", "problem-solving"],
+        "complexity_levels": {
+          "engineering design": "expert",
+          "medical knowledge": "advanced",
+          "technical expertise": "expert",
+          "problem-solving": "advanced"
+        }
+      },
+      "values": ["innovation", "patient care", "technical excellence"],
+      "temperament": ["analytical", "creative", "detail-oriented"]
+    },
+    {
+      "id": "systems_engineer",
+      "name": "Systems Engineer",
+      "category": "technology_engineering",
+      "description": "Designs and integrates complex systems across multiple engineering disciplines",
+      "domain_expertise": ["engineering"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["system design", "integration", "technical expertise", "project management"],
+        "complexity_levels": {
+          "system design": "expert",
+          "integration": "advanced",
+          "technical expertise": "expert",
+          "project management": "intermediate"
+        }
+      },
+      "values": ["technical excellence", "systems thinking", "innovation"],
+      "temperament": ["analytical", "systematic", "detail-oriented"]
+    },
+    {
+      "id": "environmental_scientist",
+      "name": "Environmental Scientist",
+      "category": "research_development",
+      "description": "Studies environmental problems and develops solutions for sustainability and conservation",
+      "domain_expertise": ["life_sciences", "physical_sciences", "interdisciplinary"],
+      "technical_complexity": "advanced",
+      "skills": {
+        "required": ["environmental analysis", "data analysis", "research methodology", "field work"],
+        "complexity_levels": {
+          "environmental analysis": "advanced",
+          "data analysis": "intermediate",
+          "research methodology": "advanced",
+          "field work": "intermediate"
+        }
+      },
+      "values": ["environmental protection", "sustainability", "scientific impact"],
+      "temperament": ["analytical", "mission-driven", "collaborative"]
+    },
+    {
+      "id": "materials_scientist",
+      "name": "Materials Scientist",
+      "category": "research_development",
+      "description": "Develops and tests new materials for various industrial and technological applications",
+      "domain_expertise": ["physical_sciences", "engineering"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["materials characterization", "experimental design", "data analysis", "technical expertise"],
+        "complexity_levels": {
+          "materials characterization": "expert",
+          "experimental design": "expert",
+          "data analysis": "intermediate",
+          "technical expertise": "expert"
+        }
+      },
+      "values": ["innovation", "technical excellence", "problem-solving"],
+      "temperament": ["analytical", "detail-oriented", "persistent"]
+    },
+    {
+      "id": "chemical_engineer",
+      "name": "Chemical Engineer",
+      "category": "technology_engineering",
+      "description": "Designs processes for manufacturing chemicals, pharmaceuticals, and materials at industrial scale",
+      "domain_expertise": ["engineering", "physical_sciences"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["process design", "chemical engineering", "optimization", "safety management"],
+        "complexity_levels": {
+          "process design": "expert",
+          "chemical engineering": "expert",
+          "optimization": "advanced",
+          "safety management": "advanced"
+        }
+      },
+      "values": ["efficiency", "safety", "technical excellence"],
+      "temperament": ["analytical", "systematic", "safety-conscious"]
+    },
+    {
+      "id": "mechanical_engineer",
+      "name": "Mechanical Engineer",
+      "category": "technology_engineering",
+      "description": "Designs and develops mechanical systems, devices, and manufacturing processes",
+      "domain_expertise": ["engineering", "physical_sciences"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["mechanical design", "engineering analysis", "CAD software", "problem-solving"],
+        "complexity_levels": {
+          "mechanical design": "expert",
+          "engineering analysis": "advanced",
+          "CAD software": "intermediate",
+          "problem-solving": "advanced"
+        }
+      },
+      "values": ["technical excellence", "innovation", "practical solutions"],
+      "temperament": ["analytical", "detail-oriented", "creative"]
+    },
+    {
+      "id": "electrical_engineer",
+      "name": "Electrical Engineer",
+      "category": "technology_engineering",
+      "description": "Designs electrical systems, circuits, and electronic devices for various applications",
+      "domain_expertise": ["engineering", "physical_sciences"],
+      "technical_complexity": "expert",
+      "skills": {
+        "required": ["circuit design", "electrical systems", "programming", "signal processing"],
+        "complexity_levels": {
+          "circuit design": "expert",
+          "electrical systems": "expert",
+          "programming": "intermediate",
+          "signal processing": "advanced"
+        }
+      },
+      "values": ["technical excellence", "innovation", "precision"],
+      "temperament": ["analytical", "detail-oriented", "systematic"]
+    },
+    {
+      "id": "program_management",
+      "name": "Program Manager",
+      "category": "business_strategy",
+      "description": "Coordinates complex projects across multiple teams and stakeholders to achieve strategic goals",
+      "domain_expertise": ["any"],
+      "technical_complexity": "intermediate",
+      "skills": {
+        "required": ["project management", "leadership", "strategic planning", "stakeholder management"],
+        "complexity_levels": {
+          "project management": "advanced",
+          "leadership": "intermediate",
+          "strategic planning": "advanced",
+          "stakeholder management": "intermediate"
+        }
+      },
+      "values": ["efficiency", "coordination", "strategic impact"],
+      "temperament": ["organized", "collaborative", "decisive"]
+    }
+  ]
+}
