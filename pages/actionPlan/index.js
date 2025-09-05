@@ -178,7 +178,7 @@ const ActionPlanPage = () => {
               required
             >
               <option value="">Select your current stage</option>
-              <option value="masters_student">Master's Student</option>
+              <option value="masters_student">Master&apos;s Student</option>
               <option value="early_phd">Early Stage PhD Student</option>
               <option value="late_phd">Late Stage PhD Student</option>
               <option value="recent_postdoc">Recent Postdoc</option>
@@ -199,7 +199,7 @@ const ActionPlanPage = () => {
               required
             >
               <option value="">Select PhD area</option>
-              <option value="none">None (Master's level)</option>
+              <option value="none">None (Master&apos;s level)</option>
               
               <optgroup label="Life Sciences">
                 <option value="biology">Biology</option>
@@ -329,7 +329,7 @@ const ActionPlanPage = () => {
               required
             >
               <option value="">Select your current stage</option>
-              <option value="masters_student">Master's Student</option>
+              <option value="masters_student">Master&apos;s Student</option>
               <option value="early_phd">Early Stage PhD Student</option>
               <option value="late_phd">Late Stage PhD Student</option>
               <option value="recent_postdoc">Recent Postdoc</option>
@@ -349,7 +349,7 @@ const ActionPlanPage = () => {
               required
             >
               <option value="">Select PhD area</option>
-              <option value="none">None (Master's level)</option>
+              <option value="none">None (Master&apos;s level)</option>
               
               {/* Life Sciences */}
               <optgroup label="Life Sciences">

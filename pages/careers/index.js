@@ -87,7 +87,7 @@ const CareersIndex = () => {
             <div className="bg-blue-50 rounded-lg p-6">
               <h3 className="text-lg font-bold text-blue-900 mb-2">More Careers Coming Soon</h3>
               <p className="text-blue-700">
-                We're building timeline visualizations for all 31 career paths in our database. 
+                We&apos;re building timeline visualizations for all 31 career paths in our database. 
                 Check back soon for more detailed career progression maps!
               </p>
             </div>

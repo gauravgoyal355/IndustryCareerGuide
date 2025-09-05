@@ -195,7 +195,7 @@ const AuthModal = ({ isOpen, onClose, mode = 'login', onSuccess }) => {
             <div className="mt-4 text-center">
               <p className="text-xs text-gray-500">
                 By creating an account, you agree to our Terms of Service and Privacy Policy.
-                We'll send you career insights and updates (you can unsubscribe anytime).
+                We&apos;ll send you career insights and updates (you can unsubscribe anytime).
               </p>
             </div>
           )}
