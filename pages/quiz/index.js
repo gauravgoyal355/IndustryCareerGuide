@@ -270,8 +270,8 @@ const QuizPage = () => {
                   🎉 Assessment Complete!
                 </h1>
                 <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Congratulations! You've completed our comprehensive 25-question career assessment. 
-                  We've analyzed your skills, values, and preferences to find your perfect industry matches.
+                  Congratulations! You&apos;ve completed our comprehensive 25-question career assessment. 
+                  We&apos;ve analyzed your skills, values, and preferences to find your perfect industry matches.
                 </p>
                 
                 <div className="bg-white rounded-xl shadow-lg p-8 mb-8 max-w-2xl mx-auto">

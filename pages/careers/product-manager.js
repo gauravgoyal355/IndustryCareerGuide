@@ -37,10 +37,10 @@ const ProductManagerCareer = () => {
             <div className="bg-green-50 rounded-lg p-6">
               <h3 className="text-xl font-bold text-green-900 mb-4">Transition Tips</h3>
               <ul className="space-y-2 text-green-800">
-                <li>• Highlight user research as 'product discovery frameworks'</li>
-                <li>• Frame project management as 'cross-functional leadership'</li>
-                <li>• Position technical expertise as 'engineering collaboration'</li>
-                <li>• Emphasize impact metrics as 'product success measurement'</li>
+                <li>• Highlight user research as &apos;product discovery frameworks&apos;</li>
+                <li>• Frame project management as &apos;cross-functional leadership&apos;</li>
+                <li>• Position technical expertise as &apos;engineering collaboration&apos;</li>
+                <li>• Emphasize impact metrics as &apos;product success measurement&apos;</li>
               </ul>
             </div>
           </div>

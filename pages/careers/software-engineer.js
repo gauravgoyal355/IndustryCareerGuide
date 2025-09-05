@@ -37,10 +37,10 @@ const SoftwareEngineerCareer = () => {
             <div className="bg-green-50 rounded-lg p-6">
               <h3 className="text-xl font-bold text-green-900 mb-4">Transition Tips</h3>
               <ul className="space-y-2 text-green-800">
-                <li>• Highlight algorithmic research as 'software optimization'</li>
-                <li>• Frame research tools as 'full-stack development'</li>
-                <li>• Position collaboration as 'agile team development'</li>
-                <li>• Emphasize reproducible analysis as 'testing frameworks'</li>
+                <li>• Highlight algorithmic research as &apos;software optimization&apos;</li>
+                <li>• Frame research tools as &apos;full-stack development&apos;</li>
+                <li>• Position collaboration as &apos;agile team development&apos;</li>
+                <li>• Emphasize reproducible analysis as &apos;testing frameworks&apos;</li>
               </ul>
             </div>
           </div>
