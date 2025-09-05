@@ -1,39 +1,28 @@
-import fs from 'fs';
-import path from 'path';
+// import fs from 'fs';
+// import path from 'path';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-// Simple file-based user storage (for demo purposes)
-// In production, you'd use a real database
-const USERS_FILE = path.join(process.cwd(), 'data', 'users.json');
-
-const ensureUsersFile = () => {
-  const dataDir = path.dirname(USERS_FILE);
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+// Temporary fix for Vercel deployment - using in-memory storage
+// TODO: Replace with database (Vercel KV, PostgreSQL, etc.)
+let demoUsers = [
+  {
+    id: '1',
+    email: 'demo@example.com',
+    password: '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // 'password'
+    name: 'Demo User',
+    createdAt: '2024-01-01T00:00:00.000Z'
   }
-  if (!fs.existsSync(USERS_FILE)) {
-    fs.writeFileSync(USERS_FILE, JSON.stringify([], null, 2));
-  }
-};
+];
 
 const getUsers = () => {
-  ensureUsersFile();
-  try {
-    const data = fs.readFileSync(USERS_FILE, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error('Error reading users file:', error);
-    return [];
-  }
+  return demoUsers;
 };
 
 const saveUsers = (users) => {
-  try {
-    fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
-  } catch (error) {
-    console.error('Error saving users file:', error);
-  }
+  // In-memory storage for demo (not persisted)
+  demoUsers = users;
+  console.log('Users saved to memory (demo mode)');
 };
 
 export default async function handler(req, res) {
@@ -82,7 +71,7 @@ export default async function handler(req, res) {
     };
 
     users.push(newUser);
-    saveUsers(users);
+    saveUsers(users); // Demo mode - saves to memory only
 
     // Generate JWT token
     const token = jwt.sign(

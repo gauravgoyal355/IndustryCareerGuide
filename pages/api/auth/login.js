@@ -1,29 +1,27 @@
-import fs from 'fs';
-import path from 'path';
+// import fs from 'fs';
+// import path from 'path';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-const USERS_FILE = path.join(process.cwd(), 'data', 'users.json');
+// Temporary fix for Vercel deployment - using demo users
+// TODO: Replace with database (Vercel KV, PostgreSQL, etc.)
+const DEMO_USERS = [
+  {
+    id: '1',
+    email: 'demo@example.com',
+    password: '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // 'password'
+    name: 'Demo User',
+    createdAt: '2024-01-01T00:00:00.000Z'
+  }
+];
 
 const getUsers = () => {
-  try {
-    if (!fs.existsSync(USERS_FILE)) {
-      return [];
-    }
-    const data = fs.readFileSync(USERS_FILE, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error('Error reading users file:', error);
-    return [];
-  }
+  return DEMO_USERS;
 };
 
 const saveUsers = (users) => {
-  try {
-    fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
-  } catch (error) {
-    console.error('Error saving users file:', error);
-  }
+  // No-op for demo - in production use database
+  console.log('saveUsers called (demo mode)');
 };
 
 export default async function handler(req, res) {
@@ -52,9 +50,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid email or password' });
     }
 
-    // Update last login
+    // Update last login (demo mode - not persisted)
     user.lastLogin = new Date().toISOString();
-    saveUsers(users);
+    // saveUsers(users); // Disabled for Vercel deployment
 
     // Generate JWT token
     const token = jwt.sign(
