@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {}, isGenericFlow = false }) => {
   const [actionPlan, setActionPlan] = useState(null);
@@ -525,12 +526,12 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {}, isGenericFl
                       {actionPlan.learningRecommendations.upgradeMessage}
                     </p>
                     <div className="mt-3">
-                      <a
+                      <Link
                         href="/quiz/"
                         className="inline-flex items-center px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition-colors"
                       >
                         Take Detailed Assessment →
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -721,18 +722,18 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {}, isGenericFl
               <li>✅ <strong>Detailed transition strategies</strong> for your career stage</li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
+              <Link
                 href="/quiz/"
                 className="px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
               >
                 🧠 Take Career Assessment
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/"
                 className="px-6 py-3 bg-white text-primary-600 font-semibold border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors"
               >
                 🏠 Back to Home
-              </a>
+              </Link>
             </div>
           </div>
         </div>
