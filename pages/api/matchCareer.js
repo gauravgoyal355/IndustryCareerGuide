@@ -439,7 +439,7 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
                        career.domain_expertise.includes('any_technical');
     if (domainMatch) {
       const domainData = enhancedTaxonomy.phd_domains[userDomain];
-      domainBonus = domainData ? domainData.bonus_multiplier - 1 : 0.40; // Increased to 40% bonus
+      domainBonus = domainData ? domainData.bonus_multiplier - 1 : 0.15; // Reduced back to 15% bonus
     }
     // Reduced bonus for 'any' domain to prevent over-matching
     else if (career.domain_expertise.includes('any')) {
@@ -480,8 +480,23 @@ function calculateEnhancedCareerScore(career, userTags, userDomain) {
       }
     });
     
-    // Use average of matched skills to reward specialization
-    categoryScores.skills = skillMatches > 0 ? skillsTotal / skillMatches : 0;
+    // Use average of matched skills to reward specialization, but penalize low skill coverage
+    if (skillMatches > 0) {
+      const skillCoverage = skillMatches / skillsArray.length; // Fraction of required skills matched
+      const avgSkillScore = skillsTotal / skillMatches;
+      
+      // Apply coverage penalty - careers need reasonable skill alignment
+      let coveragePenalty = 1.0;
+      if (skillCoverage < 0.3) { // Less than 30% of skills matched
+        coveragePenalty = 0.5; // 50% penalty
+      } else if (skillCoverage < 0.5) { // Less than 50% of skills matched  
+        coveragePenalty = 0.75; // 25% penalty
+      }
+      
+      categoryScores.skills = avgSkillScore * coveragePenalty;
+    } else {
+      categoryScores.skills = 0;
+    }
   }
   
   // Values calculation (unchanged for now)

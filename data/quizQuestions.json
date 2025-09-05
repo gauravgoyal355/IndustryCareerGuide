@@ -505,6 +505,11 @@
           "id": "finance",
           "text": "Financial analysis and modeling",
           "tags": ["financial modeling", "market analysis", "analytical thinking"]
+        },
+        {
+          "id": "none",
+          "text": "None of these - I don't have specialized knowledge in these areas",
+          "tags": []
         }
       ]
     },
