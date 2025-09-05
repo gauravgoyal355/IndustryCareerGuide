@@ -4,6 +4,186 @@ import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import { MiniCareerMap } from '../../components/CareerMap';
 import CareerRadarChart from '../../components/CareerRadarChart';
+import ActionPlan from '../../components/ActionPlan';
+
+// ActionPlansComparison Component
+const ActionPlansComparison = ({ topMatches, quizAnswers }) => {
+  const [actionPlans, setActionPlans] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchActionPlans = async () => {
+      if (!topMatches || topMatches.length === 0) {
+        setLoading(false);
+        return;
+      }
+
+      setLoading(true);
+      const plans = {};
+
+      try {
+        // Fetch action plans for top 3 matches in parallel
+        const promises = topMatches.map(async (match) => {
+          try {
+            const response = await fetch('/api/actionPlan', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                answers: quizAnswers,
+                topCareerMatch: match.careerPath,
+                userProfile: {}
+              })
+            });
+
+            if (!response.ok) {
+              throw new Error(`Failed to fetch plan for ${match.careerPath}`);
+            }
+
+            const data = await response.json();
+            return { careerPath: match.careerPath, plan: data.actionPlan };
+          } catch (err) {
+            console.error(`Error fetching action plan for ${match.careerPath}:`, err);
+            return { careerPath: match.careerPath, plan: null, error: err.message };
+          }
+        });
+
+        const results = await Promise.all(promises);
+        results.forEach(result => {
+          plans[result.careerPath] = result.plan;
+        });
+
+        setActionPlans(plans);
+      } catch (err) {
+        setError('Failed to load action plans');
+        console.error('Error fetching action plans:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchActionPlans();
+  }, [topMatches, quizAnswers]);
+
+  const ActionPlanCard = ({ match, plan }) => {
+    const careerName = match.details?.name || match.careerPath.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+    
+    return (
+      <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-4">
+          <h3 className="font-bold text-lg mb-1">{careerName}</h3>
+          <div className="flex items-center justify-between text-sm opacity-90">
+            <span>Timeline: {plan?.overview?.estimatedTimeframe || '6-12 months'}</span>
+            <span>Readiness: {plan?.overview?.confidenceScore || '75'}%</span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-4 space-y-4">
+          {/* Immediate Actions */}
+          <div>
+            <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+              <span className="text-red-500 mr-2">⚡</span>
+              Start Immediately
+            </h4>
+            <ul className="space-y-1 text-sm text-gray-600">
+              {(plan?.milestones?.immediate?.tasks || ['Update LinkedIn profile', 'Research target companies', 'Complete foundational course']).slice(0, 3).map((task, index) => (
+                <li key={index} className="flex items-center">
+                  <span className="text-green-500 mr-2">•</span>
+                  {task}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Top Skills to Develop */}
+          <div>
+            <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+              <span className="text-blue-500 mr-2">🎯</span>
+              Key Skills
+            </h4>
+            <div className="flex flex-wrap gap-1">
+              {(plan?.skillDevelopment?.immediate || ['Data Analysis', 'Python', 'Communication']).slice(0, 4).map((skill, index) => (
+                <span key={index} className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Investment Overview */}
+          <div className="bg-gray-50 rounded-lg p-3">
+            <h4 className="font-semibold text-gray-800 mb-1 flex items-center">
+              <span className="text-green-500 mr-2">💰</span>
+              Investment
+            </h4>
+            <div className="text-sm text-gray-600">
+              <span className="font-medium">${plan?.learningRecommendations?.estimatedCost?.estimated_total || '2,500'}</span>
+              <span className="mx-2">•</span>
+              <span>{plan?.learningRecommendations?.timeToComplete || '6-8 months'}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Button */}
+        <div className="p-4 pt-0">
+          <Link 
+            href={`/actionPlan/?career=${match.careerPath}`}
+            className="w-full btn-primary text-center block"
+          >
+            Get Full Action Plan
+          </Link>
+        </div>
+      </div>
+    );
+  };
+
+  if (loading) {
+    return (
+      <div className="text-center py-8">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading action plan previews...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-8">
+        <p className="text-red-600 mb-4">{error}</p>
+        <button 
+          onClick={() => window.location.reload()}
+          className="text-blue-600 hover:underline"
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {topMatches.map((match) => {
+        const plan = actionPlans[match.careerPath];
+        if (!plan) {
+          return (
+            <div key={match.careerPath} className="bg-gray-100 rounded-xl p-6 text-center text-gray-500">
+              Action plan not available
+            </div>
+          );
+        }
+        return (
+          <ActionPlanCard 
+            key={match.careerPath} 
+            match={match} 
+            plan={plan} 
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 const ResultsPage = () => {
   const router = useRouter();
@@ -472,6 +652,25 @@ const ResultsPage = () => {
                 </div>
               );
             })()}
+          </div>
+        </section>
+
+        {/* Action Plans Comparison Section */}
+        <section className="bg-white border-t section-padding">
+          <div className="container-max">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                Compare Action Plans for Your Top Matches
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Get a quick overview of the transition roadmaps for your best career matches and choose the path that excites you most.
+              </p>
+            </div>
+            
+            <ActionPlansComparison 
+              topMatches={matches.slice(0, 3)} 
+              quizAnswers={quizAnswers}
+            />
           </div>
         </section>
 

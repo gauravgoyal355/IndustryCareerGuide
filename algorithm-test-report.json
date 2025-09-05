@@ -1,0 +1,2173 @@
+{
+  "timestamp": "2025-09-04T22:31:35.611Z",
+  "summary": {
+    "totalProfiles": 6,
+    "successful": 6,
+    "failed": 0,
+    "averageAccuracy": 0.49999999999999994
+  },
+  "profileResults": [
+    {
+      "profile": "technical",
+      "name": "Technical/Engineering PhD",
+      "success": true,
+      "matches": [
+        {
+          "careerPath": "technical_consulting",
+          "name": "Technical Consultant",
+          "category": "business_strategy",
+          "description": "Provides specialized technical expertise to solve complex business and technical challenges",
+          "skills": {
+            "required": [
+              "technical expertise",
+              "problem-solving",
+              "communication",
+              "project management"
+            ],
+            "complexity_levels": {
+              "technical expertise": "expert",
+              "problem-solving": "advanced",
+              "communication": "advanced",
+              "project management": "intermediate"
+            }
+          },
+          "values": [
+            "impact",
+            "challenge",
+            "knowledge-sharing"
+          ],
+          "temperament": [
+            "analytical",
+            "adaptable",
+            "communicative"
+          ],
+          "totalScore": 0.6370833333333334,
+          "categoryScores": {
+            "skills": 0.9208333333333334,
+            "values": 0.22,
+            "temperament": 0.26666666666666666
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "programming_experience: 3 >= 1",
+            "mathematics_background: 3 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "good_match",
+            "level": "Good Match",
+            "emoji": "🟡",
+            "description": "Prerequisites met with good compatibility"
+          },
+          "score": 64,
+          "details": {
+            "name": "Technical Consultant",
+            "description": "Provides specialized technical expertise to solve complex business and technical challenges"
+          }
+        },
+        {
+          "careerPath": "data_scientist",
+          "name": "Data Scientist",
+          "category": "data_analytics",
+          "description": "Analyzes complex datasets and builds predictive models to drive business insights",
+          "skills": {
+            "required": [
+              "data analysis",
+              "statistics",
+              "programming",
+              "machine learning"
+            ],
+            "complexity_levels": {
+              "data analysis": "intermediate",
+              "statistics": "advanced",
+              "programming": "intermediate",
+              "machine learning": "advanced"
+            }
+          },
+          "values": [
+            "innovation",
+            "evidence-based decisions",
+            "intellectual challenge"
+          ],
+          "temperament": [
+            "analytical",
+            "independent",
+            "curious"
+          ],
+          "totalScore": 0.5677083333333334,
+          "categoryScores": {
+            "skills": 0.4583333333333333,
+            "values": 0.5333333333333333,
+            "temperament": 0.26666666666666666
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "programming_experience: 3 >= 2",
+            "mathematics_background: 3 >= 2",
+            "data_analysis_experience: 4 >= 3"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 57,
+          "details": {
+            "name": "Data Scientist",
+            "description": "Analyzes complex datasets and builds predictive models to drive business insights"
+          }
+        },
+        {
+          "careerPath": "intellectual_property_analyst",
+          "name": "Intellectual Property Analyst",
+          "category": "legal_ip",
+          "description": "Assesses patent landscapes, writes patents, and helps organizations protect their innovations",
+          "skills": {
+            "required": [
+              "patent law basics",
+              "analytical thinking",
+              "technical writing",
+              "research"
+            ],
+            "complexity_levels": {
+              "patent law basics": "advanced",
+              "analytical thinking": "advanced",
+              "technical writing": "advanced",
+              "research": "advanced"
+            }
+          },
+          "values": [
+            "protection",
+            "strategy",
+            "innovation"
+          ],
+          "temperament": [
+            "detail-oriented",
+            "systematic",
+            "precise"
+          ],
+          "totalScore": 0.5673611111111111,
+          "categoryScores": {
+            "skills": 0.5833333333333333,
+            "values": 0.3333333333333333,
+            "temperament": 0.3111111111111111
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 57,
+          "details": {
+            "name": "Intellectual Property Analyst",
+            "description": "Assesses patent landscapes, writes patents, and helps organizations protect their innovations"
+          }
+        },
+        {
+          "careerPath": "quantitative_analyst",
+          "name": "Quantitative Analyst",
+          "category": "data_analytics",
+          "description": "Applies mathematical and statistical methods to analyze financial markets and risk",
+          "skills": {
+            "required": [
+              "financial modeling",
+              "statistics",
+              "programming",
+              "risk assessment"
+            ],
+            "complexity_levels": {
+              "financial modeling": "expert",
+              "statistics": "expert",
+              "programming": "advanced",
+              "risk assessment": "advanced"
+            }
+          },
+          "values": [
+            "precision",
+            "analytical rigor",
+            "financial success"
+          ],
+          "temperament": [
+            "analytical",
+            "detail-oriented",
+            "systematic"
+          ],
+          "totalScore": 0.5128472222222221,
+          "categoryScores": {
+            "skills": 0.5416666666666666,
+            "values": 0,
+            "temperament": 0.3111111111111111
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "mathematics_background: 3 >= 2",
+            "data_analysis_experience: 4 >= 2",
+            "programming_experience: 3 >= 1",
+            "business_finance_background: 1 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 51,
+          "details": {
+            "name": "Quantitative Analyst",
+            "description": "Applies mathematical and statistical methods to analyze financial markets and risk"
+          }
+        },
+        {
+          "careerPath": "ai_ml_engineer",
+          "name": "AI/ML Engineer",
+          "category": "technology_engineering",
+          "description": "Develops and deploys machine learning systems and artificial intelligence applications",
+          "skills": {
+            "required": [
+              "machine learning",
+              "programming",
+              "algorithms",
+              "data modeling"
+            ],
+            "complexity_levels": {
+              "machine learning": "expert",
+              "programming": "advanced",
+              "algorithms": "expert",
+              "data modeling": "advanced"
+            }
+          },
+          "values": [
+            "innovation",
+            "technical excellence",
+            "intellectual challenge"
+          ],
+          "temperament": [
+            "logical",
+            "persistent",
+            "curious"
+          ],
+          "totalScore": 0.46510416666666665,
+          "categoryScores": {
+            "skills": 0.40833333333333327,
+            "values": 0.5333333333333333,
+            "temperament": 0
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "programming_experience: 3 >= 2",
+            "mathematics_background: 3 >= 2",
+            "data_analysis_experience: 4 >= 3"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 47,
+          "details": {
+            "name": "AI/ML Engineer",
+            "description": "Develops and deploys machine learning systems and artificial intelligence applications"
+          }
+        }
+      ],
+      "userTags": {
+        "data analysis": 0.35,
+        "statistics": 0.5,
+        "machine learning": 0.35,
+        "analytical thinking": 1.4,
+        "data visualization": 0.35,
+        "communication": 0.35,
+        "technical expertise": 1,
+        "scientific expertise": 0.35,
+        "leadership": 0.35,
+        "problem-solving": 0.6499999999999999,
+        "project management": 0.35,
+        "operations": 0.35,
+        "process optimization": 0.35,
+        "quality control": 0.35,
+        "computational biology": 0.35,
+        "data modeling": 0.35,
+        "programming": 0.35,
+        "financial modeling": 0.35,
+        "market analysis": 0.35,
+        "research": 0.35,
+        "domain_expertise": 0.35,
+        "experimental_design": 0.5,
+        "research_depth": 0.35,
+        "intellectual challenge": 0.8999999999999999,
+        "knowledge creation": 0.6,
+        "innovation": 1.5,
+        "growth": 0.645,
+        "commercialization": 0.22499999999999998,
+        "entrepreneurship": 0.5249999999999999,
+        "societal impact": 0.21,
+        "impact": 0.15,
+        "community": 0.15,
+        "ethics": 0.21,
+        "creativity": 0.375,
+        "aesthetics": 0.075,
+        "independence": 0.495,
+        "practical impact": 0.6,
+        "challenge": 0.54,
+        "risk-taking": 0.3,
+        "knowledge-sharing": 0.3,
+        "education": 0.3,
+        "collaboration": 0.3,
+        "team success": 0.24,
+        "stability": 0.3,
+        "mission-driven work": 0.06,
+        "patient": 0.2,
+        "systematic": 0.8,
+        "precise": 0.4,
+        "detail-oriented": 0.2,
+        "conscientious": 0.4,
+        "adaptable": 0.4,
+        "collaborative": 0.2,
+        "pragmatic": 0.4,
+        "calm under pressure": 0.2,
+        "methodical": 0.2,
+        "reliable": 0.2,
+        "analytical": 0.4,
+        "python": 0.3,
+        "data_science_tools": 0.15,
+        "ml_capable": 0.15,
+        "r": 0.3,
+        "statistics_tools": 0.15,
+        "data_analysis": 0.3,
+        "matlab": 0.15,
+        "mathematical_computing": 0.15,
+        "engineering_tools": 0.15,
+        "cpp": 0.15,
+        "systems_programming": 0.15,
+        "performance_critical": 0.15,
+        "probability": 0.15,
+        "linear_algebra": 0.15,
+        "matrix_operations": 0.15,
+        "ml_foundations": 0.15,
+        "calculus": 0.15,
+        "differential_equations": 0.15,
+        "mathematical_modeling": 0.3,
+        "optimization": 0.15,
+        "mathematical_optimization": 0.15,
+        "operations_research": 0.15,
+        "programming_based_analysis": 0.15,
+        "ml_tools": 0.15,
+        "statistical_programming": 0.15,
+        "data_science": 0.15,
+        "sql": 0.15,
+        "database_analysis": 0.15,
+        "data_querying": 0.15,
+        "cloud_computing": 0.15,
+        "scalable_analysis": 0.15,
+        "enterprise_tools": 0.15,
+        "hypothesis_testing": 0.15,
+        "controlled_experiments": 0.15,
+        "computational_modeling": 0.15,
+        "simulation": 0.15,
+        "literature_review": 0.15,
+        "meta_analysis": 0.15,
+        "systematic_review": 0.15,
+        "no_clinical_experience": 0.15,
+        "mathematical_domain": 0.35,
+        "computational_expertise": 0.35,
+        "algorithmic_thinking": 0.35
+      },
+      "userDomain": "mathematical",
+      "expectedMatches": [
+        "data_scientist"
+      ],
+      "accuracy": 0.3333333333333333
+    },
+    {
+      "profile": "business",
+      "name": "Business/Strategy PhD",
+      "success": true,
+      "matches": [
+        {
+          "careerPath": "business_development_manager",
+          "name": "Business Development Manager",
+          "category": "business_strategy",
+          "description": "Builds partnerships, negotiates deals, and drives growth opportunities for companies",
+          "skills": {
+            "required": [
+              "negotiation",
+              "relationship building",
+              "strategic thinking",
+              "communication"
+            ],
+            "complexity_levels": {
+              "negotiation": "advanced",
+              "relationship building": "intermediate",
+              "strategic thinking": "advanced",
+              "communication": "intermediate"
+            }
+          },
+          "values": [
+            "growth",
+            "partnerships",
+            "impact"
+          ],
+          "temperament": [
+            "extroverted",
+            "strategic",
+            "decisive"
+          ],
+          "totalScore": 0.6225173611111111,
+          "categoryScores": {
+            "skills": 0.759548611111111,
+            "values": 0.4548611111111111,
+            "temperament": 0.2777777777777778
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "good_match",
+            "level": "Good Match",
+            "emoji": "🟡",
+            "description": "Prerequisites met with good compatibility"
+          },
+          "score": 62,
+          "details": {
+            "name": "Business Development Manager",
+            "description": "Builds partnerships, negotiates deals, and drives growth opportunities for companies"
+          }
+        },
+        {
+          "careerPath": "venture_capital_analyst",
+          "name": "Venture Capital Analyst",
+          "category": "business_strategy",
+          "description": "Evaluates startup technologies, performs due diligence, and advises investment decisions",
+          "skills": {
+            "required": [
+              "financial modeling",
+              "market analysis",
+              "technical assessment",
+              "strategic thinking"
+            ],
+            "complexity_levels": {
+              "financial modeling": "advanced",
+              "market analysis": "advanced",
+              "technical assessment": "advanced",
+              "strategic thinking": "advanced"
+            }
+          },
+          "values": [
+            "innovation",
+            "entrepreneurship",
+            "risk-taking"
+          ],
+          "temperament": [
+            "curious",
+            "strategic",
+            "decisive"
+          ],
+          "totalScore": 0.5542361111111112,
+          "categoryScores": {
+            "skills": 0.8506944444444444,
+            "values": 0.21527777777777776,
+            "temperament": 0.2777777777777778
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [
+            "business_finance_background: 2 >= 1",
+            "data_analysis_experience: 2 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 55,
+          "details": {
+            "name": "Venture Capital Analyst",
+            "description": "Evaluates startup technologies, performs due diligence, and advises investment decisions"
+          }
+        },
+        {
+          "careerPath": "product_manager",
+          "name": "Product Manager",
+          "category": "business_strategy",
+          "description": "Coordinates between science, engineering, and business to develop and launch products",
+          "skills": {
+            "required": [
+              "project management",
+              "market analysis",
+              "communication",
+              "strategic thinking"
+            ],
+            "complexity_levels": {
+              "project management": "intermediate",
+              "market analysis": "intermediate",
+              "communication": "basic",
+              "strategic thinking": "advanced"
+            }
+          },
+          "values": [
+            "impact",
+            "efficiency",
+            "customer focus"
+          ],
+          "temperament": [
+            "decisive",
+            "strategic",
+            "organized"
+          ],
+          "totalScore": 0.472511574074074,
+          "categoryScores": {
+            "skills": 0.7899305555555555,
+            "values": 0.12152777777777779,
+            "temperament": 0.23148148148148148
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 47,
+          "details": {
+            "name": "Product Manager",
+            "description": "Coordinates between science, engineering, and business to develop and launch products"
+          }
+        },
+        {
+          "careerPath": "management_consultant",
+          "name": "Management Consultant",
+          "category": "business_strategy",
+          "description": "Advises companies on strategy, operations, and growth opportunities using analytical expertise",
+          "skills": {
+            "required": [
+              "problem-solving",
+              "data analysis",
+              "communication",
+              "strategic thinking"
+            ],
+            "complexity_levels": {
+              "problem-solving": "advanced",
+              "data analysis": "advanced",
+              "communication": "intermediate",
+              "strategic thinking": "advanced"
+            }
+          },
+          "values": [
+            "impact",
+            "challenge",
+            "efficiency"
+          ],
+          "temperament": [
+            "analytical",
+            "adaptable",
+            "persuasive"
+          ],
+          "totalScore": 0.44522569444444443,
+          "categoryScores": {
+            "skills": 0.6380208333333333,
+            "values": 0.2604166666666667,
+            "temperament": 0.1388888888888889
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [
+            "data_analysis_experience: 2 >= 2",
+            "mathematics_background: 2 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 45,
+          "details": {
+            "name": "Management Consultant",
+            "description": "Advises companies on strategy, operations, and growth opportunities using analytical expertise"
+          }
+        },
+        {
+          "careerPath": "science_policy_analyst",
+          "name": "Science Policy Analyst",
+          "category": "policy_social",
+          "description": "Advises policymakers and organizations on science-related issues and policies",
+          "skills": {
+            "required": [
+              "policy analysis",
+              "communication",
+              "research",
+              "stakeholder engagement"
+            ],
+            "complexity_levels": {
+              "policy analysis": "advanced",
+              "communication": "advanced",
+              "research": "advanced",
+              "stakeholder engagement": "intermediate"
+            }
+          },
+          "values": [
+            "societal impact",
+            "ethics",
+            "evidence-based decisions"
+          ],
+          "temperament": [
+            "strategic",
+            "analytical",
+            "communicative"
+          ],
+          "totalScore": 0.4300520833333332,
+          "categoryScores": {
+            "skills": 0.6684027777777777,
+            "values": 0.1597222222222222,
+            "temperament": 0.23148148148148148
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 43,
+          "details": {
+            "name": "Science Policy Analyst",
+            "description": "Advises policymakers and organizations on science-related issues and policies"
+          }
+        }
+      ],
+      "userTags": {
+        "financial modeling": 0.7,
+        "market analysis": 1.0499999999999998,
+        "forecasting": 0.35,
+        "public speaking": 0.35,
+        "communication": 1.0499999999999998,
+        "strategic thinking": 0.7,
+        "relationship-building": 0.35,
+        "negotiation": 0.7,
+        "collaboration": 0.6499999999999999,
+        "stakeholder engagement": 0.7,
+        "project management": 0.35,
+        "market research": 0.35,
+        "policy analysis": 0.35,
+        "regulatory knowledge": 0.35,
+        "policy knowledge": 0.35,
+        "risk assessment": 0.35,
+        "risk management": 0.35,
+        "analytical thinking": 0.35,
+        "user research": 0.35,
+        "design thinking": 0.35,
+        "data analysis": 0.35,
+        "technical_translation": 0.35,
+        "business_application": 0.35,
+        "growth": 1.44,
+        "commercialization": 0.3,
+        "entrepreneurship": 0.3,
+        "societal impact": 0.345,
+        "impact": 0.22499999999999998,
+        "community": 0.22499999999999998,
+        "ethics": 0.345,
+        "intellectual challenge": 0.32999999999999996,
+        "knowledge creation": 0.32999999999999996,
+        "innovation": 0.6299999999999999,
+        "creativity": 0.075,
+        "aesthetics": 0.075,
+        "independence": 0.435,
+        "stability": 0.6000000000000001,
+        "efficiency": 0.3,
+        "team success": 0.8999999999999999,
+        "partnerships": 0.3,
+        "challenge": 0.6,
+        "practical impact": 0.6000000000000001,
+        "leadership": 0.3,
+        "mission-driven work": 0.12,
+        "communicative": 0.4,
+        "outgoing": 0.2,
+        "collaborative": 0.4,
+        "strategic": 0.4,
+        "analytical": 0.2,
+        "organized": 0.2,
+        "systematic": 0.2,
+        "conscientious": 0.2,
+        "practical": 0.4,
+        "decisive": 0.4,
+        "resilient": 0.4,
+        "empathetic": 0.2,
+        "python": 0.15,
+        "data_science_tools": 0.15,
+        "ml_capable": 0.15,
+        "sql": 0.3,
+        "database_management": 0.15,
+        "data_querying": 0.3,
+        "statistics": 0.15,
+        "probability": 0.15,
+        "data_analysis": 0.15,
+        "excel": 0.15,
+        "basic_data_tools": 0.15,
+        "spreadsheet_analysis": 0.15,
+        "spss": 0.15,
+        "sas": 0.15,
+        "statistical_software": 0.15,
+        "click_based_analysis": 0.15,
+        "database_analysis": 0.15,
+        "survey_research": 0.15,
+        "social_science": 0.15,
+        "qualitative_methods": 0.15,
+        "literature_review": 0.15,
+        "meta_analysis": 0.15,
+        "systematic_review": 0.15,
+        "no_clinical_experience": 0.15,
+        "social_sciences_domain": 0.35,
+        "behavioral_research": 0.35,
+        "policy_research": 0.35
+      },
+      "userDomain": "social_sciences",
+      "expectedMatches": [
+        "product_manager",
+        "venture_capital_analyst",
+        "business_development_manager"
+      ],
+      "accuracy": 1
+    },
+    {
+      "profile": "creative",
+      "name": "Creative/Design PhD",
+      "success": true,
+      "matches": [
+        {
+          "careerPath": "entrepreneur_startup_founder",
+          "name": "Entrepreneur/Startup Founder",
+          "category": "business_strategy",
+          "description": "Leverages scientific expertise to create and grow a new company or product",
+          "skills": {
+            "required": [
+              "entrepreneurship",
+              "fundraising",
+              "risk management",
+              "leadership"
+            ],
+            "complexity_levels": {
+              "entrepreneurship": "advanced",
+              "fundraising": "intermediate",
+              "risk management": "advanced",
+              "leadership": "intermediate"
+            }
+          },
+          "values": [
+            "independence",
+            "innovation",
+            "risk-taking"
+          ],
+          "temperament": [
+            "resilient",
+            "decisive",
+            "visionary"
+          ],
+          "totalScore": 0.4213072916666667,
+          "categoryScores": {
+            "skills": 0.19921875,
+            "values": 0.5291666666666667,
+            "temperament": 0.37500000000000006
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 42,
+          "details": {
+            "name": "Entrepreneur/Startup Founder",
+            "description": "Leverages scientific expertise to create and grow a new company or product"
+          }
+        },
+        {
+          "careerPath": "ux_researcher",
+          "name": "UX Researcher",
+          "category": "communication_creative",
+          "description": "Applies research skills to study user behavior and improve product interfaces",
+          "skills": {
+            "required": [
+              "user research",
+              "data analysis",
+              "design thinking",
+              "communication"
+            ],
+            "complexity_levels": {
+              "user research": "intermediate",
+              "data analysis": "intermediate",
+              "design thinking": "intermediate",
+              "communication": "intermediate"
+            }
+          },
+          "values": [
+            "user-centered design",
+            "innovation",
+            "efficiency"
+          ],
+          "temperament": [
+            "empathetic",
+            "curious",
+            "collaborative"
+          ],
+          "totalScore": 0.39793294270833324,
+          "categoryScores": {
+            "skills": 0.4101562499999999,
+            "values": 0.3541666666666667,
+            "temperament": 0.1875
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [
+            "data_analysis_experience: 1 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "weak_match",
+            "level": "Weak Match",
+            "emoji": "⚪",
+            "description": "Prerequisites met but low compatibility"
+          },
+          "score": 40,
+          "details": {
+            "name": "UX Researcher",
+            "description": "Applies research skills to study user behavior and improve product interfaces"
+          }
+        },
+        {
+          "careerPath": "copywriter",
+          "name": "Copywriter",
+          "category": "communication_creative",
+          "description": "Crafts persuasive marketing and branding content for companies with technical products",
+          "skills": {
+            "required": [
+              "storytelling",
+              "marketing",
+              "writing",
+              "communication"
+            ],
+            "complexity_levels": {
+              "storytelling": "intermediate",
+              "marketing": "basic",
+              "writing": "intermediate",
+              "communication": "intermediate"
+            }
+          },
+          "values": [
+            "persuasion",
+            "creativity",
+            "impact"
+          ],
+          "temperament": [
+            "expressive",
+            "creative",
+            "adaptable"
+          ],
+          "totalScore": 0.35248697916666666,
+          "categoryScores": {
+            "skills": 0.21874999999999994,
+            "values": 0.3802083333333333,
+            "temperament": 0.37500000000000006
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [
+            "technical_writing_experience: 2 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "weak_match",
+            "level": "Weak Match",
+            "emoji": "⚪",
+            "description": "Prerequisites met but low compatibility"
+          },
+          "score": 35,
+          "details": {
+            "name": "Copywriter",
+            "description": "Crafts persuasive marketing and branding content for companies with technical products"
+          }
+        },
+        {
+          "careerPath": "venture_capital_analyst",
+          "name": "Venture Capital Analyst",
+          "category": "business_strategy",
+          "description": "Evaluates startup technologies, performs due diligence, and advises investment decisions",
+          "skills": {
+            "required": [
+              "financial modeling",
+              "market analysis",
+              "technical assessment",
+              "strategic thinking"
+            ],
+            "complexity_levels": {
+              "financial modeling": "advanced",
+              "market analysis": "advanced",
+              "technical assessment": "advanced",
+              "strategic thinking": "advanced"
+            }
+          },
+          "values": [
+            "innovation",
+            "entrepreneurship",
+            "risk-taking"
+          ],
+          "temperament": [
+            "curious",
+            "strategic",
+            "decisive"
+          ],
+          "totalScore": 0.29708333333333337,
+          "categoryScores": {
+            "skills": 0.10937499999999999,
+            "values": 0.4322916666666667,
+            "temperament": 0.20833333333333334
+          },
+          "domainMatch": 0.1499999999999999,
+          "prerequisites": [
+            "business_finance_background: 1 >= 1",
+            "data_analysis_experience: 1 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "weak_match",
+            "level": "Weak Match",
+            "emoji": "⚪",
+            "description": "Prerequisites met but low compatibility"
+          },
+          "score": 30,
+          "details": {
+            "name": "Venture Capital Analyst",
+            "description": "Evaluates startup technologies, performs due diligence, and advises investment decisions"
+          }
+        },
+        {
+          "careerPath": "science_illustrator",
+          "name": "Science Illustrator",
+          "category": "communication_creative",
+          "description": "Creates visuals and animations that explain scientific processes and data",
+          "skills": {
+            "required": [
+              "illustration",
+              "animation",
+              "design software",
+              "scientific knowledge"
+            ],
+            "complexity_levels": {
+              "illustration": "advanced",
+              "animation": "intermediate",
+              "design software": "intermediate",
+              "scientific knowledge": "advanced"
+            }
+          },
+          "values": [
+            "clarity",
+            "creativity",
+            "aesthetics"
+          ],
+          "temperament": [
+            "visual thinker",
+            "creative",
+            "patient"
+          ],
+          "totalScore": 0.28346354166666665,
+          "categoryScores": {
+            "skills": 0.27343749999999994,
+            "values": 0.4583333333333333,
+            "temperament": 0
+          },
+          "domainMatch": 0,
+          "prerequisites": [
+            "creative_design_experience: 3 >= 2",
+            "technical_writing_experience: 2 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "weak_match",
+            "level": "Weak Match",
+            "emoji": "⚪",
+            "description": "Prerequisites met but low compatibility"
+          },
+          "score": 28,
+          "details": {
+            "name": "Science Illustrator",
+            "description": "Creates visuals and animations that explain scientific processes and data"
+          }
+        }
+      ],
+      "userTags": {
+        "illustration": 0.35,
+        "design software": 0.35,
+        "animation": 0.35,
+        "digital media": 0.35,
+        "storytelling": 0.35,
+        "marketing": 0.35,
+        "writing": 0.35,
+        "teaching": 0.7,
+        "curriculum design": 0.35,
+        "leadership": 0.35,
+        "data visualization": 0.35,
+        "design thinking": 1.0499999999999998,
+        "creativity": 1.6,
+        "project management": 0.35,
+        "market research": 0.35,
+        "market analysis": 0.35,
+        "user research": 0.35,
+        "data analysis": 0.35,
+        "innovation": 1.4000000000000001,
+        "knowledge_transfer": 0.35,
+        "mentoring": 0.35,
+        "aesthetics": 0.6,
+        "independence": 0.84,
+        "societal impact": 0.40499999999999997,
+        "impact": 0.22499999999999998,
+        "community": 0.5249999999999999,
+        "ethics": 0.40499999999999997,
+        "intellectual challenge": 0.44999999999999996,
+        "knowledge creation": 0.44999999999999996,
+        "growth": 0.255,
+        "commercialization": 0.075,
+        "entrepreneurship": 0.375,
+        "practical impact": 0.6000000000000001,
+        "challenge": 0.42,
+        "risk-taking": 0.3,
+        "collaboration": 0.3,
+        "teamwork": 0.3,
+        "user-centered design": 0.3,
+        "education": 0.3,
+        "knowledge-sharing": 0.3,
+        "stability": 0.3,
+        "mission-driven work": 0.18,
+        "team success": 0.12,
+        "collaborative": 0.4,
+        "adaptable": 0.6000000000000001,
+        "reliable": 0.2,
+        "pragmatic": 0.2,
+        "resilient": 0.6000000000000001,
+        "curious": 0.2,
+        "decisive": 0.6000000000000001,
+        "persistent": 0.2,
+        "independent": 0.2,
+        "practical": 0.2,
+        "strategic": 0.2,
+        "python": 0.3,
+        "data_science_tools": 0.15,
+        "ml_capable": 0.15,
+        "javascript": 0.15,
+        "web_development": 0.15,
+        "full_stack": 0.15,
+        "statistics": 0.15,
+        "probability": 0.15,
+        "data_analysis": 0.15,
+        "excel": 0.15,
+        "basic_data_tools": 0.15,
+        "spreadsheet_analysis": 0.15,
+        "programming_based_analysis": 0.15,
+        "ml_tools": 0.15,
+        "survey_research": 0.15,
+        "social_science": 0.15,
+        "qualitative_methods": 0.15,
+        "field_research": 0.15,
+        "observational_studies": 0.15,
+        "real_world_data": 0.15,
+        "no_clinical_experience": 0.15,
+        "social_sciences_domain": 0.35,
+        "behavioral_research": 0.35,
+        "policy_research": 0.35
+      },
+      "userDomain": "social_sciences",
+      "expectedMatches": [
+        "ux_researcher"
+      ],
+      "accuracy": 0.3333333333333333
+    },
+    {
+      "profile": "research",
+      "name": "Research/Academic PhD",
+      "success": true,
+      "matches": [
+        {
+          "careerPath": "intellectual_property_analyst",
+          "name": "Intellectual Property Analyst",
+          "category": "legal_ip",
+          "description": "Assesses patent landscapes, writes patents, and helps organizations protect their innovations",
+          "skills": {
+            "required": [
+              "patent law basics",
+              "analytical thinking",
+              "technical writing",
+              "research"
+            ],
+            "complexity_levels": {
+              "patent law basics": "advanced",
+              "analytical thinking": "advanced",
+              "technical writing": "advanced",
+              "research": "advanced"
+            }
+          },
+          "values": [
+            "protection",
+            "strategy",
+            "innovation"
+          ],
+          "temperament": [
+            "detail-oriented",
+            "systematic",
+            "precise"
+          ],
+          "totalScore": 0.9791666666666665,
+          "categoryScores": {
+            "skills": 1,
+            "values": 0.3333333333333333,
+            "temperament": 0.5
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "strong_match",
+            "level": "Strong Match",
+            "emoji": "🟢",
+            "description": "Prerequisites met with high compatibility"
+          },
+          "score": 98,
+          "details": {
+            "name": "Intellectual Property Analyst",
+            "description": "Assesses patent landscapes, writes patents, and helps organizations protect their innovations"
+          }
+        },
+        {
+          "careerPath": "ngo_researcher",
+          "name": "NGO Researcher",
+          "category": "policy_social",
+          "description": "Conducts evidence-based studies for organizations shaping global or social policies",
+          "skills": {
+            "required": [
+              "research",
+              "writing",
+              "policy analysis",
+              "data analysis"
+            ],
+            "complexity_levels": {
+              "research": "advanced",
+              "writing": "intermediate",
+              "policy analysis": "advanced",
+              "data analysis": "intermediate"
+            }
+          },
+          "values": [
+            "impact",
+            "justice",
+            "knowledge creation"
+          ],
+          "temperament": [
+            "curious",
+            "analytical",
+            "mission-driven"
+          ],
+          "totalScore": 0.6263020833333334,
+          "categoryScores": {
+            "skills": 0.8385416666666666,
+            "values": 0.3125,
+            "temperament": 0.16666666666666669
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "good_match",
+            "level": "Good Match",
+            "emoji": "🟡",
+            "description": "Prerequisites met with good compatibility"
+          },
+          "score": 63,
+          "details": {
+            "name": "NGO Researcher",
+            "description": "Conducts evidence-based studies for organizations shaping global or social policies"
+          }
+        },
+        {
+          "careerPath": "r_and_d_scientist",
+          "name": "R&D Scientist",
+          "category": "research_development",
+          "description": "Conducts experiments and develops new products or technologies within biotech, pharma, or industry labs",
+          "skills": {
+            "required": [
+              "experimental design",
+              "lab techniques",
+              "data analysis",
+              "scientific method"
+            ],
+            "complexity_levels": {
+              "experimental design": "expert",
+              "lab techniques": "advanced",
+              "data analysis": "intermediate",
+              "scientific method": "expert"
+            }
+          },
+          "values": [
+            "innovation",
+            "problem-solving",
+            "intellectual challenge"
+          ],
+          "temperament": [
+            "detail-oriented",
+            "persistent",
+            "curious"
+          ],
+          "totalScore": 0.62109375,
+          "categoryScores": {
+            "skills": 0.47395833333333337,
+            "values": 0.75,
+            "temperament": 0.16666666666666669
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "lab_experience: 4 >= 2",
+            "PhD domain: a matches required"
+          ],
+          "matchLevel": {
+            "tier": "good_match",
+            "level": "Good Match",
+            "emoji": "🟡",
+            "description": "Prerequisites met with good compatibility"
+          },
+          "score": 62,
+          "details": {
+            "name": "R&D Scientist",
+            "description": "Conducts experiments and develops new products or technologies within biotech, pharma, or industry labs"
+          }
+        },
+        {
+          "careerPath": "research_scientist",
+          "name": "Research Scientist (Academic/Industry Bridge)",
+          "category": "research_development",
+          "description": "Conducts fundamental or applied research to advance scientific knowledge and innovation",
+          "skills": {
+            "required": [
+              "experimental design",
+              "research methodology",
+              "data analysis",
+              "scientific method"
+            ],
+            "complexity_levels": {
+              "experimental design": "expert",
+              "research methodology": "expert",
+              "data analysis": "advanced",
+              "scientific method": "expert"
+            }
+          },
+          "values": [
+            "intellectual challenge",
+            "innovation",
+            "knowledge creation"
+          ],
+          "temperament": [
+            "curious",
+            "persistent",
+            "analytical"
+          ],
+          "totalScore": 0.5911458333333334,
+          "categoryScores": {
+            "skills": 0.36458333333333337,
+            "values": 0.9166666666666666,
+            "temperament": 0.16666666666666669
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "lab_experience: 4 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 59,
+          "details": {
+            "name": "Research Scientist (Academic/Industry Bridge)",
+            "description": "Conducts fundamental or applied research to advance scientific knowledge and innovation"
+          }
+        },
+        {
+          "careerPath": "biomedical_engineer",
+          "name": "Biomedical Engineer",
+          "category": "technology_engineering",
+          "description": "Designs and develops medical devices and technologies for healthcare applications",
+          "skills": {
+            "required": [
+              "engineering design",
+              "medical knowledge",
+              "technical expertise",
+              "problem-solving"
+            ],
+            "complexity_levels": {
+              "engineering design": "expert",
+              "medical knowledge": "advanced",
+              "technical expertise": "expert",
+              "problem-solving": "advanced"
+            }
+          },
+          "values": [
+            "innovation",
+            "patient care",
+            "technical excellence"
+          ],
+          "temperament": [
+            "analytical",
+            "creative",
+            "detail-oriented"
+          ],
+          "totalScore": 0.5462239583333334,
+          "categoryScores": {
+            "skills": 0.53125,
+            "values": 0.3333333333333333,
+            "temperament": 0.16666666666666669
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "mathematics_background: 3 >= 1",
+            "lab_experience: 4 >= 1",
+            "PhD domain: a matches required"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 55,
+          "details": {
+            "name": "Biomedical Engineer",
+            "description": "Designs and develops medical devices and technologies for healthcare applications"
+          }
+        }
+      ],
+      "userTags": {
+        "experimental design": 0.35,
+        "lab techniques": 0.35,
+        "research": 1.0499999999999998,
+        "technical writing": 0.35,
+        "scientific writing": 0.7,
+        "editing": 0.35,
+        "teaching": 0.35,
+        "curriculum design": 0.35,
+        "leadership": 0.35,
+        "literature analysis": 0.35,
+        "analytical thinking": 1.0499999999999998,
+        "fundraising": 0.35,
+        "policy analysis": 0.7,
+        "regulatory knowledge": 0.35,
+        "policy knowledge": 0.35,
+        "epidemiology": 0.35,
+        "data analysis": 0.35,
+        "IP knowledge": 0.35,
+        "patent law basics": 0.35,
+        "technical expertise": 0.6499999999999999,
+        "domain_expertise": 0.35,
+        "experimental_design": 0.5,
+        "research_depth": 0.35,
+        "intellectual challenge": 1.2,
+        "knowledge creation": 0.8999999999999999,
+        "innovation": 1.2,
+        "societal impact": 0.46499999999999997,
+        "impact": 0.22499999999999998,
+        "community": 0.22499999999999998,
+        "ethics": 0.46499999999999997,
+        "creativity": 0.44999999999999996,
+        "aesthetics": 0.15,
+        "independence": 0.9299999999999999,
+        "growth": 0.255,
+        "commercialization": 0.075,
+        "entrepreneurship": 0.075,
+        "practical impact": 0.54,
+        "knowledge-sharing": 0.3,
+        "education": 0.3,
+        "collaboration": 0.3,
+        "problem-solving": 0.3,
+        "mission-driven work": 0.24,
+        "stability": 0.24,
+        "challenge": 0.12,
+        "team success": 0.12,
+        "patient": 0.2,
+        "systematic": 1.2,
+        "precise": 0.4,
+        "detail-oriented": 0.2,
+        "conscientious": 0.6000000000000001,
+        "practical": 0.4,
+        "calm under pressure": 0.2,
+        "methodical": 0.2,
+        "reliable": 0.2,
+        "analytical": 0.2,
+        "organized": 0.2,
+        "python": 0.3,
+        "data_science_tools": 0.15,
+        "ml_capable": 0.15,
+        "r": 0.3,
+        "statistics_tools": 0.15,
+        "data_analysis": 0.3,
+        "matlab": 0.15,
+        "mathematical_computing": 0.15,
+        "engineering_tools": 0.15,
+        "statistics": 0.15,
+        "probability": 0.15,
+        "calculus": 0.15,
+        "differential_equations": 0.15,
+        "mathematical_modeling": 0.3,
+        "numerical_methods": 0.15,
+        "computational_mathematics": 0.15,
+        "simulation": 0.3,
+        "statistical_programming": 0.15,
+        "data_science": 0.15,
+        "programming_based_analysis": 0.15,
+        "ml_tools": 0.15,
+        "spss": 0.15,
+        "sas": 0.15,
+        "statistical_software": 0.15,
+        "click_based_analysis": 0.15,
+        "hypothesis_testing": 0.15,
+        "controlled_experiments": 0.15,
+        "computational_modeling": 0.15,
+        "literature_review": 0.15,
+        "meta_analysis": 0.15,
+        "systematic_review": 0.15,
+        "no_clinical_experience": 0.15,
+        "life_sciences_domain": 0.35,
+        "experimental_expertise": 0.35,
+        "biological_systems": 0.35
+      },
+      "userDomain": "life_sciences",
+      "expectedMatches": [
+        "r_and_d_scientist"
+      ],
+      "accuracy": 0.3333333333333333
+    },
+    {
+      "profile": "healthcare",
+      "name": "Healthcare/Biotech PhD",
+      "success": true,
+      "matches": [
+        {
+          "careerPath": "science_policy_analyst",
+          "name": "Science Policy Analyst",
+          "category": "policy_social",
+          "description": "Advises policymakers and organizations on science-related issues and policies",
+          "skills": {
+            "required": [
+              "policy analysis",
+              "communication",
+              "research",
+              "stakeholder engagement"
+            ],
+            "complexity_levels": {
+              "policy analysis": "advanced",
+              "communication": "advanced",
+              "research": "advanced",
+              "stakeholder engagement": "intermediate"
+            }
+          },
+          "values": [
+            "societal impact",
+            "ethics",
+            "evidence-based decisions"
+          ],
+          "temperament": [
+            "strategic",
+            "analytical",
+            "communicative"
+          ],
+          "totalScore": 0.8984375000000001,
+          "categoryScores": {
+            "skills": 0.984375,
+            "values": 0.6666666666666666,
+            "temperament": 0.16666666666666669
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "strong_match",
+            "level": "Strong Match",
+            "emoji": "🟢",
+            "description": "Prerequisites met with high compatibility"
+          },
+          "score": 90,
+          "details": {
+            "name": "Science Policy Analyst",
+            "description": "Advises policymakers and organizations on science-related issues and policies"
+          }
+        },
+        {
+          "careerPath": "clinical_research_associate",
+          "name": "Clinical Research Associate",
+          "category": "healthcare_lifesciences",
+          "description": "Oversees clinical trials and ensures protocols and safety regulations are followed",
+          "skills": {
+            "required": [
+              "clinical trial management",
+              "data monitoring",
+              "regulatory knowledge",
+              "project management"
+            ],
+            "complexity_levels": {
+              "clinical trial management": "advanced",
+              "data monitoring": "intermediate",
+              "regulatory knowledge": "intermediate",
+              "project management": "intermediate"
+            }
+          },
+          "values": [
+            "ethics",
+            "patient safety",
+            "precision"
+          ],
+          "temperament": [
+            "responsible",
+            "detail-focused",
+            "calm under pressure"
+          ],
+          "totalScore": 0.6324869791666666,
+          "categoryScores": {
+            "skills": 0.6927083333333334,
+            "values": 0.3333333333333333,
+            "temperament": 0.16666666666666669
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "PhD domain: a matches required"
+          ],
+          "matchLevel": {
+            "tier": "good_match",
+            "level": "Good Match",
+            "emoji": "🟡",
+            "description": "Prerequisites met with good compatibility"
+          },
+          "score": 63,
+          "details": {
+            "name": "Clinical Research Associate",
+            "description": "Oversees clinical trials and ensures protocols and safety regulations are followed"
+          }
+        },
+        {
+          "careerPath": "ngo_researcher",
+          "name": "NGO Researcher",
+          "category": "policy_social",
+          "description": "Conducts evidence-based studies for organizations shaping global or social policies",
+          "skills": {
+            "required": [
+              "research",
+              "writing",
+              "policy analysis",
+              "data analysis"
+            ],
+            "complexity_levels": {
+              "research": "advanced",
+              "writing": "intermediate",
+              "policy analysis": "advanced",
+              "data analysis": "intermediate"
+            }
+          },
+          "values": [
+            "impact",
+            "justice",
+            "knowledge creation"
+          ],
+          "temperament": [
+            "curious",
+            "analytical",
+            "mission-driven"
+          ],
+          "totalScore": 0.5700520833333335,
+          "categoryScores": {
+            "skills": 0.8385416666666666,
+            "values": 0.2125,
+            "temperament": 0.16666666666666669
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 57,
+          "details": {
+            "name": "NGO Researcher",
+            "description": "Conducts evidence-based studies for organizations shaping global or social policies"
+          }
+        },
+        {
+          "careerPath": "nonprofit_program_manager",
+          "name": "Nonprofit Program Manager",
+          "category": "policy_social",
+          "description": "Manages programs in education, health, or environment at mission-driven organizations",
+          "skills": {
+            "required": [
+              "program management",
+              "fundraising",
+              "stakeholder engagement",
+              "project management"
+            ],
+            "complexity_levels": {
+              "program management": "intermediate",
+              "fundraising": "intermediate",
+              "stakeholder engagement": "intermediate",
+              "project management": "intermediate"
+            }
+          },
+          "values": [
+            "mission-driven work",
+            "impact",
+            "community"
+          ],
+          "temperament": [
+            "empathetic",
+            "organized",
+            "pragmatic"
+          ],
+          "totalScore": 0.5625,
+          "categoryScores": {
+            "skills": 0.4375,
+            "values": 0.5,
+            "temperament": 0.33333333333333337
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 56,
+          "details": {
+            "name": "Nonprofit Program Manager",
+            "description": "Manages programs in education, health, or environment at mission-driven organizations"
+          }
+        },
+        {
+          "careerPath": "regulatory_affairs_specialist",
+          "name": "Regulatory Affairs Specialist",
+          "category": "healthcare_lifesciences",
+          "description": "Ensures compliance with government regulations for new drugs, devices, or technologies",
+          "skills": {
+            "required": [
+              "regulatory knowledge",
+              "technical writing",
+              "risk assessment",
+              "project management"
+            ],
+            "complexity_levels": {
+              "regulatory knowledge": "advanced",
+              "technical writing": "intermediate",
+              "risk assessment": "advanced",
+              "project management": "intermediate"
+            }
+          },
+          "values": [
+            "compliance",
+            "safety",
+            "accuracy"
+          ],
+          "temperament": [
+            "organized",
+            "risk-aware",
+            "conscientious"
+          ],
+          "totalScore": 0.529296875,
+          "categoryScores": {
+            "skills": 0.65625,
+            "values": 0.041666666666666664,
+            "temperament": 0.33333333333333337
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "technical_writing_experience: 3 >= 2",
+            "PhD domain: a matches required"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 53,
+          "details": {
+            "name": "Regulatory Affairs Specialist",
+            "description": "Ensures compliance with government regulations for new drugs, devices, or technologies"
+          }
+        }
+      ],
+      "userTags": {
+        "experimental design": 0.35,
+        "lab techniques": 0.35,
+        "research": 0.7,
+        "relationship building": 0.35,
+        "communication": 0.35,
+        "project management": 0.7,
+        "program management": 0.35,
+        "leadership": 0.35,
+        "analytical thinking": 0.35,
+        "problem-solving": 0.35,
+        "policy analysis": 1.0499999999999998,
+        "regulatory knowledge": 0.7,
+        "policy knowledge": 0.35,
+        "risk assessment": 0.35,
+        "risk management": 0.35,
+        "clinical trial management": 0.35,
+        "data monitoring": 0.35,
+        "epidemiology": 0.35,
+        "data analysis": 0.35,
+        "stakeholder engagement": 0.35,
+        "interdisciplinary_work": 0.35,
+        "knowledge_synthesis": 0.35,
+        "collaboration": 0.6499999999999999,
+        "societal impact": 1.2,
+        "impact": 0.3,
+        "community": 0.6,
+        "ethics": 1.2,
+        "intellectual challenge": 0.46499999999999997,
+        "knowledge creation": 0.46499999999999997,
+        "innovation": 0.7649999999999999,
+        "growth": 0.38999999999999996,
+        "commercialization": 0.15,
+        "entrepreneurship": 0.15,
+        "creativity": 0.075,
+        "aesthetics": 0.075,
+        "independence": 0.495,
+        "mission-driven work": 0.8999999999999999,
+        "inspiration": 0.3,
+        "team success": 0.48,
+        "support": 0.3,
+        "practical impact": 0.48,
+        "challenge": 0.18,
+        "stability": 0.18,
+        "communicative": 0.2,
+        "outgoing": 0.2,
+        "collaborative": 0.2,
+        "detail-oriented": 0.2,
+        "precise": 0.2,
+        "systematic": 0.8,
+        "conscientious": 0.4,
+        "structured": 0.2,
+        "organized": 0.4,
+        "methodical": 0.4,
+        "reliable": 0.4,
+        "calm under pressure": 0.2,
+        "analytical": 0.2,
+        "practical": 0.2,
+        "r": 0.3,
+        "statistics_tools": 0.15,
+        "data_analysis": 0.3,
+        "sql": 0.3,
+        "database_management": 0.15,
+        "data_querying": 0.3,
+        "statistics": 0.15,
+        "probability": 0.15,
+        "statistical_programming": 0.15,
+        "data_science": 0.15,
+        "spss": 0.15,
+        "sas": 0.15,
+        "statistical_software": 0.15,
+        "click_based_analysis": 0.15,
+        "database_analysis": 0.15,
+        "experimental_design": 0.15,
+        "hypothesis_testing": 0.15,
+        "controlled_experiments": 0.15,
+        "clinical_research": 0.15,
+        "human_subjects": 0.3,
+        "medical_research": 0.3,
+        "survey_research": 0.15,
+        "social_science": 0.15,
+        "qualitative_methods": 0.15,
+        "clinical_trials_experience": 0.15,
+        "regulatory_compliance": 0.15,
+        "translational_science": 0.15,
+        "clinical_applications": 0.15,
+        "regulatory_experience": 0.15,
+        "compliance": 0.15,
+        "documentation": 0.15,
+        "life_sciences_domain": 0.35,
+        "experimental_expertise": 0.35,
+        "biological_systems": 0.35
+      },
+      "userDomain": "life_sciences",
+      "expectedMatches": [
+        "clinical_research_associate"
+      ],
+      "accuracy": 0.3333333333333333
+    },
+    {
+      "profile": "finance",
+      "name": "Finance/Economics PhD",
+      "success": true,
+      "matches": [
+        {
+          "careerPath": "business_development_manager",
+          "name": "Business Development Manager",
+          "category": "business_strategy",
+          "description": "Builds partnerships, negotiates deals, and drives growth opportunities for companies",
+          "skills": {
+            "required": [
+              "negotiation",
+              "relationship building",
+              "strategic thinking",
+              "communication"
+            ],
+            "complexity_levels": {
+              "negotiation": "advanced",
+              "relationship building": "intermediate",
+              "strategic thinking": "advanced",
+              "communication": "intermediate"
+            }
+          },
+          "values": [
+            "growth",
+            "partnerships",
+            "impact"
+          ],
+          "temperament": [
+            "extroverted",
+            "strategic",
+            "decisive"
+          ],
+          "totalScore": 0.5963541666666667,
+          "categoryScores": {
+            "skills": 0.6684027777777778,
+            "values": 0.42013888888888884,
+            "temperament": 0.20833333333333334
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 60,
+          "details": {
+            "name": "Business Development Manager",
+            "description": "Builds partnerships, negotiates deals, and drives growth opportunities for companies"
+          }
+        },
+        {
+          "careerPath": "venture_capital_analyst",
+          "name": "Venture Capital Analyst",
+          "category": "business_strategy",
+          "description": "Evaluates startup technologies, performs due diligence, and advises investment decisions",
+          "skills": {
+            "required": [
+              "financial modeling",
+              "market analysis",
+              "technical assessment",
+              "strategic thinking"
+            ],
+            "complexity_levels": {
+              "financial modeling": "advanced",
+              "market analysis": "advanced",
+              "technical assessment": "advanced",
+              "strategic thinking": "advanced"
+            }
+          },
+          "values": [
+            "innovation",
+            "entrepreneurship",
+            "risk-taking"
+          ],
+          "temperament": [
+            "curious",
+            "strategic",
+            "decisive"
+          ],
+          "totalScore": 0.59375,
+          "categoryScores": {
+            "skills": 0.8506944444444444,
+            "values": 0.23263888888888887,
+            "temperament": 0.20833333333333334
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "business_finance_background: 3 >= 1",
+            "data_analysis_experience: 4 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 59,
+          "details": {
+            "name": "Venture Capital Analyst",
+            "description": "Evaluates startup technologies, performs due diligence, and advises investment decisions"
+          }
+        },
+        {
+          "careerPath": "quantitative_analyst",
+          "name": "Quantitative Analyst",
+          "category": "data_analytics",
+          "description": "Applies mathematical and statistical methods to analyze financial markets and risk",
+          "skills": {
+            "required": [
+              "financial modeling",
+              "statistics",
+              "programming",
+              "risk assessment"
+            ],
+            "complexity_levels": {
+              "financial modeling": "expert",
+              "statistics": "expert",
+              "programming": "advanced",
+              "risk assessment": "advanced"
+            }
+          },
+          "values": [
+            "precision",
+            "analytical rigor",
+            "financial success"
+          ],
+          "temperament": [
+            "analytical",
+            "detail-oriented",
+            "systematic"
+          ],
+          "totalScore": 0.5226417824074073,
+          "categoryScores": {
+            "skills": 0.564236111111111,
+            "values": 0,
+            "temperament": 0.2314814814814815
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "mathematics_background: 3 >= 2",
+            "data_analysis_experience: 4 >= 2",
+            "programming_experience: 3 >= 1",
+            "business_finance_background: 3 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 52,
+          "details": {
+            "name": "Quantitative Analyst",
+            "description": "Applies mathematical and statistical methods to analyze financial markets and risk"
+          }
+        },
+        {
+          "careerPath": "product_manager",
+          "name": "Product Manager",
+          "category": "business_strategy",
+          "description": "Coordinates between science, engineering, and business to develop and launch products",
+          "skills": {
+            "required": [
+              "project management",
+              "market analysis",
+              "communication",
+              "strategic thinking"
+            ],
+            "complexity_levels": {
+              "project management": "intermediate",
+              "market analysis": "intermediate",
+              "communication": "basic",
+              "strategic thinking": "advanced"
+            }
+          },
+          "values": [
+            "impact",
+            "efficiency",
+            "customer focus"
+          ],
+          "temperament": [
+            "decisive",
+            "strategic",
+            "organized"
+          ],
+          "totalScore": 0.4600694444444445,
+          "categoryScores": {
+            "skills": 0.7291666666666666,
+            "values": 0.08680555555555557,
+            "temperament": 0.20833333333333334
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 46,
+          "details": {
+            "name": "Product Manager",
+            "description": "Coordinates between science, engineering, and business to develop and launch products"
+          }
+        },
+        {
+          "careerPath": "management_consultant",
+          "name": "Management Consultant",
+          "category": "business_strategy",
+          "description": "Advises companies on strategy, operations, and growth opportunities using analytical expertise",
+          "skills": {
+            "required": [
+              "problem-solving",
+              "data analysis",
+              "communication",
+              "strategic thinking"
+            ],
+            "complexity_levels": {
+              "problem-solving": "advanced",
+              "data analysis": "advanced",
+              "communication": "intermediate",
+              "strategic thinking": "advanced"
+            }
+          },
+          "values": [
+            "impact",
+            "challenge",
+            "efficiency"
+          ],
+          "temperament": [
+            "analytical",
+            "adaptable",
+            "persuasive"
+          ],
+          "totalScore": 0.41406250000000006,
+          "categoryScores": {
+            "skills": 0.546875,
+            "values": 0.21180555555555558,
+            "temperament": 0.1388888888888889
+          },
+          "domainMatch": 0.25,
+          "prerequisites": [
+            "data_analysis_experience: 4 >= 2",
+            "mathematics_background: 3 >= 1"
+          ],
+          "matchLevel": {
+            "tier": "potential_match",
+            "level": "Potential Match",
+            "emoji": "🟠",
+            "description": "Prerequisites met but consider skill development"
+          },
+          "score": 41,
+          "details": {
+            "name": "Management Consultant",
+            "description": "Advises companies on strategy, operations, and growth opportunities using analytical expertise"
+          }
+        }
+      ],
+      "userTags": {
+        "financial modeling": 0.7,
+        "market analysis": 1.0499999999999998,
+        "forecasting": 0.35,
+        "data visualization": 0.35,
+        "communication": 0.7,
+        "strategic thinking": 0.7,
+        "relationship-building": 0.35,
+        "negotiation": 0.7,
+        "analytical thinking": 0.7,
+        "problem-solving": 0.35,
+        "project management": 0.35,
+        "market research": 0.35,
+        "risk assessment": 0.35,
+        "risk management": 0.35,
+        "stakeholder engagement": 0.35,
+        "technical_translation": 0.35,
+        "business_application": 0.35,
+        "growth": 1.44,
+        "commercialization": 0.3,
+        "entrepreneurship": 0.3,
+        "intellectual challenge": 0.40499999999999997,
+        "knowledge creation": 0.40499999999999997,
+        "innovation": 0.7049999999999998,
+        "creativity": 0.15,
+        "aesthetics": 0.15,
+        "independence": 0.57,
+        "societal impact": 0.135,
+        "impact": 0.075,
+        "community": 0.075,
+        "ethics": 0.135,
+        "collaboration": 0.3,
+        "stability": 0.72,
+        "efficiency": 0.3,
+        "team success": 0.84,
+        "partnerships": 0.3,
+        "challenge": 0.54,
+        "practical impact": 0.72,
+        "leadership": 0.3,
+        "mission-driven work": 0.06,
+        "collaborative": 0.2,
+        "adaptable": 0.2,
+        "reliable": 0.2,
+        "detail-oriented": 0.2,
+        "precise": 0.2,
+        "systematic": 0.6000000000000001,
+        "conscientious": 0.6000000000000001,
+        "practical": 0.4,
+        "decisive": 0.4,
+        "resilient": 0.4,
+        "analytical": 0.2,
+        "strategic": 0.2,
+        "python": 0.3,
+        "data_science_tools": 0.15,
+        "ml_capable": 0.15,
+        "r": 0.3,
+        "statistics_tools": 0.15,
+        "data_analysis": 0.3,
+        "sql": 0.3,
+        "database_management": 0.15,
+        "data_querying": 0.3,
+        "statistics": 0.15,
+        "probability": 0.15,
+        "calculus": 0.15,
+        "differential_equations": 0.15,
+        "mathematical_modeling": 0.15,
+        "optimization": 0.15,
+        "mathematical_optimization": 0.15,
+        "operations_research": 0.15,
+        "numerical_methods": 0.15,
+        "computational_mathematics": 0.15,
+        "simulation": 0.15,
+        "programming_based_analysis": 0.15,
+        "ml_tools": 0.15,
+        "statistical_programming": 0.15,
+        "data_science": 0.15,
+        "excel": 0.15,
+        "basic_data_tools": 0.15,
+        "spreadsheet_analysis": 0.15,
+        "database_analysis": 0.15,
+        "survey_research": 0.15,
+        "social_science": 0.15,
+        "qualitative_methods": 0.15,
+        "literature_review": 0.15,
+        "meta_analysis": 0.15,
+        "systematic_review": 0.15,
+        "no_clinical_experience": 0.15,
+        "mathematical_domain": 0.35,
+        "computational_expertise": 0.35,
+        "algorithmic_thinking": 0.35
+      },
+      "userDomain": "mathematical",
+      "expectedMatches": [
+        "quantitative_analyst",
+        "venture_capital_analyst"
+      ],
+      "accuracy": 0.6666666666666666
+    }
+  ],
+  "algorithmAnalysis": {
+    "strengths": [
+      "Strong performance for Business/Strategy PhD (100.0%)"
+    ],
+    "weaknesses": [
+      "Below-target matching accuracy (<70%)",
+      "Poor performance for Technical/Engineering PhD (33.3%)",
+      "Poor performance for Creative/Design PhD (33.3%)",
+      "Poor performance for Research/Academic PhD (33.3%)",
+      "Poor performance for Healthcare/Biotech PhD (33.3%)"
+    ],
+    "recommendations": [
+      "Consider adjusting algorithm weights and knockout rules",
+      "Review career taxonomy and skill mappings for underperforming profiles"
+    ]
+  }
+}

@@ -267,13 +267,10 @@ const CareerMapPage = () => {
               Take action on your career transition with our comprehensive tools and resources.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link href="/quiz/" className="btn-primary text-lg px-8 py-3">
                 Take Career Assessment
               </Link>
-              <a href={`/actionPlan/?career=${selectedCareerPath}`} className="btn-secondary text-lg px-8 py-3">
-                Get Action Plan
-              </a>
             </div>
           </div>
         </section>

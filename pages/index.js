@@ -58,8 +58,8 @@ const HomePage = () => {
               <Link href="/quiz/" className="btn-primary text-lg px-8 py-3">
                 Take Free Assessment
               </Link>
-              <Link href="/careerMap/" className="btn-secondary text-lg px-8 py-3">
-                Explore Career Paths
+              <Link href="/actionPlan/" className="btn-secondary text-lg px-8 py-3">
+                Get Action Plan
               </Link>
             </div>
           </div>

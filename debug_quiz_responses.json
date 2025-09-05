@@ -1,0 +1,53 @@
+{
+  "user_quiz_responses": {
+    "timestamp": "2025-09-04",
+    "responses": {
+      "q1": "c",
+      "q2": "d", 
+      "q3": "c",
+      "q4": "c",
+      "q5": ["a", "b", "c"],
+      "q6": ["4", "2", "1", "3"],
+      "q7": "e",
+      "q8": "a",
+      "q9": "d", 
+      "q10": "b",
+      "q11": "c",
+      "q12": "c",
+      "q13": "e",
+      "q14": "a",
+      "q15": "c",
+      "q16": "a",
+      "q17": "d",
+      "q18": ["1", "4", "3", "2", "5"],
+      "q19": "c",
+      "q20": "b",
+      "q21": "c",
+      "q22": "b",
+      "q23": "b",
+      "q24": ["a", "b", "c"],
+      "q25": "b",
+      "q26": ["a", "b", "c"],
+      "q27": "c",
+      "q28": ["a", "c", "d"],
+      "q29": ["a", "f"],
+      "q30": "d",
+      "q31": "a",
+      "q32": "c",
+      "q33": "a",
+      "q34": "e"
+    },
+    "radar_result": {
+      "technical_skills": "very_low",
+      "leadership": "medium_low",
+      "communication": "low", 
+      "creativity": "medium_high",
+      "independence": "medium",
+      "collaboration": "low",
+      "impact_focus": "medium",
+      "risk_tolerance": "medium_high",
+      "analytical_thinking": "very_low"
+    },
+    "notes": "User reports results don't match expectations - particularly technical skills, analytical thinking, communication, and collaboration being rated too low"
+  }
+}

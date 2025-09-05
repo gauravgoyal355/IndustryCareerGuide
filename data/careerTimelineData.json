@@ -1,0 +1,958 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "description": "PhD/Postdoc optimized career timeline progression data for 31 career paths - main progression and pivot opportunities",
+    "created": "2025-08-30",
+    "lastUpdated": "2025-08-30",
+    "optimization": "PhD/Postdoc optimization v2.0",
+    "note": "Salary ranges based on 2025 US market data (major tech hubs: SF Bay Area, Seattle, NYC) with PhD premium applied. Timeline data reflects PhD-accelerated progression.",
+    "changeLog": [
+      "Repositioned PhD entry points to realistic mid/senior levels",
+      "Applied 15-25% PhD salary premiums across all levels", 
+      "Reduced progression timelines by 25-30% for PhD advantages",
+      "Extended pivot opportunities to 3-4 stage career arcs",
+      "Added 4 new high-value PhD careers (AI/ML, DevOps, Cybersecurity, Digital Health)",
+      "Corrected inflated salary ranges per market feedback",
+      "Added PhD-specific transition fields and academic bridge roles"
+    ]
+  },
+  "career_timelines": {
+    "r_and_d_scientist": {
+      "name": "R&D Scientist",
+      "main_path": [
+        { "title": "Research Scientist I", "shortTitle": "Scientist I", "level": "entry", "cumulativeYears": 0, "salary": "$75k-$95k", "timeToNext": 2 },
+        { "title": "Research Scientist II", "shortTitle": "Scientist II", "level": "mid", "cumulativeYears": 2, "salary": "$95k-$130k", "timeToNext": 3 },
+        { "title": "Senior Research Scientist", "shortTitle": "Sr Scientist", "level": "senior", "cumulativeYears": 5, "salary": "$130k-$180k", "timeToNext": 4 },
+        { "title": "Principal Research Scientist", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$180k-$250k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Product Development",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Product Development Scientist", "shortTitle": "PD Scientist", "level": "mid", "cumulativeYears": 3, "salary": "$110k-$140k", "timeToNext": 3 },
+            { "title": "Product Development Manager", "shortTitle": "PD Manager", "level": "senior", "cumulativeYears": 6, "salary": "$140k-$190k", "timeToNext": null }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Innovation Consulting",
+          "color": "#7C3AED",
+          "stages": [
+            { "title": "Innovation Consultant", "shortTitle": "Consultant", "level": "senior", "cumulativeYears": 6, "salary": "$150k-$200k", "timeToNext": 4 },
+            { "title": "Principal Consultant", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 10, "salary": "$200k-$300k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "process_development_scientist": {
+      "name": "Process Development Scientist",
+      "main_path": [
+        { "title": "Process Scientist I", "shortTitle": "Scientist I", "level": "entry", "cumulativeYears": 0, "salary": "$80k-$100k", "timeToNext": 2 },
+        { "title": "Process Scientist II", "shortTitle": "Scientist II", "level": "mid", "cumulativeYears": 2, "salary": "$100k-$135k", "timeToNext": 3 },
+        { "title": "Senior Process Scientist", "shortTitle": "Sr Scientist", "level": "senior", "cumulativeYears": 5, "salary": "$135k-$185k", "timeToNext": 4 },
+        { "title": "Principal Process Scientist", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$185k-$260k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Manufacturing Engineering",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Manufacturing Engineer", "shortTitle": "Mfg Engineer", "level": "mid", "cumulativeYears": 3, "salary": "$105k-$135k", "timeToNext": 4 },
+            { "title": "Manufacturing Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$160k-$220k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "regulatory_affairs_specialist": {
+      "name": "Regulatory Affairs Specialist",
+      "main_path": [
+        { "title": "Regulatory Associate", "shortTitle": "Associate", "level": "entry", "cumulativeYears": 0, "salary": "$70k-$90k", "timeToNext": 2 },
+        { "title": "Regulatory Specialist", "shortTitle": "Specialist", "level": "mid", "cumulativeYears": 2, "salary": "$90k-$120k", "timeToNext": 3 },
+        { "title": "Senior Regulatory Specialist", "shortTitle": "Sr Specialist", "level": "senior", "cumulativeYears": 5, "salary": "$120k-$160k", "timeToNext": 4 },
+        { "title": "Regulatory Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$160k-$220k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Quality Assurance",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Quality Manager", "shortTitle": "QA Manager", "level": "mid", "cumulativeYears": 3, "salary": "$95k-$125k", "timeToNext": 4 },
+            { "title": "VP Quality", "shortTitle": "VP Quality", "level": "lead", "cumulativeYears": 7, "salary": "$150k-$200k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "clinical_research_associate": {
+      "name": "Clinical Research Associate",
+      "main_path": [
+        { "title": "Clinical Research Associate", "shortTitle": "CRA", "level": "entry", "cumulativeYears": 0, "salary": "$65k-$85k", "timeToNext": 2 },
+        { "title": "Senior CRA", "shortTitle": "Sr CRA", "level": "mid", "cumulativeYears": 2, "salary": "$85k-$115k", "timeToNext": 3 },
+        { "title": "Clinical Project Manager", "shortTitle": "CPM", "level": "senior", "cumulativeYears": 5, "salary": "$115k-$155k", "timeToNext": 4 },
+        { "title": "Clinical Operations Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$155k-$210k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Medical Affairs",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Medical Science Liaison", "shortTitle": "MSL", "level": "mid", "cumulativeYears": 3, "salary": "$120k-$160k", "timeToNext": 4 },
+            { "title": "Medical Affairs Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$180k-$250k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "data_scientist": {
+      "name": "Data Scientist",
+      "main_path": [
+        { "title": "Data Scientist I", "shortTitle": "DS I", "level": "entry", "cumulativeYears": 0, "salary": "$95k-$125k", "timeToNext": 2 },
+        { "title": "Data Scientist II", "shortTitle": "DS II", "level": "mid", "cumulativeYears": 2, "salary": "$125k-$165k", "timeToNext": 3 },
+        { "title": "Senior Data Scientist", "shortTitle": "Sr DS", "level": "senior", "cumulativeYears": 5, "salary": "$165k-$220k", "timeToNext": 4 },
+        { "title": "Principal Data Scientist", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$220k-$320k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "ML Engineering",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "ML Engineer", "shortTitle": "ML Eng", "level": "mid", "cumulativeYears": 3, "salary": "$140k-$180k", "timeToNext": 3 },
+            { "title": "Principal ML Engineer", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 6, "salary": "$200k-$300k", "timeToNext": null }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Product Analytics",
+          "color": "#7C3AED",
+          "stages": [
+            { "title": "Product Analyst", "shortTitle": "Product Analyst", "level": "senior", "cumulativeYears": 6, "salary": "$150k-$200k", "timeToNext": 4 },
+            { "title": "Head of Analytics", "shortTitle": "Head Analytics", "level": "lead", "cumulativeYears": 10, "salary": "$250k-$350k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "bioinformatics_scientist": {
+      "name": "Bioinformatics Scientist",
+      "main_path": [
+        { "title": "Bioinformatics Analyst", "shortTitle": "Analyst", "level": "entry", "cumulativeYears": 0, "salary": "$80k-$105k", "timeToNext": 2 },
+        { "title": "Bioinformatics Scientist", "shortTitle": "Scientist", "level": "mid", "cumulativeYears": 2, "salary": "$105k-$140k", "timeToNext": 3 },
+        { "title": "Senior Bioinformatics Scientist", "shortTitle": "Sr Scientist", "level": "senior", "cumulativeYears": 5, "salary": "$140k-$190k", "timeToNext": 4 },
+        { "title": "Principal Bioinformatics Scientist", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$190k-$270k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Computational Biology",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Computational Biologist", "shortTitle": "Comp Bio", "level": "mid", "cumulativeYears": 3, "salary": "$115k-$150k", "timeToNext": 4 },
+            { "title": "Director Computational Biology", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$180k-$250k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "medical_science_liaison": {
+      "name": "Medical Science Liaison",
+      "main_path": [
+        { "title": "Associate Medical Science Liaison", "shortTitle": "Assoc MSL", "level": "entry", "cumulativeYears": 0, "salary": "$100k-$130k", "timeToNext": 2 },
+        { "title": "Medical Science Liaison", "shortTitle": "MSL", "level": "mid", "cumulativeYears": 2, "salary": "$130k-$170k", "timeToNext": 3 },
+        { "title": "Senior MSL", "shortTitle": "Sr MSL", "level": "senior", "cumulativeYears": 5, "salary": "$170k-$220k", "timeToNext": 4 },
+        { "title": "Medical Affairs Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$220k-$300k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Clinical Development",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Clinical Development Manager", "shortTitle": "CD Manager", "level": "mid", "cumulativeYears": 3, "salary": "$135k-$175k", "timeToNext": 4 },
+            { "title": "VP Clinical Development", "shortTitle": "VP Clinical", "level": "lead", "cumulativeYears": 7, "salary": "$200k-$280k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "technology_transfer_officer": {
+      "name": "Technology Transfer Officer",
+      "main_path": [
+        { "title": "Technology Transfer Associate", "shortTitle": "TT Associate", "level": "entry", "cumulativeYears": 0, "salary": "$75k-$95k", "timeToNext": 2 },
+        { "title": "Technology Transfer Officer", "shortTitle": "TTO", "level": "mid", "cumulativeYears": 2, "salary": "$95k-$130k", "timeToNext": 3 },
+        { "title": "Senior Technology Transfer Officer", "shortTitle": "Sr TTO", "level": "senior", "cumulativeYears": 5, "salary": "$130k-$175k", "timeToNext": 4 },
+        { "title": "Director Technology Transfer", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$175k-$240k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Business Development",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Business Development Manager", "shortTitle": "BD Manager", "level": "mid", "cumulativeYears": 3, "salary": "$110k-$145k", "timeToNext": 4 },
+            { "title": "VP Business Development", "shortTitle": "VP BD", "level": "lead", "cumulativeYears": 7, "salary": "$180k-$260k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "intellectual_property_analyst": {
+      "name": "Intellectual Property Analyst",
+      "main_path": [
+        { "title": "IP Associate", "shortTitle": "IP Associate", "level": "entry", "cumulativeYears": 0, "salary": "$80k-$105k", "timeToNext": 2 },
+        { "title": "IP Analyst", "shortTitle": "IP Analyst", "level": "mid", "cumulativeYears": 2, "salary": "$105k-$140k", "timeToNext": 3 },
+        { "title": "Senior IP Analyst", "shortTitle": "Sr IP", "level": "senior", "cumulativeYears": 5, "salary": "$140k-$185k", "timeToNext": 4 },
+        { "title": "IP Portfolio Manager", "shortTitle": "IP Manager", "level": "lead", "cumulativeYears": 9, "salary": "$185k-$250k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Patent Law",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Patent Agent", "shortTitle": "Patent Agent", "level": "mid", "cumulativeYears": 3, "salary": "$120k-$160k", "timeToNext": 4 },
+            { "title": "Patent Attorney", "shortTitle": "Attorney", "level": "lead", "cumulativeYears": 7, "salary": "$200k-$300k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "product_manager": {
+      "name": "Product Manager",
+      "main_path": [
+        { "title": "Associate PM", "shortTitle": "APM", "level": "entry", "cumulativeYears": 0, "salary": "$120k-$150k", "timeToNext": 2 },
+        { "title": "Product Manager", "shortTitle": "PM", "level": "mid", "cumulativeYears": 2, "salary": "$150k-$190k", "timeToNext": 4 },
+        { "title": "Senior PM", "shortTitle": "Sr PM", "level": "senior", "cumulativeYears": 6, "salary": "$190k-$250k", "timeToNext": 5 },
+        { "title": "Principal PM", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 11, "salary": "$250k-$350k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Consulting Path",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Principal Consultant", "shortTitle": "Principal", "level": "senior", "cumulativeYears": 3.5, "salary": "$180k-$250k", "timeToNext": 4 },
+            { "title": "Partner", "shortTitle": "Partner", "level": "lead", "cumulativeYears": 7.5, "salary": "$300k-$500k", "timeToNext": null }
+          ]
+        },
+        {
+          "branchFromIndex": 2,
+          "branchName": "Startup Path",
+          "color": "#F59E0B",
+          "stages": [
+            { "title": "Startup Founder", "shortTitle": "Founder", "level": "lead", "cumulativeYears": 7, "salary": "$0-$200k*", "timeToNext": 4 },
+            { "title": "CEO (Growth)", "shortTitle": "CEO", "level": "lead", "cumulativeYears": 11, "salary": "$200k-$500k+", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "management_consultant": {
+      "name": "Management Consultant",
+      "main_path": [
+        { "title": "Business Analyst", "shortTitle": "Analyst", "level": "entry", "cumulativeYears": 0, "salary": "$90k-$120k", "timeToNext": 2 },
+        { "title": "Consultant", "shortTitle": "Consultant", "level": "mid", "cumulativeYears": 2, "salary": "$120k-$160k", "timeToNext": 3 },
+        { "title": "Senior Consultant", "shortTitle": "Sr Consultant", "level": "senior", "cumulativeYears": 5, "salary": "$160k-$220k", "timeToNext": 4 },
+        { "title": "Principal", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$220k-$350k", "timeToNext": 3 },
+        { "title": "Partner", "shortTitle": "Partner", "level": "lead", "cumulativeYears": 12, "salary": "$350k-$600k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 2,
+          "branchName": "Corporate Strategy",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Strategy Manager", "shortTitle": "Strategy Mgr", "level": "senior", "cumulativeYears": 6, "salary": "$170k-$220k", "timeToNext": 4 },
+            { "title": "VP Strategy", "shortTitle": "VP Strategy", "level": "lead", "cumulativeYears": 10, "salary": "$250k-$350k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "venture_capital_analyst": {
+      "name": "Venture Capital Analyst",
+      "main_path": [
+        { "title": "VC Analyst", "shortTitle": "Analyst", "level": "entry", "cumulativeYears": 0, "salary": "$100k-$130k", "timeToNext": 2 },
+        { "title": "VC Associate", "shortTitle": "Associate", "level": "mid", "cumulativeYears": 2, "salary": "$130k-$170k", "timeToNext": 3 },
+        { "title": "VC Principal", "shortTitle": "Principal", "level": "senior", "cumulativeYears": 5, "salary": "$170k-$250k", "timeToNext": 4 },
+        { "title": "VC Partner", "shortTitle": "Partner", "level": "lead", "cumulativeYears": 9, "salary": "$250k-$500k+", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Investment Banking",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Investment Banking Associate", "shortTitle": "IB Associate", "level": "mid", "cumulativeYears": 3, "salary": "$150k-$200k", "timeToNext": 3 },
+            { "title": "VP Investment Banking", "shortTitle": "VP IB", "level": "lead", "cumulativeYears": 6, "salary": "$250k-$400k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "scientific_writer": {
+      "name": "Scientific Writer",
+      "main_path": [
+        { "title": "Scientific Writing Associate", "shortTitle": "Writer I", "level": "entry", "cumulativeYears": 0, "salary": "$60k-$80k", "timeToNext": 2 },
+        { "title": "Scientific Writer", "shortTitle": "Writer", "level": "mid", "cumulativeYears": 2, "salary": "$80k-$110k", "timeToNext": 3 },
+        { "title": "Senior Scientific Writer", "shortTitle": "Sr Writer", "level": "senior", "cumulativeYears": 5, "salary": "$110k-$150k", "timeToNext": 4 },
+        { "title": "Principal Scientific Writer", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$150k-$200k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Medical Communications",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Medical Communications Manager", "shortTitle": "MedComm Mgr", "level": "mid", "cumulativeYears": 3, "salary": "$95k-$130k", "timeToNext": 4 },
+            { "title": "Director Medical Communications", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$140k-$190k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "science_communicator": {
+      "name": "Science Communicator",
+      "main_path": [
+        { "title": "Content Creator", "shortTitle": "Creator", "level": "entry", "cumulativeYears": 0, "salary": "$50k-$70k", "timeToNext": 2 },
+        { "title": "Science Communicator", "shortTitle": "Communicator", "level": "mid", "cumulativeYears": 2, "salary": "$70k-$95k", "timeToNext": 3 },
+        { "title": "Senior Science Communicator", "shortTitle": "Sr Comm", "level": "senior", "cumulativeYears": 5, "salary": "$95k-$130k", "timeToNext": 4 },
+        { "title": "Director Science Communications", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$130k-$180k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Marketing Strategy",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Marketing Manager", "shortTitle": "Mktg Manager", "level": "mid", "cumulativeYears": 3, "salary": "$85k-$115k", "timeToNext": 4 },
+            { "title": "VP Marketing", "shortTitle": "VP Marketing", "level": "lead", "cumulativeYears": 7, "salary": "$150k-$220k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "science_illustrator": {
+      "name": "Science Illustrator",
+      "main_path": [
+        { "title": "Junior Science Illustrator", "shortTitle": "Jr Illustrator", "level": "entry", "cumulativeYears": 0, "salary": "$45k-$65k", "timeToNext": 2 },
+        { "title": "Science Illustrator", "shortTitle": "Illustrator", "level": "mid", "cumulativeYears": 2, "salary": "$65k-$85k", "timeToNext": 3 },
+        { "title": "Senior Science Illustrator", "shortTitle": "Sr Illustrator", "level": "senior", "cumulativeYears": 5, "salary": "$85k-$115k", "timeToNext": 4 },
+        { "title": "Creative Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$115k-$160k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "UX Design",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "UX Designer", "shortTitle": "UX Designer", "level": "mid", "cumulativeYears": 3, "salary": "$90k-$120k", "timeToNext": 4 },
+            { "title": "Principal UX Designer", "shortTitle": "Principal UX", "level": "lead", "cumulativeYears": 7, "salary": "$140k-$200k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "ux_researcher": {
+      "name": "UX Researcher",
+      "main_path": [
+        { "title": "UX Research Associate", "shortTitle": "UXR Associate", "level": "entry", "cumulativeYears": 0, "salary": "$85k-$110k", "timeToNext": 2 },
+        { "title": "UX Researcher", "shortTitle": "UXR", "level": "mid", "cumulativeYears": 2, "salary": "$110k-$145k", "timeToNext": 3 },
+        { "title": "Senior UX Researcher", "shortTitle": "Sr UXR", "level": "senior", "cumulativeYears": 5, "salary": "$145k-$190k", "timeToNext": 4 },
+        { "title": "Principal UX Researcher", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$190k-$260k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Product Management",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Product Manager", "shortTitle": "PM", "level": "mid", "cumulativeYears": 3, "salary": "$130k-$170k", "timeToNext": 4 },
+            { "title": "Senior Product Manager", "shortTitle": "Sr PM", "level": "senior", "cumulativeYears": 7, "salary": "$170k-$230k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "technical_writer": {
+      "name": "Technical Writer",
+      "main_path": [
+        { "title": "Technical Writing Associate", "shortTitle": "TW Associate", "level": "entry", "cumulativeYears": 0, "salary": "$55k-$75k", "timeToNext": 2 },
+        { "title": "Technical Writer", "shortTitle": "Tech Writer", "level": "mid", "cumulativeYears": 2, "salary": "$75k-$100k", "timeToNext": 3 },
+        { "title": "Senior Technical Writer", "shortTitle": "Sr Tech Writer", "level": "senior", "cumulativeYears": 5, "salary": "$100k-$135k", "timeToNext": 4 },
+        { "title": "Documentation Manager", "shortTitle": "Doc Manager", "level": "lead", "cumulativeYears": 9, "salary": "$135k-$180k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Content Strategy",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Content Strategist", "shortTitle": "Strategist", "level": "mid", "cumulativeYears": 3, "salary": "$85k-$115k", "timeToNext": 4 },
+            { "title": "Head of Content", "shortTitle": "Head Content", "level": "lead", "cumulativeYears": 7, "salary": "$130k-$180k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "copywriter": {
+      "name": "Copywriter",
+      "main_path": [
+        { "title": "Junior Copywriter", "shortTitle": "Jr Copywriter", "level": "entry", "cumulativeYears": 0, "salary": "$45k-$60k", "timeToNext": 2 },
+        { "title": "Copywriter", "shortTitle": "Copywriter", "level": "mid", "cumulativeYears": 2, "salary": "$60k-$80k", "timeToNext": 3 },
+        { "title": "Senior Copywriter", "shortTitle": "Sr Copywriter", "level": "senior", "cumulativeYears": 5, "salary": "$80k-$110k", "timeToNext": 4 },
+        { "title": "Creative Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$110k-$150k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Brand Strategy",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Brand Strategist", "shortTitle": "Strategist", "level": "mid", "cumulativeYears": 3, "salary": "$75k-$105k", "timeToNext": 4 },
+            { "title": "Brand Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$120k-$170k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "market_analyst": {
+      "name": "Market Analyst",
+      "main_path": [
+        { "title": "Market Research Associate", "shortTitle": "MR Associate", "level": "entry", "cumulativeYears": 0, "salary": "$55k-$75k", "timeToNext": 2 },
+        { "title": "Market Analyst", "shortTitle": "Analyst", "level": "mid", "cumulativeYears": 2, "salary": "$75k-$100k", "timeToNext": 3 },
+        { "title": "Senior Market Analyst", "shortTitle": "Sr Analyst", "level": "senior", "cumulativeYears": 5, "salary": "$100k-$135k", "timeToNext": 4 },
+        { "title": "Market Research Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$135k-$185k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Business Intelligence",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "BI Analyst", "shortTitle": "BI Analyst", "level": "mid", "cumulativeYears": 3, "salary": "$85k-$115k", "timeToNext": 4 },
+            { "title": "Head of Analytics", "shortTitle": "Head Analytics", "level": "lead", "cumulativeYears": 7, "salary": "$140k-$200k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "business_development_manager": {
+      "name": "Business Development Manager",
+      "main_path": [
+        { "title": "Business Development Associate", "shortTitle": "BD Associate", "level": "entry", "cumulativeYears": 0, "salary": "$65k-$85k", "timeToNext": 2 },
+        { "title": "Business Development Manager", "shortTitle": "BD Manager", "level": "mid", "cumulativeYears": 2, "salary": "$85k-$120k", "timeToNext": 3 },
+        { "title": "Senior BD Manager", "shortTitle": "Sr BD Mgr", "level": "senior", "cumulativeYears": 5, "salary": "$120k-$165k", "timeToNext": 4 },
+        { "title": "VP Business Development", "shortTitle": "VP BD", "level": "lead", "cumulativeYears": 9, "salary": "$165k-$240k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Sales Leadership",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Sales Manager", "shortTitle": "Sales Mgr", "level": "mid", "cumulativeYears": 3, "salary": "$90k-$130k", "timeToNext": 4 },
+            { "title": "VP Sales", "shortTitle": "VP Sales", "level": "lead", "cumulativeYears": 7, "salary": "$150k-$250k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "entrepreneur_startup_founder": {
+      "name": "Entrepreneur/Startup Founder",
+      "main_path": [
+        { "title": "Co-founder/CTO", "shortTitle": "Co-founder", "level": "entry", "cumulativeYears": 0, "salary": "$0-$80k*", "timeToNext": 2 },
+        { "title": "Founder/CEO", "shortTitle": "Founder", "level": "mid", "cumulativeYears": 2, "salary": "$0-$150k*", "timeToNext": 3 },
+        { "title": "Growth Stage CEO", "shortTitle": "CEO", "level": "senior", "cumulativeYears": 5, "salary": "$100k-$300k*", "timeToNext": 4 },
+        { "title": "Serial Entrepreneur", "shortTitle": "Serial", "level": "lead", "cumulativeYears": 9, "salary": "$200k-$1M+*", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Venture Capital",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "VC Associate", "shortTitle": "VC Associate", "level": "mid", "cumulativeYears": 3, "salary": "$130k-$170k", "timeToNext": 4 },
+            { "title": "VC Partner", "shortTitle": "Partner", "level": "lead", "cumulativeYears": 7, "salary": "$250k-$500k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "operations_manager": {
+      "name": "Operations Manager",
+      "main_path": [
+        { "title": "Operations Associate", "shortTitle": "Ops Associate", "level": "entry", "cumulativeYears": 0, "salary": "$60k-$80k", "timeToNext": 2 },
+        { "title": "Operations Manager", "shortTitle": "Ops Manager", "level": "mid", "cumulativeYears": 2, "salary": "$80k-$110k", "timeToNext": 3 },
+        { "title": "Senior Operations Manager", "shortTitle": "Sr Ops Mgr", "level": "senior", "cumulativeYears": 5, "salary": "$110k-$150k", "timeToNext": 4 },
+        { "title": "VP Operations", "shortTitle": "VP Ops", "level": "lead", "cumulativeYears": 9, "salary": "$150k-$220k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Supply Chain",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Supply Chain Manager", "shortTitle": "SC Manager", "level": "mid", "cumulativeYears": 3, "salary": "$90k-$120k", "timeToNext": 4 },
+            { "title": "VP Supply Chain", "shortTitle": "VP SC", "level": "lead", "cumulativeYears": 7, "salary": "$140k-$200k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "science_policy_analyst": {
+      "name": "Science Policy Analyst",
+      "main_path": [
+        { "title": "Policy Research Associate", "shortTitle": "Policy Assoc", "level": "entry", "cumulativeYears": 0, "salary": "$55k-$75k", "timeToNext": 2 },
+        { "title": "Science Policy Analyst", "shortTitle": "Policy Analyst", "level": "mid", "cumulativeYears": 2, "salary": "$75k-$105k", "timeToNext": 3 },
+        { "title": "Senior Policy Analyst", "shortTitle": "Sr Analyst", "level": "senior", "cumulativeYears": 5, "salary": "$105k-$140k", "timeToNext": 4 },
+        { "title": "Policy Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$140k-$190k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Government Relations",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Government Affairs Manager", "shortTitle": "GA Manager", "level": "mid", "cumulativeYears": 3, "salary": "$90k-$125k", "timeToNext": 4 },
+            { "title": "VP Government Affairs", "shortTitle": "VP GA", "level": "lead", "cumulativeYears": 7, "salary": "$150k-$220k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "nonprofit_program_manager": {
+      "name": "Nonprofit Program Manager",
+      "main_path": [
+        { "title": "Program Associate", "shortTitle": "Prog Associate", "level": "entry", "cumulativeYears": 0, "salary": "$45k-$60k", "timeToNext": 2 },
+        { "title": "Program Manager", "shortTitle": "Prog Manager", "level": "mid", "cumulativeYears": 2, "salary": "$60k-$80k", "timeToNext": 3 },
+        { "title": "Senior Program Manager", "shortTitle": "Sr Prog Mgr", "level": "senior", "cumulativeYears": 5, "salary": "$80k-$110k", "timeToNext": 4 },
+        { "title": "Program Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$110k-$150k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Grant Management",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Grant Manager", "shortTitle": "Grant Mgr", "level": "mid", "cumulativeYears": 3, "salary": "$70k-$95k", "timeToNext": 4 },
+            { "title": "Director of Development", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$100k-$140k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "education_and_outreach_specialist": {
+      "name": "Education & Outreach Specialist",
+      "main_path": [
+        { "title": "Education Associate", "shortTitle": "Edu Associate", "level": "entry", "cumulativeYears": 0, "salary": "$40k-$55k", "timeToNext": 2 },
+        { "title": "Education Specialist", "shortTitle": "Specialist", "level": "mid", "cumulativeYears": 2, "salary": "$55k-$75k", "timeToNext": 3 },
+        { "title": "Senior Education Specialist", "shortTitle": "Sr Specialist", "level": "senior", "cumulativeYears": 5, "salary": "$75k-$100k", "timeToNext": 4 },
+        { "title": "Education Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$100k-$135k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Corporate Training",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Training Manager", "shortTitle": "Training Mgr", "level": "mid", "cumulativeYears": 3, "salary": "$70k-$95k", "timeToNext": 4 },
+            { "title": "Head of Learning", "shortTitle": "Head Learning", "level": "lead", "cumulativeYears": 7, "salary": "$110k-$150k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "public_health_analyst": {
+      "name": "Public Health Analyst",
+      "main_path": [
+        { "title": "Public Health Associate", "shortTitle": "PH Associate", "level": "entry", "cumulativeYears": 0, "salary": "$50k-$70k", "timeToNext": 2 },
+        { "title": "Public Health Analyst", "shortTitle": "PH Analyst", "level": "mid", "cumulativeYears": 2, "salary": "$70k-$95k", "timeToNext": 3 },
+        { "title": "Senior Public Health Analyst", "shortTitle": "Sr Analyst", "level": "senior", "cumulativeYears": 5, "salary": "$95k-$125k", "timeToNext": 4 },
+        { "title": "Public Health Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$125k-$170k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Epidemiology",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Epidemiologist", "shortTitle": "Epidemiologist", "level": "mid", "cumulativeYears": 3, "salary": "$80k-$110k", "timeToNext": 4 },
+            { "title": "Chief Epidemiologist", "shortTitle": "Chief Epi", "level": "lead", "cumulativeYears": 7, "salary": "$130k-$180k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "ngo_researcher": {
+      "name": "NGO Researcher",
+      "main_path": [
+        { "title": "Research Associate", "shortTitle": "Research Assoc", "level": "entry", "cumulativeYears": 0, "salary": "$40k-$55k", "timeToNext": 2 },
+        { "title": "Research Analyst", "shortTitle": "Analyst", "level": "mid", "cumulativeYears": 2, "salary": "$55k-$75k", "timeToNext": 3 },
+        { "title": "Senior Research Analyst", "shortTitle": "Sr Analyst", "level": "senior", "cumulativeYears": 5, "salary": "$75k-$100k", "timeToNext": 4 },
+        { "title": "Research Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$100k-$140k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Policy Advocacy",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Policy Advocate", "shortTitle": "Advocate", "level": "mid", "cumulativeYears": 3, "salary": "$65k-$85k", "timeToNext": 4 },
+            { "title": "Advocacy Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$95k-$130k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "software_engineering": {
+      "name": "Software Engineer",
+      "main_path": [
+        { "title": "Software Engineer I", "shortTitle": "SWE I", "level": "entry", "cumulativeYears": 0, "salary": "$110k-$140k", "timeToNext": 2 },
+        { "title": "Software Engineer II", "shortTitle": "SWE II", "level": "mid", "cumulativeYears": 2, "salary": "$140k-$180k", "timeToNext": 3 },
+        { "title": "Senior Software Engineer", "shortTitle": "Sr SWE", "level": "senior", "cumulativeYears": 5, "salary": "$180k-$240k", "timeToNext": 4 },
+        { "title": "Staff Software Engineer", "shortTitle": "Staff", "level": "lead", "cumulativeYears": 9, "salary": "$240k-$350k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 2,
+          "branchName": "Engineering Management",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Engineering Manager", "shortTitle": "Eng Manager", "level": "senior", "cumulativeYears": 6, "salary": "$200k-$260k", "timeToNext": 4 },
+            { "title": "VP Engineering", "shortTitle": "VP Eng", "level": "lead", "cumulativeYears": 10, "salary": "$280k-$400k", "timeToNext": null }
+          ]
+        },
+        {
+          "branchFromIndex": 1,
+          "branchName": "Product Management",
+          "color": "#7C3AED",
+          "stages": [
+            { "title": "Technical Product Manager", "shortTitle": "Tech PM", "level": "mid", "cumulativeYears": 3, "salary": "$160k-$200k", "timeToNext": 4 },
+            { "title": "Senior Product Manager", "shortTitle": "Sr PM", "level": "senior", "cumulativeYears": 7, "salary": "$200k-$270k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "program_management": {
+      "name": "Program Manager",
+      "main_path": [
+        { "title": "Program Associate", "shortTitle": "Prog Assoc", "level": "entry", "cumulativeYears": 0, "salary": "$85k-$110k", "timeToNext": 2 },
+        { "title": "Program Manager", "shortTitle": "Prog Mgr", "level": "mid", "cumulativeYears": 2, "salary": "$110k-$145k", "timeToNext": 3 },
+        { "title": "Senior Program Manager", "shortTitle": "Sr Prog Mgr", "level": "senior", "cumulativeYears": 5, "salary": "$145k-$190k", "timeToNext": 4 },
+        { "title": "Director Program Management", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$190k-$260k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Project Management Office",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "PMO Manager", "shortTitle": "PMO Manager", "level": "mid", "cumulativeYears": 3, "salary": "$100k-$135k", "timeToNext": 4 },
+            { "title": "Head of PMO", "shortTitle": "Head PMO", "level": "lead", "cumulativeYears": 7, "salary": "$160k-$220k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "technical_consulting": {
+      "name": "Technical Consultant",
+      "main_path": [
+        { "title": "Associate Consultant", "shortTitle": "Associate", "level": "entry", "cumulativeYears": 0, "salary": "$80k-$105k", "timeToNext": 2 },
+        { "title": "Consultant", "shortTitle": "Consultant", "level": "mid", "cumulativeYears": 2, "salary": "$105k-$140k", "timeToNext": 3 },
+        { "title": "Senior Consultant", "shortTitle": "Sr Consultant", "level": "senior", "cumulativeYears": 5, "salary": "$140k-$190k", "timeToNext": 4 },
+        { "title": "Principal Consultant", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$190k-$280k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Solution Architecture",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Solution Architect", "shortTitle": "Architect", "level": "mid", "cumulativeYears": 3, "salary": "$130k-$170k", "timeToNext": 4 },
+            { "title": "Principal Architect", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 7, "salary": "$200k-$280k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "research_scientist": {
+      "name": "Research Scientist",
+      "main_path": [
+        { "title": "Research Associate", "shortTitle": "Research Assoc", "level": "entry", "cumulativeYears": 0, "salary": "$70k-$90k", "timeToNext": 2 },
+        { "title": "Research Scientist", "shortTitle": "Scientist", "level": "mid", "cumulativeYears": 2, "salary": "$90k-$125k", "timeToNext": 3 },
+        { "title": "Senior Research Scientist", "shortTitle": "Sr Scientist", "level": "senior", "cumulativeYears": 5, "salary": "$125k-$170k", "timeToNext": 4 },
+        { "title": "Principal Research Scientist", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$170k-$240k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Academic Leadership",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Research Professor", "shortTitle": "Professor", "level": "senior", "cumulativeYears": 6, "salary": "$90k-$140k", "timeToNext": 5 },
+            { "title": "Department Head", "shortTitle": "Head", "level": "lead", "cumulativeYears": 11, "salary": "$140k-$200k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "quantitative_analyst": {
+      "name": "Quantitative Analyst",
+      "main_path": [
+        { "title": "Junior Quant Analyst", "shortTitle": "Jr Quant", "level": "entry", "cumulativeYears": 0, "salary": "$120k-$150k", "timeToNext": 2 },
+        { "title": "Quantitative Analyst", "shortTitle": "Quant", "level": "mid", "cumulativeYears": 2, "salary": "$150k-$200k", "timeToNext": 3 },
+        { "title": "Senior Quant Analyst", "shortTitle": "Sr Quant", "level": "senior", "cumulativeYears": 5, "salary": "$200k-$280k", "timeToNext": 4 },
+        { "title": "Quantitative Researcher", "shortTitle": "Quant Researcher", "level": "lead", "cumulativeYears": 9, "salary": "$280k-$400k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Risk Management",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Risk Analyst", "shortTitle": "Risk Analyst", "level": "mid", "cumulativeYears": 3, "salary": "$130k-$170k", "timeToNext": 4 },
+            { "title": "Chief Risk Officer", "shortTitle": "CRO", "level": "lead", "cumulativeYears": 7, "salary": "$220k-$320k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "financial_analyst": {
+      "name": "Financial Analyst",
+      "main_path": [
+        { "title": "Financial Analyst I", "shortTitle": "Analyst I", "level": "entry", "cumulativeYears": 0, "salary": "$70k-$90k", "timeToNext": 2 },
+        { "title": "Financial Analyst II", "shortTitle": "Analyst II", "level": "mid", "cumulativeYears": 2, "salary": "$90k-$120k", "timeToNext": 3 },
+        { "title": "Senior Financial Analyst", "shortTitle": "Sr Analyst", "level": "senior", "cumulativeYears": 5, "salary": "$120k-$160k", "timeToNext": 4 },
+        { "title": "Finance Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$160k-$220k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Investment Banking",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Investment Banking Associate", "shortTitle": "IB Associate", "level": "mid", "cumulativeYears": 3, "salary": "$150k-$200k", "timeToNext": 3 },
+            { "title": "VP Investment Banking", "shortTitle": "VP IB", "level": "lead", "cumulativeYears": 6, "salary": "$250k-$400k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "data_analyst": {
+      "name": "Data Analyst",
+      "main_path": [
+        { "title": "Data Analyst I", "shortTitle": "Analyst I", "level": "entry", "cumulativeYears": 0, "salary": "$65k-$85k", "timeToNext": 2 },
+        { "title": "Data Analyst II", "shortTitle": "Analyst II", "level": "mid", "cumulativeYears": 2, "salary": "$85k-$115k", "timeToNext": 3 },
+        { "title": "Senior Data Analyst", "shortTitle": "Sr Analyst", "level": "senior", "cumulativeYears": 5, "salary": "$115k-$155k", "timeToNext": 4 },
+        { "title": "Analytics Manager", "shortTitle": "Manager", "level": "lead", "cumulativeYears": 9, "salary": "$155k-$210k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Data Science",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Data Scientist", "shortTitle": "Data Scientist", "level": "mid", "cumulativeYears": 3, "salary": "$110k-$150k", "timeToNext": 4 },
+            { "title": "Senior Data Scientist", "shortTitle": "Sr DS", "level": "senior", "cumulativeYears": 7, "salary": "$165k-$220k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "biostatistician": {
+      "name": "Biostatistician",
+      "main_path": [
+        { "title": "Biostatistician I", "shortTitle": "Biostat I", "level": "entry", "cumulativeYears": 0, "salary": "$80k-$105k", "timeToNext": 2 },
+        { "title": "Biostatistician II", "shortTitle": "Biostat II", "level": "mid", "cumulativeYears": 2, "salary": "$105k-$140k", "timeToNext": 3 },
+        { "title": "Senior Biostatistician", "shortTitle": "Sr Biostat", "level": "senior", "cumulativeYears": 5, "salary": "$140k-$185k", "timeToNext": 4 },
+        { "title": "Principal Biostatistician", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$185k-$260k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Clinical Data Science",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Clinical Data Scientist", "shortTitle": "Clinical DS", "level": "mid", "cumulativeYears": 3, "salary": "$120k-$160k", "timeToNext": 4 },
+            { "title": "Head Clinical Analytics", "shortTitle": "Head Analytics", "level": "lead", "cumulativeYears": 7, "salary": "$180k-$250k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "market_research_analyst": {
+      "name": "Market Research Analyst",
+      "main_path": [
+        { "title": "Market Research Associate", "shortTitle": "MR Associate", "level": "entry", "cumulativeYears": 0, "salary": "$50k-$70k", "timeToNext": 2 },
+        { "title": "Market Research Analyst", "shortTitle": "MR Analyst", "level": "mid", "cumulativeYears": 2, "salary": "$70k-$95k", "timeToNext": 3 },
+        { "title": "Senior Market Research Analyst", "shortTitle": "Sr Analyst", "level": "senior", "cumulativeYears": 5, "salary": "$95k-$130k", "timeToNext": 4 },
+        { "title": "Market Research Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$130k-$180k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Product Marketing",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Product Marketing Manager", "shortTitle": "PMM", "level": "mid", "cumulativeYears": 3, "salary": "$90k-$125k", "timeToNext": 4 },
+            { "title": "VP Product Marketing", "shortTitle": "VP PMM", "level": "lead", "cumulativeYears": 7, "salary": "$150k-$220k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "quality_assurance_specialist": {
+      "name": "Quality Assurance Specialist",
+      "main_path": [
+        { "title": "QA Associate", "shortTitle": "QA Associate", "level": "entry", "cumulativeYears": 0, "salary": "$55k-$75k", "timeToNext": 2 },
+        { "title": "QA Specialist", "shortTitle": "QA Specialist", "level": "mid", "cumulativeYears": 2, "salary": "$75k-$100k", "timeToNext": 3 },
+        { "title": "Senior QA Specialist", "shortTitle": "Sr QA", "level": "senior", "cumulativeYears": 5, "salary": "$100k-$135k", "timeToNext": 4 },
+        { "title": "QA Manager", "shortTitle": "QA Manager", "level": "lead", "cumulativeYears": 9, "salary": "$135k-$185k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Regulatory Affairs",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Regulatory Specialist", "shortTitle": "Reg Specialist", "level": "mid", "cumulativeYears": 3, "salary": "$85k-$115k", "timeToNext": 4 },
+            { "title": "Regulatory Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$140k-$190k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "clinical_data_manager": {
+      "name": "Clinical Data Manager",
+      "main_path": [
+        { "title": "Clinical Data Associate", "shortTitle": "CD Associate", "level": "entry", "cumulativeYears": 0, "salary": "$60k-$80k", "timeToNext": 2 },
+        { "title": "Clinical Data Manager", "shortTitle": "CDM", "level": "mid", "cumulativeYears": 2, "salary": "$80k-$110k", "timeToNext": 3 },
+        { "title": "Senior Clinical Data Manager", "shortTitle": "Sr CDM", "level": "senior", "cumulativeYears": 5, "salary": "$110k-$145k", "timeToNext": 4 },
+        { "title": "Clinical Data Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$145k-$195k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Clinical Analytics",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Clinical Analyst", "shortTitle": "Analyst", "level": "mid", "cumulativeYears": 3, "salary": "$95k-$125k", "timeToNext": 4 },
+            { "title": "Head Clinical Analytics", "shortTitle": "Head Analytics", "level": "lead", "cumulativeYears": 7, "salary": "$140k-$190k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "biomedical_engineer": {
+      "name": "Biomedical Engineer",
+      "main_path": [
+        { "title": "Biomedical Engineer I", "shortTitle": "BME I", "level": "entry", "cumulativeYears": 0, "salary": "$75k-$95k", "timeToNext": 2 },
+        { "title": "Biomedical Engineer II", "shortTitle": "BME II", "level": "mid", "cumulativeYears": 2, "salary": "$95k-$125k", "timeToNext": 3 },
+        { "title": "Senior Biomedical Engineer", "shortTitle": "Sr BME", "level": "senior", "cumulativeYears": 5, "salary": "$125k-$165k", "timeToNext": 4 },
+        { "title": "Principal Biomedical Engineer", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$165k-$230k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Medical Device PM",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Medical Device PM", "shortTitle": "Device PM", "level": "mid", "cumulativeYears": 3, "salary": "$120k-$160k", "timeToNext": 4 },
+            { "title": "VP Product Management", "shortTitle": "VP Product", "level": "lead", "cumulativeYears": 7, "salary": "$180k-$260k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "systems_engineer": {
+      "name": "Systems Engineer",
+      "main_path": [
+        { "title": "Systems Engineer I", "shortTitle": "Sys Eng I", "level": "entry", "cumulativeYears": 0, "salary": "$85k-$110k", "timeToNext": 2 },
+        { "title": "Systems Engineer II", "shortTitle": "Sys Eng II", "level": "mid", "cumulativeYears": 2, "salary": "$110k-$145k", "timeToNext": 3 },
+        { "title": "Senior Systems Engineer", "shortTitle": "Sr Sys Eng", "level": "senior", "cumulativeYears": 5, "salary": "$145k-$190k", "timeToNext": 4 },
+        { "title": "Principal Systems Engineer", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$190k-$260k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Solutions Architecture",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Solutions Architect", "shortTitle": "Architect", "level": "mid", "cumulativeYears": 3, "salary": "$130k-$170k", "timeToNext": 4 },
+            { "title": "Chief Architect", "shortTitle": "Chief Arch", "level": "lead", "cumulativeYears": 7, "salary": "$200k-$280k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "environmental_scientist": {
+      "name": "Environmental Scientist",
+      "main_path": [
+        { "title": "Environmental Scientist I", "shortTitle": "Env Sci I", "level": "entry", "cumulativeYears": 0, "salary": "$55k-$75k", "timeToNext": 2 },
+        { "title": "Environmental Scientist II", "shortTitle": "Env Sci II", "level": "mid", "cumulativeYears": 2, "salary": "$75k-$100k", "timeToNext": 3 },
+        { "title": "Senior Environmental Scientist", "shortTitle": "Sr Env Sci", "level": "senior", "cumulativeYears": 5, "salary": "$100k-$135k", "timeToNext": 4 },
+        { "title": "Environmental Program Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 9, "salary": "$135k-$185k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Sustainability Consulting",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Sustainability Consultant", "shortTitle": "Consultant", "level": "mid", "cumulativeYears": 3, "salary": "$90k-$120k", "timeToNext": 4 },
+            { "title": "Chief Sustainability Officer", "shortTitle": "CSO", "level": "lead", "cumulativeYears": 7, "salary": "$150k-$220k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "materials_scientist": {
+      "name": "Materials Scientist",
+      "main_path": [
+        { "title": "Materials Scientist I", "shortTitle": "Mat Sci I", "level": "entry", "cumulativeYears": 0, "salary": "$75k-$95k", "timeToNext": 2 },
+        { "title": "Materials Scientist II", "shortTitle": "Mat Sci II", "level": "mid", "cumulativeYears": 2, "salary": "$95k-$125k", "timeToNext": 3 },
+        { "title": "Senior Materials Scientist", "shortTitle": "Sr Mat Sci", "level": "senior", "cumulativeYears": 5, "salary": "$125k-$165k", "timeToNext": 4 },
+        { "title": "Principal Materials Scientist", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$165k-$230k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Manufacturing Engineering",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Manufacturing Engineer", "shortTitle": "Mfg Engineer", "level": "mid", "cumulativeYears": 3, "salary": "$90k-$120k", "timeToNext": 4 },
+            { "title": "Manufacturing Director", "shortTitle": "Director", "level": "lead", "cumulativeYears": 7, "salary": "$140k-$190k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "chemical_engineer": {
+      "name": "Chemical Engineer",
+      "main_path": [
+        { "title": "Chemical Engineer I", "shortTitle": "ChemE I", "level": "entry", "cumulativeYears": 0, "salary": "$75k-$95k", "timeToNext": 2 },
+        { "title": "Chemical Engineer II", "shortTitle": "ChemE II", "level": "mid", "cumulativeYears": 2, "salary": "$95k-$125k", "timeToNext": 3 },
+        { "title": "Senior Chemical Engineer", "shortTitle": "Sr ChemE", "level": "senior", "cumulativeYears": 5, "salary": "$125k-$165k", "timeToNext": 4 },
+        { "title": "Principal Chemical Engineer", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$165k-$230k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Process Optimization",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Process Engineer", "shortTitle": "Process Eng", "level": "mid", "cumulativeYears": 3, "salary": "$100k-$135k", "timeToNext": 4 },
+            { "title": "VP Manufacturing", "shortTitle": "VP Mfg", "level": "lead", "cumulativeYears": 7, "salary": "$160k-$230k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "mechanical_engineer": {
+      "name": "Mechanical Engineer",
+      "main_path": [
+        { "title": "Mechanical Engineer I", "shortTitle": "MechE I", "level": "entry", "cumulativeYears": 0, "salary": "$70k-$90k", "timeToNext": 2 },
+        { "title": "Mechanical Engineer II", "shortTitle": "MechE II", "level": "mid", "cumulativeYears": 2, "salary": "$90k-$120k", "timeToNext": 3 },
+        { "title": "Senior Mechanical Engineer", "shortTitle": "Sr MechE", "level": "senior", "cumulativeYears": 5, "salary": "$120k-$160k", "timeToNext": 4 },
+        { "title": "Principal Mechanical Engineer", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$160k-$220k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Product Development",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Product Development Engineer", "shortTitle": "PD Engineer", "level": "mid", "cumulativeYears": 3, "salary": "$100k-$135k", "timeToNext": 4 },
+            { "title": "VP Product Development", "shortTitle": "VP PD", "level": "lead", "cumulativeYears": 7, "salary": "$150k-$210k", "timeToNext": null }
+          ]
+        }
+      ]
+    },
+    "electrical_engineer": {
+      "name": "Electrical Engineer",
+      "main_path": [
+        { "title": "Electrical Engineer I", "shortTitle": "EE I", "level": "entry", "cumulativeYears": 0, "salary": "$75k-$95k", "timeToNext": 2 },
+        { "title": "Electrical Engineer II", "shortTitle": "EE II", "level": "mid", "cumulativeYears": 2, "salary": "$95k-$125k", "timeToNext": 3 },
+        { "title": "Senior Electrical Engineer", "shortTitle": "Sr EE", "level": "senior", "cumulativeYears": 5, "salary": "$125k-$165k", "timeToNext": 4 },
+        { "title": "Principal Electrical Engineer", "shortTitle": "Principal", "level": "lead", "cumulativeYears": 9, "salary": "$165k-$230k", "timeToNext": null }
+      ],
+      "pivot_opportunities": [
+        {
+          "branchFromIndex": 1,
+          "branchName": "Hardware Engineering",
+          "color": "#DC2626",
+          "stages": [
+            { "title": "Hardware Engineer", "shortTitle": "HW Engineer", "level": "mid", "cumulativeYears": 3, "salary": "$110k-$145k", "timeToNext": 4 },
+            { "title": "VP Hardware", "shortTitle": "VP Hardware", "level": "lead", "cumulativeYears": 7, "salary": "$170k-$240k", "timeToNext": null }
+          ]
+        }
+      ]
+    }
+  }
+}

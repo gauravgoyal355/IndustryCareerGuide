@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import quizData from '../../data/quizQuestions.json';
+import { useAuth } from '../../contexts/AuthContext';
+import AuthModal from '../../components/AuthModal';
 
 const QuizPage = () => {
   const router = useRouter();
+  const { user, isAuthenticated } = useAuth();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCompleted, setIsCompleted] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [showSignupModal, setShowSignupModal] = useState(false);
 
   const questions = quizData.questions;
   const totalQuestions = questions.length;
@@ -39,9 +43,16 @@ const QuizPage = () => {
       const existingAnswer = newAnswers[nextQ.id];
       setSelectedAnswer(existingAnswer || null);
     } else {
+      // Quiz is completed - store answers
       setIsCompleted(true);
       sessionStorage.setItem('quizAnswers', JSON.stringify(newAnswers));
-      router.push('/results/');
+      
+      // Check if user is authenticated before showing results
+      if (isAuthenticated()) {
+        router.push('/results/');
+      } else {
+        setShowSignupModal(true);
+      }
     }
   };
 
@@ -242,10 +253,118 @@ const QuizPage = () => {
   };
 
   if (isCompleted) {
+    if (!isAuthenticated()) {
+      // Show signup gate for quiz results
+      return (
+        <Layout
+          title="Assessment Complete - Create Your Account - IndustryCareerGuide"
+          description="Your career assessment is complete. Create a free account to view your personalized career match results."
+        >
+          <div className="section-padding bg-primary-50 min-h-screen flex items-center">
+            <div className="container-max max-w-3xl text-center">
+              <div className="animate-fade-in">
+                <div className="w-20 h-20 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                  ✓
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  🎉 Assessment Complete!
+                </h1>
+                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                  Congratulations! You've completed our comprehensive 25-question career assessment. 
+                  We've analyzed your skills, values, and preferences to find your perfect industry matches.
+                </p>
+                
+                <div className="bg-white rounded-xl shadow-lg p-8 mb-8 max-w-2xl mx-auto">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    🔓 Create Your Free Account to Unlock:
+                  </h2>
+                  <div className="grid md:grid-cols-2 gap-6 text-left">
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <span className="text-green-500 mt-1 mr-3">✓</span>
+                        <div>
+                          <h3 className="font-semibold">Personalized Career Matches</h3>
+                          <p className="text-sm text-gray-600">See your top career recommendations with match scores</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-green-500 mt-1 mr-3">✓</span>
+                        <div>
+                          <h3 className="font-semibold">Career Radar Chart</h3>
+                          <p className="text-sm text-gray-600">Visual breakdown of your skills and preferences</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-green-500 mt-1 mr-3">✓</span>
+                        <div>
+                          <h3 className="font-semibold">Interactive Career Maps</h3>
+                          <p className="text-sm text-gray-600">Explore career progression paths and timelines</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <span className="text-green-500 mt-1 mr-3">✓</span>
+                        <div>
+                          <h3 className="font-semibold">Action Plan Previews</h3>
+                          <p className="text-sm text-gray-600">Compare roadmaps for your top 3 matches</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-green-500 mt-1 mr-3">✓</span>
+                        <div>
+                          <h3 className="font-semibold">Detailed Match Analysis</h3>
+                          <p className="text-sm text-gray-600">Understand why each career aligns with your profile</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-green-500 mt-1 mr-3">✓</span>
+                        <div>
+                          <h3 className="font-semibold">Save Your Progress</h3>
+                          <p className="text-sm text-gray-600">Access your results anytime from any device</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => setShowSignupModal(true)}
+                  className="btn-primary text-lg px-8 py-4 mb-4 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
+                >
+                  🚀 Create Free Account & See My Results
+                </button>
+                
+                <p className="text-sm text-gray-500 mb-6">
+                  It takes less than 30 seconds • No spam, ever • Cancel anytime
+                </p>
+                
+                <div className="text-center">
+                  <p className="text-sm text-gray-600">
+                    Already have an account?{' '}
+                    <button
+                      onClick={() => {
+                        setShowSignupModal(true);
+                        // The modal can handle switching to login mode
+                      }}
+                      className="text-primary-600 hover:text-primary-700 font-medium underline"
+                    >
+                      Sign in to see results
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Layout>
+      );
+    }
+    
+    // User is authenticated - show processing screen before redirect
     return (
       <Layout 
-        title="Quiz Completed - IndustryCareerGuide"
-        description="Your career assessment is complete. View your personalized results."
+        title="Processing Your Results - IndustryCareerGuide"
+        description="We're analyzing your career assessment responses to provide personalized recommendations."
       >
         <div className="section-padding bg-primary-50">
           <div className="container-max max-w-2xl text-center">
@@ -253,7 +372,7 @@ const QuizPage = () => {
               <div className="w-20 h-20 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
                 ✓
               </div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">Assessment Complete!</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">Processing Your Results...</h1>
               <p className="text-lg text-gray-600 mb-8">
                 Thank you for completing the career assessment. We&apos;re analyzing your responses to provide personalized recommendations.
               </p>
@@ -353,6 +472,19 @@ const QuizPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Signup Modal for Quiz Results */}
+      <AuthModal
+        isOpen={showSignupModal}
+        onClose={() => setShowSignupModal(false)}
+        mode="signup"
+        onSuccess={(userData) => {
+          console.log('User signed up after quiz:', userData);
+          setShowSignupModal(false);
+          // Redirect to results after successful signup
+          router.push('/results/');
+        }}
+      />
     </Layout>
   );
 };

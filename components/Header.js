@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useAuth } from '../contexts/AuthContext';
+import AuthModal from './AuthModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authMode, setAuthMode] = useState('login');
   const router = useRouter();
+  const { user, logout, loading } = useAuth();
 
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Take Quiz', href: '/quiz/' },
+    { name: 'Action Plan', href: '/actionPlan/' },
     { name: 'Career Map', href: '/careerMap/' },
     { name: 'About', href: '/about/' }
   ];
@@ -49,6 +55,46 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
+            
+            {/* Authentication Controls */}
+            {!loading && (
+              <div className="flex items-center space-x-4">
+                {user ? (
+                  <div className="flex items-center space-x-4">
+                    <span className="text-sm text-gray-600">
+                      Hi, {user.name}
+                    </span>
+                    <button
+                      onClick={logout}
+                      className="text-sm font-medium text-gray-600 hover:text-gray-900"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex items-center space-x-3">
+                    <button
+                      onClick={() => {
+                        setAuthMode('login');
+                        setShowAuthModal(true);
+                      }}
+                      className="text-sm font-medium text-gray-600 hover:text-gray-900"
+                    >
+                      Sign In
+                    </button>
+                    <button
+                      onClick={() => {
+                        setAuthMode('signup');
+                        setShowAuthModal(true);
+                      }}
+                      className="text-sm font-medium bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -84,10 +130,64 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Mobile Auth Controls */}
+              {!loading && (
+                <div className="border-t border-gray-200 pt-4">
+                  {user ? (
+                    <div className="space-y-2">
+                      <p className="text-sm text-gray-600">Hi, {user.name}</p>
+                      <button
+                        onClick={() => {
+                          logout();
+                          setIsMenuOpen(false);
+                        }}
+                        className="text-sm font-medium text-gray-600 hover:text-gray-900"
+                      >
+                        Sign Out
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      <button
+                        onClick={() => {
+                          setAuthMode('login');
+                          setShowAuthModal(true);
+                          setIsMenuOpen(false);
+                        }}
+                        className="block text-sm font-medium text-gray-600 hover:text-gray-900"
+                      >
+                        Sign In
+                      </button>
+                      <button
+                        onClick={() => {
+                          setAuthMode('signup');
+                          setShowAuthModal(true);
+                          setIsMenuOpen(false);
+                        }}
+                        className="block text-sm font-medium bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors"
+                      >
+                        Sign Up
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}
       </nav>
+      
+      {/* Auth Modal */}
+      <AuthModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        mode={authMode}
+        onSuccess={(userData) => {
+          console.log('User authenticated:', userData);
+          setShowAuthModal(false);
+        }}
+      />
     </header>
   );
 };

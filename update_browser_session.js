@@ -1,0 +1,52 @@
+// Script to clear browser cache and set new results
+
+console.log('🔧 Updating browser session with corrected results...');
+
+// Clear any existing session data
+sessionStorage.clear();
+localStorage.clear();
+
+// Set the corrected quiz answers
+const quizAnswers = {
+  "skills_technical_1": "c",
+  "skills_communication_1": "d",
+  "skills_leadership_1": "c",
+  "skills_analytical_1": "c",
+  "skills_management_1": ["a", "b", "c"],
+  "values_impact_1": ["4", "2", "1", "3"],
+  "values_autonomy_1": "e",
+  "values_stability_1": "a",
+  "values_collaboration_1": "d",
+  "values_creativity_1": "b",
+  "temperament_social_1": "c",
+  "temperament_detail_1": "c",
+  "temperament_structure_1": "e",
+  "temperament_pressure_1": "a",
+  "temperament_decision_1": "c",
+  "skills_specialized_1": "a",
+  "career_goals_1": "d",
+  "work_motivation_1": ["1", "4", "3", "2", "5"],
+  "risk_tolerance_1": "c",
+  "problem_complexity_1": "b",
+  "phd_domain_1": "c",
+  "technical_depth_1": "b",
+  "programming_experience": "b",
+  "programming_languages": ["a", "b", "c"],
+  "mathematics_background": "b",
+  "mathematical_areas": ["a", "b", "c"],
+  "data_analysis_experience": "c",
+  "data_tools_experience": ["a", "c", "d"],
+  "research_methodology": ["a", "f"],
+  "technical_writing_experience": "d",
+  "business_finance_background": "a",
+  "lab_experience": "c",
+  "creative_design_experience": "a",
+  "clinical_experience": "e"
+};
+
+sessionStorage.setItem('quizAnswers', JSON.stringify(quizAnswers));
+
+console.log('✅ Session updated! Refreshing page...');
+
+// Force refresh to get new results
+window.location.reload(true);

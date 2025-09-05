@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
+const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {}, isGenericFlow = false }) => {
   const [actionPlan, setActionPlan] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,6 +14,14 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
 
   // Use useCallback to stabilize the generateActionPlan function
   const generateActionPlan = React.useCallback(async () => {
+    // Check if we have enhanced GAP data already
+    if (userProfile.enhancedActionPlan) {
+      console.log('Using enhanced GAP data');
+      setActionPlan(userProfile.enhancedActionPlan);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     setError(null);
     
@@ -45,7 +53,8 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
   }, [quizAnswers, topCareerMatch, userProfile]);
 
   useEffect(() => {
-    if (quizAnswers && topCareerMatch) {
+    // Generate action plan if we have topCareerMatch and either quizAnswers OR userProfile (for generic flow)
+    if (topCareerMatch && (quizAnswers || (userProfile && Object.keys(userProfile).length > 0))) {
       generateActionPlan();
     }
   }, [quizAnswers, topCareerMatch, userProfile, generateActionPlan]);
@@ -90,10 +99,15 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
     );
   }
 
-  if (!actionPlan) {
+  if (!actionPlan && !loading) {
     return (
       <div className="text-center p-8 text-gray-500">
-        <p>Complete the career assessment to generate your personalized action plan.</p>
+        <p>
+          {isGenericFlow 
+            ? "Complete the form above to generate your action plan."
+            : "Complete the career assessment to generate your personalized action plan."
+          }
+        </p>
       </div>
     );
   }
@@ -269,19 +283,109 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
         <h2 className="text-2xl font-bold mb-2">Your Personalized Action Plan</h2>
         <p className="opacity-90">
-          Transition from {actionPlan.overview.currentStage} to {actionPlan.overview.targetStage}
+          {actionPlan.overview.targetStage ? (
+            `Transition from ${actionPlan.overview.currentStage} to ${actionPlan.overview.targetStage}`
+          ) : (
+            `Transition path: ${actionPlan.overview.targetPath || 'Career Development'}`
+          )}
         </p>
         <div className="mt-4 flex space-x-6 text-sm">
+          <div>
+            <span className="opacity-75">
+              {actionPlan.overview.currentStage ? 'Current Stage: ' : 'Career Stage: '}
+            </span>
+            <span className="font-semibold">{actionPlan.overview.currentStage}</span>
+          </div>
           <div>
             <span className="opacity-75">Estimated Timeline: </span>
             <span className="font-semibold">{actionPlan.overview.estimatedTimeframe}</span>
           </div>
-          <div>
-            <span className="opacity-75">Readiness Score: </span>
-            <span className="font-semibold">{actionPlan.overview.confidenceScore}%</span>
-          </div>
+          {actionPlan.overview.confidenceScore && (
+            <div>
+              <span className="opacity-75">Readiness Score: </span>
+              <span className="font-semibold">{actionPlan.overview.confidenceScore}%</span>
+            </div>
+          )}
         </div>
       </div>
+
+      {/* Career Transition Narrative Section */}
+      {actionPlan.narrative && (
+        <div className="border-b">
+          <SectionHeader 
+            title="Career Transition Analysis" 
+            section="narrative" 
+            icon="🎓" 
+          />
+          {(expandedSections.narrative === undefined ? true : expandedSections.narrative) && (
+            <div className="p-6 space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <h5 className="font-semibold text-green-800 mb-3 flex items-center">
+                    <span className="text-green-500 mr-2">✅</span>
+                    Your Strengths & Alignment
+                  </h5>
+                  <p className="text-sm text-green-700">{actionPlan.narrative.alignment}</p>
+                </div>
+
+                <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                  <h5 className="font-semibold text-orange-800 mb-3 flex items-center">
+                    <span className="text-orange-500 mr-2">🎯</span>
+                    Skills to Develop
+                  </h5>
+                  <p className="text-sm text-orange-700">{actionPlan.narrative.gaps}</p>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h5 className="font-semibold text-blue-800 mb-3 flex items-center">
+                  <span className="text-blue-500 mr-2">⚡</span>
+                  Transition Difficulty Assessment
+                </h5>
+                <p className="text-sm text-blue-700">{actionPlan.narrative.difficulty}</p>
+              </div>
+
+              <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                <h5 className="font-semibold text-purple-800 mb-3 flex items-center">
+                  <span className="text-purple-500 mr-2">🚀</span>
+                  Encouragement & Success Path
+                </h5>
+                <p className="text-sm text-purple-700">{actionPlan.narrative.encouragement}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Intersection Careers Section */}
+      {actionPlan.intersectionCareers && actionPlan.intersectionCareers.length > 0 && (
+        <div className="border-b">
+          <SectionHeader 
+            title="Career Opportunities at the Intersection" 
+            section="intersection" 
+            icon="🔍" 
+          />
+          {(expandedSections.intersection === undefined ? true : expandedSections.intersection) && (
+            <div className="p-6">
+              <p className="text-gray-600 mb-4">
+                Based on your PhD background and career interest, here are specific roles that combine both:
+              </p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {actionPlan.intersectionCareers.map((career, index) => (
+                  <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-sm transition-shadow">
+                    <h6 className="font-semibold text-gray-800 text-sm">{career}</h6>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <p className="text-sm text-blue-700">
+                  💡 <strong>Tip:</strong> These intersection careers often provide the smoothest transition path as they leverage your existing expertise while moving toward your career interests.
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Timeline Milestones Section */}
       <div className="border-b">
@@ -305,43 +409,45 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
         )}
       </div>
 
-      {/* Resume Recommendations Section */}
-      <div className="border-b">
-        <SectionHeader 
-          title="Resume & Application Materials" 
-          section="resume" 
-          icon="📄" 
-        />
-        {expandedSections.resume && (
-          <div className="p-6 space-y-4">
-            {/* Primary Recommendation */}
-            <ResumeRecommendation 
-              recommendation={actionPlan.resumeRecommendations.primaryRecommendation}
-              isMain={true}
-            />
-            
-            {/* Additional Resources */}
-            <div className="grid md:grid-cols-2 gap-4">
-              {actionPlan.resumeRecommendations.additionalResources.map((resource, index) => (
-                <ResumeRecommendation key={index} recommendation={resource} />
-              ))}
-            </div>
-
-            {/* Key Focus Areas */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h5 className="font-semibold text-blue-800 mb-3">Key Resume Focus Areas</h5>
-              <ul className="space-y-1">
-                {actionPlan.resumeRecommendations.keyFocusAreas.map((area, index) => (
-                  <li key={index} className="flex items-start space-x-2">
-                    <span className="text-blue-500 mt-1">•</span>
-                    <span className="text-sm text-blue-700">{area}</span>
-                  </li>
+      {/* Resume Recommendations Section - only show for detailed plans */}
+      {actionPlan.resumeRecommendations && (
+        <div className="border-b">
+          <SectionHeader 
+            title="Resume & Application Materials" 
+            section="resume" 
+            icon="📄" 
+          />
+          {expandedSections.resume && (
+            <div className="p-6 space-y-4">
+              {/* Primary Recommendation */}
+              <ResumeRecommendation 
+                recommendation={actionPlan.resumeRecommendations.primaryRecommendation}
+                isMain={true}
+              />
+              
+              {/* Additional Resources */}
+              <div className="grid md:grid-cols-2 gap-4">
+                {actionPlan.resumeRecommendations.additionalResources.map((resource, index) => (
+                  <ResumeRecommendation key={index} recommendation={resource} />
                 ))}
-              </ul>
+              </div>
+
+              {/* Key Focus Areas */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h5 className="font-semibold text-blue-800 mb-3">Key Resume Focus Areas</h5>
+                <ul className="space-y-1">
+                  {actionPlan.resumeRecommendations.keyFocusAreas.map((area, index) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <span className="text-blue-500 mt-1">•</span>
+                      <span className="text-sm text-blue-700">{area}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
 
       {/* Learning Recommendations Section */}
       {actionPlan.learningRecommendations && (
@@ -353,75 +459,155 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
           />
           {expandedSections.learning && (
             <div className="p-6 space-y-6">
-              {/* Cost Overview */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <h5 className="font-semibold text-blue-800 mb-3">Learning Investment Overview</h5>
-                <div className="grid md:grid-cols-3 gap-4 text-sm">
+              {/* Check if this is GAP data (has generalAreas) or detailed data (has courses array) */}
+              {actionPlan.learningRecommendations.generalAreas ? (
+                // Generic Action Plan Learning Recommendations
+                <div className="space-y-6">
+                  {/* Cost Overview for GAP */}
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h5 className="font-semibold text-blue-800 mb-3">Learning Investment Overview</h5>
+                    <div className="grid md:grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <span className="text-blue-600 font-medium">Estimated Cost:</span>
+                        <div className="text-lg font-bold text-blue-800">
+                          {actionPlan.learningRecommendations.estimatedCost.estimated_total}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-blue-600 font-medium">Time to Complete:</span>
+                        <div className="font-semibold text-blue-700">
+                          {actionPlan.learningRecommendations.timeToComplete}
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-blue-600 mt-2">
+                      {actionPlan.learningRecommendations.estimatedCost.note}
+                    </p>
+                  </div>
+
+                  {/* Learning Platforms */}
                   <div>
-                    <span className="text-blue-600 font-medium">Total Estimated Cost:</span>
-                    <div className="text-lg font-bold text-blue-800">
-                      ${actionPlan.learningRecommendations.estimatedCost.estimated_total}
+                    <h5 className="font-semibold text-gray-800 mb-4">🌐 Recommended Learning Platforms</h5>
+                    <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-3">
+                      {actionPlan.learningRecommendations.platforms.map((platform, index) => (
+                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 text-center hover:shadow-sm transition-shadow">
+                          <div className="font-medium text-gray-800 text-sm">{platform}</div>
+                        </div>
+                      ))}
                     </div>
                   </div>
+
+                  {/* General Learning Areas */}
                   <div>
-                    <span className="text-blue-600 font-medium">Time to Complete:</span>
-                    <div className="font-semibold text-blue-700">
-                      {actionPlan.learningRecommendations.timeToComplete}
+                    <h5 className="font-semibold text-gray-800 mb-4">📚 Recommended Learning Areas</h5>
+                    <div className="space-y-3">
+                      {actionPlan.learningRecommendations.generalAreas.map((area, index) => (
+                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                          <div className="flex items-center space-x-3">
+                            <span className="text-blue-500 text-lg">📖</span>
+                            <span className="text-gray-800 font-medium">{area}</span>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div>
-                    <span className="text-blue-600 font-medium">Learning Path:</span>
-                    <div className="font-semibold text-blue-700">
-                      {actionPlan.learningRecommendations.courses.length} courses + {actionPlan.learningRecommendations.certifications.length} certs
+
+                  {/* Upgrade Message */}
+                  <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-lg p-4">
+                    <h5 className="font-semibold text-purple-800 mb-3 flex items-center">
+                      <span className="text-purple-500 mr-2">💡</span>
+                      Want More Specific Recommendations?
+                    </h5>
+                    <p className="text-sm text-purple-700 mb-3">
+                      {actionPlan.learningRecommendations.note}
+                    </p>
+                    <p className="text-sm text-purple-600 font-medium">
+                      {actionPlan.learningRecommendations.upgradeMessage}
+                    </p>
+                    <div className="mt-3">
+                      <a
+                        href="/quiz/"
+                        className="inline-flex items-center px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition-colors"
+                      >
+                        Take Detailed Assessment →
+                      </a>
                     </div>
                   </div>
                 </div>
-                <p className="text-xs text-blue-600 mt-2">
-                  {actionPlan.learningRecommendations.estimatedCost.note}
-                </p>
-              </div>
+              ) : (
+                // Detailed Action Plan Learning Recommendations (existing format)
+                <div className="space-y-6">
+                  {/* Cost Overview for detailed plans */}
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h5 className="font-semibold text-blue-800 mb-3">Learning Investment Overview</h5>
+                    <div className="grid md:grid-cols-3 gap-4 text-sm">
+                      <div>
+                        <span className="text-blue-600 font-medium">Total Estimated Cost:</span>
+                        <div className="text-lg font-bold text-blue-800">
+                          ${actionPlan.learningRecommendations.estimatedCost.estimated_total}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-blue-600 font-medium">Time to Complete:</span>
+                        <div className="font-semibold text-blue-700">
+                          {actionPlan.learningRecommendations.timeToComplete}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-blue-600 font-medium">Learning Path:</span>
+                        <div className="font-semibold text-blue-700">
+                          {actionPlan.learningRecommendations.courses.length} courses + {actionPlan.learningRecommendations.certifications.length} certs
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-blue-600 mt-2">
+                      {actionPlan.learningRecommendations.estimatedCost.note}
+                    </p>
+                  </div>
 
-              {/* Recommended Courses */}
-              <div>
-                <h5 className="font-semibold text-gray-800 mb-4">📚 Recommended Courses</h5>
-                <div className="grid gap-4">
-                  {actionPlan.learningRecommendations.courses.slice(0, 4).map((course, index) => (
-                    <CourseCard key={index} course={course} type="course" />
-                  ))}
-                </div>
-              </div>
+                  {/* Recommended Courses */}
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-4">📚 Recommended Courses</h5>
+                    <div className="grid gap-4">
+                      {actionPlan.learningRecommendations.courses.slice(0, 4).map((course, index) => (
+                        <CourseCard key={index} course={course} type="course" />
+                      ))}
+                    </div>
+                  </div>
 
-              {/* Recommended Certifications */}
-              <div>
-                <h5 className="font-semibold text-gray-800 mb-4">🏆 Recommended Certifications</h5>
-                <div className="grid gap-4">
-                  {actionPlan.learningRecommendations.certifications.slice(0, 3).map((cert, index) => (
-                    <CourseCard key={index} course={cert} type="certification" />
-                  ))}
-                </div>
-              </div>
+                  {/* Recommended Certifications */}
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-4">🏆 Recommended Certifications</h5>
+                    <div className="grid gap-4">
+                      {actionPlan.learningRecommendations.certifications.slice(0, 3).map((cert, index) => (
+                        <CourseCard key={index} course={cert} type="certification" />
+                      ))}
+                    </div>
+                  </div>
 
-              {/* Prioritized Learning Path */}
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4">
-                <h5 className="font-semibold text-purple-800 mb-4">🎯 Your Prioritized Learning Path</h5>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <LearningPathStep 
-                    title="Start Immediately"
-                    items={actionPlan.learningRecommendations.learningPath.immediate}
-                    color="red"
-                  />
-                  <LearningPathStep 
-                    title="Medium Term (3-6 months)"
-                    items={actionPlan.learningRecommendations.learningPath.medium_term}
-                    color="yellow"
-                  />
-                  <LearningPathStep 
-                    title="Advanced (6+ months)"
-                    items={actionPlan.learningRecommendations.learningPath.advanced}
-                    color="green"
-                  />
+                  {/* Prioritized Learning Path */}
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4">
+                    <h5 className="font-semibold text-purple-800 mb-4">🎯 Your Prioritized Learning Path</h5>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <LearningPathStep 
+                        title="Start Immediately"
+                        items={actionPlan.learningRecommendations.learningPath.immediate}
+                        color="red"
+                      />
+                      <LearningPathStep 
+                        title="Medium Term (3-6 months)"
+                        items={actionPlan.learningRecommendations.learningPath.medium_term}
+                        color="yellow"
+                      />
+                      <LearningPathStep 
+                        title="Advanced (6+ months)"
+                        items={actionPlan.learningRecommendations.learningPath.advanced}
+                        color="green"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           )}
         </div>
@@ -454,18 +640,20 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
               icon="🎓"
             />
             
-            {/* Learning Resources */}
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <h5 className="font-semibold text-green-800 mb-3">Recommended Learning Resources</h5>
-              <div className="grid md:grid-cols-2 gap-2">
-                {actionPlan.skillDevelopment.resources.map((resource, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span className="text-sm text-green-700">{resource}</span>
-                  </div>
-                ))}
+            {/* Learning Resources - only show if available */}
+            {actionPlan.skillDevelopment.resources && actionPlan.skillDevelopment.resources.length > 0 && (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <h5 className="font-semibold text-green-800 mb-3">Recommended Learning Resources</h5>
+                <div className="grid md:grid-cols-2 gap-2">
+                  {actionPlan.skillDevelopment.resources.map((resource, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                      <span className="text-green-500">✓</span>
+                      <span className="text-sm text-green-700">{resource}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         )}
       </div>
@@ -515,6 +703,40 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {} }) => {
           </div>
         )}
       </div>
+
+      {/* Generic Flow Upgrade CTA */}
+      {isGenericFlow && (
+        <div className="bg-gradient-to-r from-primary-50 to-purple-50 border-l-4 border-primary-500 p-6">
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
+              🎯 Want Even More Personalized Recommendations?
+            </h3>
+            <p className="text-gray-700 mb-4">
+              This action plan is based on your general interests. Take our comprehensive career assessment to get:
+            </p>
+            <ul className="text-left text-gray-700 mb-6 max-w-md mx-auto space-y-2">
+              <li>✅ <strong>Precise career matches</strong> based on your unique skills & values</li>
+              <li>✅ <strong>Action plans for your top 3 matches</strong> to compare options</li>
+              <li>✅ <strong>Advanced pivot analysis</strong> for your specific PhD background</li>
+              <li>✅ <strong>Detailed transition strategies</strong> for your career stage</li>
+            </ul>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="/quiz/"
+                className="px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
+              >
+                🧠 Take Career Assessment
+              </a>
+              <a
+                href="/"
+                className="px-6 py-3 bg-white text-primary-600 font-semibold border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors"
+              >
+                🏠 Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Action Buttons */}
       <div className="bg-gray-100 p-6 flex flex-wrap gap-3">

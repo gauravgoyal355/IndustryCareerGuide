@@ -1,0 +1,68 @@
+{
+  "skills_technical_1": "c",
+  "skills_communication_1": "d",
+  "skills_leadership_1": "c",
+  "skills_analytical_1": "c",
+  "skills_management_1": [
+    "project_mgmt",
+    "fundraising",
+    "market_research"
+  ],
+  "values_impact_1": [
+    "commercial",
+    "intellectual",
+    "personal",
+    "societal"
+  ],
+  "values_autonomy_1": "5",
+  "values_stability_1": "a",
+  "values_collaboration_1": "2",
+  "values_creativity_1": "b",
+  "temperament_social_1": "3",
+  "temperament_detail_1": "c",
+  "temperament_structure_1": "5",
+  "temperament_pressure_1": "a",
+  "temperament_decision_1": "c",
+  "skills_specialized_1": "clinical",
+  "career_goals_1": "d",
+  "work_motivation_1": [
+    "learning",
+    "mission",
+    "flexibility",
+    "recognition",
+    "compensation"
+  ],
+  "risk_tolerance_1": "5",
+  "problem_complexity_1": "b",
+  "phd_domain_1": "c",
+  "technical_depth_1": "b",
+  "programming_experience": "2",
+  "programming_languages": [
+    "python",
+    "r",
+    "matlab"
+  ],
+  "mathematics_background": "2",
+  "mathematical_areas": [
+    "statistics",
+    "linear_algebra",
+    "calculus"
+  ],
+  "data_analysis_experience": "3",
+  "data_tools_experience": [
+    "excel",
+    "r_stats",
+    "python_data"
+  ],
+  "research_methodology": [
+    "experimental_design",
+    "literature_review"
+  ],
+  "technical_writing_experience": "4",
+  "business_finance_background": "0",
+  "lab_experience": "3",
+  "creative_design_experience": "0",
+  "clinical_experience": [
+    "none_clinical"
+  ]
+}
