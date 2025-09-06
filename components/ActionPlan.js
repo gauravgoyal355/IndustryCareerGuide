@@ -516,31 +516,35 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {}, isGenericFl
                   </div>
 
                   {/* Learning Platforms */}
-                  <div>
-                    <h5 className="font-semibold text-gray-800 mb-4">🌐 Recommended Learning Platforms</h5>
-                    <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-3">
-                      {actionPlan.learningRecommendations.platforms.map((platform, index) => (
-                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 text-center hover:shadow-sm transition-shadow">
-                          <div className="font-medium text-gray-800 text-sm">{platform}</div>
-                        </div>
-                      ))}
+                  {actionPlan.learningRecommendations.platforms && actionPlan.learningRecommendations.platforms.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-4">🌐 Recommended Learning Platforms</h5>
+                      <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-3">
+                        {actionPlan.learningRecommendations.platforms.map((platform, index) => (
+                          <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 text-center hover:shadow-sm transition-shadow">
+                            <div className="font-medium text-gray-800 text-sm">{platform}</div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* General Learning Areas */}
-                  <div>
-                    <h5 className="font-semibold text-gray-800 mb-4">📚 Recommended Learning Areas</h5>
-                    <div className="space-y-3">
-                      {actionPlan.learningRecommendations.generalAreas.map((area, index) => (
+                  {actionPlan.learningRecommendations.generalAreas && actionPlan.learningRecommendations.generalAreas.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-4">📚 Recommended Learning Areas</h5>
+                      <div className="space-y-3">
+                        {actionPlan.learningRecommendations.generalAreas.map((area, index) => (
                         <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
                           <div className="flex items-center space-x-3">
                             <span className="text-blue-500 text-lg">📖</span>
                             <span className="text-gray-800 font-medium">{area}</span>
                           </div>
-                        </div>
-                      ))}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Upgrade Message */}
                   <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-lg p-4">

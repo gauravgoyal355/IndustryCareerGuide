@@ -681,6 +681,13 @@ function generatePersonalizedLearning(interest, phdArea) {
   ];
 
   return {
+    generalAreas: [
+      `${interest.replace('/', ' & ')} Fundamentals`,
+      `Industry-specific tools and technologies`,
+      `Business and professional skills`,
+      `Networking and career development`,
+      `${phdArea.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())} to industry skill translation`
+    ],
     estimatedCost: {
       estimated_total: interest === 'Technology/Engineering' ? '$200 - $800' :
                       interest === 'Data/Analytics' ? 'Free - $600' :
