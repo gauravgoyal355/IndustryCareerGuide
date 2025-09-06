@@ -596,46 +596,97 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {}, isGenericFl
                   </div>
 
                   {/* Recommended Courses */}
-                  <div>
-                    <h5 className="font-semibold text-gray-800 mb-4">📚 Recommended Courses</h5>
-                    <div className="grid gap-4">
-                      {actionPlan.learningRecommendations.courses.slice(0, 4).map((course, index) => (
-                        <CourseCard key={index} course={course} type="course" />
-                      ))}
+                  {actionPlan.learningRecommendations.specificCourses && actionPlan.learningRecommendations.specificCourses.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-4">📚 Recommended Courses</h5>
+                      <div className="grid gap-4">
+                        {actionPlan.learningRecommendations.specificCourses.slice(0, 4).map((courseName, index) => (
+                          <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h6 className="font-semibold text-gray-800 mb-1">{courseName}</h6>
+                            <p className="text-sm text-gray-600">Online Course</p>
+                            <div className="mt-2">
+                              <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded">
+                                Recommended
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Recommended Certifications */}
-                  <div>
-                    <h5 className="font-semibold text-gray-800 mb-4">🏆 Recommended Certifications</h5>
-                    <div className="grid gap-4">
-                      {actionPlan.learningRecommendations.certifications.slice(0, 3).map((cert, index) => (
-                        <CourseCard key={index} course={cert} type="certification" />
-                      ))}
+                  {actionPlan.learningRecommendations.certifications && actionPlan.learningRecommendations.certifications.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-4">🏆 Recommended Certifications</h5>
+                      <div className="grid gap-4">
+                        {actionPlan.learningRecommendations.certifications.slice(0, 3).map((certName, index) => (
+                          <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h6 className="font-semibold text-gray-800 mb-1">{certName}</h6>
+                            <p className="text-sm text-gray-600">Professional Certification</p>
+                            <div className="mt-2">
+                              <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded">
+                                High Value
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  {/* Prioritized Learning Path */}
-                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4">
-                    <h5 className="font-semibold text-purple-800 mb-4">🎯 Your Prioritized Learning Path</h5>
-                    <div className="grid md:grid-cols-3 gap-4">
-                      <LearningPathStep 
-                        title="Start Immediately"
-                        items={actionPlan.learningRecommendations.learningPath.immediate}
-                        color="red"
-                      />
-                      <LearningPathStep 
-                        title="Medium Term (3-6 months)"
-                        items={actionPlan.learningRecommendations.learningPath.medium_term}
-                        color="yellow"
-                      />
-                      <LearningPathStep 
-                        title="Advanced (6+ months)"
-                        items={actionPlan.learningRecommendations.learningPath.advanced}
-                        color="green"
-                      />
+                  {/* Prioritized Learning Path - only show if learningPath exists */}
+                  {actionPlan.learningRecommendations.learningPath && (
+                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4">
+                      <h5 className="font-semibold text-purple-800 mb-4">🎯 Your Prioritized Learning Path</h5>
+                      <div className="grid md:grid-cols-3 gap-4">
+                        <LearningPathStep 
+                          title="Start Immediately"
+                          items={actionPlan.learningRecommendations.learningPath.immediate || []}
+                          color="red"
+                        />
+                        <LearningPathStep 
+                          title="Medium Term (3-6 months)"
+                          items={actionPlan.learningRecommendations.learningPath.medium_term || []}
+                          color="yellow"
+                        />
+                        <LearningPathStep 
+                          title="Advanced (6+ months)"
+                          items={actionPlan.learningRecommendations.learningPath.advanced || []}
+                          color="green"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
+
+                  {/* Learning Platforms and Communities */}
+                  {(actionPlan.learningRecommendations.platforms || actionPlan.learningRecommendations.communities) && (
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                      <h5 className="font-semibold text-gray-800 mb-4">🌐 Learning Platforms & Communities</h5>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {actionPlan.learningRecommendations.platforms && actionPlan.learningRecommendations.platforms.length > 0 && (
+                          <div>
+                            <h6 className="font-medium text-gray-700 mb-2">Recommended Platforms</h6>
+                            <div className="space-y-1">
+                              {actionPlan.learningRecommendations.platforms.map((platform, index) => (
+                                <div key={index} className="text-sm text-gray-600">• {platform}</div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        {actionPlan.learningRecommendations.communities && actionPlan.learningRecommendations.communities.length > 0 && (
+                          <div>
+                            <h6 className="font-medium text-gray-700 mb-2">Communities to Join</h6>
+                            <div className="space-y-1">
+                              {actionPlan.learningRecommendations.communities.map((community, index) => (
+                                <div key={index} className="text-sm text-gray-600">• {community}</div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
