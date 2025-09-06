@@ -310,6 +310,35 @@ const ActionPlan = ({ quizAnswers, topCareerMatch, userProfile = {}, isGenericFl
         </div>
       </div>
 
+      {/* Empathy Message and Stage-Specific Guidance */}
+      {(actionPlan.overview.empathyMessage || actionPlan.overview.stageSpecificGuidance) && (
+        <div className="bg-blue-50 border-b border-blue-200 p-6">
+          {actionPlan.overview.empathyMessage && (
+            <div className="mb-4">
+              <div className="flex items-start space-x-3">
+                <span className="text-blue-500 text-xl mt-0.5">💙</span>
+                <div>
+                  <h4 className="font-semibold text-blue-800 mb-2">Your Journey</h4>
+                  <p className="text-blue-700 text-sm leading-relaxed">{actionPlan.overview.empathyMessage}</p>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {actionPlan.overview.stageSpecificGuidance && (
+            <div>
+              <div className="flex items-start space-x-3">
+                <span className="text-blue-500 text-xl mt-0.5">🎯</span>
+                <div>
+                  <h4 className="font-semibold text-blue-800 mb-2">Strategic Focus for Your Stage</h4>
+                  <p className="text-blue-700 text-sm leading-relaxed">{actionPlan.overview.stageSpecificGuidance}</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Career Transition Narrative Section */}
       {actionPlan.narrative && (
         <div className="border-b">

@@ -100,6 +100,27 @@
       "Medical device development and FDA approval processes",
       "Pharmaceutical development lifecycle",
       "Healthcare technology integration and digital health"
+    ],
+    "Entrepreneurship": [
+      "Startup fundraising and investor relations",
+      "Product-market fit validation and pivot strategies",
+      "Team building and equity compensation",
+      "Business model development and revenue strategies",
+      "Legal frameworks for startups and intellectual property"
+    ],
+    "Science Communication": [
+      "Science writing for diverse audiences",
+      "Digital content creation and social media strategy",
+      "Public speaking and presentation skills",
+      "Science journalism and media relations",
+      "Educational content development and curriculum design"
+    ],
+    "Policy/Advocacy": [
+      "Policy analysis and legislative processes",
+      "Stakeholder engagement and coalition building",
+      "Science communication for policymakers",
+      "Regulatory framework analysis",
+      "Evidence-based advocacy and lobbying strategies"
     ]
   },
 
@@ -175,6 +196,54 @@
       ],
       "communities": ["BioPharma Dive", "RAPS Community", "r/biotech", "BioWorld"],
       "certifications": ["ACRP Clinical Research", "RAPS Regulatory Affairs", "CCRP (Clinical Research Professional)"]
+    },
+    "Entrepreneurship": {
+      "platforms": ["Y Combinator Startup School", "Coursera", "MasterClass", "Udemy", "Entrepreneur.com"],
+      "specificCourses": [
+        "Entrepreneurship Specialization (University of Pennsylvania)",
+        "Y Combinator Startup School (Free)",
+        "Venture Capital and Startup Financing (Duke University)",
+        "Business Model Canvas Course (Business Model Foundry)",
+        "Lean Startup Methodology (Various platforms)"
+      ],
+      "communities": ["Y Combinator Community", "Indie Hackers", "r/Entrepreneur", "Founder Groups", "AngelList"],
+      "certifications": ["Lean Six Sigma", "Project Management (PMP)", "Google Analytics", "HubSpot Content Marketing"]
+    },
+    "Science Communication": {
+      "platforms": ["Coursera", "edX", "FutureLearn", "The Op-Ed Project", "SciComm Twitter"],
+      "specificCourses": [
+        "Science Communication (UC San Diego)",
+        "Writing in the Sciences (Stanford)",
+        "Science Journalism (Knight Center)",
+        "Digital Storytelling (University of Birmingham)",
+        "Science Writing and Editing (Various platforms)"
+      ],
+      "communities": ["SciComm Twitter", "The Story Collider", "Science Writers Society", "r/ScienceWriters"],
+      "certifications": ["Science Writing Certificate", "Digital Marketing", "Content Strategy"]
+    },
+    "Policy/Advocacy": {
+      "platforms": ["Coursera", "edX", "Policy Schools", "Think Tank Resources", "Government Training"],
+      "specificCourses": [
+        "Science Policy (Various universities)",
+        "Policy Analysis and Program Evaluation (Georgetown)",
+        "Legislative Process and Advocacy (Various platforms)",
+        "Evidence-Based Policy Making (Johns Hopkins)",
+        "Science Diplomacy (AAAS)"
+      ],
+      "communities": ["AAAS Science Policy", "Policy Hub", "r/PolicyAnalysis", "Think Tank Networks"],
+      "certifications": ["Policy Analysis Certificate", "Government Relations", "Advocacy Certification"]
+    },
+    "Entrepreneurship": {
+      "platforms": ["Y Combinator Startup School", "Coursera", "MasterClass", "Udemy", "Entrepreneur.com"],
+      "specificCourses": [
+        "Entrepreneurship Specialization (University of Pennsylvania)",
+        "Y Combinator Startup School (Free)",
+        "Venture Capital and Startup Financing (Duke University)",
+        "Business Model Canvas Course (Business Model Foundry)",
+        "Lean Startup Methodology (Various platforms)"
+      ],
+      "communities": ["Y Combinator Community", "Indie Hackers", "r/Entrepreneur", "Founder Groups", "AngelList"],
+      "certifications": ["Lean Six Sigma", "Project Management (PMP)", "Google Analytics", "HubSpot Content Marketing"]
     }
   },
 
@@ -182,49 +251,154 @@
     "biology_Technology/Engineering": [
       "Complete Python for Bioinformatics course on Coursera",
       "Build a biodata analysis project using real genomics datasets",
-      "Apply for bioinformatics engineer positions at 10-day Genomics, Illumina, or Ginkgo Bioworks",
+      "Apply for bioinformatics engineer positions at genomics and biotech companies globally",
       "Join the Bioinformatics.org community and contribute to open-source projects",
-      "Attend the Bio-IT World conference (virtual or in-person)"
+      "Attend virtual Bio-IT conferences and online bioinformatics webinars"
     ],
     "chemistry_Data/Analytics": [
       "Complete ChemInformatics course on DataCamp",
       "Learn molecular descriptor calculation using RDKit",
       "Build a drug discovery prediction model for your portfolio",
-      "Apply for computational chemist positions at pharmaceutical companies",
-      "Join the ACS Division of Chemical Information community"
+      "Apply for computational chemist positions at pharmaceutical and chemical companies globally",
+      "Join online chemical informatics communities and professional networks"
     ],
     "physics_Technology/Engineering": [
       "Complete Quantum Computing course on IBM Qiskit",
       "Build a physics simulation project using Python/C++",
-      "Apply for quantum software engineer positions at IBM, Google, or IonQ",
+      "Apply for quantum software engineer positions at quantum computing and technology companies globally",
       "Contribute to open-source physics simulation libraries",
-      "Attend APS conferences with industry networking sessions"
+      "Participate in virtual physics conferences and online industry networking events"
     ],
     "neuroscience_Data/Analytics": [
       "Complete Neurohacking in R course on Coursera",
       "Build a brain imaging data analysis pipeline project",
-      "Apply for computational neuroscience positions at Meta, Neuralink, or pharmaceutical companies",
-      "Join the Organization for Human Brain Mapping (OHBM) community",
+      "Apply for computational neuroscience positions at technology and pharmaceutical companies globally",
+      "Join online neuroscience and brain imaging communities",
       "Contribute to neuroimaging analysis packages like FSL or FreeSurfer"
+    ],
+    "biology_Entrepreneurship": [
+      "Work at biotech or life sciences startups for 2-3 years to understand commercialization challenges",
+      "Complete Y Combinator Startup School focusing on biotech business models and regulatory pathways", 
+      "Join online biotech entrepreneurship communities and participate in virtual pitch competitions",
+      "Learn intellectual property strategy and regulatory frameworks through online courses and resources",
+      "Build global network through virtual conferences, LinkedIn groups, and industry forums"
+    ],
+    "chemistry_Entrepreneurship": [
+      "Gain 2-3 years experience at materials science or chemical technology startups",
+      "Learn business model development for deep tech through online accelerator programs",
+      "Master intellectual property and patent strategy through online legal resources",
+      "Practice investor pitching through virtual pitch events and online startup communities",
+      "Connect with materials innovation networks and virtual deep tech meetups globally"
+    ],
+    "physics_Entrepreneurship": [
+      "Work at quantum computing, hardware, or deep tech startups to learn commercialization processes",
+      "Participate in online deep tech accelerator programs and virtual mentorship networks",
+      "Learn customer validation and product-market fit through online startup methodologies",
+      "Build global network through virtual physics entrepreneurship communities",
+      "Practice fundraising skills through online pitch training and virtual investor networks"
+    ],
+    "computer_science_Entrepreneurship": [
+      "Gain startup experience through remote roles at early-stage technology companies",
+      "Master lean startup methodology through online courses and virtual accelerator programs",
+      "Learn customer development and market validation through digital channels",
+      "Build technical products and validate them through online communities and platforms",
+      "Connect with global tech entrepreneurship networks through virtual events and forums"
+    ],
+    "neuroscience_Entrepreneurship": [
+      "Work remotely for neurotechnology or digital health startups to understand regulatory challenges",
+      "Learn healthcare business models through online courses and virtual health tech communities",
+      "Master clinical validation processes through online regulatory training programs",
+      "Build network with healthcare entrepreneurs through virtual conferences and LinkedIn groups",
+      "Participate in online health tech accelerators and mentorship programs"
+    ],
+    "mathematics_Entrepreneurship": [
+      "Gain experience at fintech or data-driven startups to understand scalable business models",
+      "Learn quantitative business analysis through online courses and virtual communities",
+      "Master data monetization strategies through digital startup methodologies",
+      "Practice algorithm commercialization through online tech entrepreneurship programs",
+      "Connect with quantitative analysis and fintech entrepreneurship networks globally"
+    ],
+    "materials_science_Entrepreneurship": [
+      "Work at advanced materials or manufacturing technology startups for industry experience",
+      "Learn deep tech commercialization through online accelerator and mentorship programs",
+      "Master materials intellectual property strategy through virtual legal and business training",
+      "Build network with materials innovation entrepreneurs through online communities",
+      "Participate in virtual manufacturing and materials technology entrepreneurship events"
     ]
   },
 
   "stageSpecificAdjustments": {
     "masters_student": {
-      "timelineAdjustment": "Consider internships and entry-level positions",
-      "additionalActions": ["Seek mentorship from industry professionals", "Build portfolio projects", "Join student professional organizations"]
+      "timelineAdjustment": "18-24 months to industry transition",
+      "empathyMessage": "As a Master's student, you're in a great position to pivot toward industry while completing your degree. Many employers value fresh perspectives and are eager to train motivated candidates.",
+      "stageSpecificGuidance": "Focus on building practical experience through internships, co-ops, or research projects with industry applications. Your Master's thesis can become a powerful portfolio piece that demonstrates real-world problem-solving skills.",
+      "additionalActions": [
+        "Apply for summer internships in your target industry to gain hands-on experience",
+        "Transform your thesis research into industry-relevant portfolio projects",
+        "Connect with alumni working in industry through your university network",
+        "Join student chapters of professional organizations in your field",
+        "Attend virtual career fairs and industry networking events"
+      ]
     },
     "early_phd": {
-      "timelineAdjustment": "Plan transition during final years",
-      "additionalActions": ["Attend industry conferences", "Develop transferable skills", "Build industry network early"]
+      "timelineAdjustment": "2-3 years to plan and execute transition",
+      "empathyMessage": "You're in the perfect position to start planning your industry transition. With several years ahead, you can strategically build industry-relevant skills while completing your research.",
+      "stageSpecificGuidance": "Use your remaining PhD time wisely by choosing research projects with industry applications, attending conferences where you can meet industry professionals, and developing transferable skills that complement your research expertise.",
+      "additionalActions": [
+        "Choose dissertation projects that align with industry problems when possible",
+        "Attend industry conferences alongside academic ones to build professional networks",
+        "Seek collaborative projects with industry partners through your university",
+        "Start building an online presence showcasing your work and industry interests",
+        "Consider industry internships during summers to gain experience"
+      ]
     },
     "late_phd": {
-      "timelineAdjustment": "Begin intensive skill development now",
-      "additionalActions": ["Leverage thesis work for portfolio", "Connect with career services", "Consider industry collaboration projects"]
+      "timelineAdjustment": "12-18 months intensive preparation period",
+      "empathyMessage": "You're approaching a major life transition, and it's natural to feel both excited and overwhelmed. Your deep expertise is valuable - now it's time to learn how to communicate that value to industry employers.",
+      "stageSpecificGuidance": "This is crunch time for your industry transition. Focus on translating your research into business terms, building a professional online presence, and networking actively. Your dissertation research likely contains multiple industry-relevant projects.",
+      "additionalActions": [
+        "Reframe your dissertation chapters as separate portfolio projects for industry applications",
+        "Start informational interviews with professionals in your target field",
+        "Join industry-specific online communities and contribute to discussions",
+        "Attend virtual industry events and conferences to build relationships",
+        "Consider part-time consulting projects to gain business experience"
+      ]
+    },
+    "recent_postdoc": {
+      "timelineAdjustment": "6-12 months to complete transition",
+      "empathyMessage": "The postdoc experience has given you additional research depth and often some independence in project management. You're ready to take on substantial industry challenges.",
+      "stageSpecificGuidance": "As a recent postdoc, you have both deep technical expertise and some research leadership experience. Focus on roles that value your research background while allowing you to develop new business and technical skills.",
+      "additionalActions": [
+        "Highlight your independent research and project management experience from your postdoc",
+        "Network with former postdocs who successfully transitioned to your target industry",
+        "Consider industry research roles as stepping stones to your ultimate career goals",
+        "Develop business acumen through online courses and industry publications",
+        "Practice explaining complex research concepts to non-technical audiences"
+      ]
+    },
+    "experienced_postdoc": {
+      "timelineAdjustment": "6-18 months depending on target role level",
+      "empathyMessage": "Your years of postdoc experience have given you deep expertise and likely some mentoring or leadership responsibilities. You're well-positioned for mid-level industry roles.",
+      "stageSpecificGuidance": "With multiple years of postdoc experience, you bring valuable research leadership and mentoring skills to industry. Consider roles that leverage both your technical depth and your ability to guide projects and people.",
+      "additionalActions": [
+        "Emphasize your research leadership, mentoring, and project management experience",
+        "Target mid-level industry positions that match your expertise and leadership background",
+        "Consider roles in R&D leadership, technical consulting, or specialized technical positions",
+        "Network with industry professionals at your experience level through professional associations",
+        "Develop understanding of business metrics and ROI to speak the language of industry"
+      ]
     },
     "senior_researcher": {
-      "timelineAdjustment": "Target senior-level positions",
-      "additionalActions": ["Leverage extensive network", "Consider consulting opportunities", "Target leadership roles"]
+      "timelineAdjustment": "Target senior-level positions immediately",
+      "empathyMessage": "Your extensive research experience positions you for senior roles where you can have immediate impact. Companies need leaders who can bridge technical depth with strategic thinking.",
+      "stageSpecificGuidance": "As a senior researcher, you're ready for leadership roles in industry. Focus on positions where you can leverage both your technical expertise and your experience managing complex projects and people.",
+      "additionalActions": [
+        "Target senior technical roles, R&D leadership, or strategic consulting positions",
+        "Leverage your extensive professional network and reputation in your field",
+        "Consider board positions, advisory roles, or part-time consulting to transition gradually",
+        "Focus on roles where you can shape technical strategy and mentor junior team members",
+        "Highlight your grant management, team leadership, and strategic planning experience"
+      ]
     }
   }
 }

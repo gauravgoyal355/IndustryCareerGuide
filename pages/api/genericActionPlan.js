@@ -71,13 +71,17 @@ function generateNarrativeActionPlan(interest, phdArea, stage, timeframe) {
   
   // Generate general learning recommendations
   const learningRecommendations = generatePersonalizedLearning(interest, phdArea);
+  
+  // Get stage-specific adjustments including empathy and guidance
+  const stageAdjustments = gapPersonalization.stageSpecificAdjustments[stage] || {};
 
   return {
     overview: {
       targetPath: careerDisplayNames[interest] || interest,
       currentStage: getStageDisplayName(stage),
       estimatedTimeframe: getTimeframeText(timeframe, stage, interest),
-      // Remove readiness score as requested
+      empathyMessage: stageAdjustments.empathyMessage,
+      stageSpecificGuidance: stageAdjustments.stageSpecificGuidance
     },
     narrative: narrative,
     intersectionCareers: intersectionCareers,
@@ -619,25 +623,39 @@ function generateBroadMilestones(interest, stage, timeframe, phdArea = 'general'
     ];
   }
 
-  // Add stage-specific adjustments
+  // Add comprehensive stage-specific adjustments
   const stageAdjustments = gapPersonalization.stageSpecificAdjustments[stage] || {};
   
   if (stageAdjustments.additionalActions) {
-    milestones.immediate.tasks.push(...stageAdjustments.additionalActions.filter(action => 
-      action.includes('mentorship') || action.includes('portfolio') || action.includes('organizations')
-    ));
-  }
-  
-  if (stage === 'senior_researcher') {
-    // Senior researchers can target more senior roles
-    milestones.long_term.tasks = milestones.long_term.tasks.map(task => 
-      task.replace('entry-level', 'senior').replace('associate', 'senior')
+    // Distribute actions across different milestone periods based on their nature
+    const immediateActions = stageAdjustments.additionalActions.filter(action => 
+      action.includes('Apply for') || action.includes('Connect with') || action.includes('Join')
     );
-    milestones.long_term.tasks.push('Leverage extensive network and expertise for leadership roles');
-  } else if (stage === 'masters_student' || stage === 'early_phd') {
-    // Early career can focus more on learning and building foundations
-    milestones.immediate.tasks.push('Consider relevant internships or part-time opportunities');
-    milestones.medium_term.tasks.push('Seek mentorship from professionals in target field');
+    const mediumTermActions = stageAdjustments.additionalActions.filter(action => 
+      action.includes('Transform') || action.includes('Reframe') || action.includes('Start')
+    );
+    const longTermActions = stageAdjustments.additionalActions.filter(action => 
+      action.includes('Target') || action.includes('Consider') && action.includes('roles')
+    );
+    
+    // Add stage-specific actions to appropriate milestone periods
+    if (immediateActions.length > 0) {
+      milestones.immediate.tasks.push(...immediateActions.slice(0, 2)); // Limit to keep manageable
+    }
+    if (mediumTermActions.length > 0) {
+      milestones.medium_term.tasks.push(...mediumTermActions.slice(0, 2));
+    }
+    if (longTermActions.length > 0) {
+      milestones.long_term.tasks.push(...longTermActions.slice(0, 1));
+    }
+    
+    // If actions don't match filters, add first 2 to immediate
+    const remainingActions = stageAdjustments.additionalActions.filter(action =>
+      !immediateActions.includes(action) && !mediumTermActions.includes(action) && !longTermActions.includes(action)
+    );
+    if (remainingActions.length > 0) {
+      milestones.immediate.tasks.push(...remainingActions.slice(0, 2));
+    }
   }
 
   return milestones;
