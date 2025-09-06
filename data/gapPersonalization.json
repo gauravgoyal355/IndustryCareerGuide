@@ -126,76 +126,76 @@
 
   "careerSpecificLearningResources": {
     "Technology/Engineering": {
-      "platforms": ["GitHub", "Stack Overflow", "LeetCode", "Coursera", "Pluralsight"],
+      "platforms": ["FreeCodeCamp (free)", "YouTube (free)", "GitHub Learning Lab (free)", "Coursera (audit free)", "Khan Academy (free)"],
       "specificCourses": [
-        "Full-Stack Web Development (FreeCodeCamp)",
-        "System Design Interview Course (Educative.io)",
-        "AWS Cloud Practitioner Certification",
-        "Docker and Kubernetes Fundamentals",
-        "Agile Project Management (Scrum.org)"
+        "Full-Stack Web Development (FreeCodeCamp, free, 300 hours)",
+        "CS50's Introduction to Computer Science (Harvard via edX, free)",
+        "Python for Everybody (University of Michigan via Coursera, audit free)",
+        "JavaScript Algorithms and Data Structures (FreeCodeCamp, free)",
+        "Git and GitHub Crash Course (YouTube, free)"
       ],
-      "communities": ["r/programming", "Dev.to", "Hacker News", "Stack Overflow", "GitHub"],
-      "certifications": ["AWS Solutions Architect", "Google Cloud Professional", "Scrum Master"]
+      "communities": ["r/programming", "Dev.to", "Hacker News", "Stack Overflow", "GitHub Discussions"],
+      "certifications": ["FreeCodeCamp Certifications (free)", "AWS Cloud Practitioner (optional, $100)", "Google IT Support Certificate (Coursera, financial aid available)"]
     },
     "Data/Analytics": {
-      "platforms": ["Kaggle", "DataCamp", "Coursera", "edX", "Analytics Vidhya"],
+      "platforms": ["Kaggle Learn (free)", "YouTube (free)", "Google Colab (free)", "Coursera (audit free)", "Khan Academy Statistics (free)"],
       "specificCourses": [
-        "Machine Learning Course (Andrew Ng, Stanford)",
-        "SQL for Data Science (UC Davis)",
-        "Deep Learning Specialization (Coursera)",
-        "Tableau Desktop Specialist Certification",
-        "Python for Data Science and Machine Learning (Udemy)"
+        "Kaggle Learn: Python, Pandas, Machine Learning (free, 40 hours total)",
+        "Machine Learning Course by Andrew Ng (Stanford via Coursera, audit free)",
+        "SQL Tutorial by W3Schools (free, self-paced)",
+        "Python Data Science Handbook (free online book by Jake VanderPlas)",
+        "Statistics and Probability (Khan Academy, free)"
       ],
-      "communities": ["Kaggle Community", "r/MachineLearning", "Towards Data Science", "KDnuggets"],
-      "certifications": ["Google Data Analytics Certificate", "Microsoft Azure Data Scientist", "Tableau Desktop Specialist"]
+      "communities": ["Kaggle Community", "r/MachineLearning", "r/datascience", "Towards Data Science (Medium)", "KDnuggets"],
+      "certifications": ["Kaggle Competitions (free participation)", "Google Data Analytics Certificate (Coursera, financial aid available)", "IBM Data Science Certificate (Coursera, audit free courses)"]
     },
     "Product/Strategy": {
-      "platforms": ["ProductSchool", "Coursera", "Udemy", "MindtheProduct", "Reforge"],
+      "platforms": ["YouTube (free)", "Medium Product Management articles (free)", "Coursera (audit free)", "ProductSchool free resources", "First Round Review (free)"],
       "specificCourses": [
-        "Google Product Management Certificate",
-        "Product Management Fundamentals (ProductSchool)",
-        "Strategic Management (University of Virginia)",
-        "Design Thinking for Innovation (UVA)",
-        "Lean Startup Methodology (Udemy)"
+        "Product Management fundamentals (YouTube playlists, free)",
+        "Google UX Design Certificate (Coursera, financial aid available)",
+        "Design Thinking for Innovation (University of Virginia via Coursera, audit free)",
+        "Lean Startup principles (free articles and videos)",
+        "Strategic Management basics (Khan Academy, free)"
       ],
-      "communities": ["Product Hunt", "Mind the Product", "ProductHive", "r/ProductManagement"],
-      "certifications": ["Google Product Management Certificate", "Pragmatic Marketing Certified", "Scrum Product Owner"]
+      "communities": ["Product Hunt", "Mind the Product Slack (free)", "ProductHive Slack (free)", "r/ProductManagement", "PM communities on Discord"],
+      "certifications": ["Google UX Design Certificate (Coursera, financial aid available)", "Scrum Product Owner (paid but valuable)", "Product Management fundamentals (free online courses)"]
     },
     "Consulting": {
-      "platforms": ["Case Interview Prep", "McKinsey Insights", "BCG Insights", "Coursera", "MasterClass"],
+      "platforms": ["McKinsey Insights (free)", "BCG Insights (free)", "Victor Cheng case videos (free)", "Case Interview Buddy (free practice)", "Coursera (audit free)"],
       "specificCourses": [
-        "Management Consulting Approach to Problem Solving (Coursera)",
-        "Business Strategy (Wharton)",
-        "Case Interview Mastery (Various platforms)",
-        "Consulting Toolkit (McKinsey Academy)",
-        "Strategic Thinking (INSEAD)"
+        "Victor Cheng's Case Interview Secrets videos (YouTube, free)",
+        "McKinsey Problem Solving articles (free on McKinsey.com)",
+        "Business Strategy fundamentals (Coursera audit free)",
+        "Case study analysis (free PDF guides from consulting firms)",
+        "Excel and PowerPoint advanced skills (free YouTube tutorials)"
       ],
-      "communities": ["Management Consulted", "CaseInterview.com", "r/consulting", "Vault Consulting"],
-      "certifications": ["PMP (Project Management)", "Lean Six Sigma", "Change Management"]
+      "communities": ["Management Consulted (free resources)", "r/consulting", "Case Interview Buddy platform", "Consulting prep Facebook groups", "LinkedIn consulting networks"],
+      "certifications": ["Case interview practice (free with peers)", "PMP (paid but valuable for project management)", "Free online consulting courses completion certificates"]
     },
     "Business/Finance": {
-      "platforms": ["CFA Institute", "Wharton Online", "Coursera", "Khan Academy", "Investopedia"],
+      "platforms": ["Khan Academy Finance (free)", "Investopedia (free)", "Coursera (audit free)", "YouTube finance channels (free)", "SEC investor.gov (free)"],
       "specificCourses": [
-        "Corporate Finance (Wharton)",
-        "Financial Markets (Yale)",
-        "Investment Management (University of Geneva)",
-        "Financial Modeling (Various platforms)",
-        "CFA Level 1 Preparation"
+        "Khan Academy Finance and Capital Markets (free, comprehensive)",
+        "Financial Markets by Robert Shiller (Yale via Coursera, audit free)", 
+        "Corporate Finance fundamentals (Investopedia Academy, some free content)",
+        "Excel financial modeling tutorials (YouTube, free)",
+        "Personal finance and investing basics (Khan Academy, free)"
       ],
-      "communities": ["r/SecurityAnalysis", "r/investing", "CFA Institute", "Investopedia"],
-      "certifications": ["CFA Charter", "FRM (Financial Risk Manager)", "Excel Financial Modeling"]
+      "communities": ["r/SecurityAnalysis", "r/investing", "r/financialindependence", "Investopedia community", "Khan Academy finance discussions"],
+      "certifications": ["Khan Academy Finance certificates (free)", "Coursera finance course certificates (audit free)", "CFA Charter (expensive but gold standard, consider after experience)"]
     },
     "Healthcare/Biotech": {
-      "platforms": ["BioPharma Dive", "RAPS", "Coursera", "FDA Training", "Clinical Research Training"],
+      "platforms": ["FDA.gov training (free)", "BioPharma Dive (free)", "Coursera (audit free)", "YouTube biotech channels (free)", "NIH training resources (free)"],
       "specificCourses": [
-        "Clinical Data Management (ACRP)",
-        "Regulatory Affairs in Biotechnology (UC San Diego)",
-        "Drug Discovery and Development (UC San Diego)",
-        "Healthcare Innovation (Stanford)",
-        "Medical Device Development (Johns Hopkins)"
+        "FDA online training courses (free, official)",
+        "Drug Discovery and Development (UC San Diego via Coursera, audit free)",
+        "Clinical Research fundamentals (free online modules)",
+        "Regulatory Affairs basics (free FDA resources)",
+        "Good Clinical Practice (GCP) training (some free options)"
       ],
-      "communities": ["BioPharma Dive", "RAPS Community", "r/biotech", "BioWorld"],
-      "certifications": ["ACRP Clinical Research", "RAPS Regulatory Affairs", "CCRP (Clinical Research Professional)"]
+      "communities": ["r/biotech", "BioPharma Dive community", "RAPS student membership", "LinkedIn biotech groups", "ResearchGate discussions"],
+      "certifications": ["GCP certification (some free options)", "FDA training certificates (free)", "ACRP/RAPS certifications (paid but industry-recognized)"]
     },
     "Entrepreneurship": {
       "platforms": ["Y Combinator Startup School", "Coursera", "MasterClass", "Udemy", "Entrepreneur.com"],
@@ -210,28 +210,28 @@
       "certifications": ["Lean Six Sigma", "Project Management (PMP)", "Google Analytics", "HubSpot Content Marketing"]
     },
     "Science Communication": {
-      "platforms": ["Coursera", "edX", "FutureLearn", "The Op-Ed Project", "SciComm Twitter"],
+      "platforms": ["Medium (free to publish)", "SciComm Twitter (free)", "YouTube (free)", "Coursera (audit free)", "The Conversation (free to pitch)"],
       "specificCourses": [
-        "Science Communication (UC San Diego)",
-        "Writing in the Sciences (Stanford)",
-        "Science Journalism (Knight Center)",
-        "Digital Storytelling (University of Birmingham)",
-        "Science Writing and Editing (Various platforms)"
+        "Writing in the Sciences (Stanford via Coursera, audit free)",
+        "Science Communication online courses (edX, audit free)",
+        "Digital storytelling tutorials (YouTube, free)",
+        "Science blogging guides (free online resources)",
+        "Public speaking for scientists (free YouTube courses)"
       ],
-      "communities": ["SciComm Twitter", "The Story Collider", "Science Writers Society", "r/ScienceWriters"],
-      "certifications": ["Science Writing Certificate", "Digital Marketing", "Content Strategy"]
+      "communities": ["SciComm Twitter", "r/ScienceWriters", "Science Writers Society", "The Story Collider community", "Medium science publications"],
+      "certifications": ["Portfolio of published articles (free to build)", "Coursera course certificates (audit free)", "Science communication workshop certificates"]
     },
     "Policy/Advocacy": {
-      "platforms": ["Coursera", "edX", "Policy Schools", "Think Tank Resources", "Government Training"],
+      "platforms": ["AAAS resources (free)", "Government websites (free)", "Think tank publications (free)", "Coursera (audit free)", "Policy blogs (free)"],
       "specificCourses": [
-        "Science Policy (Various universities)",
-        "Policy Analysis and Program Evaluation (Georgetown)",
-        "Legislative Process and Advocacy (Various platforms)",
-        "Evidence-Based Policy Making (Johns Hopkins)",
-        "Science Diplomacy (AAAS)"
+        "Science Policy resources (AAAS, free)",
+        "Policy Analysis fundamentals (free government training)",
+        "Legislative process (free civics courses)",
+        "Evidence-based policy making (free online courses)",
+        "Science communication for policymakers (free workshops)"
       ],
-      "communities": ["AAAS Science Policy", "Policy Hub", "r/PolicyAnalysis", "Think Tank Networks"],
-      "certifications": ["Policy Analysis Certificate", "Government Relations", "Advocacy Certification"]
+      "communities": ["AAAS Science Policy fellowship network", "r/PolicyAnalysis", "Think tank communities", "Government affairs professional groups", "Science policy Twitter"],
+      "certifications": ["Government training certificates (free)", "Policy analysis course certificates (free)", "AAAS fellowship (competitive but fully funded)"]
     },
     "Entrepreneurship": {
       "platforms": ["Y Combinator Startup School", "Coursera", "MasterClass", "Udemy", "Entrepreneur.com"],

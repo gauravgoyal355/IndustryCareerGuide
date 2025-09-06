@@ -661,6 +661,105 @@ function generateBroadMilestones(interest, stage, timeframe, phdArea = 'general'
   return milestones;
 }
 
+function generateSpecificFallbackActions(interest, phdArea) {
+  const phdAreaFormatted = phdArea.replace('_', ' ');
+  const actions = [];
+
+  // Generate specific actions based on career interest
+  switch (interest) {
+    case 'Technology/Engineering':
+      actions.push(
+        `Complete freeCodeCamp's "Responsive Web Design" certification (free, 300 hours)`,
+        `Build 3 portfolio projects: a data visualization using your ${phdAreaFormatted} research, a web app solving an industry problem, and an API for ${phdAreaFormatted} calculations`,
+        `Join r/cscareerquestions and Stack Overflow communities, contribute by answering questions related to ${phdAreaFormatted}`,
+        `Connect with PhD-to-tech professionals on LinkedIn using search "PhD ${phdAreaFormatted} software engineer"`,
+        `Apply to 20+ entry-level developer positions, highlighting your analytical and problem-solving skills from ${phdAreaFormatted} research`
+      );
+      break;
+    
+    case 'Data/Analytics':
+      actions.push(
+        `Complete Kaggle Learn micro-courses: Python, Pandas, Machine Learning (all free, ~40 hours total)`,
+        `Create 3 data science projects using your ${phdAreaFormatted} datasets: predictive modeling, data visualization dashboard, and statistical analysis report`,
+        `Join Kaggle community and r/MachineLearning, participate in competitions using your domain expertise in ${phdAreaFormatted}`,
+        `Attend virtual meetups: "Data Science Meetup" and "${phdAreaFormatted} + AI" groups on Meetup.com`,
+        `Apply to data analyst roles at companies in ${phdAreaFormatted}-related industries (biotech, research institutions, consulting firms)`
+      );
+      break;
+    
+    case 'Consulting':
+      actions.push(
+        `Study 50 case studies from McKinsey Insights and BCG Insights (free), practice framework application to ${phdAreaFormatted} problems`,
+        `Complete Victor Cheng's free case interview videos, then practice 20 cases with friends or Case Interview Buddy platform`,
+        `Join Management Consulted community and r/consulting, ask questions about PhD-to-consulting transitions`,
+        `Attend virtual consulting firm events: McKinsey, BCG, Bain "PhD Networking Events" (check their career pages monthly)`,
+        `Apply to strategy consulting firms emphasizing your ${phdAreaFormatted} expertise for life sciences/tech practices`
+      );
+      break;
+    
+    case 'Product/Strategy':
+      actions.push(
+        `Complete Google's free "Foundations of User Experience (UX) Design" course on Coursera (audit mode, ~20 hours)`,
+        `Build product case studies: design a product improvement for ${phdAreaFormatted} researchers, create a go-to-market strategy for a scientific tool`,
+        `Join ProductHive Slack community and attend Product School virtual events (many free)`,
+        `Network with product managers through LinkedIn using search "product manager PhD" and "scientific product manager"`,
+        `Apply to product management associate programs at tech companies, emphasizing your research methodology and user empathy from ${phdAreaFormatted} work`
+      );
+      break;
+
+    case 'Business/Finance':
+      actions.push(
+        `Complete Khan Academy's "Finance and capital markets" course (free, self-paced)`,
+        `Build financial models: startup valuation for a ${phdAreaFormatted} company, investment analysis for research equipment, personal financial planning template`,
+        `Join CFA Institute community (free membership) and r/SecurityAnalysis for market discussions`,
+        `Attend virtual finance meetups and webinars on Eventbrite, search "${phdAreaFormatted} investment" and "biotech finance"`,
+        `Apply to financial analyst positions at ${phdAreaFormatted}-focused funds, banks with life sciences divisions, or research-intensive companies`
+      );
+      break;
+
+    case 'Healthcare/Biotech':
+      actions.push(
+        `Complete FDA's free online training courses related to your ${phdAreaFormatted} specialty (device/drug regulations)`,
+        `Volunteer for clinical trials coordination or regulatory document review to gain industry experience`,
+        `Join RAPS (Regulatory Affairs Professionals Society) student membership and local chapter events`,
+        `Connect with regulatory professionals through LinkedIn, specifically searching "regulatory affairs ${phdAreaFormatted}"`,
+        `Apply to CRA, clinical data management, or regulatory affairs positions at biotech companies and CROs`
+      );
+      break;
+
+    case 'Science Communication':
+      actions.push(
+        `Start a science blog on Medium or Substack, write 5 articles explaining ${phdAreaFormatted} research for general audiences`,
+        `Complete "Science Writing" courses on edX or Coursera (audit mode), practice by rewriting 3 research papers as news articles`,
+        `Join Science Writers Society and SciComm Twitter community, engage by sharing simplified versions of recent ${phdAreaFormatted} papers`,
+        `Pitch article ideas to The Conversation, Popular Science, or ${phdAreaFormatted}-specific publications`,
+        `Apply to science communication roles at universities, research institutions, and science museums emphasizing your ${phdAreaFormatted} expertise`
+      );
+      break;
+
+    case 'Entrepreneurship':
+      actions.push(
+        `Complete Y Combinator Startup School (free online program), focus on customer discovery for ${phdAreaFormatted}-related problems`,
+        `Conduct 50 customer interviews with ${phdAreaFormatted} researchers or industry professionals to identify pain points`,
+        `Join Founder Slack groups and Indie Hackers community, share insights from your ${phdAreaFormatted} research experience`,
+        `Attend virtual startup events: Startup Grind, Entrepreneur meetups, and ${phdAreaFormatted} innovation conferences`,
+        `Work at an early-stage startup (1-50 employees) for 1-2 years to learn business operations before founding your own company`
+      );
+      break;
+
+    default:
+      actions.push(
+        `Complete relevant courses on Coursera (audit mode), edX, or Khan Academy focusing on ${interest.toLowerCase()} fundamentals`,
+        `Create 2-3 portfolio projects demonstrating how your ${phdAreaFormatted} skills apply to ${interest.toLowerCase()} challenges`,
+        `Join professional associations and online communities specific to ${interest.toLowerCase()}`,
+        `Connect with 10+ professionals who transitioned from ${phdAreaFormatted} to ${interest.toLowerCase()} via LinkedIn`,
+        `Apply to 15+ entry-level positions in ${interest.toLowerCase()}, customizing your resume to highlight transferable ${phdAreaFormatted} skills`
+      );
+  }
+
+  return actions;
+}
+
 function generatePersonalizedLearning(interest, phdArea) {
   // Get career-specific learning resources
   const careerResources = gapPersonalization.careerSpecificLearningResources[interest] || {
@@ -672,13 +771,7 @@ function generatePersonalizedLearning(interest, phdArea) {
 
   // Generate PhD + Career specific action items
   const combinedKey = `${phdArea}_${interest}`;
-  const specificActions = gapPersonalization.phdCareerSpecificActions[combinedKey] || [
-    `Complete foundational courses in ${interest.toLowerCase().replace('/', ' & ')}`,
-    `Build portfolio projects combining your ${phdArea.replace('_', ' ')} background with ${interest.toLowerCase()} skills`,
-    `Join professional communities in ${interest.toLowerCase()}`,
-    `Network with professionals who made similar transitions`,
-    `Apply for entry-level positions in ${interest.toLowerCase()}`
-  ];
+  const specificActions = gapPersonalization.phdCareerSpecificActions[combinedKey] || generateSpecificFallbackActions(interest, phdArea);
 
   return {
     generalAreas: [
@@ -689,11 +782,8 @@ function generatePersonalizedLearning(interest, phdArea) {
       `${phdArea.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())} to industry skill translation`
     ],
     estimatedCost: {
-      estimated_total: interest === 'Technology/Engineering' ? '$200 - $800' :
-                      interest === 'Data/Analytics' ? 'Free - $600' :
-                      interest === 'Consulting' ? '$300 - $1,200' :
-                      'Free - $500',
-      note: 'Costs vary by career path; many excellent free resources available'
+      estimated_total: 'Free - $200 (optional premium resources)',
+      note: 'Start with free resources: YouTube tutorials, Coursera audit tracks, Khan Academy, GitHub learning paths, and company documentation. Paid certifications are optional and only recommended after mastering free fundamentals.'
     },
     timeToComplete: interest === 'Technology/Engineering' ? '4-8 months (intensive)' :
                     interest === 'Data/Analytics' ? '3-6 months (focused learning)' :
