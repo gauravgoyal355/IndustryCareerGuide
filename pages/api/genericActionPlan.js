@@ -93,6 +93,20 @@ function generateNarrativeActionPlan(interest, phdArea, stage, timeframe) {
 }
 
 function generatePhDInterestNarrative(interest, phdArea, stage) {
+  // Handle Masters students (no PhD)
+  const isMastersStudent = phdArea === 'none';
+  
+  // Helper function to get appropriate degree reference
+  const getDegreeReference = (includeArea = true) => {
+    if (isMastersStudent) {
+      return includeArea ? "Your Master's degree background" : "Your Master's training";
+    }
+    if (includeArea && phdArea !== 'none') {
+      return `Your PhD in ${phdArea.replace('_', ' ')}`;
+    }
+    return "Your PhD";
+  };
+  
   // Define PhD area groupings
   const lifeScienceFields = ['biology', 'biochemistry', 'molecular_biology', 'neuroscience', 'genetics', 'microbiology', 'immunology'];
   const physicalScienceFields = ['physics', 'chemistry', 'materials_science'];
@@ -112,7 +126,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
     case 'Technology/Engineering':
       if (isLifeScience) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} has provided you with deep scientific knowledge and analytical thinking that's highly valued in biotechnology and medical device industries.`,
+          alignment: `${getDegreeReference()} has provided you with deep scientific knowledge and analytical thinking that's highly valued in biotechnology and medical device industries.`,
           gaps: `However, transitioning to engineering requires developing more quantitative and technical skills such as programming, systems design, and engineering principles.`,
           difficulty: stage === 'senior_researcher' ? 'This transition may require significant retraining but your research experience and problem-solving skills provide a strong foundation.' : 'With your analytical background, developing technical skills is achievable with focused effort.',
           encouragement: `Many successful biotech engineers and medical device professionals started with life science PhDs. Your domain expertise gives you a unique advantage in understanding user needs and biological constraints.`
@@ -120,7 +134,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Biomedical Engineer', 'Medical Device R&D', 'Bioprocess Engineer', 'Computational Biology Specialist', 'Biosensor Developer', 'Gene Editing Technology', 'Drug Delivery Systems'];
       } else if (isPhysicalScience) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} has equipped you with strong quantitative skills and understanding of fundamental principles that translate well to engineering roles.`,
+          alignment: `${getDegreeReference()} has equipped you with strong quantitative skills and understanding of fundamental principles that translate well to engineering roles.`,
           gaps: `The transition requires learning specific engineering methodologies and potentially programming skills, depending on your target area.`,
           difficulty: 'Your analytical and mathematical background provides an excellent foundation for engineering roles.',
           encouragement: `Physical science PhDs often excel in engineering because of their deep understanding of underlying principles and strong problem-solving abilities.`
@@ -128,7 +142,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Materials Engineer', 'Process Engineer', 'R&D Engineer', 'Technical Product Manager', 'Engineering Consultant', 'Hardware Engineer', 'Chemical Process Designer'];
       } else if (isMath) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} provides excellent preparation for technology and engineering roles, especially those requiring strong analytical and computational skills.`,
+          alignment: `${getDegreeReference()} provides excellent preparation for technology and engineering roles, especially those requiring strong analytical and computational skills.`,
           gaps: `You may need to learn domain-specific engineering principles and potentially gain hands-on experience with hardware or systems.`,
           difficulty: 'This is typically a natural transition given your quantitative background.',
           encouragement: `Math and computer science PhDs are highly sought after in technology and engineering for their problem-solving abilities and technical depth.`
@@ -136,7 +150,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Software Engineer', 'Data Engineer', 'Systems Engineer', 'Machine Learning Engineer', 'Quantitative Engineer', 'Algorithm Developer', 'Technical Architect'];
       } else {
         narrative = {
-          alignment: `Your PhD training has developed strong analytical and problem-solving skills that are valuable in engineering roles.`,
+          alignment: `${getDegreeReference(false)} has developed strong analytical and problem-solving skills that are valuable in engineering roles.`,
           gaps: `Transitioning to engineering will require developing technical skills and learning engineering principles specific to your area of interest.`,
           difficulty: 'The transition requires dedication but your research background provides transferable skills.',
           encouragement: `Many successful engineers have diverse backgrounds. Your unique perspective can bring innovation to engineering teams.`
@@ -148,7 +162,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
     case 'Data/Analytics':
       if (isLifeScience) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} has provided experience with data analysis, experimental design, and scientific rigor - all crucial for data science roles.`,
+          alignment: `${getDegreeReference()} has provided experience with data analysis, experimental design, and scientific rigor - all crucial for data science roles.`,
           gaps: `You'll need to strengthen programming skills (Python/R), learn machine learning techniques, and understand business applications of data science.`,
           difficulty: 'This is often a natural transition for life science PhDs with analytical backgrounds.',
           encouragement: `Life science PhDs bring domain expertise and experimental rigor that's highly valued in biotech, pharma, and healthcare data roles.`
@@ -156,7 +170,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Biostatistician', 'Clinical Data Scientist', 'Bioinformatics Specialist', 'Healthcare Analytics', 'Pharma Data Scientist', 'Genomics Data Analyst', 'Medical AI Researcher'];
       } else if (isPhysicalScience || isMath) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} provides excellent quantitative foundations and analytical skills that directly translate to data science.`,
+          alignment: `${getDegreeReference()} provides excellent quantitative foundations and analytical skills that directly translate to data science.`,
           gaps: `You may need to learn business applications, data visualization tools, and potentially some domain-specific knowledge.`,
           difficulty: 'This transition leverages your existing strengths and is typically straightforward.',
           encouragement: `Your strong mathematical and analytical background gives you a significant advantage in advanced data science and machine learning roles.`
@@ -164,7 +178,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Data Scientist', 'Machine Learning Engineer', 'Statistical Analyst', 'Quantitative Analyst', 'Research Data Scientist', 'Algorithm Developer', 'AI Researcher'];
       } else {
         narrative = {
-          alignment: `Your PhD training has developed analytical thinking and research skills that are valuable in data roles.`,
+          alignment: `${getDegreeReference(false)} has developed analytical thinking and research skills that are valuable in data roles.`,
           gaps: `You'll need to develop programming skills, statistical knowledge, and learn data science tools and methodologies.`,
           difficulty: 'The transition requires learning new technical skills but your analytical background helps.',
           encouragement: `Many successful data scientists come from diverse backgrounds. Your domain expertise can provide unique insights in data analysis.`
@@ -175,7 +189,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
 
     case 'Consulting':
       narrative = {
-        alignment: `Your PhD training has developed critical thinking, problem-solving, and communication skills that are highly valued in consulting.`,
+        alignment: `${getDegreeReference(false)} has developed critical thinking, problem-solving, and communication skills that are highly valued in consulting.`,
         gaps: `You'll need to learn business frameworks, develop presentation skills, and understand client management.`,
         difficulty: stage === 'senior_researcher' ? 'Your extensive research experience and expertise position you well for senior consulting roles.' : 'The transition leverages your analytical skills while requiring business acumen development.',
         encouragement: `PhD-level expertise is highly valued in consulting, especially in technical and scientific domains.`
@@ -188,7 +202,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
     case 'Healthcare/Biotech':
       if (isLifeScience) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} directly aligns with healthcare and biotech industry needs, providing deep domain expertise.`,
+          alignment: `${getDegreeReference()} directly aligns with healthcare and biotech industry needs, providing deep domain expertise.`,
           gaps: `You may need to learn business aspects, regulatory requirements, and industry-specific processes.`,
           difficulty: 'This is typically a natural transition leveraging your scientific background.',
           encouragement: `Life science PhDs are the backbone of the biotech and healthcare industries. Your expertise is in high demand.`
@@ -208,7 +222,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
     case 'Product/Strategy':
       if (isLifeScience) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} has given you deep domain expertise in life sciences, which is highly valued in biotech and pharma product management roles.`,
+          alignment: `${getDegreeReference()} has given you deep domain expertise in life sciences, which is highly valued in biotech and pharma product management roles.`,
           gaps: `Transitioning to product/strategy requires developing business acumen, market analysis skills, and understanding of product development lifecycles.`,
           difficulty: stage === 'senior_researcher' ? 'Your extensive research experience and domain expertise make you well-suited for senior product roles in life sciences companies.' : 'Your scientific background provides credibility with R&D teams, but you\'ll need to develop commercial skills.',
           encouragement: `Many successful product managers in biotech started as scientists. Your ability to understand complex science and translate it for different audiences is invaluable.`
@@ -216,7 +230,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Biotech Product Manager', 'Medical Affairs Specialist', 'Clinical Development Associate', 'Market Access Analyst', 'Scientific Product Marketing', 'Regulatory Strategy Consultant', 'Life Sciences Business Development'];
       } else if (isPhysicalScience || isMath) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} has developed strong analytical and quantitative skills that are essential for data-driven product decisions.`,
+          alignment: `${getDegreeReference()} has developed strong analytical and quantitative skills that are essential for data-driven product decisions.`,
           gaps: `You'll need to learn business strategy frameworks, market research methodologies, and customer development processes.`,
           difficulty: 'Your analytical background gives you an edge in product analytics and strategic thinking.',
           encouragement: `Technical product managers with deep analytical skills are highly sought after, especially in tech companies dealing with complex problems.`
@@ -224,7 +238,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Technical Product Manager', 'Data Product Manager', 'Strategy Analyst', 'Business Intelligence Manager', 'Product Marketing Manager', 'Operations Strategy Consultant', 'Market Research Analyst'];
       } else {
         narrative = {
-          alignment: `Your PhD training has developed strategic thinking, project management, and analytical skills valuable in product and strategy roles.`,
+          alignment: `${getDegreeReference(false)} has developed strategic thinking, project management, and analytical skills valuable in product and strategy roles.`,
           gaps: `You'll need to develop market research skills, business model understanding, and customer-centric thinking.`,
           difficulty: 'The transition leverages your research and analytical skills while requiring new business perspectives.',
           encouragement: `Your ability to synthesize complex information and think systematically are core strengths for strategy roles.`
@@ -236,7 +250,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
     case 'Business/Finance':
       if (isLifeScience) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} provides deep understanding of the life sciences industry, which is valuable for finance roles in biotech, pharma, and healthcare.`,
+          alignment: `${getDegreeReference()} provides deep understanding of the life sciences industry, which is valuable for finance roles in biotech, pharma, and healthcare.`,
           gaps: `You'll need to develop financial modeling, accounting principles, and business valuation skills specific to finance roles.`,
           difficulty: stage === 'senior_researcher' ? 'Your industry expertise can open doors to senior finance roles in life sciences companies.' : 'The transition requires significant new skill development but your domain knowledge is an asset.',
           encouragement: `Life sciences companies value finance professionals who understand the science behind their business models.`
@@ -244,7 +258,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Biotech Financial Analyst', 'Healthcare Investment Banking', 'Life Sciences Venture Capital', 'Pharma Business Development', 'Medical Economics Researcher', 'Healthcare Consulting'];
       } else if (isPhysicalScience || isMath) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} has provided excellent quantitative and analytical foundations that directly apply to finance roles.`,
+          alignment: `${getDegreeReference()} has provided excellent quantitative and analytical foundations that directly apply to finance roles.`,
           gaps: `You may need to learn financial markets, accounting principles, and business finance applications.`,
           difficulty: 'This is typically a natural transition given your strong quantitative background.',
           encouragement: `Quantitative skills are highly valued in finance. Many successful quants and financial analysts have STEM PhDs.`
@@ -252,7 +266,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Quantitative Analyst', 'Risk Management Analyst', 'Financial Engineer', 'Investment Research Analyst', 'Data Scientist (Finance)', 'Algorithmic Trading Specialist'];
       } else {
         narrative = {
-          alignment: `Your PhD has developed analytical and research skills that are transferable to finance roles.`,
+          alignment: `${getDegreeReference(false)} has developed analytical and research skills that are transferable to finance roles.`,
           gaps: `You'll need to develop financial knowledge, business acumen, and industry-specific skills.`,
           difficulty: 'The transition requires focused learning but your analytical skills provide a foundation.',
           encouragement: `Finance values diverse perspectives and strong analytical thinking from PhD backgrounds.`
@@ -264,7 +278,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
     case 'R&D/Innovation':
       if (isLifeScience) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} directly aligns with R&D roles in life sciences, providing both technical expertise and research experience.`,
+          alignment: `${getDegreeReference()} directly aligns with R&D roles in life sciences, providing both technical expertise and research experience.`,
           gaps: `You may need to learn industry R&D processes, project management, and potentially regulatory requirements.`,
           difficulty: 'This is typically the most natural career transition for life science PhDs.',
           encouragement: `R&D roles in industry often provide better resources and faster impact than academic research while utilizing your core expertise.`
@@ -272,7 +286,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Industry Research Scientist', 'R&D Project Manager', 'Principal Investigator (Industry)', 'Innovation Strategist', 'Research Program Director', 'Scientific Director', 'CTO (Biotech)'];
       } else if (isPhysicalScience || isEngineering) {
         narrative = {
-          alignment: `Your PhD in ${phdArea.replace('_', ' ')} provides deep technical knowledge and research skills that are core requirements for industrial R&D roles.`,
+          alignment: `${getDegreeReference()} provides deep technical knowledge and research skills that are core requirements for industrial R&D roles.`,
           gaps: `You may need to learn industry-specific applications, product development processes, and commercial R&D priorities.`,
           difficulty: 'This transition leverages your existing strengths while adapting to industry contexts.',
           encouragement: `Industry R&D offers the opportunity to see your research translated into real-world applications and products.`
@@ -280,10 +294,16 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
         intersectionCareers = ['Senior Research Engineer', 'Innovation Manager', 'Technical Program Manager', 'R&D Director', 'Chief Technology Officer', 'Product Development Scientist', 'Technology Transfer Specialist'];
       } else {
         narrative = {
-          alignment: `Your PhD research experience has developed innovation thinking and project management skills valuable in R&D environments.`,
+          alignment: isMastersStudent ? 
+            `Your Master's research experience and analytical training provide a strong foundation for R&D roles, combining technical knowledge with fresh perspectives.` :
+            `Your PhD research experience has developed innovation thinking and project management skills valuable in R&D environments.`,
           gaps: `You'll need to develop technical knowledge specific to your target industry and understand commercial R&D processes.`,
-          difficulty: 'The transition requires adapting your research skills to industry contexts and priorities.',
-          encouragement: `R&D roles value fresh perspectives and interdisciplinary thinking that PhD training provides.`
+          difficulty: isMastersStudent ? 
+            'This transition leverages your research background while building industry-specific expertise.' :
+            'The transition requires adapting your research skills to industry contexts and priorities.',
+          encouragement: isMastersStudent ?
+            `R&D roles value the fresh perspectives and adaptability that Master's-level researchers bring to industry problems.` :
+            `R&D roles value fresh perspectives and interdisciplinary thinking that PhD training provides.`
         };
         intersectionCareers = ['Research Program Manager', 'Innovation Analyst', 'Technology Scout', 'R&D Strategy Consultant', 'Grant Writing Specialist'];
       }
@@ -291,7 +311,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
 
     case 'Entrepreneurship':
       narrative = {
-        alignment: `Your PhD training has developed problem-solving abilities, resilience, and deep expertise that are valuable entrepreneurial assets.`,
+        alignment: `${getDegreeReference(false)} has developed problem-solving abilities, resilience, and deep expertise that are valuable entrepreneurial assets.`,
         gaps: `You'll need to develop business skills including finance, marketing, sales, and operations management.`,
         difficulty: stage === 'senior_researcher' ? 'Your expertise and network position you well for founding or joining startups in your domain.' : 'Entrepreneurship requires diverse skills but your PhD background provides credibility and problem-solving abilities.',
         encouragement: `Many successful entrepreneurs have PhD backgrounds. Your ability to tackle complex problems and persist through challenges are key entrepreneurial traits.`
@@ -308,7 +328,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
 
     case 'Science Communication':
       narrative = {
-        alignment: `Your PhD training has given you deep subject matter expertise and the ability to communicate complex concepts, which are core requirements for science communication roles.`,
+        alignment: `${getDegreeReference(false)} has given you deep subject matter expertise and the ability to communicate complex concepts, which are core requirements for science communication roles.`,
         gaps: `You'll need to develop public communication skills, media relations, and potentially digital content creation abilities.`,
         difficulty: 'This transition builds on your communication skills while requiring new audience-focused approaches.',
         encouragement: `The world needs more scientists who can effectively communicate complex topics to diverse audiences. Your expertise gives you credibility and authenticity.`
@@ -318,7 +338,7 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
 
     case 'Policy/Advocacy':
       narrative = {
-        alignment: `Your PhD has provided deep expertise and understanding of research processes that are valuable for evidence-based policy work.`,
+        alignment: `${getDegreeReference(false)} has provided deep expertise and understanding of research processes that are valuable for evidence-based policy work.`,
         gaps: `You'll need to develop policy analysis skills, stakeholder engagement abilities, and understanding of regulatory and political processes.`,
         difficulty: stage === 'senior_researcher' ? 'Your expertise and potential network position you well for senior policy advisory roles.' : 'The transition requires learning new skills but your research credibility is valuable.',
         encouragement: `PhD-level expertise is highly valued in policy circles. Scientists who can bridge research and policy make crucial contributions to society.`
@@ -334,10 +354,10 @@ function generatePhDInterestNarrative(interest, phdArea, stage) {
     // Add more cases for other interests...
     default:
       narrative = {
-        alignment: `Your PhD in ${phdArea.replace('_', ' ')} has developed valuable analytical, problem-solving, and research skills.`,
+        alignment: `${getDegreeReference()} has developed valuable analytical, problem-solving, and research skills.`,
         gaps: `Transitioning to ${interest.toLowerCase().replace('/', ' & ')} will require developing specific domain knowledge and potentially new technical skills.`,
         difficulty: stage === 'senior_researcher' ? 'Your extensive experience provides a strong foundation for senior-level transitions.' : 'The transition is achievable with focused effort and leveraging your existing strengths.',
-        encouragement: `Your PhD background in ${phdArea.replace('_', ' ')} provides a strong foundation for learning new domains and contributing unique perspectives.`
+        encouragement: `${getDegreeReference()} provides a strong foundation for learning new domains and contributing unique perspectives.`
       };
       intersectionCareers = ['Research-Based Roles', 'Technical Specialist', 'Domain Expert', 'Analytical Roles'];
   }
