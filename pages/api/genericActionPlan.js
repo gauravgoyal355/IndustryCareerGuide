@@ -1,4 +1,6 @@
 // Generic Action Plan API - Sophisticated narrative-driven approach
+import gapPersonalization from '../../data/gapPersonalization.json';
+
 export default function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -68,7 +70,7 @@ function generateNarrativeActionPlan(interest, phdArea, stage, timeframe) {
   const milestones = generateBroadMilestones(interest, stage, timeframe, phdArea);
   
   // Generate general learning recommendations
-  const learningRecommendations = generateGeneralLearning(interest, phdArea);
+  const learningRecommendations = generatePersonalizedLearning(interest, phdArea);
 
   return {
     overview: {
@@ -82,7 +84,7 @@ function generateNarrativeActionPlan(interest, phdArea, stage, timeframe) {
     milestones: milestones,
     learningRecommendations: learningRecommendations,
     skillDevelopment: generateSkillDevelopment(interest, phdArea),
-    careerInsights: generateCareerInsights(interest, phdArea, stage)
+    careerInsights: generatePersonalizedInsights(interest, phdArea, stage)
   };
 }
 
@@ -617,7 +619,15 @@ function generateBroadMilestones(interest, stage, timeframe, phdArea = 'general'
     ];
   }
 
-  // Adjust based on career stage
+  // Add stage-specific adjustments
+  const stageAdjustments = gapPersonalization.stageSpecificAdjustments[stage] || {};
+  
+  if (stageAdjustments.additionalActions) {
+    milestones.immediate.tasks.push(...stageAdjustments.additionalActions.filter(action => 
+      action.includes('mentorship') || action.includes('portfolio') || action.includes('organizations')
+    ));
+  }
+  
   if (stage === 'senior_researcher') {
     // Senior researchers can target more senior roles
     milestones.long_term.tasks = milestones.long_term.tasks.map(task => 
@@ -633,45 +643,44 @@ function generateBroadMilestones(interest, stage, timeframe, phdArea = 'general'
   return milestones;
 }
 
-function generateGeneralLearning(interest, phdArea) {
-  const platforms = ['Coursera', 'edX', 'Udemy', 'YouTube', 'Khan Academy', 'MIT OpenCourseWare'];
-  
-  const generalRecommendations = {
-    'Technology/Engineering': [
-      'Programming fundamentals (Python, JavaScript, or relevant languages)',
-      'Systems design and engineering principles',
-      'Project management and agile methodologies',
-      'Technical communication and documentation'
-    ],
-    'Data/Analytics': [
-      'Statistical analysis and data visualization',
-      'Programming for data science (Python/R)',
-      'Machine learning fundamentals',
-      'Business intelligence and analytics tools'
-    ],
-    'Consulting': [
-      'Business strategy and frameworks',
-      'Presentation and communication skills',
-      'Project management',
-      'Industry-specific knowledge'
-    ]
+function generatePersonalizedLearning(interest, phdArea) {
+  // Get career-specific learning resources
+  const careerResources = gapPersonalization.careerSpecificLearningResources[interest] || {
+    platforms: ['Coursera', 'edX', 'Udemy'],
+    specificCourses: ['Foundational courses in your area of interest'],
+    communities: ['Professional networks in your field'],
+    certifications: ['Relevant industry certifications']
   };
+
+  // Generate PhD + Career specific action items
+  const combinedKey = `${phdArea}_${interest}`;
+  const specificActions = gapPersonalization.phdCareerSpecificActions[combinedKey] || [
+    `Complete foundational courses in ${interest.toLowerCase().replace('/', ' & ')}`,
+    `Build portfolio projects combining your ${phdArea.replace('_', ' ')} background with ${interest.toLowerCase()} skills`,
+    `Join professional communities in ${interest.toLowerCase()}`,
+    `Network with professionals who made similar transitions`,
+    `Apply for entry-level positions in ${interest.toLowerCase()}`
+  ];
 
   return {
     estimatedCost: {
-      estimated_total: 'Free - $500',
-      note: 'Many excellent free resources available; paid courses optional for certificates'
+      estimated_total: interest === 'Technology/Engineering' ? '$200 - $800' :
+                      interest === 'Data/Analytics' ? 'Free - $600' :
+                      interest === 'Consulting' ? '$300 - $1,200' :
+                      'Free - $500',
+      note: 'Costs vary by career path; many excellent free resources available'
     },
-    timeToComplete: '3-12 months (self-paced)',
-    platforms: platforms,
-    generalAreas: generalRecommendations[interest] || [
-      'Foundational knowledge in your area of interest',
-      'Professional communication skills',
-      'Industry-specific tools and methodologies',
-      'Networking and professional development'
-    ],
-    note: 'These are general starting points. For specific course recommendations tailored to your exact career goals, take our comprehensive career assessment.',
-    upgradeMessage: 'Take our detailed career quiz for personalized course recommendations and specific learning paths.'
+    timeToComplete: interest === 'Technology/Engineering' ? '4-8 months (intensive)' :
+                    interest === 'Data/Analytics' ? '3-6 months (focused learning)' :
+                    interest === 'Consulting' ? '2-6 months (case prep + business skills)' :
+                    '3-12 months (self-paced)',
+    platforms: careerResources.platforms,
+    specificCourses: careerResources.specificCourses,
+    communities: careerResources.communities,
+    certifications: careerResources.certifications,
+    actionableSteps: specificActions,
+    note: `These recommendations are tailored for ${phdArea.replace('_', ' ')} PhDs transitioning to ${interest.toLowerCase().replace('/', ' & ')}.`,
+    upgradeMessage: 'Take our detailed career quiz for even more personalized recommendations and a complete action plan for your top 3 career matches.'
   };
 }
 
@@ -702,22 +711,53 @@ function generateSkillDevelopment(interest, phdArea) {
   };
 }
 
-function generateCareerInsights(interest, phdArea, stage) {
+function generatePersonalizedInsights(interest, phdArea, stage) {
+  // Get PhD-specific strengths
+  const phdStrengths = gapPersonalization.phdSpecificStrengths[phdArea] || [
+    'Strong analytical and problem-solving abilities',
+    'Research methodology and critical thinking',
+    'Ability to learn complex topics independently'
+  ];
+  
+  // Add stage-specific strength
+  const stageStrength = stage === 'senior_researcher' ? 
+    'Extensive domain expertise and research leadership experience' :
+    stage === 'early_phd' || stage === 'masters_student' ?
+    'Fresh perspective and adaptability to new methodologies' :
+    'Solid research foundation with growing expertise';
+  
+  // Get career-specific development areas
+  const careerDevelopmentAreas = gapPersonalization.careerSpecificDevelopmentAreas[interest] || [
+    'Industry-specific knowledge and practices',
+    'Business acumen and commercial awareness',
+    'Professional networking in new field',
+    'Technical skills specific to target career'
+  ];
+
+  // Generate personalized market outlook
+  const phdAreaFormatted = phdArea.replace('_', ' ');
+  const interestFormatted = interest.toLowerCase().replace('/', ' & ');
+  
+  let marketOutlook = `${phdAreaFormatted.charAt(0).toUpperCase() + phdAreaFormatted.slice(1)} PhDs are increasingly valuable in ${interestFormatted} roles. `;
+  
+  if (interest === 'Technology/Engineering') {
+    marketOutlook += phdArea.includes('computer') || phdArea.includes('math') ?
+      'Your quantitative background aligns perfectly with the growing demand for technical expertise in engineering roles.' :
+      'Companies seek professionals who can bridge scientific rigor with engineering innovation.';
+  } else if (interest === 'Data/Analytics') {
+    marketOutlook += 'The demand for data scientists with domain expertise is at an all-time high, especially those who can interpret complex scientific data.';
+  } else if (interest === 'Healthcare/Biotech') {
+    marketOutlook += phdArea.includes('biology') || phdArea.includes('chemistry') || phdArea.includes('neuroscience') ?
+      'Your scientific background is directly applicable and highly sought after in the rapidly growing biotech sector.' :
+      'Healthcare companies value analytical minds who can contribute to evidence-based decision making.';
+  } else {
+    marketOutlook += 'Organizations increasingly value the analytical rigor and research skills that PhD training provides.';
+  }
+
   return {
-    strengths: [
-      'Strong analytical and problem-solving abilities',
-      'Research methodology and critical thinking',
-      'Ability to learn complex topics independently',
-      'Scientific rigor and attention to detail',
-      stage === 'senior_researcher' ? 'Extensive domain expertise' : 'Fresh perspective and adaptability'
-    ],
-    developmentAreas: [
-      'Industry-specific knowledge and practices',
-      'Business acumen and commercial awareness',
-      'Professional networking in new field',
-      'Technical skills specific to target career'
-    ],
-    marketOutlook: `The intersection of PhD-level expertise and ${interest.toLowerCase()} skills is increasingly valuable in today's knowledge economy. Organizations seek professionals who can bridge academic rigor with practical application.`
+    strengths: [...phdStrengths, stageStrength],
+    developmentAreas: careerDevelopmentAreas,
+    marketOutlook: marketOutlook
   };
 }
 

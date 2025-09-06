@@ -1,0 +1,230 @@
+{
+  "phdSpecificStrengths": {
+    "biology": [
+      "Experimental design and hypothesis testing expertise",
+      "Statistical analysis of biological data sets",
+      "Understanding of complex biological systems",
+      "Experience with laboratory protocols and quality control",
+      "Knowledge of regulatory frameworks (FDA, IRB processes)"
+    ],
+    "biochemistry": [
+      "Molecular-level understanding of biological processes", 
+      "Protein structure-function relationship analysis",
+      "Enzyme kinetics and metabolic pathway expertise",
+      "Chromatography and mass spectrometry proficiency",
+      "Drug-target interaction knowledge"
+    ],
+    "neuroscience": [
+      "Neural network and systems-level thinking",
+      "Behavioral data analysis and interpretation",
+      "Understanding of brain-behavior relationships",
+      "Experience with neuroimaging data analysis",
+      "Knowledge of neurological and psychiatric conditions"
+    ],
+    "chemistry": [
+      "Molecular synthesis and characterization skills",
+      "Analytical chemistry and instrumentation expertise",
+      "Understanding of chemical reaction mechanisms",
+      "Materials characterization and properties analysis",
+      "Process optimization and scale-up experience"
+    ],
+    "physics": [
+      "Mathematical modeling and theoretical analysis",
+      "Experimental design for complex systems",
+      "Data analysis of high-precision measurements", 
+      "Understanding of fundamental physical principles",
+      "Experience with advanced instrumentation and sensors"
+    ],
+    "computer_science": [
+      "Algorithm design and computational thinking",
+      "Large-scale data processing and analysis",
+      "Software development and system architecture",
+      "Machine learning and artificial intelligence expertise",
+      "Database design and optimization skills"
+    ],
+    "mathematics": [
+      "Advanced statistical and mathematical modeling",
+      "Abstract problem-solving and logical reasoning",
+      "Proof construction and analytical thinking",
+      "Optimization and computational mathematics",
+      "Pattern recognition in complex data structures"
+    ],
+    "materials_science": [
+      "Structure-property relationships in materials",
+      "Characterization techniques and microscopy",
+      "Materials processing and manufacturing knowledge",
+      "Understanding of mechanical and physical properties",
+      "Experience with materials testing and quality assurance"
+    ]
+  },
+  
+  "careerSpecificDevelopmentAreas": {
+    "Technology/Engineering": [
+      "Agile development methodologies and sprint planning",
+      "Software testing frameworks and quality assurance",
+      "Cloud computing platforms (AWS, Azure, GCP)",
+      "DevOps practices and continuous integration",
+      "Technical leadership and team management"
+    ],
+    "Data/Analytics": [
+      "Business intelligence tools (Tableau, Power BI)",
+      "Big data technologies (Hadoop, Spark)",
+      "A/B testing and experimental design for business",
+      "Data pipeline architecture and ETL processes",
+      "Stakeholder communication of technical insights"
+    ],
+    "Product/Strategy": [
+      "Product roadmap development and prioritization",
+      "User experience research and design thinking", 
+      "Go-to-market strategy and product launches",
+      "Competitive analysis and market positioning",
+      "Cross-functional team leadership and coordination"
+    ],
+    "Consulting": [
+      "Client relationship management and communication",
+      "Business case development and financial modeling",
+      "Change management and organizational design",
+      "Industry-specific regulatory knowledge",
+      "Proposal writing and business development"
+    ],
+    "Business/Finance": [
+      "Financial modeling and valuation techniques",
+      "Investment analysis and portfolio management",
+      "Risk assessment and management frameworks",
+      "Corporate finance and capital structure decisions",
+      "Financial reporting and compliance requirements"
+    ],
+    "Healthcare/Biotech": [
+      "Clinical trial design and regulatory pathways",
+      "Healthcare economics and reimbursement models",
+      "Medical device development and FDA approval processes",
+      "Pharmaceutical development lifecycle",
+      "Healthcare technology integration and digital health"
+    ]
+  },
+
+  "careerSpecificLearningResources": {
+    "Technology/Engineering": {
+      "platforms": ["GitHub", "Stack Overflow", "LeetCode", "Coursera", "Pluralsight"],
+      "specificCourses": [
+        "Full-Stack Web Development (FreeCodeCamp)",
+        "System Design Interview Course (Educative.io)",
+        "AWS Cloud Practitioner Certification",
+        "Docker and Kubernetes Fundamentals",
+        "Agile Project Management (Scrum.org)"
+      ],
+      "communities": ["r/programming", "Dev.to", "Hacker News", "Stack Overflow", "GitHub"],
+      "certifications": ["AWS Solutions Architect", "Google Cloud Professional", "Scrum Master"]
+    },
+    "Data/Analytics": {
+      "platforms": ["Kaggle", "DataCamp", "Coursera", "edX", "Analytics Vidhya"],
+      "specificCourses": [
+        "Machine Learning Course (Andrew Ng, Stanford)",
+        "SQL for Data Science (UC Davis)",
+        "Deep Learning Specialization (Coursera)",
+        "Tableau Desktop Specialist Certification",
+        "Python for Data Science and Machine Learning (Udemy)"
+      ],
+      "communities": ["Kaggle Community", "r/MachineLearning", "Towards Data Science", "KDnuggets"],
+      "certifications": ["Google Data Analytics Certificate", "Microsoft Azure Data Scientist", "Tableau Desktop Specialist"]
+    },
+    "Product/Strategy": {
+      "platforms": ["ProductSchool", "Coursera", "Udemy", "MindtheProduct", "Reforge"],
+      "specificCourses": [
+        "Google Product Management Certificate",
+        "Product Management Fundamentals (ProductSchool)",
+        "Strategic Management (University of Virginia)",
+        "Design Thinking for Innovation (UVA)",
+        "Lean Startup Methodology (Udemy)"
+      ],
+      "communities": ["Product Hunt", "Mind the Product", "ProductHive", "r/ProductManagement"],
+      "certifications": ["Google Product Management Certificate", "Pragmatic Marketing Certified", "Scrum Product Owner"]
+    },
+    "Consulting": {
+      "platforms": ["Case Interview Prep", "McKinsey Insights", "BCG Insights", "Coursera", "MasterClass"],
+      "specificCourses": [
+        "Management Consulting Approach to Problem Solving (Coursera)",
+        "Business Strategy (Wharton)",
+        "Case Interview Mastery (Various platforms)",
+        "Consulting Toolkit (McKinsey Academy)",
+        "Strategic Thinking (INSEAD)"
+      ],
+      "communities": ["Management Consulted", "CaseInterview.com", "r/consulting", "Vault Consulting"],
+      "certifications": ["PMP (Project Management)", "Lean Six Sigma", "Change Management"]
+    },
+    "Business/Finance": {
+      "platforms": ["CFA Institute", "Wharton Online", "Coursera", "Khan Academy", "Investopedia"],
+      "specificCourses": [
+        "Corporate Finance (Wharton)",
+        "Financial Markets (Yale)",
+        "Investment Management (University of Geneva)",
+        "Financial Modeling (Various platforms)",
+        "CFA Level 1 Preparation"
+      ],
+      "communities": ["r/SecurityAnalysis", "r/investing", "CFA Institute", "Investopedia"],
+      "certifications": ["CFA Charter", "FRM (Financial Risk Manager)", "Excel Financial Modeling"]
+    },
+    "Healthcare/Biotech": {
+      "platforms": ["BioPharma Dive", "RAPS", "Coursera", "FDA Training", "Clinical Research Training"],
+      "specificCourses": [
+        "Clinical Data Management (ACRP)",
+        "Regulatory Affairs in Biotechnology (UC San Diego)",
+        "Drug Discovery and Development (UC San Diego)",
+        "Healthcare Innovation (Stanford)",
+        "Medical Device Development (Johns Hopkins)"
+      ],
+      "communities": ["BioPharma Dive", "RAPS Community", "r/biotech", "BioWorld"],
+      "certifications": ["ACRP Clinical Research", "RAPS Regulatory Affairs", "CCRP (Clinical Research Professional)"]
+    }
+  },
+
+  "phdCareerSpecificActions": {
+    "biology_Technology/Engineering": [
+      "Complete Python for Bioinformatics course on Coursera",
+      "Build a biodata analysis project using real genomics datasets",
+      "Apply for bioinformatics engineer positions at 10-day Genomics, Illumina, or Ginkgo Bioworks",
+      "Join the Bioinformatics.org community and contribute to open-source projects",
+      "Attend the Bio-IT World conference (virtual or in-person)"
+    ],
+    "chemistry_Data/Analytics": [
+      "Complete ChemInformatics course on DataCamp",
+      "Learn molecular descriptor calculation using RDKit",
+      "Build a drug discovery prediction model for your portfolio",
+      "Apply for computational chemist positions at pharmaceutical companies",
+      "Join the ACS Division of Chemical Information community"
+    ],
+    "physics_Technology/Engineering": [
+      "Complete Quantum Computing course on IBM Qiskit",
+      "Build a physics simulation project using Python/C++",
+      "Apply for quantum software engineer positions at IBM, Google, or IonQ",
+      "Contribute to open-source physics simulation libraries",
+      "Attend APS conferences with industry networking sessions"
+    ],
+    "neuroscience_Data/Analytics": [
+      "Complete Neurohacking in R course on Coursera",
+      "Build a brain imaging data analysis pipeline project",
+      "Apply for computational neuroscience positions at Meta, Neuralink, or pharmaceutical companies",
+      "Join the Organization for Human Brain Mapping (OHBM) community",
+      "Contribute to neuroimaging analysis packages like FSL or FreeSurfer"
+    ]
+  },
+
+  "stageSpecificAdjustments": {
+    "masters_student": {
+      "timelineAdjustment": "Consider internships and entry-level positions",
+      "additionalActions": ["Seek mentorship from industry professionals", "Build portfolio projects", "Join student professional organizations"]
+    },
+    "early_phd": {
+      "timelineAdjustment": "Plan transition during final years",
+      "additionalActions": ["Attend industry conferences", "Develop transferable skills", "Build industry network early"]
+    },
+    "late_phd": {
+      "timelineAdjustment": "Begin intensive skill development now",
+      "additionalActions": ["Leverage thesis work for portfolio", "Connect with career services", "Consider industry collaboration projects"]
+    },
+    "senior_researcher": {
+      "timelineAdjustment": "Target senior-level positions",
+      "additionalActions": ["Leverage extensive network", "Consider consulting opportunities", "Target leadership roles"]
+    }
+  }
+}
